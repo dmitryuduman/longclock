@@ -3,176 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
 <title>The Steward's Wager — Michael Saylor, past the caricature</title>
-<meta name="description" content="Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence — told more honestly than his fans or his critics tend to.">
+<meta name="description" content="Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="longclock.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css">
 <style>
-  .backlink{font-family:"IBM Plex Mono",monospace; font-size:0.72rem; letter-spacing:0.06em; color:var(--muted); text-decoration:none;}
-  .backlink:hover{color:var(--ink); text-decoration:none;}
-  .seg{display:inline-flex; background:var(--card); border:1px solid var(--hair); border-radius:9px; padding:3px; gap:3px; margin:0.2rem 0 0.4rem;}
-  .seg button{font:inherit; font-size:0.86rem; font-weight:500; cursor:pointer; border:0; background:transparent; color:var(--muted); padding:0.45rem 1rem; border-radius:6px;}
-  .seg button.on{background:var(--ink); color:#fff;}
-  .depthnote{font-family:"IBM Plex Mono",monospace; font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint); margin-top:0.4rem;}
-  [data-mode="deep"] .depthnote{display:none;}
+  :root{
+    --bg:#15161A;
+    --ink:#ECE7DA;
+    --ink-soft:#9F998B;
+    --accent:#C9A14A;
+    --accent-line:#5A4E33;
+    --accent2:#C9A14A;
+    --rule:rgba(236,231,218,0.16);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem;
+    --grain-opacity:0.08;
+    --grain-blend:overlay;
+  }
+  html,body{ background-color:#15161A; color:#ECE7DA; }
+  /* a thin engraved rule under the masthead — a monument's base line */
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 18%, var(--accent-line) 82%, transparent); margin:1.6rem 0 0; opacity:0.8; }
+  h1{ text-shadow:0 1px 0 rgba(0,0,0,0.4); }
 </style>
 </head>
 <body>
+<div class="canvas">
 
-  <div class="topbar"><div class="inner">
-    <span class="brand"><span class="dot"></span>The Long Clock</span>
-    <div class="dial" role="group" aria-label="Reading depth">
-      <button data-mode="skim" class="on">Skim</button>
-      <button data-mode="explore">Explore</button>
-      <button data-mode="deep">Deep</button>
-    </div>
-  </div></div>
-
-  <header class="hero"><div class="wrap">
-    <p class="eyebrow"><a href="longclock-a.html#steward" class="backlink">&larr; back to the essay</a> &nbsp;·&nbsp; A portrait, for the skeptic</p>
+  <header class="col">
+    <p class="eyebrow"><a href="longclock-a.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; A portrait, for the skeptic</p>
     <h1>The Steward's Wager</h1>
-    <p class="deck">Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence — and a more honest version of it than either his fans or his critics tend to tell.</p>
-  </div></header>
+    <div class="crown"></div>
+    <p class="deck">Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence — told more honestly than either his fans or his critics tend to.</p>
+  </header>
 
-  <main class="wrap" data-depth-target data-mode="skim">
+  <main>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">I.</span><p class="ceyebrow">The man, plainly</p></div>
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The man, plainly</p></div>
       <h2>Start by removing the costume</h2>
-      <p class="lead">Whatever you have already decided about Michael Saylor — zealot, salesman, something clinical — set it down for the length of this page. Those words describe how he comes across. They say nothing about whether he is right. <b>Judge the wager, not the face it wears.</b></p>
+      <p class="opening lede">Whatever you have already decided about Michael Saylor — zealot, salesman, something clinical — set it down for the length of this page. Those words describe how he comes across. They say nothing about whether he is right. <strong>Judge the wager, not the face it wears.</strong></p>
       <p>He is easy to dismiss because he is easy to caricature: the certainty, the slogans, the relentlessness. But certainty of manner and correctness of thesis are independent things. History is full of insufferable people who turned out to be right, and charming ones who were ruinously wrong. The only question worth your time is whether the bet underneath holds.</p>
       <p class="pull">The affect is not the argument.</p>
-      <div class="lvl-explore">
-        <p>And there is a reason the manner reads as extreme. He is doing something genuinely unusual — staking a public company, and the rest of his life, on a single asset and a single idea. From the outside that looks like mania. Whether it <em>is</em> mania or conviction depends entirely on whether the idea is sound — which is precisely the question the caricature lets you skip.</p>
-      </div>
-      <p class="depthnote">Explore &amp; Deep add the analysis and the honest caveats.</p>
+      <p>And there is a reason the manner reads as extreme. He is doing something genuinely unusual — staking a public company, and the rest of his life, on a single asset and a single idea. From the outside that looks like mania. Whether it <em>is</em> mania or conviction depends entirely on whether the idea is sound — which is precisely the question the caricature lets you skip.</p>
     </section>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">II.</span><p class="ceyebrow">The historian's mind</p></div>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The historian's mind</p></div>
       <h2>He did not arrive here as a financier</h2>
-      <p class="lead">The caricature's deepest error is to assume that a man who talks like this must be a salesman who found a pitch. Saylor came to Bitcoin the long way round — through history.</p>
+      <p class="lede">The caricature's deepest error is to assume that a man who talks like this must be a salesman who found a pitch. Saylor came to Bitcoin the long way round — through history.</p>
       <p>Most people clock the MIT aeronautical engineer and stop there. They miss that he took his MIT degree as a double major — aerospace engineering <em>and</em> the history of science — and that the engineer is matched by an omnivorous reader. By his own account, his parents paid him a dime for every book he finished; chasing comic-book money, he read something like a hundred books in a single childhood summer, and hundreds more by the sixth grade. He never really stopped. The rare pairing is the whole point: the capacity to swallow vast amounts of history and then process it like an engineer — for mechanism, for failure modes, for what actually makes a system break.</p>
-      <p class="pull">An engineer's processing power,<br><span class="gold">pointed at the whole record of money.</span></p>
-      <div class="lvl-explore">
-        <p>It shows in how he argues. He does not reach for this cycle or that quarter; he reaches for the long sweep — that currencies collapse every few decades, that the dollar has shed the vast majority of its purchasing power inside a century, that moving money across history has quietly cost civilisations the price of their greatest cities. The book he presses on people is not a finance title at all but Will and Ariel Durant's <em>The Story of Civilization</em> — eleven volumes on the rise and fall of human orders. That is the lens. Bitcoin, to him, is not a trade; it is an answer to a problem three thousand years old.</p>
-      </div>
-      <div class="lvl-deep">
-        <p>You can find the framing grand and still take the seriousness seriously. A man who reasons in millennia is not managing to a redemption date or an exit; whether he turns out right or wrong, he is not playing the analyst's game, and pattern-matching him to "levered tech founder" is precisely how the skeptic misreads what kind of bet this is. It is a bet placed on the long record rather than the next print — made, as he plainly intends it, for the ages.</p>
-      </div>
+      <p class="pull">An engineer's processing power,<br><span class="accent">pointed at the whole record of money.</span></p>
+      <p>It shows in how he argues. He does not reach for this cycle or that quarter; he reaches for the long sweep — that currencies collapse every few decades, that the dollar has shed the vast majority of its purchasing power inside a century, that moving money across history has quietly cost civilisations the price of their greatest cities. The book he presses on people is not a finance title at all but Will and Ariel Durant's <em>The Story of Civilization</em> — eleven volumes on the rise and fall of human orders. That is the lens. Bitcoin, to him, is not a trade; it is an answer to a problem three thousand years old.</p>
+      <p>You can find the framing grand and still take the seriousness seriously. A man who reasons in millennia is not managing to a redemption date or an exit; whether he turns out right or wrong, he is not playing the analyst's game, and pattern-matching him to "levered tech founder" is precisely how the skeptic misreads what kind of bet this is. It is a bet placed on the long record rather than the next print — made, as he plainly intends it, for the ages.</p>
     </section>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">III.</span><p class="ceyebrow">Alignment</p></div>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Alignment</p></div>
       <h2>Watch what he did, not how he sounds</h2>
-      <p class="lead">The most persuasive thing about Saylor isn't anything he says. It's the exits he has closed behind himself.</p>
+      <p class="lede">The most persuasive thing about Saylor isn't anything he says. It's the exits he has closed behind himself.</p>
       <p>He made his fortune long before bitcoin; he did not need this. He has no children, no heirs to enrich. He has said he intends to destroy the keys to his own coins when he dies — what he called a proportional donation to everyone on earth who owns bitcoin, since coins that leave the supply make every remaining one scarcer. He has waved off the philanthropic exit too, on the view that human institutions drift, over time, toward their own interests. Strip those away and something unusual is left.</p>
-      <p class="pull">His only way to win<br><span class="gold">is for the thing itself to win.</span></p>
-      <div class="lvl-explore">
-        <p>This is why the greed framing doesn't quite land. Greed has an exit — cash out, diversify, retire. Saylor has spent years removing every exit, until his incentives and bitcoin's are the same object seen from two sides. You can call the conviction misguided; you cannot easily call it self-serving, because he has engineered away the self-serving moves.</p>
-      </div>
-      <div class="lvl-deep">
-        <p>None of which <em>proves</em> the thesis — alignment is not vindication. A man can close every exit and still be wrong. It only means his motives are the wrong place to aim your suspicion; spend it on the idea instead.</p>
-      </div>
+      <p class="pull">His only way to win<br><span class="accent">is for the thing itself to win.</span></p>
+      <p>This is why the greed framing doesn't quite land. Greed has an exit — cash out, diversify, retire. Saylor has spent years removing every exit, until his incentives and bitcoin's are the same object seen from two sides. You can call the conviction misguided; you cannot easily call it self-serving, because he has engineered away the self-serving moves. None of which <em>proves</em> the thesis — alignment is not vindication. A man can close every exit and still be wrong. It only means his motives are the wrong place to aim your suspicion; spend it on the idea instead.</p>
     </section>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">IV.</span><p class="ceyebrow">Permanent collateral</p></div>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Permanent collateral</p></div>
       <h2>A hoard meant never to move</h2>
-      <p class="lead">Strategy — the company once called MicroStrategy — holds on the order of 845,000 of the 21 million bitcoin that will ever exist, and means never to sell. <b>That is the part the trader's mind cannot parse.</b></p>
+      <p class="lede">Strategy — the company once called MicroStrategy — holds on the order of 845,000 of the 21 million bitcoin that will ever exist, and means never to sell. <strong>That is the part the trader's mind cannot parse.</strong></p>
       <p>He is not building a position to trade out of. He is establishing bitcoin as permanent reserve collateral — the bedrock a future financial order can be built on, the way the old one rested on gold and government debt. And here the asset's strangest property matters: when gold's price rises, the world mines more of it, and the new supply caps the gain. Bitcoin has no such valve — issuance is fixed regardless of price. So moving coins into a vault that never opens is not just symbolic. In a thing that can never make more of itself, it is a real, permanent tightening for everyone holding the rest.</p>
-      <p class="pull">In an asset that can't make more of itself,<br><span class="gold">taking coins off the table is a gift to everyone still holding it.</span></p>
-      <div class="lvl-explore">
-        <p>It also disarms the "what goes up must come down" reflex. In every normal market a high price summons new supply and sows its own reversal. Bitcoin severs that link. Saylor's entire posture only makes sense once you stop seeing a man trading an asset and start seeing one trying to anchor one.</p>
-      </div>
-      <div class="lvl-deep">
-        <p>None of which repeals volatility or guarantees a price — severing the supply valve removes one source of mean reversion, not the wild swings that come from a still-maturing holder base. The claim is narrower and sturdier than the bulls usually make it: the instinct a lifetime of markets trains into you, that a high price must summon its own correction, is simply the wrong tool for this one asset.</p>
-      </div>
+      <p class="pull">In an asset that can't make more of itself,<br><span class="accent">taking coins off the table is a gift to everyone still holding it.</span></p>
+      <p>It also disarms the "what goes up must come down" reflex. In every normal market a high price summons new supply and sows its own reversal; bitcoin severs that link. That does not repeal volatility or guarantee a price — but it means the mean-reversion instinct a lifetime of markets trains into you is the wrong tool here. Saylor's entire posture only makes sense once you stop seeing a man trading an asset and start seeing one trying to anchor one.</p>
     </section>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">V.</span><p class="ceyebrow">The quiet reserve</p></div>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The quiet reserve</p></div>
       <h2>A strategic reserve no government had to build</h2>
-      <p class="lead">There is a deeper reason to prefer this to a government stockpile — and it is already underway. Between the spot bitcoin ETFs and Strategy's qualification for the S&amp;P 500, bitcoin is migrating into the most ordinary corner of Western savings, the index fund, without anyone having to legislate it.</p>
+      <p class="lede">There is a deeper reason to prefer this to a government stockpile — and it is already underway. Between the spot bitcoin ETFs and Strategy's qualification for the S&amp;P 500, bitcoin is migrating into the most ordinary corner of Western savings, the index fund, without anyone having to legislate it.</p>
       <p>The ETFs — BlackRock's IBIT chief among them — already let any brokerage account hold bitcoin as easily as a stock. And should Strategy enter the S&amp;P 500, for which it now qualifies, every passive dollar tracking the index would come to own a sliver of its bitcoin; the more bitcoin rose, the larger that sliver would grow, automatically, in tens of millions of retirement accounts that never made a decision about it. Between the two, the country ends up with something that behaves like a strategic bitcoin reserve — only it is held by its citizens, not its state.</p>
-      <p class="pull">A reserve held by the people, not the government —<br><span class="gold">and none of them had to vote for it.</span></p>
-      <div class="lvl-explore">
-        <p>And it threads a needle. Strategy's dollar-paying preferreds keep manufacturing demand for dollars even as the enterprise swallows bitcoin — the old money stays useful while the harder money moves onshore. The state never has to custody the coins, or be trusted not to weaponise them; the position is diffused across millions of holders, which is precisely the neutrality the whole argument prizes. A government reserve concentrates the un-seizable asset in the one set of hands the rest of the world has reason to fear. This does the opposite.</p>
-      </div>
-      <div class="lvl-deep">
-        <p>None of it is assured: it leans on Strategy actually entering the index, on the fair-value accounting that made it eligible holding up, and on bitcoin behaving over time the way its holders expect — none of which is guaranteed, and the very leverage that makes the vehicle potent is what would make that path bumpy. But notice the shape of the claim even so. The most durable way to move a nation's savings into a neutral reserve may not be a vault in a capital at all. It may be a line item that quietly turns up in everyone's portfolio — democratised by the index, not decreed by the state.</p>
-      </div>
+      <p class="pull">A reserve held by the people, not the government —<br><span class="accent">and none of them had to vote for it.</span></p>
+      <p>And it threads a needle. Strategy's dollar-paying preferreds keep manufacturing demand for dollars even as the enterprise swallows bitcoin — the old money stays useful while the harder money moves onshore. The state never has to custody the coins, or be trusted not to weaponise them; the position is diffused across millions of holders, which is precisely the neutrality the whole argument prizes. A government reserve concentrates the un-seizable asset in the one set of hands the rest of the world has reason to fear. This does the opposite.</p>
+      <p>None of it is assured: it leans on Strategy actually entering the index, on the fair-value accounting that made it eligible holding up, and on bitcoin behaving over time the way its holders expect — none of which is guaranteed, and the very leverage that makes the vehicle potent is what would make that path bumpy. But notice the shape of the claim even so. The most durable way to move a nation's savings into a neutral reserve may not be a vault in a capital at all. It may be a line item that quietly turns up in everyone's portfolio — democratised by the index, not decreed by the state.</p>
     </section>
 
-    <section class="chapter">
-      <div class="cmark"><span class="cnum">VI.</span><p class="ceyebrow">Where the risk actually is</p></div>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">Where the risk actually is</p></div>
       <h2>Be precise about what could fail</h2>
-      <p class="lead">Here is where his fans and his critics go wrong, in mirror image. His certainty is about <em>bitcoin</em>. The thing that can break is <em>the company</em>. They are not the same bet — see for yourself:</p>
-
-      <div class="box">
-        <div class="blab"><span>Two different bets</span></div>
-        <div class="seg" role="group" aria-label="Which bet">
-          <button data-k="asset" class="on">The asset</button>
-          <button data-k="vehicle">The vehicle</button>
-        </div>
-        <p class="tout" id="binout"></p>
+      <p class="lede">Here is where his fans and his critics go wrong, in mirror image. His certainty is about <em>bitcoin</em>. The thing that can break is <em>the company</em>. They are not the same bet:</p>
+      <div class="compare">
+        <div class="c"><h4>The asset</h4><p><b>Bitcoin itself.</b> Close to binary over decades — either it becomes neutral reserve money or it does not. No leverage, no maturity date, no counterparty who can fail. This is where Saylor's certainty actually lives.</p></div>
+        <div class="c"><h4>The vehicle</h4><p><b>Strategy, the company.</b> A leveraged, time-bound expression of that bet — testable, dilutable, even breakable by a long enough drawdown, even if bitcoin ultimately wins. This is the risk the skeptics are pricing, and it is real.</p></div>
       </div>
-
-      <p>The asset's case is close to binary over a long horizon: either bitcoin becomes neutral reserve money or it does not. The company is a different animal — a leveraged, time-bound expression of that bet. A deep and long enough drawdown could test, dilute, or even break Strategy <em>before</em> the destination is reached, even if it is ultimately reached. His discipline — long-dated obligations, equity-heavy raises, nothing that forces a sale on a bad morning — is the wager that the vehicle survives the trip.</p>
-      <p class="pull">Bitcoin could win<br><span class="gold">and still cost the vehicle dearly on the way.</span></p>
-      <div class="lvl-explore">
-        <p>So the two errors. The bull who treats the stock as a can't-lose proxy for bitcoin is ignoring the leverage and the clock. The skeptic who points at a wobble in the share price and declares the thesis dead is confusing the vehicle's path-risk with the asset's destination. Hold them apart and you can be bullish on the asset and clear-eyed about the company at once — the only honest place to stand.</p>
-      </div>
-      <div class="lvl-deep">
-        <p>And the reflexivity cuts both ways, which is the concession the bulls skip: a rising price strengthens the narrative, but a crash dents it just as surely. The fixed-supply argument is the robust half of the case; the self-reinforcing-belief argument is the fragile half. Lead with the robust one, and treat the fragile one as the amplifier it is — not the foundation.</p>
-      </div>
+      <p>His discipline — long-dated obligations, equity-heavy raises, nothing that forces a sale on a bad morning — is the wager that the vehicle survives the trip. The bull who treats the stock as a can't-lose proxy for bitcoin is ignoring the leverage and the clock. The skeptic who points at a wobble in the share price and declares the thesis dead is confusing the vehicle's path-risk with the asset's destination.</p>
+      <p class="pull">Bitcoin could win<br><span class="accent">and still cost the vehicle dearly on the way.</span></p>
+      <p>Hold them apart and you can be bullish on the asset and clear-eyed about the company at once — the only honest place to stand. And the reflexivity cuts both ways: a rising price strengthens the narrative, a crash dents it. The fixed-supply argument is the robust half of the case; the self-reinforcing-belief argument is the fragile half. Lead with the robust one.</p>
     </section>
 
-    <section class="close">
-      <div class="cmark"><span class="cnum">VII.</span><p class="ceyebrow">The horizon</p></div>
-      <h2 style="font-family:'Fraunces',serif;font-weight:600;">He is not pricing a quarter</h2>
-      <p class="lead">Everything about him only resolves at the right time scale. He is underwriting something closer to a hundred-year outcome — and arranging even his own death to serve it.</p>
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">The horizon</p></div>
+      <h2>He is not pricing a quarter</h2>
+      <p class="lede">Everything about him only resolves at the right time scale. He is underwriting something closer to a hundred-year outcome — and arranging even his own death to serve it.</p>
       <p>What he describes is not a trade but a kind of stewardship: bitcoin as a harder, un-debasable money; capitalism as the ladder used to climb there, not the destination; and at the top, a world with a firmer floor beneath people not yet born. Share that hope or find it grandiose — either way it is the opposite of short-term.</p>
-      <p class="pull">He is not predicting the outcome.<br><span class="gold">He is willing it to be.</span></p>
-      <div class="lvl-explore">
-        <p>This is the part the caricature exists to hide. A man who has closed his own exits, who plans to burn his keys so that his death quietly tightens the supply for strangers a century from now, is either deluded or he means it at a depth most people never bring to anything. You do not have to decide which in order to grant the obvious: this is not the behaviour of a huckster, and it is not a trade. It is someone trying to will a thing into permanence.</p>
-      </div>
+      <p class="pull">He is not predicting the outcome.<br><span class="accent">He is willing it to be.</span></p>
+      <p>This is the part the caricature exists to hide. A man who has closed his own exits, who plans to burn his keys so that his death quietly tightens the supply for strangers a century from now, is either deluded or he means it at a depth most people never bring to anything. You do not have to decide which in order to grant the obvious: this is not the behaviour of a huckster, and it is not a trade. It is someone trying to will a thing into permanence.</p>
+
       <p class="signoff">Take him seriously not because he is certain — certainty is cheap — but because he has arranged his life so that he has no reason left to be anything else.</p>
-      <div class="more-door"><p class="t">Read next</p><p class="s">If Saylor is the believer, the banks are the resistance — what the old guard stands to lose, and why the cannier ones are already joining: <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>.</p></div>
-      <p class="foot"><b>On the figures.</b> Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026 and has stated a goal of accumulating several percent of total supply. The intention to destroy his keys at death, described as a proportional donation to all holders, is Saylor's own, stated in 2025. Numbers move; the argument does not turn on the decimal.</p>
+
+      <div class="more-door">
+        <p class="t">Read next</p>
+        <p class="s">If Saylor is the believer, the banks are the resistance — what the old guard stands to lose, and why the cannier ones are already joining: <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the figures.</b> Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026 and has qualified for, though not yet been added to, the S&amp;P 500. The intention to destroy his keys at death, described as a proportional donation to all holders, is Saylor's own, stated in 2025. The reading-and-schooling details are from his own accounts. Numbers move; the argument does not turn on the decimal.</p>
     </section>
 
   </main>
-
-  <script src="longclock.js"></script>
-  <script>
-  (function(){
-    var dial = document.querySelector('.topbar .dial');
-    var target = document.querySelector('[data-depth-target]');
-    if(dial && target){
-      dial.addEventListener('click', function(e){
-        var b = e.target.closest('button'); if(!b) return;
-        dial.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
-        b.classList.add('on');
-        target.setAttribute('data-mode', b.getAttribute('data-mode'));
-      });
-    }
-    var seg = document.querySelector('.seg');
-    var out = document.getElementById('binout');
-    var copy = {
-      asset: "<b>Bitcoin itself.</b> Close to binary over decades — either it becomes neutral reserve money or it doesn't. No leverage, no maturity date, no counterparty who can fail. This is where Saylor's certainty actually lives.",
-      vehicle: "<b>Strategy, the company.</b> A leveraged, time-bound expression of that bet. It can be tested, diluted, or broken by a long enough drawdown even if bitcoin ultimately wins. This is the risk the skeptics are pricing — and it is real."
-    };
-    function set(k){
-      if(!out) return;
-      out.innerHTML = copy[k];
-      if(seg) seg.querySelectorAll('button').forEach(function(x){ x.classList.toggle('on', x.getAttribute('data-k')===k); });
-    }
-    if(seg){ seg.addEventListener('click', function(e){ var b=e.target.closest('button'); if(!b) return; set(b.getAttribute('data-k')); }); }
-    set('asset');
-  })();
-  </script>
+</div>
+<script src="feature.js"></script>
 </body>
 </html>
