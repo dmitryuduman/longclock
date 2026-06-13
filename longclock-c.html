@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Long Clock — money for the next century</title>
+<meta name="description" content="A standing back from the noise: the macro inflection between humans, machines, and money — and where it leaves the oldest question in finance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="longclock.css">
+</head>
+<body>
+
+  <div class="topbar"><div class="inner">
+    <span class="brand"><span class="dot"></span>The Long Clock</span>
+    <span class="eyebrow">A thought exercise in five chapters</span>
+  </div></div>
+
+  <header class="hubhero"><div class="wrap">
+    <p class="eyebrow">Step back from the noise</p>
+    <h1>The most transformative moment in centuries is invisible to anyone watching the quarter.</h1>
+    <p class="deck">Humans, machines, money, and memory are all going digital at once. Stand back far enough and an old question returns with new force: what does the world reach for when it stops trusting the assets in its own vault? Start anywhere.</p>
+  </div></header>
+
+  <main class="wrap">
+    <div class="chaprid" id="cards"></div>
+  </main>
+
+  <div class="wrap"><p class="foot" style="margin-top:1rem;"><b>Read in any order.</b> Each chapter stands alone and can be read at a skim, an explore, or a deep level once you are inside it. The essay is the long-form prologue; the chapters are the thought exercise.</p></div>
+
+  <script src="longclock.js"></script>
+  <script>
+    LongClock.renderHubCards(document.getElementById('cards'));
+  </script>
+</body>
+</html>
