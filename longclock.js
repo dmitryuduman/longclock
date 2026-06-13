@@ -103,7 +103,8 @@
         '<div class="lvl-deep">'+
           '<p>Be precise about what he is actually certain of, because this is where both his fans and his critics go wrong. His certainty is about <em>bitcoin</em>, not about the vehicle. The asset\'s case is close to binary over a long enough horizon – either it becomes neutral reserve money or it does not. The company is a leveraged, time-bound bet on that destination, and a deep enough, long enough drawdown could test or even break the vehicle before the journey ends. His discipline – long-dated obligations, equity-heavy raises, nothing that forces his hand on a bad morning – is the wager that the structure survives to arrive. The error is to collapse the two: the bull who thinks the company cannot lose, and the skeptic who thinks a wobble in the company disproves the asset, are making the same mistake from opposite ends.</p>'+
           '<p>And the horizon is not a quarter or a cycle. He is underwriting something closer to a hundred-year outcome – capitalism used as the ladder, not the destination, toward a world with a harder floor beneath the people not yet born. Share that hope or find it grandiose; either way it is the opposite of a trade. It is a man trying to will a thing into permanence, and arranging even his own death so that it helps. Seen plainly, that is not mania. It is stewardship wearing an uncomfortable face.</p>'+
-        '</div>'
+        '</div>'+
+        '<div class="more-door"><p class="t">Read the full portrait</p><p class="s">The longer case for taking him seriously – the alignment, the two binaries, the hundred-year wager – is <a href="longclock-saylor.html">The Steward\'s Wager</a>.</p></div>'
     }
   ];
 
@@ -310,6 +311,26 @@
     }, {rootMargin:"-40% 0px -55% 0px"});
     document.querySelectorAll('.chapter, .close').forEach(function(s){ io.observe(s); });
   }
+
+  // ---------- liveliness: reading progress + flash-free scroll reveal ----------
+  function initLiveliness(){
+    if(global.__lcLive) return; global.__lcLive = true;
+    var bar = document.createElement('div'); bar.className = 'lc-progress'; document.body.appendChild(bar);
+    function prog(){ var d = document.documentElement; var m = d.scrollHeight - d.clientHeight; bar.style.width = (m > 0 ? (d.scrollTop / m * 100) : 0) + '%'; }
+    window.addEventListener('scroll', prog, {passive:true}); window.addEventListener('resize', prog); prog();
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    document.body.classList.add('js');
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var els = [].slice.call(document.querySelectorAll('.chapter, .close, .chap, .bridge'));
+    var hidden = els.filter(function(el){ return el.getBoundingClientRect().top > vh * 0.85; });
+    hidden.forEach(function(el){ el.classList.add('reveal'); });
+    if(!('IntersectionObserver' in window)){ hidden.forEach(function(el){ el.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }); }, {rootMargin:'0px 0px -10% 0px', threshold:0.06});
+    hidden.forEach(function(el){ io.observe(el); });
+    setTimeout(function(){ hidden.forEach(function(el){ el.classList.add('in'); }); }, 2600);
+  }
+  if(document.readyState !== 'loading'){ initLiveliness(); } else { document.addEventListener('DOMContentLoaded', initLiveliness); }
 
   // ---------- public API ----------
   global.LongClock = {
