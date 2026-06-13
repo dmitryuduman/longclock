@@ -44,17 +44,35 @@
     margin:0;
     font-family:"Spectral", Georgia, "Times New Roman", serif;
     font-size:1.18rem;
-    line-height:1.78;
+    line-height:1.86;
     letter-spacing:0.005em;
     background-image:
       radial-gradient(circle at 18% 12%, rgba(199,161,75,0.05), transparent 40%),
       radial-gradient(circle at 86% 88%, rgba(111,37,48,0.04), transparent 42%);
   }
 
+  /* paper grain — barely-there fibre texture so the page feels like a real sheet */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:60; pointer-events:none;
+    opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)'/%3E%3C/svg%3E");
+  }
+
+  .readmore{
+    display:inline-block;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--oxblood); text-decoration:none;
+    border:1px solid var(--gold-line); border-radius:2px;
+    padding:0.72rem 1.2rem;
+    transition:background .25s ease, color .25s ease, border-color .25s ease;
+  }
+  .readmore:hover{ background:var(--oxblood); color:var(--paper); border-color:var(--oxblood); }
+
   .canvas{
     max-width:48rem;
     margin:0 auto;
-    padding:clamp(2.2rem,6vw,5.5rem) clamp(1.25rem,5vw,3.5rem) 5rem;
+    padding:clamp(2.8rem,6.5vw,6rem) clamp(1.4rem,5vw,3.5rem) 6.5rem;
     position:relative;
   }
 
@@ -95,14 +113,15 @@
     letter-spacing:-0.018em;
     margin:1.1rem 0 0;
     text-wrap:balance;
+    text-shadow:0 1px 0 rgba(255,255,255,0.45);
   }
   .deck{
     font-family:"Spectral", Georgia, serif;
     font-weight:400;
     font-size:clamp(1.18rem,3.2vw,1.42rem);
-    line-height:1.5;
+    line-height:1.55;
     color:var(--ink-soft);
-    margin:1.5rem 0 0;
+    margin:2rem 0 0;
     max-width:34rem;
     text-wrap:pretty;
   }
@@ -121,12 +140,12 @@
   .note p{ margin:0; }
 
   /* ---------- dividers ---------- */
-  .div{ display:flex; justify-content:center; align-items:center; margin:3.4rem auto; height:26px; }
+  .div{ display:flex; justify-content:center; align-items:center; margin:4.8rem auto; height:26px; }
   .div svg{ width:min(100%,360px); height:26px; }
   .div.fallback{ border-top:1px solid var(--gold-line); opacity:0.55; width:min(100%,360px); height:0; }
 
   /* ---------- sections ---------- */
-  section{ margin-top:3.2rem; }
+  section{ margin-top:4.4rem; }
   .marker{
     display:flex; align-items:baseline; gap:0.9rem;
     margin-bottom:0.4rem;
@@ -145,8 +164,9 @@
     letter-spacing:-0.012em;
     margin:0.2rem 0 1.1rem;
     text-wrap:balance;
+    text-shadow:0 1px 0 rgba(255,255,255,0.4);
   }
-  p{ margin:0 0 1.25rem; }
+  p{ margin:0 0 1.55rem; }
   .lede strong{ color:var(--ink); font-weight:600; }
 
   /* drop-cap on first para of section I */
@@ -464,7 +484,7 @@
       <p class="lede">When the arsonist starts buying fire insurance, <strong>you do not conclude the fire is imaginary.</strong></p>
 
       <p>And it is not only states. The same instinct has found its sharpest individual form in one steward — Michael Saylor — who has bound a public company, and what remains of his own life, to acquiring this asset and never selling it: holding it not to trade but to set permanently beyond reach. He has said that when he dies he will destroy the keys to his own coins, so that his passing quietly tightens the supply for everyone still holding the rest. Whatever you make of the man, the posture is the tell. This is not speculation; it is stewardship, on a horizon measured in generations.</p>
-      <p style="margin-top:-0.6rem;"><a href="longclock-saylor.html" style="font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--oxblood); text-decoration:none; border-bottom:1px solid var(--gold-line); padding-bottom:2px;">The steward's wager&nbsp;&rarr;</a></p>
+      <p style="margin-top:0.4rem;"><a class="readmore" href="longclock-saylor.html">The Steward's Wager&nbsp;&rarr;</a></p>
 
       <div class="marginmark">
         <span><b>$300bn</b> — Russian reserves frozen, 2022. The day every treasurer's calculus changed.</span>
