@@ -86,6 +86,22 @@
             '<p class="s">Exactly how the borrowing is structured, and where it can break, is a chapter of its own. It sits downstream of the conviction. You do not need it to understand the bet – come back for it only when you\'re curious.</p>'+
           '</div>'+
         '</div>'
+    },
+    {
+      id:"steward", num:"V.", eyebrow:"The man willing it to be",
+      title:"The conviction beneath the caricature",
+      blurb:"Strip away the zealot costume and what is left is a steward arranging a hundred-year outcome.",
+      body:
+        '<p class="lead">By now you may have filed the man behind this under zealot, or huckster, or something clinical. Let that wrapper fall away – it is the reader\'s costume for him, not the cause. The core is plainer and harder to wave off: <b>a man who had already won, and who, on finding what he believes is the first permanently fixed money, chose to spend the rest of his life willing it into being.</b></p>'+
+        '<p class="pull">He is not predicting the outcome.<br><span class="gold">He is willing it to be.</span></p>'+
+        '<div class="lvl-explore">'+
+          '<p>Judge him by what he has done, not how he sounds. He could have retired comfortably long ago and did not. He has no children and no heirs to enrich. He has said he intends to destroy the keys to his own coins when he dies – not as theatre, but as what he called a proportional donation to everyone on earth who owns bitcoin, since every coin that leaves the supply makes the rest a little scarcer. He has waved off the usual philanthropic exit too, on the view that any human foundation drifts, in time, toward its own interests. One by one he has closed every selfish way out, until his incentives and the network\'s are the same thing. You can doubt the conviction. The alignment is hard to argue with.</p>'+
+          '<p>His company – Strategy, the one once called MicroStrategy – now holds on the order of 845,000 of the 21 million bitcoin that will ever exist, and means never to sell. The hoard is not there to be traded. It is there to be taken off the table, for generations.</p>'+
+        '</div>'+
+        '<div class="lvl-deep">'+
+          '<p>Be precise about what he is actually certain of, because this is where both his fans and his critics go wrong. His certainty is about <em>bitcoin</em>, not about the vehicle. The asset\'s case is close to binary over a long enough horizon – either it becomes neutral reserve money or it does not. The company is a leveraged, time-bound bet on that destination, and a deep enough, long enough drawdown could test or even break the vehicle before the journey ends. His discipline – long-dated obligations, equity-heavy raises, nothing that forces his hand on a bad morning – is the wager that the structure survives to arrive. The error is to collapse the two: the bull who thinks the company cannot lose, and the skeptic who thinks a wobble in the company disproves the asset, are making the same mistake from opposite ends.</p>'+
+          '<p>And the horizon is not a quarter or a cycle. He is underwriting something closer to a hundred-year outcome – capitalism used as the ladder, not the destination, toward a world with a harder floor beneath the people not yet born. Share that hope or find it grandiose; either way it is the opposite of a trade. It is a man trying to will a thing into permanence, and arranging even his own death so that it helps. Seen plainly, that is not mania. It is stewardship wearing an uncomfortable face.</p>'+
+        '</div>'
     }
   ];
 
@@ -122,7 +138,7 @@
   }
   function closeHTML(){
     return '<section class="close" id="wager">'+
-      '<div class="cmark"><span class="cnum">V.</span><p class="ceyebrow">The wager</p></div>'+
+      '<div class="cmark"><span class="cnum">VI.</span><p class="ceyebrow">The wager</p></div>'+
       '<h2 style="font-family:Fraunces,serif;font-weight:600;">You needn\'t own a coin. Just don\'t misread the board.</h2>'+
       '<p class="lead">You do not have to buy a single coin, or even believe it wins. The wager is smaller and harder to wave away: that what replaces dollar dominance is now being decided at the level of state strategy – and to file it under "internet money" is to miss one of the live moves on the very board you spent a lifetime learning to read.</p>'+
       '<p class="signoff">Judge it as reserve power, on the long clock, before you set it down – and don\'t mistake a thing built from energy and time for a thing made of nothing.</p>'+
@@ -274,7 +290,7 @@
   function buildRail(railEl){
     var items = chapters.map(function(c){
       return '<a href="#'+c.id+'" data-id="'+c.id+'"><span class="bar"></span>'+c.num+'</a>';
-    }).join('') + '<a href="#wager" data-id="wager"><span class="bar"></span>V.</a>';
+    }).join('') + '<a href="#wager" data-id="wager"><span class="bar"></span>VI.</a>';
     railEl.innerHTML = items;
   }
 
