@@ -18,17 +18,15 @@
     --font-display:"Fraunces", Georgia, serif;
     --font-body:"Spectral", Georgia, serif;
     --font-mono:"IBM Plex Mono", ui-monospace, monospace;
-    --measure:40rem; --grain-opacity:0.12; --grain-blend:soft-light;
+    --measure:40rem; --grain-opacity:0.16; --grain-blend:soft-light;
   }
   html,body{ background-color:#14151A; color:#ECE7DA; }
   body{
     background-image:
-      radial-gradient(135% 95% at 50% -8%, rgba(201,161,74,0.07), transparent 50%),
-      radial-gradient(150% 120% at 50% 116%, rgba(0,0,0,0.55), transparent 55%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.5'/%3E%3C/svg%3E");
-    background-attachment:fixed;
-    background-size:cover, cover, 480px 480px;
-    background-repeat:no-repeat, no-repeat, repeat;
+      radial-gradient(68% 48% at 26% 4%, rgba(201,161,74,0.06), transparent 60%),
+      radial-gradient(58% 46% at 84% 30%, rgba(236,231,218,0.035), transparent 60%),
+      radial-gradient(135% 100% at 50% 120%, rgba(0,0,0,0.5), transparent 62%);
+    background-size:cover; background-repeat:no-repeat;
   }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
