@@ -18,9 +18,18 @@
     --font-display:"Fraunces", Georgia, serif;
     --font-body:"Spectral", Georgia, serif;
     --font-mono:"IBM Plex Mono", ui-monospace, monospace;
-    --measure:40rem; --grain-opacity:0.08; --grain-blend:overlay;
+    --measure:40rem; --grain-opacity:0.12; --grain-blend:soft-light;
   }
   html,body{ background-color:#14151A; color:#ECE7DA; }
+  body{
+    background-image:
+      radial-gradient(135% 95% at 50% -8%, rgba(201,161,74,0.07), transparent 50%),
+      radial-gradient(150% 120% at 50% 116%, rgba(0,0,0,0.55), transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.5'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+    background-size:cover, cover, 480px 480px;
+    background-repeat:no-repeat, no-repeat, repeat;
+  }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
   .canvas{ max-width:54rem; }
@@ -76,20 +85,16 @@
   <header>
     <div class="heroart" aria-hidden="true">
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <g class="spin-slow" fill="none" stroke="#C9A14A">
-          <circle cx="200" cy="200" r="192" stroke-width="0.6" opacity="0.45"/>
-          <circle cx="200" cy="200" r="188" stroke-width="3" stroke-dasharray="0.8 9" opacity="0.5"/>
-          <circle cx="200" cy="200" r="150" stroke-width="0.5" opacity="0.4"/>
-          <circle cx="200" cy="200" r="70" stroke-width="0.5" opacity="0.4"/>
-          <line x1="200" y1="200" x2="200" y2="20" stroke-width="0.8" opacity="0.6"/>
-          <circle cx="200" cy="50" r="3.2" fill="#C9A14A" stroke="none" opacity="0.8"/>
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M200,298 C196,256 196,214 200,184" stroke="#ECE7DA" stroke-width="3.4"/>
+          <path d="M200,298 C182,318 166,330 152,356 M200,298 C218,320 236,332 252,358 M200,300 C198,330 197,352 197,378 M200,300 C176,316 162,326 150,344 M200,300 C224,316 240,326 252,344" stroke="#ECE7DA" stroke-width="1.3" opacity="0.85"/>
+          <path d="M200,206 C176,188 158,182 138,176 M200,214 C226,194 246,188 268,182 M200,186 C188,166 180,156 172,140 M200,188 C214,168 226,156 236,138" stroke="#ECE7DA" stroke-width="1.9"/>
+          <circle cx="200" cy="120" r="76" stroke="#C9A14A" stroke-width="2"/>
+          <path d="M150,156 C126,124 138,84 178,76 C194,50 236,50 252,78 C290,86 300,124 276,156" stroke="#ECE7DA" stroke-width="1.5"/>
+          <g data-hatch="148,66,104,86,58,8" stroke="#C9A14A" stroke-width="0.55" opacity="0.45"></g>
+          <g data-rays="324,80,16,30,10" stroke="#C9A14A" stroke-width="1"></g>
+          <circle cx="324" cy="80" r="10" stroke="#C9A14A" stroke-width="1.4"/>
         </g>
-        <g class="spin-rev" fill="none" stroke="#C9A14A">
-          <circle cx="200" cy="200" r="110" stroke-width="0.5" opacity="0.4"/>
-          <line x1="200" y1="200" x2="96" y2="200" stroke-width="0.6" opacity="0.5"/>
-          <circle cx="310" cy="200" r="2.6" fill="#C9A14A" stroke="none" opacity="0.8"/>
-        </g>
-        <circle cx="200" cy="200" r="3.5" fill="#C9A14A"/>
       </svg>
     </div>
     <div class="col">
@@ -152,13 +157,28 @@
 
       <div class="fig reveal">
         <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
-          <line x1="60" y1="250" x2="650" y2="250" stroke="#5A4E33" stroke-width="1"/>
-          <line x1="60" y1="40" x2="60" y2="250" stroke="#5A4E33" stroke-width="1"/>
-          <path class="draw" style="--len:760" d="M60,238 C220,232 360,210 470,150 C540,112 600,80 645,58" fill="none" stroke="#C9A14A" stroke-width="2.5" stroke-linecap="round"/>
-          <path class="draw" style="--len:620" d="M60,244 L150,244 L150,246 L320,246 L320,247 L645,247" fill="none" stroke="#ECE7DA" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
-          <text class="chartlabel g" x="500" y="46">Gold &mdash; price summons new supply</text>
-          <text class="chartlabel" x="430" y="266">Bitcoin &mdash; issuance fixed, then nothing</text>
-          <text class="chartlabel" x="60" y="284">rising price / demand &rarr;</text>
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="78" y1="244" x2="78" y2="96" stroke="#ECE7DA" stroke-width="1.6"/>
+            <path d="M70,112 L78,92 L86,112" stroke="#ECE7DA" stroke-width="1.6"/>
+            <circle cx="150" cy="60" r="8" stroke="#C9A14A" stroke-width="1.6"/>
+            <circle cx="176" cy="44" r="7" stroke="#C9A14A" stroke-width="1.6"/>
+            <circle cx="158" cy="86" r="7" stroke="#C9A14A" stroke-width="1.6"/>
+            <path d="M116,196 C116,236 248,236 248,196" stroke="#ECE7DA" stroke-width="2.2"/>
+            <ellipse cx="182" cy="196" rx="66" ry="12" stroke="#ECE7DA" stroke-width="2.2"/>
+            <g stroke="#C9A14A" stroke-width="1.5">
+              <circle cx="160" cy="190" r="9"/><circle cx="184" cy="194" r="9"/><circle cx="208" cy="190" r="9"/><circle cx="172" cy="176" r="9"/><circle cx="198" cy="176" r="9"/><circle cx="250" cy="206" r="8"/>
+            </g>
+            <g data-hatch="120,208,124,26,55,5" stroke="#ECE7DA" stroke-width="0.5" opacity="0.3"></g>
+            <path d="M430,232 C424,182 432,150 446,150 L534,150 C548,150 556,182 550,232 C548,246 432,246 430,232 Z" stroke="#ECE7DA" stroke-width="2.2"/>
+            <path d="M452,150 L452,134 L528,134 L528,150" stroke="#ECE7DA" stroke-width="2"/>
+            <path d="M478,134 C478,118 502,118 502,134" stroke="#C9A14A" stroke-width="2"/>
+            <rect x="474" y="118" width="32" height="20" rx="3" stroke="#C9A14A" stroke-width="1.8"/>
+            <g data-hatch="436,206,108,36,58,5" stroke="#ECE7DA" stroke-width="0.5" opacity="0.28"></g>
+          </g>
+          <text class="chartlabel g" x="490" y="200" text-anchor="middle" style="font-size:15px;font-family:Fraunces,serif;font-weight:600;">21,000,000</text>
+          <text class="chartlabel" x="78" y="278" text-anchor="middle">price &uarr;</text>
+          <text class="chartlabel" x="182" y="278" text-anchor="middle">gold &mdash; price digs more</text>
+          <text class="chartlabel g" x="490" y="278" text-anchor="middle">bitcoin &mdash; sealed, fixed</text>
         </svg>
         <p class="figcap">Fig. 1 — every other reserve answers a high price by making more of itself. Bitcoin cannot.</p>
       </div>
@@ -176,22 +196,27 @@
 
       <div class="fig reveal">
         <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
-          <circle class="draw" style="--len:760" cx="340" cy="175" r="120" fill="none" stroke="#5A4E33" stroke-width="1.2" stroke-dasharray="760"/>
-          <g class="spin-slow" style="transform-origin:340px 175px;">
-            <circle cx="460" cy="175" r="4" fill="#C9A14A"/>
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="340" cy="168" r="104" stroke="#ECE7DA" stroke-width="3"/>
+            <circle cx="340" cy="168" r="92" stroke="#ECE7DA" stroke-width="1" opacity="0.6"/>
+            <g stroke="#C9A14A" stroke-width="1.5">
+              <line x1="340" y1="168" x2="340" y2="64"/><line x1="340" y1="168" x2="340" y2="272"/>
+              <line x1="340" y1="168" x2="236" y2="168"/><line x1="340" y1="168" x2="444" y2="168"/>
+              <line x1="340" y1="168" x2="266" y2="94"/><line x1="340" y1="168" x2="414" y2="242"/>
+              <line x1="340" y1="168" x2="414" y2="94"/><line x1="340" y1="168" x2="266" y2="242"/>
+            </g>
+            <g stroke="#ECE7DA" stroke-width="1.4">
+              <circle cx="340" cy="60" r="5"/><circle cx="340" cy="276" r="5"/><circle cx="232" cy="168" r="5"/><circle cx="448" cy="168" r="5"/>
+            </g>
+            <circle cx="340" cy="168" r="15" stroke="#C9A14A" stroke-width="2"/>
+            <g data-hatch="250,78,80,80,58,7" stroke="#ECE7DA" stroke-width="0.5" opacity="0.28"></g>
+            <path d="M474,116 A152 152 0 0 1 474 220" stroke="#C9A14A" stroke-width="1.6"/>
+            <path d="M474,220 L467,203 L484,209 Z" fill="#C9A14A" stroke="none"/>
           </g>
-          <g fill="none" stroke="#C9A14A" stroke-width="1.4" opacity="0.85">
-            <path d="M392,84 A120 120 0 0 1 430 250" marker-end="url(#a)"/>
-            <path d="M250,250 A120 120 0 0 1 250 100" marker-end="url(#a)"/>
-            <path d="M288,90 A120 120 0 0 1 392 84" marker-end="url(#a)"/>
-          </g>
-          <defs><marker id="a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#C9A14A" stroke-width="1.6"/></marker></defs>
-          <text class="chartlabel" x="340" y="72" text-anchor="middle">capital raised</text>
-          <text class="chartlabel g" x="475" y="178" text-anchor="start">bitcoin bought</text>
-          <text class="chartlabel" x="340" y="312" text-anchor="middle">premium &amp; demand</text>
-          <text class="chartlabel" x="205" y="178" text-anchor="end">raise again</text>
-          <text x="340" y="170" text-anchor="middle" class="chartlabel" style="letter-spacing:0.12em;">BITCOIN</text>
-          <text x="340" y="190" text-anchor="middle" fill="#7CCB8A" font-family="Fraunces,serif" font-size="17" font-weight="600">per share &#8593;</text>
+          <text class="chartlabel" x="340" y="42" text-anchor="middle">capital raised</text>
+          <text class="chartlabel g" x="462" y="150" text-anchor="start">bitcoin bought</text>
+          <text class="chartlabel" x="206" y="172" text-anchor="end">raise again</text>
+          <text x="340" y="314" text-anchor="middle" fill="#7CCB8A" font-family="Fraunces,serif" font-size="16" font-weight="600">per share &#8593;</text>
         </svg>
         <p class="figcap">Fig. 2 — the flywheel: each turn aims to leave every share owning more bitcoin than before.</p>
       </div>
@@ -239,17 +264,19 @@
 
       <div class="fig reveal">
         <svg viewBox="0 0 680 130" xmlns="http://www.w3.org/2000/svg">
-          <line class="draw" style="--len:600" x1="60" y1="70" x2="620" y2="70" stroke="#5A4E33" stroke-width="1.4"/>
-          <g fill="#9F998B">
-            <circle cx="90" cy="70" r="3"/><circle cx="250" cy="70" r="3"/><circle cx="430" cy="70" r="3"/>
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60,72 C200,70 420,74 600,71" stroke="#ECE7DA" stroke-width="1.5"/>
+            <g fill="#9F998B" stroke="none"><circle cx="120" cy="72" r="3"/><circle cx="260" cy="72" r="3"/><circle cx="430" cy="72" r="3"/></g>
+            <g data-rays="610,72,10,20,10" stroke="#C9A14A" stroke-width="0.9"></g>
+            <circle class="pulse" cx="610" cy="72" r="6" fill="#C9A14A" stroke="none"/>
+            <g><circle cx="78" cy="58" r="4" stroke="#9F998B" stroke-width="1.3"/><path d="M71,82 Q78,63 85,82 Z" fill="#9F998B" stroke="none"/></g>
           </g>
-          <circle class="pulse" cx="610" cy="70" r="6.5" fill="#C9A14A"/>
           <g class="chartlabel" text-anchor="middle">
-            <text x="90" y="98">10 yrs</text><text x="250" y="98">100</text><text x="430" y="98">1,000</text>
-            <text x="610" y="98" fill="#C9A14A">10,000</text>
+            <text x="120" y="100">10 yrs</text><text x="260" y="100">100</text><text x="430" y="100">1,000</text>
+            <text x="610" y="100" fill="#C9A14A">10,000</text>
           </g>
-          <text class="chartlabel" x="90" y="46">the quarter</text>
-          <text class="chartlabel g" x="610" y="46" text-anchor="end">the clock he is judged on</text>
+          <text class="chartlabel" x="150" y="42">the quarter</text>
+          <text class="chartlabel g" x="610" y="40" text-anchor="end">the clock he is judged on</text>
         </svg>
         <p class="figcap">Fig. 3 — gold's case rests on a five-thousand-year record. He asks only that its rival be weighed on the same clock.</p>
       </div>
@@ -281,7 +308,21 @@
     </nav>
   </aside>
 </div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.2"/></filter></defs></svg>
+
 <script src="feature.js"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+  function L(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+  function clip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){var t0=0,t1=1,dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(var i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{var r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+  document.querySelectorAll('[data-hatch]').forEach(function(g){var a=g.dataset.hatch.split(',').map(Number),x=a[0],y=a[1],w=a[2],h=a[3],ang=a[4],gap=a[5];var rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(var i=-steps;i<steps;i++){var off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,s=clip(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(s)g.appendChild(L(s[0].toFixed(1),s[1].toFixed(1),s[2].toFixed(1),s[3].toFixed(1)));}});
+  document.querySelectorAll('[data-rays]').forEach(function(g){var a=g.dataset.rays.split(',').map(Number),cx=a[0],cy=a[1],r0=a[2],r1=a[3],n=a[4];for(var i=0;i<n;i++){var t=i/n*2*Math.PI;g.appendChild(L((cx+Math.cos(t)*r0).toFixed(1),(cy+Math.sin(t)*r0).toFixed(1),(cx+Math.cos(t)*r1).toFixed(1),(cy+Math.sin(t)*r1).toFixed(1)));}});
+})();
+</script>
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

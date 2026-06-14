@@ -18,9 +18,18 @@
     --font-display:"Fraunces", Georgia, serif;
     --font-body:"Spectral", Georgia, serif;
     --font-mono:"IBM Plex Mono", ui-monospace, monospace;
-    --measure:40rem; --grain-opacity:0.06; --grain-blend:overlay;
+    --measure:40rem; --grain-opacity:0.11; --grain-blend:soft-light;
   }
   html,body{ background-color:#0B1022; color:#E9ECF7; }
+  body{
+    background-image:
+      radial-gradient(130% 90% at 50% -8%, rgba(90,209,230,0.06), transparent 52%),
+      radial-gradient(150% 120% at 50% 118%, rgba(0,0,0,0.5), transparent 55%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.011' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.45'/%3E%3C/svg%3E");
+    background-attachment:fixed;
+    background-size:cover, cover, 480px 480px;
+    background-repeat:no-repeat, no-repeat, repeat;
+  }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
   header{ position:relative; }
