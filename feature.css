@@ -67,6 +67,7 @@ p{ margin:0 0 1.5rem; }
   font-size:clamp(1.16rem,2.5vw,1.32rem); line-height:1.52; color:var(--ink-soft);
   text-wrap:pretty; max-width:var(--measure,40rem); margin:2.9rem auto;
   padding:1.6rem clamp(1.3rem,4vw,2rem); position:relative; border-radius:14px;
+  border:1.5px dotted color-mix(in srgb, var(--accent) 60%, transparent);
   background:
     radial-gradient(118% 135% at 50% 50%,
       color-mix(in srgb, var(--ink) 5%, transparent) 0%,
@@ -75,13 +76,13 @@ p{ margin:0 0 1.5rem; }
 }
 .signoff .accent{ color:var(--accent); font-style:normal; }
 @supports not (background: color-mix(in srgb, red, blue)){
-  .signoff{ background:none; border-top:1px solid var(--rule); padding-top:1.6rem; border-radius:0; }
+  .signoff{ background:none; border:1.5px dotted var(--accent-line); padding-top:1.6rem; border-radius:14px; }
 }
 
 .readmore{ display:inline-block; font-family:var(--font-mono); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent2,var(--accent)); text-decoration:none; border:1px solid var(--accent-line); border-radius:2px; padding:0.7rem 1.15rem; transition:background .25s ease, color .25s ease, border-color .25s ease; }
 .readmore:hover{ background:var(--accent2,var(--accent)); color:var(--bg); border-color:var(--accent2,var(--accent)); }
 
-.more-door{ margin:2.2rem 0 0; padding:1.2rem 1.3rem; border:1px dashed var(--accent-line); }
+.more-door{ margin:2.2rem 0 0; padding:1.2rem 1.3rem; border:1px solid var(--rule); border-radius:10px; }
 .more-door .t{ font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin:0 0 0.4rem; }
 .more-door .s{ font-size:1.0rem; line-height:1.55; color:var(--ink-soft); margin:0; }
 .more-door a{ color:var(--accent2,var(--accent)); }
@@ -171,3 +172,114 @@ img, svg, video, canvas{ max-width:100%; }
 @media(max-width:600px){
   html[data-page="longclock-saylor.html"] .heroart{ top:23rem; right:-1.25rem; width:min(54vw,300px); }
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   Byline date · appreciation (like) · share — injected by feature.js.
+   All colours inherit the per-page palette via CSS variables, so these
+   sit naturally on both light essays and the dark Steward page.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* — Published date + reading time, sits just under the deck — */
+.tlc-byline{
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.13em;
+  text-transform:uppercase; color:var(--ink-soft);
+  margin:1.1rem 0 0; display:flex; align-items:center; gap:0.7rem; flex-wrap:wrap;
+  opacity:0; transform:translateY(4px); transition:opacity .8s ease, transform .8s ease;
+}
+.tlc-byline.in{ opacity:0.9; transform:none; }
+.tlc-byline .dot{ width:3px; height:3px; border-radius:50%; background:var(--accent); opacity:0.8; }
+.tlc-byline .sep{ width:14px; height:1px; background:var(--rule); }
+
+/* — Appreciation + share block, after the article body — */
+.tlc-engage{
+  max-width:40rem; margin:4rem auto 1rem; padding:2.6rem 1rem 0;
+  border-top:1px solid var(--rule); text-align:center;
+}
+.tlc-engage .prompt{
+  font-family:var(--font-display); font-weight:500; font-style:italic;
+  font-size:1.32rem; line-height:1.4; color:var(--ink); margin:0 0 1.5rem;
+  letter-spacing:0.01em;
+}
+
+/* like cluster */
+.tlc-like{ display:inline-flex; flex-direction:column; align-items:center; gap:0.55rem; }
+.tlc-likebtn{
+  position:relative; width:64px; height:64px; border-radius:50%;
+  border:1px solid var(--accent-line); background:transparent; color:var(--ink-soft);
+  cursor:pointer; display:grid; place-items:center;
+  transition:transform .2s cubic-bezier(.34,1.56,.64,1), border-color .25s, color .25s, background .25s;
+}
+.tlc-likebtn svg{ width:26px; height:26px; transition:transform .2s; }
+.tlc-likebtn:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-2px); }
+.tlc-likebtn:active{ transform:scale(.94); }
+.tlc-likebtn.liked{
+  background:var(--accent); border-color:var(--accent);
+  color:var(--bg, #fff); cursor:default;
+}
+.tlc-likebtn.pop{ animation:tlc-pop .42s cubic-bezier(.34,1.56,.64,1); }
+@keyframes tlc-pop{ 0%{transform:scale(1);} 45%{transform:scale(1.22);} 100%{transform:scale(1);} }
+/* a single quiet ring that expands once on like */
+.tlc-likebtn .ring{
+  position:absolute; inset:-1px; border-radius:50%; border:1.5px solid var(--accent);
+  opacity:0; pointer-events:none;
+}
+.tlc-likebtn.pop .ring{ animation:tlc-ring .6s ease-out; }
+@keyframes tlc-ring{ 0%{opacity:.55; transform:scale(1);} 100%{opacity:0; transform:scale(1.7);} }
+.tlc-likemeta{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--ink-soft); }
+.tlc-likemeta b{ color:var(--ink); font-weight:500; }
+
+/* share cluster */
+.tlc-share{ margin-top:2.2rem; }
+.tlc-share .lbl{
+  font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.95rem;
+}
+.tlc-shrow{ display:flex; justify-content:center; align-items:center; gap:0.7rem; flex-wrap:wrap; }
+.tlc-sh{
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--accent-line);
+  background:transparent; color:var(--ink); cursor:pointer; display:grid; place-items:center;
+  transition:transform .18s, border-color .22s, color .22s, background .22s;
+  text-decoration:none;
+}
+.tlc-sh svg{ width:19px; height:19px; }
+.tlc-sh:hover{ transform:translateY(-3px); border-color:var(--accent); color:var(--accent); }
+.tlc-sh:active{ transform:translateY(-1px) scale(.96); }
+/* the native-share primary button reads as the lead action */
+.tlc-sh.primary{
+  width:auto; height:44px; padding:0 1.15rem; border-radius:22px; gap:0.5rem;
+  display:inline-flex; align-items:center; font-family:var(--font-mono);
+  font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase;
+  border-color:var(--accent); color:var(--accent);
+}
+.tlc-sh.primary:hover{ background:var(--accent); color:var(--bg,#fff); }
+.tlc-sh.primary svg{ width:17px; height:17px; }
+
+/* tiny copy/confirm toast */
+.tlc-toast{
+  position:fixed; left:50%; bottom:84px; transform:translateX(-50%) translateY(8px);
+  z-index:9500; background:var(--ink); color:var(--bg,#fff);
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.04em;
+  padding:9px 15px; border-radius:9px; opacity:0; pointer-events:none;
+  transition:opacity .22s, transform .22s; box-shadow:0 8px 28px rgba(0,0,0,.28);
+}
+.tlc-toast.on{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media(prefers-reduced-motion:reduce){
+  .tlc-byline,.tlc-likebtn,.tlc-sh{ transition:none; }
+  .tlc-likebtn.pop{ animation:none; }
+}
+
+/* ── Key-point emphasis ───────────────────────────────────────────────
+   Subtler than the .pull / .accent blurbs: a semibold lift plus a soft
+   highlighter wash on the lower third of the line, tuned to catch a
+   skimming eye and pull the reader back into the prose around it.
+   Wrap the single most pivotal clause of a passage in <span class="key">.
+   ──────────────────────────────────────────────────────────────────── */
+/* Key-point emphasis: bold, in the page's own accent colour — higher contrast
+   than the ink, contextual to each palette, never stark black. No highlight,
+   no underline. The same accent colours inline <b>/<strong> so all emphasis
+   on a page shares one identity. */
+main .key{ font-weight:600; color:var(--accent); }
+main .key.soft{ font-weight:600; color:var(--accent); }
+main strong, main b{ color:var(--accent); }
