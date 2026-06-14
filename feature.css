@@ -109,3 +109,38 @@ body.js .reveal.in{ opacity:1; transform:none; }
 .libcallout a:hover{ color:var(--accent); }
 
 @media(max-width:520px){ body{ font-size:1.1rem; } .opening::first-letter{ font-size:3rem; } }
+
+/* ───────────────────────────────────────────────────────────────
+   Per-page colour identity. Each piece gets its own paper tone so the
+   colour itself becomes a memory anchor. Set via [data-page] (feature.js);
+   the attribute selector outranks each page's inline :root, so these win.
+   ─────────────────────────────────────────────────────────────── */
+html[data-page="longclock-timechain.html"], html[data-page="longclock-timechain.html"] body{ background-color:#DBE3EC; }
+html[data-page="longclock-timechain.html"]{ --bg:#DBE3EC; }
+
+html[data-page="longclock-freeze.html"], html[data-page="longclock-freeze.html"] body{ background-color:#D0E4EC; }
+html[data-page="longclock-freeze.html"]{ --bg:#D0E4EC; }
+
+html[data-page="longclock-volatility.html"], html[data-page="longclock-volatility.html"] body{ background-color:#CBDCD5; }
+html[data-page="longclock-volatility.html"]{ --bg:#CBDCD5; }
+
+html[data-page="longclock-incorruptible.html"], html[data-page="longclock-incorruptible.html"] body{ background-color:#DBE2CE; }
+html[data-page="longclock-incorruptible.html"]{ --bg:#DBE2CE; }
+
+html[data-page="longclock-debasement.html"], html[data-page="longclock-debasement.html"] body{ background-color:#E9E4C2; }
+html[data-page="longclock-debasement.html"]{ --bg:#E9E4C2; }
+
+html[data-page="longclock-memory.html"], html[data-page="longclock-memory.html"] body{ background-color:#ECDCE0; }
+html[data-page="longclock-memory.html"]{ --bg:#ECDCE0; }
+
+html[data-page="longclock-century.html"], html[data-page="longclock-century.html"] body{ background-color:#E0E4EE; }
+html[data-page="longclock-century.html"]{ --bg:#E0E4EE; }
+
+html[data-page="longclock-rails.html"], html[data-page="longclock-rails.html"] body{ background-color:#EEE2C8; }
+html[data-page="longclock-rails.html"]{ --bg:#EEE2C8; }
+
+html[data-page="longclock-believers.html"], html[data-page="longclock-believers.html"] body{ background-color:#E4DCE8; }
+html[data-page="longclock-believers.html"]{ --bg:#E4DCE8; }
+
+html[data-page="longclock-saylor-transcript.html"], html[data-page="longclock-saylor-transcript.html"] body{ background-color:#DEE2F0; }
+html[data-page="longclock-saylor-transcript.html"]{ --bg:#DEE2F0; }

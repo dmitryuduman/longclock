@@ -1,3 +1,6 @@
+/* Tag the page so feature.css can give each piece its own colour identity. */
+try{ document.documentElement.setAttribute('data-page', (location.pathname.split('/').pop()||'index.html').replace(/[?#].*$/,'')||'index.html'); }catch(e){}
+
 /* Shared scroll-reveal for The Long Clock feature essays. */
 (function(){
   document.body.classList.add('js');
