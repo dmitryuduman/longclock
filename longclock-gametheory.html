@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="published" content="2026-06-14">
+<title>The Game Theory of Bitcoin — why rational actors get pulled in</title>
+<meta name="description" content="Bitcoin's spread is not mainly evangelism. It is a set of nested games — a sovereign arms race, a Schelling point, a holder's loop, an honest-miner equilibrium — whose balance tilts, over time, toward adoption.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css?v=10">
+<style>
+  :root{
+    --bg:#0E1A14; --ink:#E7EFE7; --ink-soft:#93A99A;
+    --accent:#57C08A; --accent-line:#244236; --accent2:#C9A24B;
+    --rule:rgba(231,239,231,0.14);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.10; --grain-blend:soft-light;
+  }
+  html,body{ background-color:#0E1A14; color:#E7EFE7; }
+  body{
+    background-image:
+      radial-gradient(80% 60% at 24% 8%, rgba(87,192,138,0.06), transparent 62%),
+      radial-gradient(82% 64% at 80% 22%, rgba(201,162,75,0.04), transparent 62%),
+      radial-gradient(130% 100% at 50% 118%, rgba(0,0,0,0.5), transparent 62%);
+    background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent); }
+  header{ position:relative; }
+  header::before{ content:""; position:absolute; top:-6rem; left:50%; width:34rem; height:22rem; transform:translateX(-50%); background:radial-gradient(closest-side, rgba(87,192,138,0.10), transparent 70%); pointer-events:none; z-index:0; }
+  header .col, header .netfig{ position:relative; z-index:1; }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.6rem 0 0; }
+
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
+  .chartlabel.g{ fill:var(--accent); }
+  .chartlabel.w{ fill:var(--accent2); }
+  .cell{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.02em; fill:var(--ink); }
+  .cell.dim{ fill:var(--ink-soft); }
+  .cell.win{ fill:var(--accent); }
+  .axis{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; fill:var(--ink-soft); }
+
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } header::before{ display:none; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header>
+    <div class="col">
+      <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;&middot;&nbsp; The Library &nbsp;&middot;&nbsp; The game</p>
+      <h1>The Game Theory of Bitcoin</h1>
+      <div class="crown"></div>
+      <p class="deck">Its companion piece showed how Bitcoin spreads — in ten thousand private doorways. This one asks the harder question underneath: why does a cold, self-interested actor, who believes in nothing, get pulled in all the same? The answer is not faith. It is the structure of the game.</p>
+      <p class="listen" title="Audio narration — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+    </div>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- two players at a table, the same coin between them -->
+          <circle cx="150" cy="96" r="20" stroke="#57C08A" stroke-width="2.2"/>
+          <path d="M120,170 Q150,124 180,170" stroke="#57C08A" stroke-width="2.2"/>
+          <circle cx="530" cy="96" r="20" stroke="#57C08A" stroke-width="2.2"/>
+          <path d="M500,170 Q530,124 560,170" stroke="#57C08A" stroke-width="2.2"/>
+          <line x1="60" y1="186" x2="620" y2="186" stroke="#244236" stroke-width="2"/>
+          <!-- the coin in the centre, the prize neither can ignore -->
+          <circle cx="340" cy="118" r="34" stroke="#C9A24B" stroke-width="2.4"/>
+          <path d="M340,98 L334,124 M340,98 L346,124 M340,98 L340,140" stroke="#C9A24B" stroke-width="1.4"/>
+          <g data-hatch="306,84,68,68,60,7" stroke="#C9A24B" stroke-width="0.5" opacity="0.22"></g>
+          <!-- each gaze bent toward the coin -->
+          <path d="M178,104 Q258,118 306,118" stroke="#93A99A" stroke-width="1" opacity="0.7"/>
+          <path d="M502,104 Q422,118 374,118" stroke="#93A99A" stroke-width="1" opacity="0.7"/>
+        </g>
+        <text class="chartlabel" x="150" y="226" text-anchor="middle">player one</text>
+        <text class="chartlabel w" x="340" y="226" text-anchor="middle">the fixed prize</text>
+        <text class="chartlabel" x="530" y="226" text-anchor="middle">player two</text>
+      </svg>
+      <p class="figcap">Neither has to believe in it. Each only has to reckon with what the other might do.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The premise</p></div>
+      <h2>A game you are already playing</h2>
+      <p class="opening lede">Game theory is the study of choices made in the shadow of other people's choices. It does not assume anyone is virtuous, or even sincere. It assumes only that each actor wants the best outcome for themselves, given what they expect everyone else to do — and then it asks where that ends up.</p>
+      <p>This is the right lens for Bitcoin precisely because it strips away the believers and the zealots. You can grant that much of the talk around it is noise, that the culture is loud, that the forecasts are reckless — and the question still stands, untouched: if you are a finance minister, a pension trustee, a bank, or simply a careful person, what is the rational move once you notice that other rational people are starting to accumulate a money no government can print or freeze? <span class="key">The case for Bitcoin does not need you to be a believer; it needs only that you not be a fool.</span></p>
+      <p class="pull">It assumes no one is virtuous.<br><span class="accent">It asks only where self-interest leads.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The sovereign's dilemma</p></div>
+      <h2>The arms race no one wants to start</h2>
+      <p class="lede">Begin with the largest players: nations. Here the logic has the shape every strategist recognises — a prisoner's dilemma that becomes, the moment one player credibly moves, an arms race.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="170" y="70" width="440" height="240" rx="6" stroke="#57C08A" stroke-width="2"/>
+            <line x1="390" y1="70" x2="390" y2="310" stroke="#57C08A" stroke-width="1.4"/>
+            <line x1="170" y1="190" x2="610" y2="190" stroke="#57C08A" stroke-width="1.4"/>
+          </g>
+          <!-- column headers: the other state -->
+          <text class="axis" x="390" y="38" text-anchor="middle">the rival state</text>
+          <text class="cell dim" x="280" y="60" text-anchor="middle">ignores it</text>
+          <text class="cell win" x="500" y="60" text-anchor="middle">accumulates</text>
+          <!-- row headers: you -->
+          <text class="axis" x="60" y="190" text-anchor="middle" transform="rotate(-90 60 190)">you</text>
+          <text class="cell dim" x="150" y="134" text-anchor="end">ignore it</text>
+          <text class="cell win" x="150" y="254" text-anchor="end">accumulate</text>
+          <!-- cells -->
+          <text class="cell dim" x="280" y="124" text-anchor="middle">both safe,</text>
+          <text class="cell dim" x="280" y="140" text-anchor="middle">nothing gained</text>
+          <text class="cell" x="500" y="118" text-anchor="middle">they hold harder</text>
+          <text class="cell" x="500" y="134" text-anchor="middle">money &mdash; you are</text>
+          <text class="cell" x="500" y="150" text-anchor="middle">left behind</text>
+          <text class="cell" x="280" y="244" text-anchor="middle">you hold harder</text>
+          <text class="cell" x="280" y="260" text-anchor="middle">money &mdash; first-</text>
+          <text class="cell" x="280" y="276" text-anchor="middle">mover edge</text>
+          <text class="cell win" x="500" y="244" text-anchor="middle">parity &mdash; but</text>
+          <text class="cell win" x="500" y="260" text-anchor="middle">neither dares</text>
+          <text class="cell win" x="500" y="276" text-anchor="middle">be the one left out</text>
+          <text class="chartlabel w" x="500" y="338" text-anchor="middle">the dominant strategy, once anyone moves &rarr; accumulate</text>
+        </svg>
+        <p class="figcap">Fig. 1 — the payoff matrix. Mutual ignorance is stable only while it is mutual. One credible buyer collapses it.</p>
+      </div>
+
+      <p>Read the grid the way a treasury would. While every state ignores a neutral, un-seizable reserve asset, ignoring it costs nothing — that corner is comfortable and stable. But the comfort depends entirely on everyone staying there. <span class="key">The instant one significant state, or its citizens through an exchange-traded fund, is credibly believed to be accumulating, every rival faces a worse box.</span> Stay out, and you risk holding only debasing fiat while a competitor sits on the harder money, gaining reserve strength you cannot match by decree. So you accumulate too — not out of conviction, but because the alternative is to be the one nation left holding the melting asset.</p>
+      <p>And here the dynamic differs from an ordinary arms race in one decisive way: the supply is fixed. There is no out-building the other side, no surge of production to close the gap. <span class="key">Because nothing can be manufactured to catch up, the advantage of moving first is real and permanent</span> — every coin a rival secures early is a coin you can now only buy from them, at their price. The game does not reward the loud. It rewards the early and the quiet.</p>
+      <p class="pull">Defection is safe only if everyone defects.<br><span class="accent">The first credible buyer flips the board.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The focal point</p></div>
+      <h2>Why everyone lands on the same coin</h2>
+      <p class="lede">A reasonable objection arrives here: even granting the arms race, why <em>this</em> asset? There are thousands of digital monies. The answer is one of the most elegant ideas in the field — the Schelling point.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- many faint candidates, arrows all bending to one bright node -->
+            <circle cx="360" cy="150" r="40" stroke="#C9A24B" stroke-width="2.6"/>
+            <g data-hatch="320,110,80,80,55,6" stroke="#C9A24B" stroke-width="0.5" opacity="0.2"></g>
+          </g>
+          <g stroke="#244236" stroke-width="1.2" fill="none">
+            <circle cx="80" cy="60" r="9"/><circle cx="120" cy="220" r="9"/>
+            <circle cx="220" cy="40" r="9"/><circle cx="60" cy="150" r="9"/>
+            <circle cx="640" cy="70" r="9"/><circle cx="600" cy="220" r="9"/>
+            <circle cx="500" cy="40" r="9"/><circle cx="640" cy="160" r="9"/>
+            <circle cx="300" cy="250" r="9"/><circle cx="430" cy="250" r="9"/>
+          </g>
+          <g stroke="#57C08A" stroke-width="1" opacity="0.55" fill="none">
+            <path d="M89,66 Q210,110 322,138"/>
+            <path d="M127,213 Q230,180 322,160"/>
+            <path d="M228,46 Q290,90 332,118"/>
+            <path d="M69,151 Q190,150 320,150"/>
+            <path d="M631,76 Q510,112 398,138"/>
+            <path d="M591,213 Q500,182 398,160"/>
+            <path d="M501,49 Q450,92 392,120"/>
+            <path d="M631,159 Q520,154 400,151"/>
+            <path d="M306,242 Q330,205 350,190"/>
+            <path d="M424,242 Q400,205 376,188"/>
+          </g>
+          <text class="chartlabel w" x="360" y="155" text-anchor="middle">deepest liquidity</text>
+          <text class="chartlabel w" x="360" y="172" text-anchor="middle">longest record</text>
+          <text class="chartlabel" x="360" y="266" text-anchor="middle">no committee chose it &mdash; everyone expected everyone else to</text>
+        </svg>
+        <p class="figcap">Fig. 2 — a focal point. Among many candidates, coordination converges on the one each player expects the others to pick.</p>
+      </div>
+
+      <p>The economist Thomas Schelling posed a famous puzzle: two strangers must meet in a city on a given day, with no way to communicate. Where do they go? Most people name the same landmark and the same hour — not because it is objectively best, but because each reasons about where the other would expect <em>them</em> to be. The meeting place that everyone expects everyone to expect becomes, by that fact alone, the right answer. It needs no agreement; it needs only shared expectation.</p>
+      <p>Money is the purest Schelling point there is — its entire value lies in others accepting it. So among thousands of possible hard digital monies, the strategic question is not "which has the cleverest design," but <span class="key">"which one will everyone else converge on?"</span> And that question answers itself: coordination flows to the asset with the deepest liquidity, the longest unbroken track record, and the most credible neutrality — the one no founder controls and no state issued. <span class="key">A newer coin might be technically superior and still lose, because being superior is not the game; being the expected choice is.</span> No committee decided this. It is a focal point, settled by the simple weight of everyone reasoning about everyone else.</p>
+      <p class="pull">The winning money is not the best one.<br><span class="accent">It is the one everyone expects everyone to choose.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The holder's loop</p></div>
+      <h2>The quiet reward for sitting still</h2>
+      <p class="lede">Drop down from nations to individuals and a smaller game runs on the same fuel. Under a truly fixed supply, the rational long-horizon move is not to trade. It is to hold — and holding feeds itself.</p>
+      <p>If you genuinely expect an asset of permanently capped quantity to be adopted more widely over time, the patient move is to acquire and wait. But notice what a crowd of patient holders does to the market: each coin held off the table thins the available float, and a thinner float means the next buyer must coax supply from increasingly unwilling hands. <span class="key">The holders' restraint is not passive — it actively tightens scarcity, which rewards the holders who remain.</span> That reward strengthens the conviction to keep holding, which thins the float further. It is a reflexive loop, turning gently on itself.</p>
+      <p>This is the individual face of a force the companion essays trace at scale: when enough people independently decide to hold, scarcity is no longer a slogan but a mechanical fact, and the price must re-rate to clear a market with almost nothing left for sale — with no coordinator anywhere giving the order. The mechanism, followed all the way to its conclusion, is the subject of <a href="longclock-squeeze.html">the involuntary supply squeeze</a>: a re-pricing that no one plans and no one can call off, because it is simply the arithmetic of fixed supply meeting durable demand.</p>
+      <p class="pull">Restraint is not passive here.<br><span class="accent">It tightens the screw that rewards restraint.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The keepers' game</p></div>
+      <h2>Why the guards stay honest</h2>
+      <p class="lede">A reserve asset is only worth holding if it cannot be quietly corrupted. Here Bitcoin's deepest game is the one most people never see — the one that runs among the miners who secure it.</p>
+      <p>Proof-of-work is, at heart, a way of making honesty the most profitable strategy available. To attack the network — to rewrite its history or spend the same coin twice — an aggressor would have to out-compute everyone else combined, which means amassing an enormous quantity of specialised machines and electricity. <span class="key">By the time you have spent enough to overpower the network, you have spent more than the attack could ever yield</span> — and worse, a visible attack would shatter confidence in the very asset you just paid a fortune to seize, collapsing the value of your own loot. The rational miner, having sunk real capital into hardware, makes more money by playing straight and collecting honest rewards than by betraying a system whose worth depends on its integrity. The incentives are arranged so that the cheapest path and the honest path are the same path. The guards stay honest not because they are good, but because crime does not pay.</p>
+      <p class="pull">Attacking it costs more than it yields.<br><span class="accent">So the profit-seeking move is to play straight.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">The middle game</p></div>
+      <h2>The institutions that cannot stand still</h2>
+      <p class="lede">Between sovereigns and individuals sit the banks, the asset managers, the funds. Their game is the most poignant, because their first instinct — to resist — is precisely the move that loses.</p>
+      <p>An institution that publicly dismisses the asset wins the moment's applause and keeps its dignity. But its clients can hear the same arithmetic everyone else can, and some of them will want exposure. The instant a single credible rival offers what your firm refuses, your clients have a reason to leave — and the cannier competitor, having read the board, defects toward adoption first to catch them. <span class="key">In a game where clients can walk, the firm that resists longest does not protect itself; it simply hands the early movers its customers.</span> So the dignified holdouts convert, one after another, each swearing it was always the plan. This whole reluctant migration — the scorn, the quiet pivot, the rebranding of surrender as strategy — is the subject of <a href="longclock-incumbents.html">the old guard's dilemma</a>.</p>
+      <p class="pull">Resisting does not protect the firm.<br><span class="accent">It hands its clients to whoever moved first.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">The order of moves</p></div>
+      <h2>Buy first, speak later</h2>
+      <p class="lede">One last rule governs every layer of the game, and it explains the strange quiet around serious accumulation: the structure rewards those who buy before they announce.</p>
+      <p>In a market of fixed supply, your own demand moves the price. So to declare your intention to accumulate before you have accumulated is to bid the asset up against yourself and hand a free signal to every rival. The disciplined player does the opposite — acquires patiently, in silence, and speaks only once the position is built and announcement can only help. This is why so much of the real accumulation happens out of view, and why the loudest voices are rarely the largest holders. The asymmetry of disclosure means the game is half-finished before most observers notice it has begun — a pattern explored in <a href="longclock-believers.html">the quiet conviction of the early</a>.</p>
+      <p class="pull">The market rewards the buyer who is silent<br><span class="accent">until silence no longer serves.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">VIII.</span><p class="eyebrow">The equilibrium &mdash; and its limits</p></div>
+      <h2>Nested games, one tilt</h2>
+      <p class="lede">Stack the layers and the shape resolves. Bitcoin's spread is not, at root, a matter of evangelism. It is a set of nested games — sovereign, focal, holder, miner, institutional — whose equilibrium leans, over time, toward adoption.</p>
+      <p>Each game reinforces the next. The sovereign arms race drives demand; the focal point ensures that demand lands on one asset; the holder's loop and the supply squeeze convert that demand into scarcity; the miners' incentives keep the prize worth winning; the institutions and the early buyers are pulled along by the same logic from opposite ends. <span class="key">No conductor coordinates any of it; the equilibrium does the conducting</span> — which is exactly why the spread feels less like a campaign and more like a slow change in the weather.</p>
+      <p>But intellectual honesty demands the strongest version of the other side, plainly stated. Equilibria are tendencies, not prophecies, and this one can fail. Coordination is fragile: a focal point can shift if a credibly better, equally neutral asset emerges, or if the existing one is shown to be more centralised or more capturable than believed. States are not passive squares on a grid — a coalition of large powers could ban, tax, or co-opt the asset, bending the game with force rather than playing inside it; a state-issued digital currency could be mandated into the focal role the market never granted it. The honest-miner equilibrium rests on assumptions about cost and concentration that could, in principle, drift. And the very reflexivity that drives adoption upward runs in reverse on the way down: the same loop that rewards holders can punish them in a stampede for the exits. <span class="key">The game tilts toward adoption — but a tilt is not a guarantee, and anyone who tells you the outcome is certain has stopped doing game theory and started doing prophecy.</span></p>
+      <p class="pull">The board leans one way.<br><span class="accent">A lean is not a law.</span></p>
+
+      <p class="signoff">You do not have to believe in any of it. You have only to ask what the other players will rationally do — and then to notice that the answer, layer after layer, keeps pointing the same direction. That is not faith. That is the game.</p>
+
+      <div class="more-door">
+        <p class="t">Read alongside</p>
+        <p class="s">The companion to this piece — <a href="longclock-doorways.html">Ten Thousand Doorways</a>, on how it spreads — the mechanism the holder's loop becomes, <a href="longclock-squeeze.html">the involuntary supply squeeze</a> — and the institutions caught in the middle game, <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>. The case begins at <a href="index.html">the essay</a>.</p>
+      </div>
+
+      <p class="foot"><b>On this piece.</b> This is an argument about incentives, not a forecast and not investment advice. Game-theoretic equilibria describe how rational actors tend to behave under stated assumptions; real actors are imperfectly rational and the assumptions can fail. Nothing here should be read as a prediction of price or a recommendation to buy, hold, or sell anything.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock — the core argument</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">— the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">— the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-incumbents.html"><span class="pn">III</span><span class="pt">The Old Guard's Dilemma</span><span class="pd">— what the banks stand to lose</span></a>
+      <a class="pr" href="longclock-doorways.html"><span class="pn">IV</span><span class="pt">Ten Thousand Doorways</span><span class="pd">— how it actually spreads</span></a>
+      <a class="pr" href="longclock-timechain.html"><span class="pn">V</span><span class="pt">The Timechain</span><span class="pd">— the clock the machines will trust</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
+
+<script src="feature.js?v=10"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+  function L(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+  function clip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){var t0=0,t1=1,dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(var i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{var r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+  document.querySelectorAll('[data-hatch]').forEach(function(g){var a=g.dataset.hatch.split(',').map(Number),x=a[0],y=a[1],w=a[2],h=a[3],ang=a[4],gap=a[5];var rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(var i=-steps;i<steps;i++){var off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,s=clip(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(s)g.appendChild(L(s[0].toFixed(1),s[1].toFixed(1),s[2].toFixed(1),s[3].toFixed(1)));}});
+})();
+</script>
+</body>
+</html>

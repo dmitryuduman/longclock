@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Why Price Falls When Everyone's Buying — the non-linear supply squeeze</title>
+<meta name="description" content="If demand is so high, why does bitcoin sometimes fall? Because a fixed-supply asset is priced at the margin — and a supply squeeze re-prices suddenly, not gradually. With an interactive float projector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css?v=10">
+<style>
+  :root{
+    --bg:#F2E6D6; --ink:#27190F; --ink-soft:#7A6450;
+    --accent:#B5531E; --accent-line:#D8A878; --accent2:#5C6E3A;
+    --rule:rgba(39,25,15,0.16);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.05; --grain-blend:multiply;
+  }
+  html,body{ background-color:#F2E6D6; color:#27190F; }
+  body{
+    background-image:
+      radial-gradient(80% 60% at 22% 8%, rgba(255,255,255,0.5), transparent 60%),
+      radial-gradient(85% 65% at 82% 20%, rgba(181,83,30,0.08), transparent 60%),
+      radial-gradient(120% 100% at 50% 116%, rgba(39,25,15,0.08), transparent 60%);
+    background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.5rem 0 0; }
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
+  .chartlabel.g{ fill:var(--accent); }
+
+  /* ---- supply-squeeze widget ---- */
+  .sq-wrap{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:12px; padding:20px 20px 22px; background:rgba(255,255,255,0.42); }
+  .sq-hint{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1rem; }
+  .sq-controls{ display:grid; grid-template-columns:1fr 1fr; gap:16px 22px; }
+  .sq-field{ display:flex; flex-direction:column; gap:6px; }
+  .sq-field.full{ grid-column:1 / -1; }
+  .sq-field label{ font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.03em; color:var(--ink); display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .sq-field label .v{ color:var(--accent); font-weight:500; }
+  .sq-field input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:3px; background:var(--accent-line); outline:none; }
+  .sq-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:18px; height:18px; border-radius:50%; background:var(--accent); border:2px solid #fff; cursor:pointer; box-shadow:0 1px 3px rgba(39,25,15,0.3); }
+  .sq-field input[type=range]::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--accent); border:2px solid #fff; cursor:pointer; }
+  .sq-chartwrap{ margin-top:18px; }
+  .sq-chartwrap svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .sq-grid{ stroke:var(--rule); stroke-width:1; }
+  .sq-area{ fill:var(--accent); opacity:0.13; }
+  .sq-line{ fill:none; stroke:var(--accent); stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; }
+  .sq-issuance{ fill:none; stroke:var(--accent2); stroke-width:1.6; stroke-dasharray:4 4; opacity:0.8; }
+  .sq-zero{ stroke:var(--ink); stroke-width:1; stroke-dasharray:2 3; opacity:0.4; }
+  .sq-cross{ stroke:var(--accent); stroke-width:1.3; stroke-dasharray:3 3; }
+  .sq-crossdot{ fill:var(--accent); }
+  .sq-axis{ font-family:var(--font-mono); font-size:10px; fill:var(--ink-soft); }
+  .sq-legend{ display:flex; gap:18px; flex-wrap:wrap; font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.03em; color:var(--ink-soft); margin-top:6px; }
+  .sq-legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .sq-sw{ width:16px; height:0; border-top:2.4px solid var(--accent); display:inline-block; }
+  .sq-sw.iss{ border-top:1.6px dashed var(--accent2); }
+  .sq-readout{ margin-top:18px; border-top:1px solid var(--rule); padding-top:16px; font-family:var(--font-body); font-size:1.05rem; line-height:1.55; color:var(--ink); }
+  .sq-readout b{ color:var(--accent); font-weight:600; }
+  .sq-readout .sq-num{ font-family:var(--font-mono); font-weight:500; }
+  .sq-note{ font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.04em; color:var(--ink-soft); margin-top:12px; line-height:1.5; }
+  @media(max-width:560px){ .sq-controls{ grid-template-columns:1fr; } }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; The Library &nbsp;·&nbsp; The squeeze</p>
+    <h1>Why Price Falls When Everyone's Buying</h1>
+    <div class="crown"></div>
+    <p class="deck">If demand is so high, why does the price sometimes <em>fall</em>? Because we reason about price in a straight line, and a fixed-supply asset does not move in a straight line. Most of the coins are not for sale at any price. The few that are decide the number on the screen — until, one day, they run out.</p>
+    <p class="listen" title="Audio narration — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- the iceberg: tiny sliver above water, vast mass below -->
+          <line x1="60" y1="96" x2="620" y2="96" stroke="#3A6E8C" stroke-width="0" />
+          <path d="M260,72 L300,96 L380,96 L420,72 L398,60 L342,66 L300,58 Z" stroke="#B5531E" stroke-width="2.2"/>
+          <g data-hatch="290,60,100,34,58,7" stroke="#B5531E" stroke-width="0.5" opacity="0.3"></g>
+          <path d="M300,96 L380,96 L432,150 L398,210 L320,220 L256,176 L268,120 Z" stroke="#27190F" stroke-width="2.2"/>
+          <g data-hatch="262,100,168,118,62,9" stroke="#27190F" stroke-width="0.5" opacity="0.22"></g>
+          <g stroke="#5C6E3A" stroke-width="1" opacity="0.7">
+            <path d="M120,96 Q150,90 180,96 T240,96"/>
+            <path d="M440,96 Q470,90 500,96 T560,96"/>
+          </g>
+        </g>
+        <text class="chartlabel g" x="340" y="40" text-anchor="middle">for sale at today's price</text>
+        <text class="chartlabel" x="340" y="244" text-anchor="middle">not for sale at any price you'll see soon</text>
+      </svg>
+      <p class="figcap">The market only ever sees the tip. Price is set by the sliver, not the mass.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The straight-line trap</p></div>
+      <h2>More demand, higher price — until it isn't</h2>
+      <p class="opening lede">We carry a simple model in our heads: more buyers means a higher price, and the line climbs smoothly. For most goods that intuition is roughly right, because supply quietly expands to meet demand. Coffee gets dear, more coffee gets planted. The line bends, but it bends gently.</p>
+      <p>Bitcoin breaks the model in two places. First, supply cannot expand — it is fixed at twenty-one million, with new coins arriving on a schedule no amount of demand can hurry. Second, and less obvious, <span class="key">most of the existing coins are simply not for sale, at any price you are likely to see this year</span>. They sit in cold storage, in the wallets of people who treat them as a multi-generational inheritance, in the reserves of companies whose entire strategy is never to sell. So the price you watch tick up and down is not the price of all the bitcoin in the world. It is the price of the small, restless sliver that happens to be willing to trade today.</p>
+      <p class="pull">The number on the screen is the price of the sliver,<br><span class="accent">not the price of the mass.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The margin</p></div>
+      <h2>Why heavy buying can coincide with a falling price</h2>
+      <p class="lede">Here is the part that feels like a paradox and isn't. In the short run, price can fall <em>while</em> serious money is accumulating hard. The two facts live in different layers of the market.</p>
+      <p><span class="key">Price is set at the margin — by whoever is willing to sell into the bid right now</span>, not by the silent majority who would not part with a coin under a million dollars. When a long-dormant whale finally distributes, or an early holder from a decade ago quietly sells a tranche into the new institutional demand — a kind of silent IPO, an offering with no prospectus — those coins meet the buyers and the clearing price can sag, even as the buyers are vacuuming up everything they can. Add leveraged traders forced out of positions, and the housekeeping of ETF authorized participants shuffling coins in and out to keep funds balanced, and you get plenty of short-run selling pressure layered on top of relentless accumulation.</p>
+      <p>So accumulation does not announce itself in the price. <span class="key">It shows up first in <em>who holds the coins</em></span> — in the slow migration of supply from sellers to holders who will never sell. The price chart is the noise. The ownership chart is the signal. Roughly seventy-two to seventy-five percent of all bitcoin hasn't moved in over six months; long-term holders command somewhere near sixty-eight percent of supply; exchange balances have fallen by about half since late 2024. None of that is visible in any single day's red candle.</p>
+      <p class="pull">Accumulation hides in the ledger of ownership<br><span class="accent">long before it ever reaches the ticker.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The non-linearity</p></div>
+      <h2>A fixed supply does not re-price gradually</h2>
+      <p class="lede">Now run the migration forward. Committed buyers keep absorbing coins: corporate treasuries (some locking them up to earn yield through instruments like STRC), spot ETFs already holding around one and a half million coins, sovereigns testing the water, and individuals who simply will not sell below seven figures. Every one of them takes float off the table — permanently.</p>
+      <p>For a while, nothing dramatic happens to the price. The marginal sellers are still there; the squeeze is invisible because there is still a sliver willing to trade. But the float is finite, and it is shrinking. <span class="key">A fixed-supply asset does not respond to a supply squeeze in a straight line</span>. There comes a point — and it arrives without warning — where the coins demanded at the current price exceed the coins anyone will sell at that price. At that moment the quantity cannot adjust. It is fixed. The buyers cannot conjure more supply, and the holders will not provide it. <span class="key">The only variable left that can move is price</span>, and so it moves — suddenly, not gradually, because the pressure that built quietly for months releases all at once.</p>
+      <p>This is the difference between a market where supply is a knob you can turn and a market where supply is a wall. Against a knob, demand pushes and the knob gives a little. Against a wall, demand pushes and nothing happens — and then the wall is reached, and the entire adjustment that should have been spread over years happens in a span you can measure in days. The widget below lets you feel the shape of it.</p>
+      <p class="pull">When quantity can't move,<br><span class="accent">price is the only thing left that can.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The projector</p></div>
+      <h2>Watch the liquid float drain</h2>
+      <p class="lede">A toy model, not a forecast. It tracks one thing: the pool of coins actually available to buy. Each week the committed buyers take their share, a trickle of newly mined coins refills it, and the pool moves toward the pressure point — the week when, at this price, there are no sellers left.</p>
+
+      <div class="sq-wrap reveal" id="sq-app">
+        <p class="sq-hint">Drag the inputs &mdash; the squeeze in motion</p>
+        <div class="sq-controls">
+          <div class="sq-field">
+            <label for="sq-buy">Committed buying <span class="v"><span id="sq-buy-v">7,000</span> BTC/wk</span></label>
+            <input type="range" id="sq-buy" min="0" max="10000" step="100" value="7000">
+          </div>
+          <div class="sq-field">
+            <label for="sq-float">Starting liquid float <span class="v"><span id="sq-float-v">5.00</span>M BTC</span></label>
+            <input type="range" id="sq-float" min="1000000" max="8000000" step="100000" value="5000000">
+          </div>
+          <div class="sq-field">
+            <label for="sq-iss">New issuance <span class="v"><span id="sq-iss-v">3,150</span> BTC/wk</span></label>
+            <input type="range" id="sq-iss" min="0" max="6000" step="50" value="3150">
+          </div>
+          <div class="sq-field">
+            <label for="sq-horizon">Horizon <span class="v"><span id="sq-horizon-v">156</span> wks</span></label>
+            <input type="range" id="sq-horizon" min="26" max="312" step="13" value="156">
+          </div>
+        </div>
+
+        <div class="sq-chartwrap">
+          <svg id="sq-chart" viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Projected liquid float over time"></svg>
+        </div>
+        <div class="sq-legend">
+          <span><i class="sq-sw"></i> remaining liquid float</span>
+          <span><i class="sq-sw iss"></i> weekly issuance (refill)</span>
+        </div>
+
+        <p class="sq-readout" id="sq-readout"></p>
+        <p class="sq-note">A toy model. Net weekly drain = buying &minus; issuance, held constant; real demand, supply and price all vary. Crucially, a real market re-prices <em>well before</em> the float literally hits zero — rising price coaxes some holders to sell and cools some buying. Read the crossing not as a date but as a pressure point: where quantity can no longer do the adjusting, and price must.</p>
+      </div>
+
+      <p>The lesson the model makes physical: hold the buying steady and the float falls in a straight line — but the <em>consequence</em> is anything but straight. For most of the run, nothing visible happens to price. The drama is all stored up, invisible, until the float thins to nothing and the adjustment that quantity refused to make lands entirely on price.</p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The lesson</p></div>
+      <h2>Falling price, tightening grip</h2>
+      <p class="lede">Strip away the day-to-day and a flat principle remains. A red candle tells you what the marginal seller did this afternoon. It tells you almost nothing about the squeeze.</p>
+      <p>If most holders treat bitcoin the way the readers of this site tend to — as a lifeline meant to outlast them, not to be sold until seven figures and even then only sparingly, often locked up to earn yield rather than spent — then <span class="key">every one of them is a coin permanently subtracted from the float</span>. The pool of sellers gets shallower with each conviction that hardens. A falling price during heavy accumulation is not evidence against the thesis; under a fixed supply it is exactly what the early innings of a squeeze look like. The mistake is to read a smooth-line story onto a market whose defining feature is that it cannot stay smooth.</p>
+      <p class="pull">A falling price during heavy accumulation<br><span class="accent">is what the early innings of a squeeze look like.</span></p>
+
+      <p>There is a deliberate version of this and an accidental one, and the accidental one is the stronger. The deliberate version is a matter of timing: a patient accumulator quietly absorbs coins while supply is loose, knows when enough has been locked away in hands that will not sell, and only then takes the reins off — letting price find the level the scarcity always implied. <span class="key">But a squeeze needs no conductor.</span> When enough players are doing the same thing at once — independently, under the radar, and none of them willing to be the one who lets go — the fixed supply forces the outcome on its own. No participant chooses it; no would-be suppressor permits it. The coins are simply not there at today's price, and a market with no sellers left has only one way to resolve. The break arrives not because someone released it, but because the arithmetic overran everyone's restraint at the same moment.</p>
+      <p class="pull">No one has to let go.<br><span class="accent">At some point the supply decides for them.</span></p>
+      <p class="signoff">Demand pushing on an expandable supply nudges the price. Demand pushing on a wall does nothing — and then, all at once, does everything. The whole argument is in that difference, and the only honest forecast is its shape, not its date.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">Why the volatility along the way is the price of admission, not a flaw — <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip</a> — and the reserve-power case in full at <a href="index.html">the essay</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the numbers.</b> Figures cited are estimates drawn from on-chain analytics (illiquid supply ~14.3M BTC / ~72&ndash;75% of supply; long-term holders ~68% of supply; exchange balances down ~50% since late 2024; new issuance ~3,150 BTC/week post-2024 halving; spot ETFs holding ~1.5M BTC; long-term holders and whales absorbing on the order of ~300% of annual issuance). They move constantly and methodologies differ. <b>Not investment advice</b> — this piece explains a market structure, not a trade.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock — the core argument</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">— the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">— the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-incumbents.html"><span class="pn">III</span><span class="pt">The Old Guard's Dilemma</span><span class="pd">— what the banks stand to lose</span></a>
+      <a class="pr" href="longclock-doorways.html"><span class="pn">IV</span><span class="pt">Ten Thousand Doorways</span><span class="pd">— how it actually spreads</span></a>
+      <a class="pr" href="longclock-timechain.html"><span class="pn">V</span><span class="pt">The Timechain</span><span class="pd">— the clock the machines will trust</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
+
+<script src="feature.js?v=10"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+
+  /* hatch fill for the iceberg figure (matches site convention) */
+  function L(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+  function clip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){var t0=0,t1=1,dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(var i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{var r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+  document.querySelectorAll('[data-hatch]').forEach(function(g){var a=g.dataset.hatch.split(',').map(Number),x=a[0],y=a[1],w=a[2],h=a[3],ang=a[4],gap=a[5];var rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(var i=-steps;i<steps;i++){var off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,s=clip(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(s)g.appendChild(L(s[0].toFixed(1),s[1].toFixed(1),s[2].toFixed(1),s[3].toFixed(1)));}});
+
+  /* ---- supply-squeeze projector ---- */
+  var app=document.getElementById('sq-app');
+  if(!app) return;
+  var elBuy=document.getElementById('sq-buy'), elFloat=document.getElementById('sq-float'),
+      elIss=document.getElementById('sq-iss'), elHor=document.getElementById('sq-horizon'),
+      svg=document.getElementById('sq-chart'), readout=document.getElementById('sq-readout');
+
+  function fmtInt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function fmtM(n){ return (n/1e6).toFixed(2); }
+
+  function svgEl(name,attrs){ var e=document.createElementNS(NS,name); for(var k in attrs){ e.setAttribute(k,attrs[k]); } return e; }
+
+  function simulate(buy, start, iss, weeks){
+    var net = buy - iss;                 // BTC drained per week
+    var series=[start];
+    var floatNow=start, crossWeek=-1;
+    for(var w=1; w<=weeks; w++){
+      floatNow = floatNow + iss - buy;   // refill, then drain
+      if(floatNow<=0 && crossWeek<0){ crossWeek=w; }
+      series.push(floatNow);
+    }
+    return { series:series, net:net, crossWeek:crossWeek };
+  }
+
+  function draw(){
+    var buy=+elBuy.value, start=+elFloat.value, iss=+elIss.value, weeks=+elHor.value;
+    document.getElementById('sq-buy-v').textContent=fmtInt(buy);
+    document.getElementById('sq-float-v').textContent=fmtM(start);
+    document.getElementById('sq-iss-v').textContent=fmtInt(iss);
+    document.getElementById('sq-horizon-v').textContent=weeks;
+
+    var sim=simulate(buy,start,iss,weeks);
+    var series=sim.series;
+
+    /* chart geometry */
+    var W=640,H=300, mL=64,mR=18,mT=14,mB=34;
+    var pw=W-mL-mR, ph=H-mT-mB;
+    var ymax=Math.max(start, iss*weeks, 1);   // headroom; float never plotted above start
+    var yTop=start*1.05;
+    function X(i){ return mL + (i/weeks)*pw; }
+    function Y(v){ var vv=Math.max(0,v); return mT + ph - (vv/yTop)*ph; }
+
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+
+    /* horizontal gridlines + y labels (0, 25, 50, 75, 100% of start) */
+    var i;
+    for(i=0;i<=4;i++){
+      var val=yTop*i/4;
+      var gy=Y(val);
+      svg.appendChild(svgEl('line',{x1:mL,y1:gy.toFixed(1),x2:(W-mR),y2:gy.toFixed(1),'class':'sq-grid'}));
+      var lab=svgEl('text',{x:(mL-8),y:(gy+3.5).toFixed(1),'text-anchor':'end','class':'sq-axis'});
+      lab.textContent=(val/1e6).toFixed(1)+'M';
+      svg.appendChild(lab);
+    }
+
+    /* x axis labels (weeks) */
+    var ticks=4;
+    for(i=0;i<=ticks;i++){
+      var wk=Math.round(weeks*i/ticks);
+      var xx=X(wk);
+      var xl=svgEl('text',{x:xx.toFixed(1),y:(H-12),'text-anchor':'middle','class':'sq-axis'});
+      xl.textContent=wk+'w';
+      svg.appendChild(xl);
+    }
+
+    /* zero baseline */
+    svg.appendChild(svgEl('line',{x1:mL,y1:Y(0).toFixed(1),x2:(W-mR),y2:Y(0).toFixed(1),'class':'sq-zero'}));
+
+    /* issuance reference line (cumulative refill is constant slope; show weekly issuance as a flat low band reference) */
+    /* draw float area + line */
+    var dLine='', dArea='M'+X(0).toFixed(1)+','+Y(0).toFixed(1);
+    for(i=0;i<series.length;i++){
+      var px=X(i).toFixed(1), py=Y(series[i]).toFixed(1);
+      dLine += (i===0?'M':'L')+px+','+py+' ';
+      dArea += ' L'+px+','+py;
+    }
+    dArea += ' L'+X(series.length-1).toFixed(1)+','+Y(0).toFixed(1)+' Z';
+    svg.appendChild(svgEl('path',{d:dArea,'class':'sq-area'}));
+    svg.appendChild(svgEl('path',{d:dLine.trim(),'class':'sq-line'}));
+
+    /* issuance dashed line: flat reference of weekly issuance scaled (visual cue of the refill rate) */
+    var issY=Y(iss).toFixed(1);
+    svg.appendChild(svgEl('line',{x1:mL,y1:issY,x2:(W-mR),y2:issY,'class':'sq-issuance'}));
+
+    /* crossing marker */
+    if(sim.crossWeek>0 && sim.crossWeek<=weeks){
+      var cx=X(sim.crossWeek);
+      svg.appendChild(svgEl('line',{x1:cx.toFixed(1),y1:mT,x2:cx.toFixed(1),y2:Y(0).toFixed(1),'class':'sq-cross'}));
+      svg.appendChild(svgEl('circle',{cx:cx.toFixed(1),cy:Y(0).toFixed(1),r:4.5,'class':'sq-crossdot'}));
+      var ct=svgEl('text',{x:Math.min(cx+6,W-mR-2).toFixed(1),y:(mT+12),'class':'sq-axis','text-anchor': cx>W-90?'end':'start'});
+      ct.textContent='week '+sim.crossWeek;
+      svg.appendChild(ct);
+    }
+
+    /* read-out */
+    var html='';
+    if(buy<=iss){
+      html='At <b class="sq-num">'+fmtInt(buy)+'</b> BTC/week, committed buying is at or below the <b class="sq-num">'+fmtInt(iss)+'</b> BTC/week of fresh issuance. The liquid float is <b>not depleting</b> — new coins keep the pool topped up. No squeeze under these inputs; the wall stays out of reach.';
+    } else if(sim.crossWeek>0 && sim.crossWeek<=weeks){
+      var yrs=(sim.crossWeek/52);
+      html='At <b class="sq-num">'+fmtInt(buy)+'</b> BTC/week against <b class="sq-num">'+fmtInt(iss)+'</b> mined, the float drains by <b class="sq-num">'+fmtInt(sim.net)+'</b> BTC each week. The starting pool of <b class="sq-num">'+fmtM(start)+'M</b> is exhausted in <b>~'+sim.crossWeek+' weeks</b> ('+yrs.toFixed(1)+' years) &mdash; the point where the coins demanded exceed the coins anyone will sell. From there, quantity can no longer adjust, so <b>price</b> must.';
+    } else {
+      var remaining=series[series.length-1];
+      html='At <b class="sq-num">'+fmtInt(buy)+'</b> BTC/week, the float drains by <b class="sq-num">'+fmtInt(sim.net)+'</b> BTC/week but the pool isn’t emptied within '+weeks+' weeks &mdash; about <b class="sq-num">'+fmtM(remaining)+'M</b> BTC would still be liquid at the horizon. Extend the horizon or raise the buying to reach the pressure point.';
+    }
+    readout.innerHTML=html;
+  }
+
+  [elBuy,elFloat,elIss,elHor].forEach(function(el){
+    el.addEventListener('input', draw);
+    el.addEventListener('change', draw);
+  });
+  draw();
+})();
+</script>
+</body>
+</html>
