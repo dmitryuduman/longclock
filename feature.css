@@ -23,8 +23,9 @@ body::before{
 .col{ max-width:var(--measure,40rem); margin-left:auto; margin-right:auto; }
 
 .eyebrow{ font-family:var(--font-mono); font-size:0.72rem; font-weight:500; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin:0; }
-.backlink{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em; color:var(--ink-soft); text-decoration:none; }
-.backlink:hover{ color:var(--ink); }
+.backlink{ display:inline-flex; align-items:center; gap:0.4rem; font-family:var(--font-mono); font-size:0.7rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent2,var(--accent)); text-decoration:none; border:1px solid var(--accent-line); border-radius:999px; padding:0.4rem 0.95rem; transition:background .2s ease, color .2s ease, border-color .2s ease; white-space:nowrap; }
+.backlink:hover{ background:var(--accent2,var(--accent)); color:var(--bg); border-color:var(--accent2,var(--accent)); }
+.eyebrow .backlink{ vertical-align:middle; margin-right:0.25rem; }
 .accent{ color:var(--accent); }
 
 header{ position:relative; padding-top:1rem; }
@@ -58,7 +59,10 @@ p{ margin:0 0 1.5rem; }
 @media(max-width:560px){ .compare{ grid-template-columns:1fr; } .compare .c:first-child{ border-right:0; border-bottom:1px solid var(--rule); } }
 
 .close{ margin-top:3.4rem; }
-.signoff{ font-family:var(--font-display); font-style:italic; font-weight:400; font-size:1.2rem; line-height:1.5; color:var(--ink-soft); border-top:1px solid var(--rule); margin-top:2.4rem; padding-top:1.6rem; }
+/* the ending hook — the last beat of each piece, deliberately prominent and sitting right under the final line */
+.signoff{ font-family:var(--font-display); font-style:italic; font-weight:500; font-size:clamp(1.34rem,3.3vw,1.62rem); line-height:1.42; color:var(--ink); margin-top:2.6rem; padding-top:1.9rem; border-top:2px solid var(--accent-line); position:relative; text-wrap:pretty; }
+.signoff::before{ content:""; position:absolute; top:-2px; left:0; width:3.2rem; height:2px; background:var(--accent); }
+.signoff .accent{ color:var(--accent); font-style:normal; }
 
 .readmore{ display:inline-block; font-family:var(--font-mono); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent2,var(--accent)); text-decoration:none; border:1px solid var(--accent-line); border-radius:2px; padding:0.7rem 1.15rem; transition:background .25s ease, color .25s ease, border-color .25s ease; }
 .readmore:hover{ background:var(--accent2,var(--accent)); color:var(--bg); border-color:var(--accent2,var(--accent)); }
