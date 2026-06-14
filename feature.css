@@ -92,4 +92,9 @@ body.js .reveal.in{ opacity:1; transform:none; }
 .partrail .pr.cur .pt::after{ content:" — you are here"; font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); white-space:nowrap; }
 @media(max-width:520px){ .partrail .pd{ display:none; } }
 
+/* "Listen" affordance — mocked as coming-soon until studio narration is recorded */
+.listen{ display:inline-flex; align-items:center; gap:0.55rem; font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--rule); border-radius:999px; padding:0.42rem 0.9rem; margin:1.7rem 0 0; cursor:default; user-select:none; }
+.listen svg{ width:15px; height:15px; flex:none; }
+.listen .soon{ color:var(--accent); padding-left:0.55rem; margin-left:0.05rem; border-left:1px solid var(--rule); letter-spacing:0.1em; }
+
 @media(max-width:520px){ body{ font-size:1.1rem; } .opening::first-letter{ font-size:3rem; } }
