@@ -21,14 +21,16 @@
     --measure:40rem; --grain-opacity:0.16; --grain-blend:soft-light;
     --portrait:url("saylor-portrait.jpg");
   }
-  html,body{ background-color:#1C1D23; color:#ECE7DA; }
+  html,body{ background-color:#23242C; color:#ECE7DA; }
   body{
     background-image:
-      radial-gradient(92% 72% at 28% -6%, rgba(201,161,74,0.16), transparent 60%),
-      radial-gradient(66% 58% at 86% 26%, rgba(236,231,218,0.06), transparent 60%),
-      radial-gradient(135% 120% at 50% 126%, rgba(0,0,0,0.30), transparent 62%);
+      radial-gradient(95% 76% at 28% -8%, rgba(201,161,74,0.16), transparent 60%),
+      radial-gradient(70% 60% at 86% 24%, rgba(236,231,218,0.06), transparent 60%),
+      radial-gradient(140% 120% at 50% 128%, rgba(0,0,0,0.20), transparent 62%);
     background-size:cover; background-repeat:no-repeat;
   }
+  .canvas > header, .canvas > main, .canvas > .colophon{ position:relative; z-index:1; }
+  .ornaments{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
   .canvas{ max-width:54rem; }
@@ -303,6 +305,26 @@
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.2"/></filter></defs></svg>
 
 <script src="feature.js"></script>
+<script>
+/* faint charcoal-gray ornaments to give the dark ground depth */
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var canvas=document.querySelector('.canvas'); if(!canvas) return;
+  var W=canvas.clientWidth, H=canvas.scrollHeight; if(!W||!H) return;
+  var COL="#B8B2A4";
+  var svg=document.createElementNS(NS,'svg'); svg.setAttribute('class','ornaments'); svg.setAttribute('width',W); svg.setAttribute('height',H); svg.setAttribute('aria-hidden','true');
+  function ln(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));return l;}
+  function star(x,y,r,op){var g=document.createElementNS(NS,'g');g.setAttribute('stroke',COL);g.setAttribute('stroke-width','0.8');g.setAttribute('opacity',op);g.setAttribute('stroke-linecap','round');g.appendChild(ln(x-r,y,x+r,y));g.appendChild(ln(x,y-r,x,y+r));return g;}
+  var n=Math.max(12, Math.round(W*H/30000));
+  for(var i=0;i<n;i++){ svg.appendChild(star(Math.random()*W, Math.random()*H, 2+Math.random()*4, (0.04+Math.random()*0.10).toFixed(2))); }
+  function rings(cx,cy){var g=document.createElementNS(NS,'g');g.setAttribute('fill','none');g.setAttribute('stroke',COL);g.setAttribute('opacity','0.05');
+    [42,68,94,120].forEach(function(rr){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',cx);c.setAttribute('cy',cy);c.setAttribute('r',rr);c.setAttribute('stroke-width','0.7');g.appendChild(c);});
+    for(var a=0;a<28;a++){var th=a/28*2*Math.PI;g.appendChild(ln(cx+Math.cos(th)*120,cy+Math.sin(th)*120,cx+Math.cos(th)*128,cy+Math.sin(th)*128));}
+    return g;}
+  if(W>900){ svg.appendChild(rings(W-64, H*0.46)); svg.appendChild(rings(64, H*0.8)); }
+  canvas.insertBefore(svg, canvas.firstChild);
+})();
+</script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";
