@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>On Steve's Rails — Saylor, Jobs, and the visionary who reads the future early</title>
+<meta name="description" content="Two voracious readers, decades apart, who each read their way to an inevitability and then bet everything on it — and why code keeps making those predictions arrive faster than anyone expects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css">
+<style>
+  :root{
+    --bg:#EAE7DF; --ink:#1D1D20; --ink-soft:#605E54;
+    --accent:#B5662A; --accent-line:#CBA877; --accent2:#2F5D70;
+    --rule:rgba(29,29,32,0.16);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.05; --grain-blend:multiply;
+  }
+  html,body{ background-color:#EAE7DF; color:#1D1D20; }
+  body{
+    background-image:
+      radial-gradient(78% 58% at 24% 4%, rgba(181,102,42,0.10), transparent 60%),
+      radial-gradient(60% 52% at 86% 22%, rgba(47,93,112,0.06), transparent 60%),
+      radial-gradient(120% 100% at 50% 118%, rgba(29,29,32,0.09), transparent 60%);
+    background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent2); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent2); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.5rem 0 0; }
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
+  .chartlabel.a{ fill:var(--accent); } .chartlabel.s{ fill:var(--accent2); }
+
+  /* compounding interactive */
+  .comp{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:10px; padding:18px; background:rgba(255,255,255,0.4); }
+  .comp svg{ width:100%; height:auto; display:block; }
+  .comp .read{ display:flex; gap:1.4rem; flex-wrap:wrap; margin-top:10px; font-family:var(--font-mono); font-size:0.8rem; }
+  .comp .read .s{ color:var(--accent2); } .comp .read .a{ color:var(--accent); }
+  .comp input[type=range]{ width:100%; accent-color:var(--accent); margin-top:10px; }
+  .comp .yr{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-top:4px; }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; The Library &nbsp;·&nbsp; A companion to The Steward's Wager</p>
+    <h1>On Steve's Rails</h1>
+    <div class="crown"></div>
+    <p class="deck">Set the turtleneck beside the spreadsheets and the two men look nothing alike. Look at how they think, and how they bet, and a single pattern appears: a voracious reader sees an inevitability decades early, eats the ridicule, and stakes everything — while code quietly compounds the future faster than anyone's arithmetic expects.</p>
+    <p class="listen" title="Audio narration — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g data-rays="340,86,40,84,18" stroke="#B5662A" stroke-width="0.8" opacity="0.6"></g>
+          <path data-calli="5" d="M340,196 C300,170 250,166 214,176 L214,96 C250,86 300,90 340,116 C380,90 430,86 466,96 L466,176 C430,166 380,170 340,196 Z" stroke="#1D1D20"/>
+          <path d="M340,116 L340,196" stroke="#1D1D20" stroke-width="1.4"/>
+          <g stroke="#1D1D20" stroke-width="0.7" opacity="0.55"><line x1="232" y1="112" x2="316" y2="106"/><line x1="232" y1="126" x2="316" y2="120"/><line x1="232" y1="140" x2="316" y2="134"/><line x1="364" y1="106" x2="448" y2="112"/><line x1="364" y1="120" x2="448" y2="126"/><line x1="364" y1="134" x2="448" y2="140"/></g>
+        </g>
+      </svg>
+      <p class="figcap">A book — the source reaching the reader with nothing in between. Both men started here.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">Two readers</p></div>
+      <h2>They read their way to the future</h2>
+      <p class="opening lede">Before either was a founder, each was a child who could not stop reading — and that is not a charming footnote. It is where both of their bets were born.</p>
+      <p>Saylor, by his own telling, was paid a dime a book as a boy and devoured a hundred in a summer chasing the money; the book he still presses on people is not a finance title but Durant's eleven-volume <em>Story of Civilization</em>. Jobs said much the same about himself in 1983: that amid a few great teachers and many mediocre ones, the thing that "probably kept me out of jail was books," because he could read Aristotle or Plato directly. Two boys, a generation apart, who learned the same lesson before they could name it — that the deepest understanding comes when you reach the source yourself, with no one standing in between.</p>
+      <p class="pull">Not a hobby that shaped them.<br><span class="accent">The instinct that made them.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">From the source, no intermediary</p></div>
+      <h2>What a book taught them about everything else</h2>
+      <p class="lede">Listen to <em>why</em> Jobs loved books and you hear the whole argument of this site, spoken in 1983.</p>
+      <p>A book, he said, "got right from the source to the destination without anything in the middle." That is not a remark about literature. It is a worldview — that the thing of value should reach you directly, unmediated, un-tolled — and it is exactly the instinct each man then carried into his life's work. Jobs spent his career removing the priesthood between people and computing power: no operators, no high temple of the mainframe, just a machine on your desk that answered to you. Saylor's entire case for bitcoin is the same move applied to money: a bearer asset that settles itself, with no bank standing between you and what you own. The reader's instinct for cutting out the middle became the builder's. One disintermediated computing; the other is trying to disintermediate money. Same reflex, different century.</p>
+      <p class="pull">From the source to the destination,<br><span class="accent">with nothing in the middle.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The 1983 prophecy</p></div>
+      <h2>He described the device in your hand — forty years early</h2>
+      <p class="lede">In June 1983, to a small room of designers in Aspen, Jobs described the world we now live in with a precision that still reads like time travel.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path data-calli="5.5" d="M250,60 L430,60 Q440,60 440,70 L440,196 Q440,206 430,206 L250,206 Q240,206 240,196 L240,70 Q240,60 250,60 Z" stroke="#1D1D20"/>
+            <g data-hatch="256,74,168,118,58,7" stroke="#2F5D70" stroke-width="0.5" opacity="0.22"></g>
+            <circle cx="340" cy="206" r="0.8" stroke="#1D1D20" stroke-width="2"/>
+            <g stroke="#B5662A" stroke-width="1.4" opacity="0.85">
+              <path d="M462,150 A42 42 0 0 1 462 96"/>
+              <path d="M480,158 A60 60 0 0 1 480 88"/>
+              <path d="M498,166 A78 78 0 0 1 498 80"/>
+            </g>
+          </g>
+          <text class="chartlabel" x="340" y="232" text-anchor="middle">"an incredibly great computer in a book... with a radio link in it" &mdash; 1983</text>
+        </svg>
+        <p class="figcap">Fig. 1 — the tablet and the wireless network, named a quarter-century before they shipped.</p>
+      </div>
+
+      <p>He wanted, he said, to put "an incredibly great computer in a book that you can carry around" — and to do it "this decade" — "with a radio link in it so you don't have to hook up to anything," so you could stand anywhere and reach every database and machine. That is the tablet and wireless networking, named in 1983. He went further: software, he argued, should be sampled like songs on the radio and bought electronically "over the phone lines," because shipping digital goods in cardboard boxes was already absurd. That is the App Store, a quarter-century early. He did not merely guess the future. He saw its shape clearly — and then, crucially, set out to build the company that would force it into being.</p>
+      <p class="pull">He didn't predict the future.<br><span class="accent">He went and built it.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Why it arrives faster than you think</p></div>
+      <h2>Code is the accelerant</h2>
+      <p class="lede">Here is the part the skeptics of every era get wrong, and it is the same mistake twice: they forecast in straight lines, and anything built from code does not move in straight lines.</p>
+      <p>A prediction made of software has a peculiar property. At first it underwhelms — the first personal computers were toys, the first portable devices clumsy, and for years the visionary looks premature or wrong. Then the curve bends. Because code copies for free, improves on itself, and rides hardware that doubles on a schedule, adoption stops adding and starts multiplying. The world that felt a comfortable lifetime away arrives in a decade. Jobs's "computer in a book this decade" was a little early on the timing and exactly right on the destination — and when it came, it came not gently but all at once. Drag the years below and watch the gap open between what the straight-line forecaster expects and what compounding actually delivers.</p>
+
+      <div class="comp reveal">
+        <svg viewBox="0 0 680 240" id="compart" aria-hidden="true">
+          <line x1="56" y1="206" x2="648" y2="206" stroke="var(--ink-soft)" stroke-width="1"/>
+          <line x1="56" y1="30" x2="56" y2="206" stroke="var(--ink-soft)" stroke-width="1"/>
+          <polyline id="lin" fill="none" stroke="#2F5D70" stroke-width="2" stroke-linecap="round"/>
+          <polyline id="exp" fill="none" stroke="#B5662A" stroke-width="2.6" stroke-linecap="round"/>
+          <circle id="lindot" r="3.2" fill="#2F5D70"/>
+          <circle id="expdot" r="3.6" fill="#B5662A"/>
+        </svg>
+        <div class="read"><span class="s">straight-line forecast: <b id="linv">1&times;</b></span><span class="a">what code compounds: <b id="expv">1&times;</b></span></div>
+        <p class="yr">years out: <b id="yrs">0</b></p>
+        <input type="range" min="0" max="100" value="18" id="years" aria-label="years into the future">
+      </div>
+
+      <p>Early on the two lines sit almost on top of each other, and the straight-line forecaster looks reasonable — even right. That is the trap. The divergence is slow, then sudden. It is why the people most fluent in the present consistently miss the hinge: they are not stupid, they are <em>linear</em>, in a domain that is exponential. Anything that becomes software inherits that curve.</p>
+      <p class="pull">Slow, then sudden.<br><span class="accent">Linear minds, exponential world.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The next prediction</p></div>
+      <h2>His prophecy is the machines</h2>
+      <p class="lede">Which brings us to the prediction Saylor now makes, in almost every interview, and that sounds today exactly as outlandish as a computer-in-a-book did in 1983: that the heaviest users of bitcoin will not be people. They will be the AIs.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="180" cy="120" r="34" stroke="#1D1D20" stroke-width="2"/>
+            <path d="M180,98 C172,108 172,132 180,142 M180,98 C188,108 188,132 180,142 M150,120 L210,120" stroke="#1D1D20" stroke-width="1"/>
+            <path data-calli="4.5" d="M214,120 L420,120" stroke="#B5662A"/>
+            <circle cx="430" cy="120" r="9" stroke="#B5662A" stroke-width="2"/>
+            <path d="M430,129 L430,150 L444,150 L444,140 M430,143 L440,143" stroke="#B5662A" stroke-width="2"/>
+            <rect x="476" y="86" width="84" height="68" rx="6" stroke="#1D1D20" stroke-width="2"/>
+            <circle cx="500" cy="110" r="4" stroke="#1D1D20" stroke-width="1.4"/><circle cx="536" cy="110" r="4" stroke="#1D1D20" stroke-width="1.4"/>
+            <path d="M500,132 L536,132" stroke="#1D1D20" stroke-width="1.4"/>
+            <line x1="518" y1="86" x2="518" y2="72" stroke="#1D1D20" stroke-width="1.4"/><circle cx="518" cy="68" r="3" stroke="#1D1D20" stroke-width="1.4"/>
+            <g data-hatch="476,120,84,34,58,6" stroke="#2F5D70" stroke-width="0.5" opacity="0.2"></g>
+          </g>
+          <text class="chartlabel" x="180" y="178" text-anchor="middle">a person</text>
+          <text class="chartlabel a" x="518" y="200" text-anchor="middle">a machine &mdash; holds the key, can't hold an account</text>
+        </svg>
+        <p class="figcap">Fig. 2 — what an autonomous agent can do, and what it cannot.</p>
+      </div>
+
+      <p>Strip the science-fiction tone and the logic is sober. An autonomous software agent — already negotiating, hiring, and paying other software for compute and data — cannot open a bank account, pass an identity check, or wait for a wire to clear on Monday. It can hold a key. It needs money that settles in seconds, around the clock, across every border, with no human to authorise each step — neutral, final, programmatic. That is the argument made in full on <a href="longclock-timechain.html">The Timechain</a>; here the point is the shape of the claim. And notice what is different this time: in 1983 the accelerant was code that humans wrote and adopted. In the machine economy, the adopters <em>are</em> the code — tireless, multiplying, transacting millions of times a second. If software once made a prediction arrive in a decade instead of a century, a prediction whose very users are software could compound faster still. The same curve, with the throttle held down by the machines themselves.</p>
+      <p class="pull">In 1983, code carried the future to us.<br><span class="accent">This time, the code is the customer.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">The honest brakes</p></div>
+      <h2>Different messenger, same message</h2>
+      <p class="lede">It would be easy, and wrong, to wave all this away on style. Jobs was a magnetic showman who could make a product launch feel like scripture. Saylor reads more like a rocket scientist crossed with a preacher — systems and certainties, not stagecraft.</p>
+      <p>But the charisma was never the thing the two men share. The likeness is underneath: the reader's path to conviction, the eye for an inevitability a decade before the room, and the willingness to bet the whole enterprise on it — Jobs again and again at Apple, Saylor binding a public company to a single asset. Strip away the turtleneck and the slogans and you can actually judge the substance more cleanly, not less. And the substance must be judged honestly: Jobs shipped products that people chose, one purchase at a time; Saylor has made a leveraged, time-bound wager whose <em>vehicle</em> can fail even if bitcoin ultimately wins — the distinction drawn in full on <a href="longclock-saylor.html">The Steward's Wager</a>. The machine-money prophecy may prove early, partial, or wrong, the way bold predictions often are. This is a lens for seeing a kind of person, not a coronation of one.</p>
+      <p class="pull">Judge the wager, not the showmanship —<br><span class="accent">and not its absence, either.</span></p>
+
+      <p class="signoff">The visionary is rarely the best forecaster of <em>when</em>. He is the one who reads the destination early, says it out loud while it still sounds absurd, and then spends himself bending the world toward it — and lets the code do the compounding.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">The full portrait of the man — <a href="longclock-saylor.html">The Steward's Wager</a> — and the deepest version of the machine argument: <a href="longclock-timechain.html">The Timechain</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the sourcing.</b> Jobs's 1983 remarks (books and "no intermediary"; the "computer in a book... with a radio link"; software sold over phone lines) are from his talk at the International Design Conference in Aspen, widely transcribed and recorded. Saylor's dime-a-book reading and his frequent argument that AI agents will transact in bitcoin are from his own public statements and interviews; he has also publicly echoed Apple's "Think Different" ("Be Different"). The Jobs–Saylor parallel, and the claim that code accelerates such predictions, are this essay's interpretation, not established fact. The compounding chart is illustrative of exponential vs linear growth, not a forecast.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock — the core argument</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">— the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">— the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-incumbents.html"><span class="pn">III</span><span class="pt">The Old Guard's Dilemma</span><span class="pd">— what the banks stand to lose</span></a>
+      <a class="pr" href="longclock-doorways.html"><span class="pn">IV</span><span class="pt">Ten Thousand Doorways</span><span class="pd">— how it actually spreads</span></a>
+      <a class="pr" href="longclock-timechain.html"><span class="pn">V</span><span class="pt">The Timechain</span><span class="pd">— the clock the machines will trust</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="8" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
+
+<script src="feature.js"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+  function L(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+  function clip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){var t0=0,t1=1,dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(var i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{var r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+  document.querySelectorAll('[data-hatch]').forEach(function(g){var a=g.dataset.hatch.split(',').map(Number),x=a[0],y=a[1],w=a[2],h=a[3],ang=a[4],gap=a[5];var rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(var i=-steps;i<steps;i++){var off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,s=clip(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(s)g.appendChild(L(s[0].toFixed(1),s[1].toFixed(1),s[2].toFixed(1),s[3].toFixed(1)));}});
+  document.querySelectorAll('[data-rays]').forEach(function(g){var a=g.dataset.rays.split(',').map(Number),cx=a[0],cy=a[1],r0=a[2],r1=a[3],n=a[4];for(var i=0;i<n;i++){var t=i/n*2*Math.PI;g.appendChild(L((cx+Math.cos(t)*r0).toFixed(1),(cy+Math.sin(t)*r0).toFixed(1),(cx+Math.cos(t)*r1).toFixed(1),(cy+Math.sin(t)*r1).toFixed(1)));}});
+
+  // compounding: linear vs exponential
+  var x0=56,x1=648,yB=206,yT=34, W=x1-x0, H=yB-yT;
+  var lin=document.getElementById('lin'), exp=document.getElementById('exp');
+  var ld=document.getElementById('lindot'), ed=document.getElementById('expdot');
+  var linv=document.getElementById('linv'), expv=document.getElementById('expv'), yrs=document.getElementById('yrs');
+  var slider=document.getElementById('years');
+  var K=Math.log(60)/100; // exp reaches ~60x at t=100
+  function linF(t){ return 1 + (6-1)*(t/100); }      // linear: ~6x over the span
+  function expF(t){ return Math.exp(K*t); }            // exponential: ~60x
+  function y(v){ var maxv=expF(100); return yB - (Math.log(v)/Math.log(maxv))*H; } // log-scaled axis so both fit
+  function draw(){
+    var t=+slider.value; yrs.textContent=t;
+    var lp='', ep='', N=Math.max(1,Math.round(t));
+    for(var i=0;i<=N;i++){ var tt=i*t/N; var lx=x0+(tt/100)*W; lp+=lx.toFixed(1)+','+y(linF(tt)).toFixed(1)+' '; ep+=lx.toFixed(1)+','+y(expF(tt)).toFixed(1)+' '; }
+    lin.setAttribute('points',lp.trim()); exp.setAttribute('points',ep.trim());
+    var cx=x0+(t/100)*W;
+    ld.setAttribute('cx',cx.toFixed(1)); ld.setAttribute('cy',y(linF(t)).toFixed(1));
+    ed.setAttribute('cx',cx.toFixed(1)); ed.setAttribute('cy',y(expF(t)).toFixed(1));
+    linv.innerHTML=linF(t).toFixed(1)+'&times;'; expv.innerHTML=Math.round(expF(t))+'&times;';
+  }
+  slider.addEventListener('input',draw); draw();
+})();
+</script>
+</body>
+</html>
