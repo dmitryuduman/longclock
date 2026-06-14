@@ -59,30 +59,23 @@ p{ margin:0 0 1.5rem; }
 @media(max-width:560px){ .compare{ grid-template-columns:1fr; } .compare .c:first-child{ border-right:0; border-bottom:1px solid var(--rule); } }
 
 .close{ margin-top:3.4rem; }
-/* the ending hook — the last beat of each piece. A soft, contrast-aware panel
-   whose edges melt seamlessly into the page (no hard borders), so it glows
-   rather than boxes. Works on both light and dark skins via color-mix(--ink). */
+/* the ending hook — quiet grey italic (as before), now lifted on a subtle,
+   contrast-aware "step-up": a faint panel whose edges melt into the page so it
+   reads as a gentle raise rather than a box. Works on light + dark skins. */
 .signoff{
-  font-family:var(--font-display); font-style:italic; font-weight:500;
-  font-size:clamp(1.42rem,3.8vw,1.78rem); line-height:1.46; letter-spacing:-0.004em;
-  color:var(--ink); text-wrap:pretty;
-  max-width:calc(var(--measure,40rem) + 3.5rem);
-  margin:3.4rem auto; padding:2.7rem clamp(1.6rem,5vw,3rem) 2.8rem;
-  position:relative; isolation:isolate;
+  font-family:var(--font-display); font-style:italic; font-weight:400;
+  font-size:clamp(1.16rem,2.5vw,1.32rem); line-height:1.52; color:var(--ink-soft);
+  text-wrap:pretty; max-width:var(--measure,40rem); margin:2.9rem auto;
+  padding:1.6rem clamp(1.3rem,4vw,2rem); position:relative; border-radius:14px;
   background:
-    radial-gradient(135% 150% at 50% 42%,
-      color-mix(in srgb, var(--ink) 10%, transparent) 0%,
-      color-mix(in srgb, var(--ink) 5%, transparent) 46%,
-      transparent 75%);
-}
-.signoff::before{
-  content:""; position:absolute; z-index:-1; left:50%; top:0; transform:translateX(-50%);
-  width:4.5rem; height:2px; border-radius:2px;
-  background:linear-gradient(to right, transparent, var(--accent), transparent);
+    radial-gradient(118% 135% at 50% 50%,
+      color-mix(in srgb, var(--ink) 5%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 2.5%, transparent) 52%,
+      transparent 84%);
 }
 .signoff .accent{ color:var(--accent); font-style:normal; }
 @supports not (background: color-mix(in srgb, red, blue)){
-  .signoff{ background:none; border-top:2px solid var(--accent-line); padding-top:1.9rem; }
+  .signoff{ background:none; border-top:1px solid var(--rule); padding-top:1.6rem; border-radius:0; }
 }
 
 .readmore{ display:inline-block; font-family:var(--font-mono); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent2,var(--accent)); text-decoration:none; border:1px solid var(--accent-line); border-radius:2px; padding:0.7rem 1.15rem; transition:background .25s ease, color .25s ease, border-color .25s ease; }
