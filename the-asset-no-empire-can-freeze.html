@@ -69,6 +69,20 @@
   }
   .readmore:hover{ background:var(--oxblood); color:var(--paper); border-color:var(--oxblood); }
 
+  /* ---------- contents / chapters ---------- */
+  .contents{ margin:2.8rem auto 0; max-width:var(--measure); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:0.4rem 0 0.6rem; }
+  .toclabel{ font-family:"IBM Plex Mono",monospace; font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin:0.9rem 0 0.5rem; }
+  .tocrow{ display:grid; grid-template-columns:2.4rem 1fr; gap:0.15rem 1rem; align-items:baseline; padding:0.9rem 0; border-bottom:1px dotted var(--rule); text-decoration:none; color:inherit; }
+  .tocrow:last-child{ border-bottom:0; }
+  .tocnum{ font-family:"Fraunces",serif; font-weight:600; font-size:1.1rem; color:var(--gold); line-height:1; }
+  .toctitle{ font-family:"Fraunces",serif; font-weight:600; font-size:1.22rem; color:var(--ink); line-height:1.18; transition:color .2s ease; }
+  a.tocrow:hover .toctitle{ color:var(--oxblood); }
+  a.tocrow:hover .toctitle::after{ content:"\00a0\2192"; color:var(--gold-line); }
+  .tocdesc{ grid-column:2; font-size:1.0rem; color:var(--ink-soft); line-height:1.45; margin-top:0.1rem; }
+  .tochere{ grid-column:2; font-family:"IBM Plex Mono",monospace; font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--oxblood); margin-top:0.35rem; }
+  .tocrow.current{ background:rgba(199,161,75,0.06); margin:0 -0.8rem; padding-left:0.8rem; padding-right:0.8rem; border-left:2px solid var(--gold); }
+  @media(max-width:520px){ .tocrow{ grid-template-columns:1.7rem 1fr; } }
+
   .canvas{
     max-width:48rem;
     margin:0 auto;
@@ -392,6 +406,33 @@
     </div>
   </header>
 
+  <div class="col reveal">
+    <nav class="contents" aria-label="Contents">
+      <p class="toclabel">The Long Clock &mdash; in four parts</p>
+      <div class="tocrow current">
+        <span class="tocnum">I</span>
+        <span class="toctitle">The Asset No Empire Can Freeze</span>
+        <span class="tocdesc">The reserve-power case, for the reader who knows geopolitics cold and finds Bitcoin unconvincing.</span>
+        <span class="tochere">You are reading this</span>
+      </div>
+      <a class="tocrow" href="longclock-saylor.html">
+        <span class="tocnum">II</span>
+        <span class="toctitle">The Steward's Wager</span>
+        <span class="tocdesc">Michael Saylor, past the caricature &mdash; the man willing it into being, and the silent IPO underway.</span>
+      </a>
+      <a class="tocrow" href="longclock-incumbents.html">
+        <span class="tocnum">III</span>
+        <span class="toctitle">The Old Guard's Dilemma</span>
+        <span class="tocdesc">What the banks stand to lose &mdash; and why the cannier ones are already joining.</span>
+      </a>
+      <a class="tocrow" href="longclock-doorways.html">
+        <span class="tocnum">IV</span>
+        <span class="toctitle">Ten Thousand Doorways</span>
+        <span class="tocdesc">How it actually wins &mdash; not by conquest, but by being useful everywhere at once.</span>
+      </a>
+    </nav>
+  </div>
+
   <div class="div" id="div1"></div>
 
   <main>
@@ -645,9 +686,10 @@
 
       <div class="continue" style="margin-top:2.6rem; padding-top:1.7rem; border-top:1px solid var(--rule);">
         <p class="eyebrow" style="margin-bottom:0.7rem;">Read on</p>
-        <p style="margin:0 0 1.3rem; font-size:1.08rem; line-height:1.6; color:var(--ink-soft);">The case carries into two companion essays — the man who has staked a public company and the rest of his life on it, and the institutions quietly fighting the shift.</p>
-        <a href="longclock-saylor.html" class="readmore">The Steward's Wager&nbsp;&rarr;</a>
-        <a href="longclock-incumbents.html" class="readmore" style="margin-left:0.6rem;">The Old Guard's Dilemma&nbsp;&rarr;</a>
+        <p style="margin:0 0 1.3rem; font-size:1.08rem; line-height:1.6; color:var(--ink-soft);">The case carries into three companion essays — the man staking everything on it, the institutions quietly fighting the shift, and how it wins regardless.</p>
+        <a href="longclock-saylor.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">The Steward's Wager&nbsp;&rarr;</a>
+        <a href="longclock-incumbents.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">The Old Guard's Dilemma&nbsp;&rarr;</a>
+        <a href="longclock-doorways.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">Ten Thousand Doorways&nbsp;&rarr;</a>
       </div>
 
       <p class="foot"><b>On the figures.</b> Reserve and gold data reflect official-sector reporting through early-to-mid 2026 (World Gold Council, IMF, US Treasury). US Bitcoin holdings are largely forfeiture-based and ring-fenced under the March 2025 executive order; the Russian reserve freeze figure is the widely cited ~$300bn from 2022. Numbers move — the argument doesn't depend on the third decimal place.</p>
