@@ -25,7 +25,7 @@
   body{
     background-image:
       radial-gradient(80% 64% at 30% -4%, rgba(201,161,74,0.14), transparent 62%),
-      radial-gradient(46% 42% at 83% 24%, rgba(236,231,218,0.12), transparent 60%),
+      radial-gradient(55% 50% at 94% 4%, rgba(236,231,218,0.05), transparent 60%),
       radial-gradient(140% 112% at 50% 122%, rgba(0,0,0,0.55), transparent 60%);
     background-size:cover; background-repeat:no-repeat;
   }
@@ -38,12 +38,12 @@
 
   /* hero orrery motif */
   header{ overflow:visible; }
-  .heroart{ position:absolute; top:5.5rem; right:-2rem; width:min(50vw,380px); aspect-ratio:1; z-index:0; opacity:0; transition:opacity 2.2s ease 0.25s; pointer-events:none; }
-  .heroart.in{ opacity:0.55; }
+  .heroart{ position:absolute; top:15rem; right:-2rem; width:min(48vw,360px); aspect-ratio:1; z-index:0; opacity:0; transition:opacity 2.2s ease 0.25s; pointer-events:none; }
+  .heroart.in{ opacity:0.38; }
   .heroart .portrait{ position:absolute; inset:3%; border-radius:50%; background-image:var(--portrait,none); background-size:cover; background-position:50% 24%;
-    -webkit-mask:radial-gradient(circle at 50% 44%, #000 34%, rgba(0,0,0,0.42) 58%, transparent 76%);
-    mask:radial-gradient(circle at 50% 44%, #000 34%, rgba(0,0,0,0.42) 58%, transparent 76%);
-    filter:grayscale(0.55) sepia(0.28) brightness(1.04) contrast(1.05); }
+    -webkit-mask:radial-gradient(circle at 50% 44%, #000 36%, rgba(0,0,0,0.45) 60%, transparent 78%);
+    mask:radial-gradient(circle at 50% 44%, #000 36%, rgba(0,0,0,0.45) 60%, transparent 78%);
+    filter:grayscale(0.5) sepia(0.28) brightness(1.0) contrast(1.05); }
   .spin-slow{ transform-origin:200px 200px; animation:spin 150s linear infinite; }
   .spin-rev{ transform-origin:200px 200px; animation:spin 95s linear infinite reverse; }
   @keyframes spin{ to{ transform:rotate(360deg); } }
