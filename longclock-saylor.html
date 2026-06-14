@@ -12,34 +12,90 @@
 <link rel="stylesheet" href="feature.css">
 <style>
   :root{
-    --bg:#15161A;
-    --ink:#ECE7DA;
-    --ink-soft:#9F998B;
-    --accent:#C9A14A;
-    --accent-line:#5A4E33;
-    --accent2:#C9A14A;
+    --bg:#14151A; --ink:#ECE7DA; --ink-soft:#9F998B;
+    --accent:#C9A14A; --accent-line:#5A4E33; --accent2:#C9A14A;
     --rule:rgba(236,231,218,0.16);
     --font-display:"Fraunces", Georgia, serif;
     --font-body:"Spectral", Georgia, serif;
     --font-mono:"IBM Plex Mono", ui-monospace, monospace;
-    --measure:40rem;
-    --grain-opacity:0.08;
-    --grain-blend:overlay;
+    --measure:40rem; --grain-opacity:0.08; --grain-blend:overlay;
   }
-  html,body{ background-color:#15161A; color:#ECE7DA; }
-  /* a thin engraved rule under the masthead — a monument's base line */
-  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 18%, var(--accent-line) 82%, transparent); margin:1.6rem 0 0; opacity:0.8; }
+  html,body{ background-color:#14151A; color:#ECE7DA; }
+  .canvas{ max-width:54rem; }
+  .col{ max-width:40rem; }
   h1{ text-shadow:0 1px 0 rgba(0,0,0,0.4); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 18%, var(--accent-line) 82%, transparent); margin:1.6rem 0 0; opacity:0.85; }
+
+  /* hero orrery motif */
+  header{ overflow:visible; }
+  .heroart{ position:absolute; top:-3rem; right:-3.5rem; width:min(62vw,440px); aspect-ratio:1; z-index:0; opacity:0; transition:opacity 2.2s ease 0.25s; pointer-events:none; }
+  .heroart.in{ opacity:0.42; }
+  .heroart svg{ width:100%; height:100%; display:block; }
+  .spin-slow{ transform-origin:200px 200px; animation:spin 150s linear infinite; }
+  .spin-rev{ transform-origin:200px 200px; animation:spin 95s linear infinite reverse; }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  header .col{ position:relative; z-index:1; }
+
+  /* full-width figures */
+  .fig{ max-width:48rem; margin:3rem auto 1rem; }
+  .fig svg{ width:100%; height:auto; display:block; }
+  .figcap{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:40rem; }
+
+  /* scarcity stat band */
+  .statband{ max-width:46rem; margin:3.4rem auto; text-align:center; padding:2.4rem 1rem; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+  .statband .num{ font-family:var(--font-display); font-weight:600; font-size:clamp(3.2rem,12vw,6.2rem); line-height:0.95; color:var(--accent); letter-spacing:-0.02em; display:block; }
+  .statband .lab{ display:block; font-family:var(--font-body); color:var(--ink-soft); font-size:1.08rem; margin-top:0.7rem; }
+  .supplybar{ height:8px; background:rgba(236,231,218,0.12); border-radius:4px; margin:2rem auto 0.9rem; max-width:30rem; overflow:hidden; }
+  .supplybar .held{ height:100%; width:0; background:var(--accent); transition:width 1.8s cubic-bezier(.2,.7,.3,1); }
+  .statband.in .supplybar .held{ width:4%; }
+  .statband .sub{ font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em; color:var(--ink-soft); }
+  .statband .sub b{ color:var(--ink); font-weight:500; }
+
+  /* draw-in chart strokes (triggered by the shared .reveal -> .in) */
+  .draw{ stroke-dasharray:var(--len); stroke-dashoffset:var(--len); transition:stroke-dashoffset 1.8s ease; }
+  .reveal.in .draw{ stroke-dashoffset:0; }
+  .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
+  .chartlabel.g{ fill:var(--accent); }
+
+  /* time horizon marker */
+  @keyframes pulse{ 0%,100%{ opacity:0.5; } 50%{ opacity:1; } }
+  .pulse{ animation:pulse 2.6s ease-in-out infinite; }
+
+  @media(prefers-reduced-motion:reduce){
+    .spin-slow,.spin-rev,.pulse{ animation:none; }
+    .heroart{ transition:none; }
+    .draw{ stroke-dashoffset:0 !important; }
+  }
 </style>
 </head>
 <body>
 <div class="canvas">
 
-  <header class="col">
-    <p class="eyebrow"><a href="longclock-a.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; A portrait, for the skeptic</p>
-    <h1>The Steward's Wager</h1>
-    <div class="crown"></div>
-    <p class="deck">Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence — told more honestly than either his fans or his critics tend to.</p>
+  <header>
+    <div class="heroart" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <g class="spin-slow" fill="none" stroke="#C9A14A">
+          <circle cx="200" cy="200" r="192" stroke-width="0.6" opacity="0.45"/>
+          <circle cx="200" cy="200" r="188" stroke-width="3" stroke-dasharray="0.8 9" opacity="0.5"/>
+          <circle cx="200" cy="200" r="150" stroke-width="0.5" opacity="0.4"/>
+          <circle cx="200" cy="200" r="70" stroke-width="0.5" opacity="0.4"/>
+          <line x1="200" y1="200" x2="200" y2="20" stroke-width="0.8" opacity="0.6"/>
+          <circle cx="200" cy="50" r="3.2" fill="#C9A14A" stroke="none" opacity="0.8"/>
+        </g>
+        <g class="spin-rev" fill="none" stroke="#C9A14A">
+          <circle cx="200" cy="200" r="110" stroke-width="0.5" opacity="0.4"/>
+          <line x1="200" y1="200" x2="96" y2="200" stroke-width="0.6" opacity="0.5"/>
+          <circle cx="310" cy="200" r="2.6" fill="#C9A14A" stroke="none" opacity="0.8"/>
+        </g>
+        <circle cx="200" cy="200" r="3.5" fill="#C9A14A"/>
+      </svg>
+    </div>
+    <div class="col">
+      <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; A portrait, for the skeptic</p>
+      <h1>The Steward's Wager</h1>
+      <div class="crown"></div>
+      <p class="deck">Set aside the affect. Underneath the man the headlines call a zealot is a wager about money, time, and what one person can will into permanence — told more honestly than either his fans or his critics tend to.</p>
+    </div>
   </header>
 
   <main>
@@ -52,6 +108,13 @@
       <p class="pull">The affect is not the argument.</p>
       <p>And there is a reason the manner reads as extreme. He is doing something genuinely unusual — staking a public company, and the rest of his life, on a single asset and a single idea. From the outside that looks like mania. Whether it <em>is</em> mania or conviction depends entirely on whether the idea is sound — which is precisely the question the caricature lets you skip.</p>
     </section>
+
+    <div class="statband reveal">
+      <span class="num" data-count="21000000">21,000,000</span>
+      <span class="lab">coins that will ever exist — and not one more</span>
+      <div class="supplybar"><div class="held"></div></div>
+      <p class="sub"><b><span data-count="845000">845,000</span></b> already held by Strategy, and never to be sold &mdash; roughly <b>4%</b> of all there will ever be</p>
+    </div>
 
     <div class="div"><span class="mark">&#9670;</span></div>
 
@@ -82,9 +145,23 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Permanent collateral</p></div>
       <h2>A hoard meant never to move</h2>
       <p class="lede">Strategy — the company once called MicroStrategy — holds on the order of 845,000 of the 21 million bitcoin that will ever exist, and means never to sell. <strong>That is the part the trader's mind cannot parse.</strong></p>
-      <p>He is not building a position to trade out of. He is establishing bitcoin as permanent reserve collateral — the bedrock a future financial order can be built on, the way the old one rested on gold and government debt. And here the asset's strangest property matters: when gold's price rises, the world mines more of it, and the new supply caps the gain. Bitcoin has no such valve — issuance is fixed regardless of price. So moving coins into a vault that never opens is not just symbolic. In a thing that can never make more of itself, it is a real, permanent tightening for everyone holding the rest.</p>
+      <p>He is not building a position to trade out of. He is establishing bitcoin as permanent reserve collateral — the bedrock a future financial order can be built on, the way the old one rested on gold and government debt. And here the asset's strangest property matters: when gold's price rises, the world mines more of it, and the new supply caps the gain. Bitcoin has no such valve — issuance is fixed regardless of price.</p>
+
+      <div class="fig reveal">
+        <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+          <line x1="60" y1="250" x2="650" y2="250" stroke="#5A4E33" stroke-width="1"/>
+          <line x1="60" y1="40" x2="60" y2="250" stroke="#5A4E33" stroke-width="1"/>
+          <path class="draw" style="--len:760" d="M60,238 C220,232 360,210 470,150 C540,112 600,80 645,58" fill="none" stroke="#C9A14A" stroke-width="2.5" stroke-linecap="round"/>
+          <path class="draw" style="--len:620" d="M60,244 L150,244 L150,246 L320,246 L320,247 L645,247" fill="none" stroke="#ECE7DA" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+          <text class="chartlabel g" x="500" y="46">Gold &mdash; price summons new supply</text>
+          <text class="chartlabel" x="430" y="266">Bitcoin &mdash; issuance fixed, then nothing</text>
+          <text class="chartlabel" x="60" y="284">rising price / demand &rarr;</text>
+        </svg>
+        <p class="figcap">Fig. 1 — every other reserve answers a high price by making more of itself. Bitcoin cannot.</p>
+      </div>
+
       <p class="pull">In an asset that can't make more of itself,<br><span class="accent">taking coins off the table is a gift to everyone still holding it.</span></p>
-      <p>It also disarms the "what goes up must come down" reflex. In every normal market a high price summons new supply and sows its own reversal; bitcoin severs that link. That does not repeal volatility or guarantee a price — but it means the mean-reversion instinct a lifetime of markets trains into you is the wrong tool here. Saylor's entire posture only makes sense once you stop seeing a man trading an asset and start seeing one trying to anchor one.</p>
+      <p>So moving coins into a vault that never opens is not just symbolic; it is a real, permanent tightening for everyone holding the rest. It also disarms the "what goes up must come down" reflex: in every normal market a high price summons new supply and sows its own reversal, and bitcoin severs that link. That does not repeal volatility or guarantee a price — but it means the mean-reversion instinct a lifetime of markets trains into you is the wrong tool here. Saylor's entire posture only makes sense once you stop seeing a man trading an asset and start seeing one trying to anchor one.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -93,10 +170,32 @@
       <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The quiet reserve</p></div>
       <h2>A strategic reserve no government had to build</h2>
       <p class="lede">There is a deeper reason to prefer this to a government stockpile — and it is already underway. Between the spot bitcoin ETFs and Strategy's qualification for the S&amp;P 500, bitcoin is migrating into the most ordinary corner of Western savings, the index fund, without anyone having to legislate it.</p>
+
+      <div class="fig reveal">
+        <svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg">
+          <circle class="draw" style="--len:760" cx="340" cy="175" r="120" fill="none" stroke="#5A4E33" stroke-width="1.2" stroke-dasharray="760"/>
+          <g class="spin-slow" style="transform-origin:340px 175px;">
+            <circle cx="460" cy="175" r="4" fill="#C9A14A"/>
+          </g>
+          <g fill="none" stroke="#C9A14A" stroke-width="1.4" opacity="0.85">
+            <path d="M392,84 A120 120 0 0 1 430 250" marker-end="url(#a)"/>
+            <path d="M250,250 A120 120 0 0 1 250 100" marker-end="url(#a)"/>
+            <path d="M288,90 A120 120 0 0 1 392 84" marker-end="url(#a)"/>
+          </g>
+          <defs><marker id="a" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#C9A14A" stroke-width="1.6"/></marker></defs>
+          <text class="chartlabel" x="340" y="72" text-anchor="middle">capital raised</text>
+          <text class="chartlabel g" x="475" y="178" text-anchor="start">bitcoin bought</text>
+          <text class="chartlabel" x="340" y="312" text-anchor="middle">premium &amp; demand</text>
+          <text class="chartlabel" x="205" y="178" text-anchor="end">raise again</text>
+          <text x="340" y="170" text-anchor="middle" class="chartlabel" style="letter-spacing:0.12em;">BITCOIN</text>
+          <text x="340" y="190" text-anchor="middle" fill="#7CCB8A" font-family="Fraunces,serif" font-size="17" font-weight="600">per share &#8593;</text>
+        </svg>
+        <p class="figcap">Fig. 2 — the flywheel: each turn aims to leave every share owning more bitcoin than before.</p>
+      </div>
+
       <p>The ETFs — BlackRock's IBIT chief among them — already let any brokerage account hold bitcoin as easily as a stock. And should Strategy enter the S&amp;P 500, for which it now qualifies, every passive dollar tracking the index would come to own a sliver of its bitcoin; the more bitcoin rose, the larger that sliver would grow, automatically, in tens of millions of retirement accounts that never made a decision about it. Between the two, the country ends up with something that behaves like a strategic bitcoin reserve — only it is held by its citizens, not its state.</p>
       <p class="pull">A reserve held by the people, not the government —<br><span class="accent">and none of them had to vote for it.</span></p>
-      <p>And it threads a needle. Strategy's dollar-paying preferreds keep manufacturing demand for dollars even as the enterprise swallows bitcoin — the old money stays useful while the harder money moves onshore. The state never has to custody the coins, or be trusted not to weaponise them; the position is diffused across millions of holders, which is precisely the neutrality the whole argument prizes. A government reserve concentrates the un-seizable asset in the one set of hands the rest of the world has reason to fear. This does the opposite.</p>
-      <p>None of it is assured: it leans on Strategy actually entering the index, on the fair-value accounting that made it eligible holding up, and on bitcoin behaving over time the way its holders expect — none of which is guaranteed, and the very leverage that makes the vehicle potent is what would make that path bumpy. But notice the shape of the claim even so. The most durable way to move a nation's savings into a neutral reserve may not be a vault in a capital at all. It may be a line item that quietly turns up in everyone's portfolio — democratised by the index, not decreed by the state.</p>
+      <p>And it threads a needle. Strategy's dollar-paying preferreds keep manufacturing demand for dollars even as the enterprise swallows bitcoin — the old money stays useful while the harder money moves onshore. The state never has to custody the coins, or be trusted not to weaponise them; the position is diffused across millions of holders, which is precisely the neutrality the whole argument prizes. A government reserve concentrates the un-seizable asset in the one set of hands the rest of the world has reason to fear. This does the opposite. None of it is assured — it leans on Strategy actually entering the index, on the accounting that made it eligible holding up, and on bitcoin behaving the way its holders expect — but the shape of the claim is striking even so: the most durable way to move a nation's savings into a neutral reserve may not be a vault in a capital at all. It may be a line item that quietly turns up in everyone's portfolio.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -120,6 +219,24 @@
       <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">The horizon</p></div>
       <h2>He is not pricing a quarter</h2>
       <p class="lede">Everything about him only resolves at the right time scale. He is underwriting something closer to a hundred-year outcome — and arranging even his own death to serve it.</p>
+
+      <div class="fig reveal">
+        <svg viewBox="0 0 680 130" xmlns="http://www.w3.org/2000/svg">
+          <line class="draw" style="--len:600" x1="60" y1="70" x2="620" y2="70" stroke="#5A4E33" stroke-width="1.4"/>
+          <g fill="#9F998B">
+            <circle cx="90" cy="70" r="3"/><circle cx="250" cy="70" r="3"/><circle cx="430" cy="70" r="3"/>
+          </g>
+          <circle class="pulse" cx="610" cy="70" r="6.5" fill="#C9A14A"/>
+          <g class="chartlabel" text-anchor="middle">
+            <text x="90" y="98">10 yrs</text><text x="250" y="98">100</text><text x="430" y="98">1,000</text>
+            <text x="610" y="98" fill="#C9A14A">10,000</text>
+          </g>
+          <text class="chartlabel" x="90" y="46">the quarter</text>
+          <text class="chartlabel g" x="610" y="46" text-anchor="end">the clock he is judged on</text>
+        </svg>
+        <p class="figcap">Fig. 3 — gold's case rests on a five-thousand-year record. He asks only that its rival be weighed on the same clock.</p>
+      </div>
+
       <p>What he describes is not a trade but a kind of stewardship: bitcoin as a harder, un-debasable money; capitalism as the ladder used to climb there, not the destination; and at the top, a world with a firmer floor beneath people not yet born. Share that hope or find it grandiose — either way it is the opposite of short-term.</p>
       <p class="pull">He is not predicting the outcome.<br><span class="accent">He is willing it to be.</span></p>
       <p>This is the part the caricature exists to hide. A man who has closed his own exits, who plans to burn his keys so that his death quietly tightens the supply for strangers a century from now, is either deluded or he means it at a depth most people never bring to anything. You do not have to decide which in order to grant the obvious: this is not the behaviour of a huckster, and it is not a trade. It is someone trying to will a thing into permanence.</p>
@@ -131,11 +248,37 @@
         <p class="s">If Saylor is the believer, the banks are the resistance — what the old guard stands to lose, and why the cannier ones are already joining: <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>.</p>
       </div>
 
-      <p class="foot"><b>On the figures.</b> Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026 and has qualified for, though not yet been added to, the S&amp;P 500. The intention to destroy his keys at death, described as a proportional donation to all holders, is Saylor's own, stated in 2025. The reading-and-schooling details are from his own accounts. Numbers move; the argument does not turn on the decimal.</p>
+      <p class="foot"><b>On the figures.</b> Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026 and has qualified for, though not yet been added to, the S&amp;P 500. The intention to destroy his keys at death, described as a proportional donation to all holders, is Saylor's own, stated in 2025. The charts are illustrative of the mechanisms, not to scale. Numbers move; the argument does not turn on the decimal.</p>
     </section>
 
   </main>
 </div>
 <script src="feature.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var art = document.querySelector('.heroart');
+  if(art){ requestAnimationFrame(function(){ art.classList.add('in'); }); }
+  if(art && !reduce){
+    window.addEventListener('scroll', function(){ var y=window.scrollY||window.pageYOffset||0; art.style.transform='translateY('+(y*0.07)+'px)'; }, {passive:true});
+  }
+  function fmt(n){ return n.toLocaleString('en-US'); }
+  var counts = [].slice.call(document.querySelectorAll('[data-count]'));
+  if(reduce || !('IntersectionObserver' in window)){
+    counts.forEach(function(el){ el.textContent = fmt(+el.getAttribute('data-count')); });
+  } else {
+    counts.forEach(function(el){ el.textContent = '0'; });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(!en.isIntersecting) return;
+        var el = en.target, target = +el.getAttribute('data-count'), dur = 1500, t0 = null;
+        function step(ts){ if(!t0) t0 = ts; var p = Math.min((ts - t0)/dur, 1); var e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(Math.round(target * e)); if(p < 1) requestAnimationFrame(step); }
+        requestAnimationFrame(step); io.unobserve(el);
+      });
+    }, { threshold:0.45 });
+    counts.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
 </body>
 </html>
