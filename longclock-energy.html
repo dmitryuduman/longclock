@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>The Energy Theory of Money — why "intangible" misreads it</title>
+<meta name="description" content="The deepest objection to digital money — that it is just numbers, conjured from nothing — gets the truth exactly backwards. Its scarcity is anchored to the one thing that cannot be faked: real energy, really spent.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css">
+<style>
+  :root{
+    --bg:#15110D; --ink:#ECE3D2; --ink-soft:#9A8E78;
+    --accent:#D2733A; --accent-line:#5A3F28; --accent2:#D2733A;
+    --rule:rgba(236,227,210,0.15);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.11; --grain-blend:soft-light;
+  }
+  html,body{ background-color:#15110D; color:#ECE3D2; }
+  body{
+    background-image:
+      radial-gradient(80% 60% at 50% 4%, rgba(210,115,58,0.10), transparent 55%),
+      radial-gradient(120% 100% at 50% 116%, rgba(0,0,0,0.5), transparent 58%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='1100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.006' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    background-attachment:fixed; background-position:center; background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.5rem 0 0; }
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
+
+  .forge{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:10px; padding:20px 18px; background:rgba(255,255,255,0.03); text-align:center; }
+  .forge svg{ width:100%; max-width:360px; height:auto; display:block; margin:0 auto; }
+  .heatbar{ height:12px; border-radius:6px; background:rgba(236,227,210,0.1); overflow:hidden; margin:14px auto 8px; max-width:24rem; }
+  .heatbar > i{ display:block; height:100%; width:0; background:var(--accent); transition:width .1s linear; }
+  .forge button{ font-family:var(--font-mono); font-size:0.82rem; letter-spacing:0.04em; padding:9px 20px; border:1px solid var(--accent); border-radius:7px; background:transparent; color:var(--accent); cursor:pointer; }
+  .forge button:hover{ background:var(--accent); color:#15110D; }
+  .forge .tally{ font-family:var(--font-mono); font-size:0.8rem; color:var(--ink-soft); margin-top:10px; }
+  .forge .tally b{ color:var(--accent); }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; The Library &nbsp;·&nbsp; What backs it</p>
+    <h1>The Energy Theory of Money</h1>
+    <div class="crown"></div>
+    <p class="deck">The sharpest objection to digital money is that it is "just numbers" — conjured from nothing, backed by nothing. It is a good objection aimed at the wrong target. The scarcity is anchored to the one thing in the universe that cannot be faked or printed: real energy, really spent.</p>
+    <p class="listen" title="Audio narration — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M232,210 L232,150 C232,120 280,108 312,108 L368,108 C400,108 448,120 448,150 L448,210" stroke="#ECE3D2" stroke-width="2.4"/>
+          <ellipse cx="340" cy="150" rx="58" ry="20" stroke="#ECE3D2" stroke-width="2"/>
+          <g data-rays="340,150,22,52,12" stroke="#D2733A" stroke-width="1.4"></g>
+          <path d="M322,150 C326,132 318,122 330,108 C336,124 348,128 342,150 M352,150 C356,136 350,128 360,118 C364,130 372,134 366,150" stroke="#D2733A" stroke-width="1.6"/>
+          <line x1="210" y1="210" x2="470" y2="210" stroke="#ECE3D2" stroke-width="2"/>
+          <g data-hatch="232,196,216,14,58,6" stroke="#ECE3D2" stroke-width="0.5" opacity="0.25"></g>
+        </g>
+      </svg>
+      <p class="figcap">Hard money has always come out of a forge. This one's fuel is electricity.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The objection, taken seriously</p></div>
+      <h2>"It's just numbers" — and so is everything else</h2>
+      <p class="opening lede">The complaint feels devastating: this money has no substance, nothing you can hold, just entries in a database. But pause on it, and the same charge convicts every modern currency — and misses what actually makes a thing hard to counterfeit.</p>
+      <p>The dollars in your account are also just numbers in a database; the difference people reach for is that dollars are "backed by the government." But backed by what, exactly? By the government's ability to make more of them at will — which is the opposite of backing. What gives any money its monetary value is not the material it is made of but how hard it is to produce another unit. Gold is valued because finding and refining it costs enormous effort. The question to ask of digital money, then, is not "can I touch it?" but "what does it cost to make one more?" Answer that, and the "just numbers" objection dissolves.</p>
+      <p class="pull">The question was never "can I hold it?"<br><span class="accent">It is "what does it cost to make one more?"</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The anchor</p></div>
+      <h2>Scarcity welded to the laws of physics</h2>
+      <p class="lede">Bitcoin's supply is not protected by a promise or a vault. It is protected by the cost of electricity.</p>
+      <p>New coins are issued only to those who expend real, measurable computing work — vast amounts of energy, converted to heat, burned in the physical world to earn the right to add the next block. You cannot shortcut it, charm it, or legislate it away; the only way to produce more is to spend more energy, and the system automatically makes the task harder whenever too many try. This is the same logic that made gold sound — value anchored to unavoidable cost — but expressed in the most universal currency there is. A government can print a number. It cannot print a joule. Whatever else it is, money whose creation is gated by thermodynamics is the furthest thing from "conjured from nothing."</p>
+      <p class="pull">A government can print a number.<br><span class="accent">It cannot print a joule.</span></p>
+
+      <div class="forge reveal">
+        <svg viewBox="0 0 360 170" id="forgeart" aria-hidden="true">
+          <g class="ink" fill="none" stroke="#ECE3D2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M120,150 L120,96 C120,72 160,62 180,62 C200,62 240,72 240,96 L240,150" stroke-width="2.2"/>
+            <ellipse cx="180" cy="96" rx="44" ry="15" stroke-width="1.8"/>
+            <line x1="104" y1="150" x2="256" y2="150" stroke-width="2"/>
+          </g>
+          <g id="flames" fill="none" stroke="#D2733A" stroke-width="1.6" stroke-linecap="round" opacity="0"></g>
+          <g id="newcoin" opacity="0"><circle cx="180" cy="92" r="16" fill="none" stroke="#D2733A" stroke-width="2.2"/><text x="180" y="98" text-anchor="middle" fill="#D2733A" font-family="Fraunces,serif" font-size="15" font-weight="600">1</text></g>
+        </svg>
+        <div class="heatbar"><i id="heat"></i></div>
+        <button id="stoke">Stoke the forge</button>
+        <p class="tally">work spent: <b id="joules">0</b> &middot; coins minted: <b id="minted">0</b></p>
+      </div>
+
+      <p>Tap the bellows and watch the only way coins are made: not by decree, but by feeding in work until the heat is high enough to forge exactly one. Stop feeding it and nothing appears. There is no other door.</p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Why it matters now</p></div>
+      <h2>The one digital thing that stays expensive</h2>
+      <p class="lede">We are entering an age where the cost of producing almost anything digital — text, images, voices, code — is collapsing to nothing. Against that tide, a digital object that remains costly to create is a profound anomaly.</p>
+      <p>Everything software touches gets cheaper to copy until it is effectively free. That is wonderful for art and knowledge and ruinous for anything meant to store value, because value requires scarcity and scarcity requires cost. By tying issuance to energy, bitcoin builds the one digital thing that refuses to get cheaper — a deliberate, unbypassable expense in a world racing toward frictionless abundance. The critics are right that most digital things are conjured from nothing. They have simply mistaken the one exception for the rule. It is not weightless. It is the heaviest digital object ever made — and it had to be, to do money's job.</p>
+      <p class="pull">Not the lightest digital thing.<br><span class="accent">The heaviest one ever built.</span></p>
+
+      <p class="signoff">Money has always been a way of storing effort until you need it back. This is the first money that proves the effort was real, in joules, to anyone who cares to check.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">Why that unfakeable cost makes it a clock the machines will trust — <a href="longclock-timechain.html">The Timechain</a> — and the levy it escapes: <a href="longclock-debasement.html">The Debasement Tax</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the claims.</b> That bitcoin issuance requires proof of work — measurable energy expenditure — and that mining difficulty adjusts to keep new supply on schedule are technical facts of the protocol. The "energy theory of money" framing (value tracking cost of production) is a long-standing economic argument applied here; the falling marginal cost of AI-generated digital goods is the observable trend it is set against. The forge is an illustration, not a literal model of mining.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock — the core argument</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">— the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">— the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-incumbents.html"><span class="pn">III</span><span class="pt">The Old Guard's Dilemma</span><span class="pd">— what the banks stand to lose</span></a>
+      <a class="pr" href="longclock-doorways.html"><span class="pn">IV</span><span class="pt">Ten Thousand Doorways</span><span class="pd">— how it actually spreads</span></a>
+      <a class="pr" href="longclock-timechain.html"><span class="pn">V</span><span class="pt">The Timechain</span><span class="pd">— the clock the machines will trust</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="17" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
+
+<script src="feature.js"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+  function L(x1,y1,x2,y2){var l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+  function clip(x1,y1,x2,y2,xmin,ymin,xmax,ymax){var t0=0,t1=1,dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(var i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{var r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+  document.querySelectorAll('[data-hatch]').forEach(function(g){var a=g.dataset.hatch.split(',').map(Number),x=a[0],y=a[1],w=a[2],h=a[3],ang=a[4],gap=a[5];var rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(var i=-steps;i<steps;i++){var off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,s=clip(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(s)g.appendChild(L(s[0].toFixed(1),s[1].toFixed(1),s[2].toFixed(1),s[3].toFixed(1)));}});
+  document.querySelectorAll('[data-rays]').forEach(function(g){var a=g.dataset.rays.split(',').map(Number),cx=a[0],cy=a[1],r0=a[2],r1=a[3],n=a[4];for(var i=0;i<n;i++){var t=i/n*2*Math.PI;g.appendChild(L((cx+Math.cos(t)*r0).toFixed(1),(cy+Math.sin(t)*r0).toFixed(1),(cx+Math.cos(t)*r1).toFixed(1),(cy+Math.sin(t)*r1).toFixed(1)));}});
+
+  var heat=0,joules=0,minted=0,decay;
+  var hb=document.getElementById('heat'), jl=document.getElementById('joules'), mt=document.getElementById('minted');
+  var flames=document.getElementById('flames'), coin=document.getElementById('newcoin');
+  for(var k=0;k<3;k++){ var p=document.createElementNS(NS,'path'); var x=160+k*20; p.setAttribute('d','M'+x+',92 C'+(x+4)+',74 '+(x-4)+',64 '+(x+6)+',50'); flames.appendChild(p); }
+  function refresh(){ hb.style.width=heat+'%'; flames.setAttribute('opacity', Math.min(1,heat/60).toFixed(2)); }
+  document.getElementById('stoke').addEventListener('click',function(){
+    heat=Math.min(100,heat+22); joules+=22; jl.textContent=joules; refresh();
+    clearTimeout(decay); decay=setTimeout(function cool(){ heat=Math.max(0,heat-4); refresh(); if(heat>0) decay=setTimeout(cool,140); },700);
+    if(heat>=100){ minted++; mt.textContent=minted; heat=0; coin.setAttribute('opacity','1');
+      coin.style.transition='none'; coin.setAttribute('transform','translate(0,0)');
+      setTimeout(function(){ coin.style.transition='opacity 1.1s ease, transform 1.1s ease'; coin.setAttribute('opacity','0'); coin.setAttribute('transform','translate(0,-34)'); },40);
+      setTimeout(refresh,60);
+    }
+  });
+  refresh();
+})();
+</script>
+</body>
+</html>
