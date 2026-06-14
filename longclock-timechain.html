@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>The Timechain — the last honest clock in a world learning to forge everything</title>
+<meta name="description" content="As the cost of forging anything falls to zero, the value of what cannot be forged climbs without limit. Bitcoin's deepest layer was never money — it is a clock no power on earth can rewind.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css">
+<style>
+  :root{
+    --bg:#E7E4DA; --ink:#1C1E22; --ink-soft:#6A6B64;
+    --accent:#9A7B3F; --accent-line:#B9A36E; --accent2:#3E6B62;
+    --rule:rgba(28,30,34,0.18);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.05; --grain-blend:multiply;
+  }
+  html,body{ background-color:#E7E4DA; color:#1C1E22; }
+  main a{ color:var(--accent2); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent2); }
+  /* horological double-rule under the masthead */
+  .dial-rule{ border-top:1.5px solid var(--accent-line); border-bottom:1px solid var(--accent-line); height:0; margin:1.4rem 0 0; }
+  .div{ display:block; margin:4rem auto; max-width:min(100%,300px); text-align:center; }
+  .div .mark{ color:var(--accent); font-size:1.1rem; }
+
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+
+  /* the live tick */
+  .tickwrap{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:10px; padding:18px 16px 14px; background:rgba(255,255,255,0.25); }
+  .tickwrap svg{ width:100%; height:auto; display:block; }
+  .tickbar{ display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:12px; font-family:var(--font-mono); font-size:0.8rem; }
+  .tickbar .lab{ color:var(--ink-soft); }
+  .tickbar .h{ color:var(--accent2); }
+  .tickbar .f{ color:var(--accent); }
+  .ghostbtn{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.05em; padding:6px 12px; border:1px solid var(--rule); border-radius:7px; background:transparent; color:var(--ink); cursor:pointer; }
+  .ghostbtn:hover{ border-color:var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; What the machines will trust</p>
+    <h1>The Timechain</h1>
+    <div class="dial-rule"></div>
+    <p class="deck">As the cost of forging anything falls toward zero, the value of what cannot be forged climbs without limit. Bitcoin's deepest layer was never money. It is a clock — the one record of what happened, and when, that no power on earth can rewind.</p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g id="flood"></g>
+        <g class="ink" fill="none" stroke-linecap="round">
+          <circle cx="340" cy="156" r="84" stroke="#1C1E22" stroke-width="2.6"/>
+          <circle cx="340" cy="156" r="84" stroke="#9A7B3F" stroke-width="0.7" opacity="0.7"/>
+          <circle cx="340" cy="156" r="72" stroke="#1C1E22" stroke-width="0.8" opacity="0.5"/>
+          <g id="ticks" stroke="#1C1E22" stroke-width="1.6"></g>
+          <g data-hatch="268,156,72,84,58,4.4" stroke="#1C1E22" stroke-width="0.5" opacity="0.28"></g>
+          <line x1="340" y1="156" x2="340" y2="104" stroke="#1C1E22" stroke-width="2.8"/>
+          <line x1="340" y1="156" x2="388" y2="176" stroke="#1C1E22" stroke-width="2.2"/>
+          <circle cx="340" cy="156" r="4.5" fill="#1C1E22" stroke="none"/>
+        </g>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">When anything can be faked</p></div>
+      <h2>The end of seeing is believing</h2>
+      <p class="opening lede">For all of history, making a convincing copy of reality — a document, a voice, a face — took skill, time, and cost. Intelligence that is cheap and synthetic erases all three at once.</p>
+      <p>Text, images, video, recorded voices, entire identities can now be manufactured to order, indistinguishable from the real thing, at the price of a little electricity. The first casualty is not any single fact but the ground beneath all of them: a shared, trustworthy sense of what is real and when it happened. When every artifact can be fabricated after the fact — and back-dated, and mass-produced — the past itself becomes contestable. A civilization can quietly lose the thread of its own record.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g id="forgeflood"></g>
+        </svg>
+        <p class="figcap">Fig. 1 — one true face, copied until the original is impossible to pick out.</p>
+      </div>
+
+      <p class="pull">When every record can be forged,<br><span class="accent">the only scarce thing is a record that can't.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">Proof of time</p></div>
+      <h2>One honest clock</h2>
+      <p class="lede">Strip Bitcoin to its foundation and you do not find money first. You find a timestamp. Satoshi's own name for it, in the earliest code, was the <em>timechain</em>.</p>
+      <p>Roughly every ten minutes the network seals a new block onto an unbroken chain — each one cryptographically bound to the last, each one stamped with the work it cost to make. To rewrite a single past entry you would have to redo all the energy spent since, an amount that grows every day and rests not on any institution's promise but on physics. This is the one thing a synthetic intelligence cannot fabricate: real work, really done, in the real world. And anyone can anchor a document, a measurement, a moment to this chain and prove, forever after, that it existed by then. In a world drowning in plausible fakes, provable existence-at-a-time stops being a technicality and becomes a foundation.</p>
+
+      <div class="tickwrap reveal">
+        <svg viewBox="0 0 680 120" id="chain" aria-hidden="true"></svg>
+        <div class="tickbar">
+          <span class="lab">honest blocks: <b class="h" id="height">0</b></span>
+          <span class="lab">forgeries loosed on the world: <b class="f" id="fakes">0</b></span>
+          <button class="ghostbtn" id="tickbtn" onclick="toggleTick()">pause</button>
+          <button class="ghostbtn" onclick="fastTick()">speed up time</button>
+        </div>
+        <p class="figcap" style="text-align:left;margin-top:10px">The chain adds one block at a steady beat and never rewrites a past one. Meanwhile the forgeries multiply. One keeps time; the other only makes noise.</p>
+      </div>
+
+      <p class="pull">Secured not by trust —<br><span class="accent">which can be imitated — but by energy, which cannot.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Settlement without a handshake</p></div>
+      <h2>What the agents will hold</h2>
+      <p class="lede">The same decade that taught software to forge has also set it loose to act — autonomous agents that negotiate, hire, and pay, at machine speed and machine scale.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g class="ink" fill="none" stroke="#1C1E22" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M250,196 C240,170 244,150 252,140 C246,128 250,116 262,116 C260,104 270,98 280,102 C282,92 296,92 300,102 C312,98 322,108 318,120 C330,122 334,136 326,146 C334,158 330,176 316,182 C300,190 270,198 250,196 Z" stroke-width="2.2"/>
+            <g data-hatch="252,150,70,44,55,4.6" stroke="#1C1E22" stroke-width="0.5" opacity="0.3"></g>
+            <line x1="312" y1="112" x2="430" y2="86" stroke-width="2"/>
+            <circle cx="446" cy="80" r="16" stroke-width="2.2"/>
+            <line x1="446" y1="96" x2="446" y2="150" stroke-width="2.2"/>
+            <path d="M446,150 L432,150 L432,140" stroke-width="2.2"/>
+            <path d="M446,134 L436,134 L436,126" stroke-width="2.2"/>
+            <g data-rays="446,80,22,30,8" stroke="#9A7B3F" stroke-width="1"></g>
+          </g>
+        </svg>
+        <p class="figcap">Fig. 2 — a key is not granted. It is held.</p>
+      </div>
+
+      <p>An AI agent cannot open a bank account, pass an identity check, or wait three days for a wire to clear. It can, however, hold a key. A money that settles finally, permissionlessly, and programmatically — without asking anyone's leave and without a counterparty who can renege — is not a luxury for a machine economy; it is the only kind that fits its shape. Whether bitcoin or some other rail ends up filling that role is genuinely open: stablecoins and closed corporate networks are competing hard for it. But the need is unmistakable, and only one neutral, bearer settlement layer exists that no single company or state can switch off.</p>
+      <p class="pull">A bank account is a permission.<br><span class="accent">A key is a possession.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The counterweight</p></div>
+      <h2>The one number that holds</h2>
+      <p class="lede">Point intelligence at almost anything and its marginal cost falls toward zero. Cognition, content, code, even companionship — abundant, endless, nearly free.</p>
+
+      <div class="netfig reveal">
+        <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g id="dupcoins"></g>
+          <g class="ink" fill="none" stroke-linecap="round">
+            <circle cx="340" cy="115" r="62" stroke="#1C1E22" stroke-width="2.6"/>
+            <circle cx="340" cy="115" r="62" stroke="#9A7B3F" stroke-width="0.7" opacity="0.7"/>
+            <circle cx="340" cy="115" r="52" stroke="#1C1E22" stroke-width="0.7" opacity="0.45"/>
+            <g data-hatch="290,90,40,50,60,5" stroke="#1C1E22" stroke-width="0.5" opacity="0.22"></g>
+          </g>
+          <text x="340" y="108" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="34" fill="#1C1E22">21</text>
+          <text x="340" y="138" text-anchor="middle" font-family="var(--font-mono)" font-size="11" letter-spacing="0.12em" fill="#6A6B64">MILLION</text>
+        </svg>
+        <p class="figcap">Fig. 3 — everything around it can be copied. The number at the centre cannot.</p>
+      </div>
+
+      <p>In that flood, the rare inversion is value. The single quantity this technology cannot inflate is the one written into Bitcoin's foundation and defended by every tick of the clock since: twenty-one million, and not one more. Absolute scarcity was a curiosity in a world of merely expensive things. In a world where everything reproducible races toward free, it becomes the anchor the whole system leans on. The clock keeps one honest time; the cap keeps one honest quantity. Together they are a fixed point in an age busy making everything else negotiable.</p>
+
+      <p class="signoff">Every other record can now be rewritten, every other voice synthesized, every other supply expanded at will. The long clock keeps ticking — one honest beat, one fixed sum — and that, in the end, may turn out to be the most valuable thing in the world.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">Why one man is racing to pull this future forward — <a href="longclock-saylor.html">The Steward's Wager</a> — how it actually spreads, <a href="longclock-doorways.html">Ten Thousand Doorways</a> — and the institutions it unsettles, <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>. The case begins at <a href="index.html">the essay</a>.</p>
+      </div>
+
+      <p class="foot"><b>On this piece.</b> The timestamping and proof-of-work claims here are well established and uncontroversial. The "money of machines" is a thesis about where incentives point, not a forecast — other rails are competing for that role, and the autonomous-agent economy is still young. "Timechain" is Satoshi's own term, used in Bitcoin's earliest code for the chain of timestamped blocks.</p>
+    </section>
+
+  </main>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <filter id="pen" x="-6%" y="-6%" width="112%" height="112%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.017" numOctaves="2" seed="5" result="t"/>
+    <feDisplacementMap in="SourceGraphic" in2="t" scale="2.2"/>
+  </filter>
+</defs></svg>
+
+<script src="feature.js"></script>
+<script>
+const NS="http://www.w3.org/2000/svg";
+const RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.ink').forEach(g=>{ if(!RM) g.setAttribute('filter','url(#pen)'); });
+
+function L(x1,y1,x2,y2){const l=document.createElementNS(NS,'line');l.setAttribute('x1',x1);l.setAttribute('y1',y1);l.setAttribute('x2',x2);l.setAttribute('y2',y2);return l;}
+function clipBox(x1,y1,x2,y2,xmin,ymin,xmax,ymax){let t0=0,t1=1;const dx=x2-x1,dy=y2-y1,p=[-dx,dx,-dy,dy],q=[x1-xmin,xmax-x1,y1-ymin,ymax-y1];for(let i=0;i<4;i++){if(p[i]===0){if(q[i]<0)return null;}else{const r=q[i]/p[i];if(p[i]<0){if(r>t1)return null;if(r>t0)t0=r;}else{if(r<t0)return null;if(r<t1)t1=r;}}}return[x1+t0*dx,y1+t0*dy,x1+t1*dx,y1+t1*dy];}
+document.querySelectorAll('[data-hatch]').forEach(g=>{const[x,y,w,h,ang,gap]=g.dataset.hatch.split(',').map(Number);const rad=ang*Math.PI/180,dx=Math.cos(rad),dy=Math.sin(rad),px=-dy,py=dx,diag=Math.hypot(w,h),steps=Math.ceil(diag/gap)+8;for(let i=-steps;i<steps;i++){const off=i*gap,cx=x+w/2+px*off,cy=y+h/2+py*off,seg=clipBox(cx-dx*diag,cy-dy*diag,cx+dx*diag,cy+dy*diag,x,y,x+w,y+h);if(seg)g.appendChild(L(seg[0].toFixed(1),seg[1].toFixed(1),seg[2].toFixed(1),seg[3].toFixed(1)));}});
+document.querySelectorAll('[data-rays]').forEach(g=>{const[cx,cy,r0,r1,n]=g.dataset.rays.split(',').map(Number);for(let i=0;i<n;i++){const a=i/n*2*Math.PI;g.appendChild(L((cx+Math.cos(a)*r0).toFixed(1),(cy+Math.sin(a)*r0).toFixed(1),(cx+Math.cos(a)*r1).toFixed(1),(cy+Math.sin(a)*r1).toFixed(1)));}});
+
+// clock ticks (hour marks) on the hero dial
+(function(){const t=document.getElementById('ticks');if(!t)return;const cx=340,cy=156;for(let i=0;i<12;i++){const a=i/12*2*Math.PI-Math.PI/2;const r0=i%3===0?70:74,r1=80;t.appendChild(L((cx+Math.cos(a)*r0).toFixed(1),(cy+Math.sin(a)*r0).toFixed(1),(cx+Math.cos(a)*r1).toFixed(1),(cy+Math.sin(a)*r1).toFixed(1)));}})();
+
+// a true face, copied into ghosts (hero flood + Fig.1)
+function face(parent,x,y,s,op,ink){const g=document.createElementNS(NS,'g');g.setAttribute('opacity',op);g.setAttribute('fill','none');g.setAttribute('stroke',ink);g.setAttribute('stroke-width',(1.4*s).toFixed(2));g.setAttribute('stroke-linecap','round');
+  const head=document.createElementNS(NS,'path');head.setAttribute('d',`M${x-14*s},${y} C${x-14*s},${y-20*s} ${x+14*s},${y-20*s} ${x+14*s},${y} C${x+14*s},${y+18*s} ${x-14*s},${y+18*s} ${x-14*s},${y} Z`);g.appendChild(head);
+  g.appendChild(L(x-6*s,y-4*s,x-2*s,y-4*s));g.appendChild(L(x+2*s,y-4*s,x+6*s,y-4*s));
+  const m=document.createElementNS(NS,'path');m.setAttribute('d',`M${x-5*s},${y+7*s} Q${x},${y+11*s} ${x+5*s},${y+7*s}`);m.appendChild;g.appendChild(m);
+  parent.appendChild(g);return g;}
+(function(){const fl=document.getElementById('flood');if(fl){const pts=[[150,150,0.9,0.1],[200,90,0.7,0.08],[120,210,0.8,0.07],[520,120,0.9,0.1],[560,210,0.75,0.08],[470,70,0.6,0.07],[600,150,0.7,0.06],[250,230,0.6,0.06],[430,210,0.7,0.06]];pts.forEach(p=>face(fl,p[0],p[1],p[2],p[3],'#1C1E22'));}})();
+(function(){const ff=document.getElementById('forgeflood');if(!ff)return;
+  // crisp original on the left, dissolving into multiplying ghosts rightward
+  for(let col=0;col<6;col++){const baseX=70+col*108;const op=Math.max(0.12,0.95-col*0.16);const ghosts=Math.min(col,4);
+    for(let k=ghosts;k>=1;k--){face(ff,baseX+k*5,110+k*3,0.95,op*0.25,'#1C1E22');}
+    face(ff,baseX,110,0.95,op,'#1C1E22');
+    if(col>=3){const w=document.createElementNS(NS,'rect');w.setAttribute('x',baseX-22);w.setAttribute('y',86);w.setAttribute('width',44);w.setAttribute('height',54);w.setAttribute('fill','#1C1E22');w.setAttribute('opacity',(0.04*(col-2)).toFixed(2));ff.appendChild(w);}
+  }
+})();
+// duplicating coins around the "21" (Fig.3)
+(function(){const dc=document.getElementById('dupcoins');if(!dc)return;const pts=[[120,90,0.55,0.16],[160,170,0.5,0.12],[90,150,0.45,0.1],[540,95,0.55,0.15],[590,165,0.48,0.11],[500,180,0.4,0.09],[620,120,0.42,0.08],[230,200,0.4,0.08],[450,205,0.42,0.08]];pts.forEach(p=>{const c=document.createElementNS(NS,'circle');c.setAttribute('cx',p[0]);c.setAttribute('cy',p[1]);c.setAttribute('r',(62*p[2]).toFixed(0));c.setAttribute('fill','none');c.setAttribute('stroke','#1C1E22');c.setAttribute('stroke-width','1');c.setAttribute('opacity',p[3]);dc.appendChild(c);});})();
+
+// the live tick
+const chain=document.getElementById('chain');let h=0,fakes=0,running=!RM,interval=1700,fakeBase=42;
+function addBlock(){h++;document.getElementById('height').textContent=h.toLocaleString();
+  const max=7,bw=78,gap=16;const have=chain.querySelectorAll('g.blk');
+  if(have.length>=max){chain.removeChild(have[0]);chain.querySelectorAll('g.blk').forEach((b,i)=>b.setAttribute('transform',`translate(${18+i*(bw+gap)},0)`));}
+  const i=chain.querySelectorAll('g.blk').length;const g=document.createElementNS(NS,'g');g.setAttribute('class','blk');g.setAttribute('transform',`translate(${18+i*(bw+gap)},0)`);
+  const r=document.createElementNS(NS,'rect');r.setAttribute('x',0);r.setAttribute('y',34);r.setAttribute('width',bw);r.setAttribute('height',50);r.setAttribute('rx',3);r.setAttribute('fill','none');r.setAttribute('stroke','#3E6B62');r.setAttribute('stroke-width','1.6');g.appendChild(r);
+  for(let k=0;k<5;k++){const ln=L(8,44+k*8,bw-8,44+k*8);ln.setAttribute('stroke','#3E6B62');ln.setAttribute('stroke-width','0.5');ln.setAttribute('opacity','0.4');g.appendChild(ln);}
+  const t=document.createElementNS(NS,'text');t.setAttribute('x',bw/2);t.setAttribute('y',24);t.setAttribute('text-anchor','middle');t.setAttribute('fill','#9A7B3F');t.setAttribute('font-family','IBM Plex Mono,monospace');t.setAttribute('font-size','11');t.textContent='#'+h;g.appendChild(t);
+  if(i>0){const ln=L(-gap+2,59,0,59);ln.setAttribute('stroke','#3E6B62');ln.setAttribute('stroke-width','1.4');g.appendChild(ln);}
+  chain.appendChild(g);
+}
+function loop(){if(running)addBlock();window._tk=setTimeout(loop,interval);}
+function fakeLoop(){if(running){fakes+=Math.floor(fakeBase+Math.random()*fakeBase);document.getElementById('fakes').textContent=fakes.toLocaleString();}window._fk=setTimeout(fakeLoop,200);}
+function toggleTick(){running=!running;document.getElementById('tickbtn').textContent=running?'pause':'resume';}
+function fastTick(){interval=Math.max(380,interval*0.5);fakeBase=Math.min(400,fakeBase*1.8);}
+addBlock();loop();fakeLoop();
+</script>
+</body>
+</html>
