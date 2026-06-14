@@ -83,6 +83,19 @@
   .tocrow.current{ background:rgba(199,161,75,0.06); margin:0 -0.8rem; padding-left:0.8rem; padding-right:0.8rem; border-left:2px solid var(--gold); }
   @media(max-width:520px){ .tocrow{ grid-template-columns:1.7rem 1fr; } }
 
+  /* collapsible Library */
+  .lib{ max-width:var(--measure); margin:1.2rem auto 0; }
+  .lib > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:0.7rem; padding:1rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+  .lib > summary::-webkit-details-marker{ display:none; }
+  .lib .libcue{ font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); }
+  .lib .libsub{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--ink-soft); }
+  .lib .libchev{ margin-left:auto; color:var(--gold); transition:transform .25s ease; font-size:0.85rem; }
+  .lib[open] > summary{ border-bottom:0; }
+  .lib[open] .libchev{ transform:rotate(180deg); }
+  .lib > summary:hover .libcue{ color:var(--oxblood); }
+  .libinner{ border-bottom:1px solid var(--rule); animation:libdrop .28s ease; }
+  @keyframes libdrop{ from{ opacity:0; transform:translateY(-5px);} to{ opacity:1; transform:none; } }
+
   .canvas{
     max-width:48rem;
     margin:0 auto;
@@ -437,8 +450,9 @@
         <span class="tocdesc">The clock the machines will trust &mdash; why this matters most in an age of forgery.</span>
       </a>
     </nav>
-    <nav class="contents" aria-label="Library" style="margin-top:1.4rem;">
-      <p class="toclabel">The Library &mdash; essays off the main path</p>
+    <details class="lib" id="library">
+      <summary><span class="libcue">Explore the Library</span><span class="libsub">eight short essays off the main path</span><span class="libchev" aria-hidden="true">&#9662;</span></summary>
+      <div class="libinner">
       <a class="tocrow" href="longclock-gold.html">
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">Gold's Long Reign</span>
@@ -479,7 +493,8 @@
         <span class="toctitle">The Quiet Believers</span>
         <span class="tocdesc">Why the most important buying is invisible &mdash; documented flows vs inferred motives.</span>
       </a>
-    </nav>
+      </div>
+    </details>
   </div>
 
   <div class="div" id="div1"></div>
@@ -751,6 +766,9 @@
 <script>
 (function(){
   document.body.classList.add('js');
+
+  var _lib=document.getElementById('library');
+  if(_lib && location.hash==='#library'){ _lib.open=true; setTimeout(function(){ _lib.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
 
   // ---- guilloché generators (epicycloid "spirograph" + wave border) ----
   function spiroPath(R, r, d, turns, cx, cy){

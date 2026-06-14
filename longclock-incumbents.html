@@ -27,6 +27,13 @@
     --grain-blend:multiply;
   }
   html,body{ background-color:#FBE7DA; color:#28211B; }
+  body{
+    background-image:
+      radial-gradient(78% 56% at 20% 6%, rgba(255,255,255,0.45), transparent 60%),
+      radial-gradient(80% 60% at 86% 20%, rgba(122,37,48,0.06), transparent 60%),
+      radial-gradient(120% 100% at 50% 116%, rgba(40,33,27,0.10), transparent 60%);
+    background-size:cover; background-repeat:no-repeat;
+  }
   /* broadsheet double rule */
   .div{ display:block; margin:4rem auto; max-width:min(100%,340px); }
   .div::before, .div::after{ content:""; display:block; width:100%; background:var(--accent-line); }
