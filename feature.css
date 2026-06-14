@@ -59,10 +59,31 @@ p{ margin:0 0 1.5rem; }
 @media(max-width:560px){ .compare{ grid-template-columns:1fr; } .compare .c:first-child{ border-right:0; border-bottom:1px solid var(--rule); } }
 
 .close{ margin-top:3.4rem; }
-/* the ending hook — the last beat of each piece, deliberately prominent and sitting right under the final line */
-.signoff{ font-family:var(--font-display); font-style:italic; font-weight:500; font-size:clamp(1.34rem,3.3vw,1.62rem); line-height:1.42; color:var(--ink); margin-top:2.6rem; padding-top:1.9rem; border-top:2px solid var(--accent-line); position:relative; text-wrap:pretty; }
-.signoff::before{ content:""; position:absolute; top:-2px; left:0; width:3.2rem; height:2px; background:var(--accent); }
+/* the ending hook — the last beat of each piece. A soft, contrast-aware panel
+   whose edges melt seamlessly into the page (no hard borders), so it glows
+   rather than boxes. Works on both light and dark skins via color-mix(--ink). */
+.signoff{
+  font-family:var(--font-display); font-style:italic; font-weight:500;
+  font-size:clamp(1.42rem,3.8vw,1.78rem); line-height:1.46; letter-spacing:-0.004em;
+  color:var(--ink); text-wrap:pretty;
+  max-width:calc(var(--measure,40rem) + 3.5rem);
+  margin:3.4rem auto; padding:2.7rem clamp(1.6rem,5vw,3rem) 2.8rem;
+  position:relative; isolation:isolate;
+  background:
+    radial-gradient(135% 150% at 50% 42%,
+      color-mix(in srgb, var(--ink) 10%, transparent) 0%,
+      color-mix(in srgb, var(--ink) 5%, transparent) 46%,
+      transparent 75%);
+}
+.signoff::before{
+  content:""; position:absolute; z-index:-1; left:50%; top:0; transform:translateX(-50%);
+  width:4.5rem; height:2px; border-radius:2px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+}
 .signoff .accent{ color:var(--accent); font-style:normal; }
+@supports not (background: color-mix(in srgb, red, blue)){
+  .signoff{ background:none; border-top:2px solid var(--accent-line); padding-top:1.9rem; }
+}
 
 .readmore{ display:inline-block; font-family:var(--font-mono); font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent2,var(--accent)); text-decoration:none; border:1px solid var(--accent-line); border-radius:2px; padding:0.7rem 1.15rem; transition:background .25s ease, color .25s ease, border-color .25s ease; }
 .readmore:hover{ background:var(--accent2,var(--accent)); color:var(--bg); border-color:var(--accent2,var(--accent)); }
@@ -144,3 +165,16 @@ html[data-page="longclock-believers.html"]{ --bg:#E4DCE8; }
 
 html[data-page="longclock-saylor-transcript.html"], html[data-page="longclock-saylor-transcript.html"] body{ background-color:#DEE2F0; }
 html[data-page="longclock-saylor-transcript.html"]{ --bg:#DEE2F0; }
+
+/* ── Mobile: never scroll sideways. Clip any element that reaches past the
+   viewport (e.g. the Saylor portrait's negative offset) so the page can't drift
+   horizontally, and keep media/figures inside their column. ── */
+html, body{ overflow-x:hidden; max-width:100%; }
+img, svg, video, canvas{ max-width:100%; }
+.netfig, .forge, .zoom, .doors, .eras, .corrupt, .ledgerwrap, .compare{ max-width:100%; }
+
+/* Saylor portrait — on phones, drop it into the clean gap below the deck so it
+   no longer crosses the text (top of head sits where the neck-base used to). */
+@media(max-width:600px){
+  html[data-page="longclock-saylor.html"] .heroart{ top:23rem; right:-1.25rem; width:min(54vw,300px); }
+}

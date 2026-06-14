@@ -68,10 +68,12 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
 /* ── Review mode — a private annotation layer. Activate by visiting any page with #review (it then persists across the whole site until you press Exit). Normal visitors never see it. Notes live in this browser; use "Copy all notes" to hand them to Claude. ── */
 (function(){
   var FLAG='tlc-review-on', KEY='tlc-review-notes';
+  /* Review window: ON by default so it's visible on every device. Press Exit (or ?noreview) to hide on this device. */
   try{
-    if(/review/i.test(location.hash) || /review/i.test(location.search)) localStorage.setItem(FLAG,'1');
-    if(localStorage.getItem(FLAG)!=='1') return;
-  }catch(e){ return; }
+    if(/noreview/i.test(location.search)) localStorage.setItem(FLAG,'0');
+    else if(/review/i.test(location.hash) || /review/i.test(location.search)) localStorage.setItem(FLAG,'1');
+    if(localStorage.getItem(FLAG)==='0') return;
+  }catch(e){}
   var notes={}; try{ notes=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
   function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(notes)); }catch(e){} }
   var page=(location.pathname.split('/').pop()||'index.html').replace(/[?#].*$/,'')||'index.html';
@@ -125,5 +127,5 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
   function exportText(){ var by={}; Object.keys(notes).forEach(function(k){ var p=k.split('#')[0]; (by[p]=by[p]||[]).push(notes[k]); }); var out='THE LONG CLOCK — REVIEW NOTES — '+new Date().toISOString().slice(0,16).replace('T',' ')+'\n'+Object.keys(notes).length+' notes total\n'; Object.keys(by).sort().forEach(function(p){ out+='\n=== '+p+' ===\n'; by[p].forEach(function(n){ out+='\n• ['+n.snippet+']\n  '+n.note+'\n'; }); }); return out; }
   function fallback(txt){ var ta=document.createElement('textarea'); ta.value=txt; ta.style.cssText='position:fixed;left:8px;top:8px;width:92vw;height:62vh;z-index:9999'; document.body.appendChild(ta); ta.focus(); ta.select(); try{document.execCommand('copy');}catch(e){} toast('Select-all + copy this, then paste to Claude'); setTimeout(function(){ ta.remove(); }, 9000); }
   bar.querySelector('.cp').addEventListener('click', function(){ if(!Object.keys(notes).length){ toast('No notes yet'); return; } var txt=exportText(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ toast('All notes copied — paste them to Claude'); }, function(){ fallback(txt); }); } else fallback(txt); });
-  bar.querySelector('.ex').addEventListener('click', function(){ try{ localStorage.removeItem(FLAG); }catch(e){} if(location.hash) history.replaceState(null,'',location.pathname+location.search); location.reload(); });
+  bar.querySelector('.ex').addEventListener('click', function(){ try{ localStorage.setItem(FLAG,'0'); }catch(e){} if(location.hash) history.replaceState(null,'',location.pathname+location.search); location.reload(); });
 })();
