@@ -23,9 +23,8 @@
   html,body{ background-color:#0B1022; color:#E9ECF7; }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
-  /* faint glow behind the masthead */
   header{ position:relative; }
-  header::before{ content:""; position:absolute; top:-6rem; left:50%; width:34rem; height:22rem; transform:translateX(-50%); background:radial-gradient(closest-side, rgba(90,209,230,0.12), transparent 70%); pointer-events:none; z-index:0; }
+  header::before{ content:""; position:absolute; top:-6rem; left:50%; width:34rem; height:22rem; transform:translateX(-50%); background:radial-gradient(closest-side, rgba(90,209,230,0.10), transparent 70%); pointer-events:none; z-index:0; }
   header .col, header .netfig{ position:relative; z-index:1; }
   .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.6rem 0 0; }
 
@@ -33,22 +32,15 @@
   .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
   .figcap{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:40rem; text-align:center; }
 
-  @keyframes ignite{ from{ opacity:0; transform:scale(.35);} to{ opacity:1; transform:scale(1);} }
-  .node{ transform-box:fill-box; transform-origin:center; opacity:0; }
-  .reveal.in .node{ animation:ignite .7s cubic-bezier(.2,.7,.3,1) forwards; }
-  .edge{ stroke:var(--accent); stroke-width:0.8; opacity:0.5; stroke-dasharray:340; stroke-dashoffset:340; transition:stroke-dashoffset 1.4s ease; }
-  .reveal.in .edge{ stroke-dashoffset:0; }
-  .halo{ fill:var(--accent); opacity:0.16; }
-  .core{ fill:var(--accent); }
-  .step{ fill:rgba(90,209,230,0.10); stroke:var(--accent); stroke-width:1; }
-  .riser{ stroke:var(--accent); stroke-width:1.4; fill:none; stroke-dasharray:520; stroke-dashoffset:520; transition:stroke-dashoffset 1.6s ease; }
-  .reveal.in .riser{ stroke-dashoffset:0; }
+  /* warm human light turning on, as adoption spreads */
+  .light{ opacity:0; }
+  .reveal.in .light{ animation:lightup 1.2s ease forwards; }
+  @keyframes lightup{ from{ opacity:0; } to{ opacity:1; } }
   .glyph{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; fill:var(--ink-soft); }
   .glyph.a{ fill:var(--accent); }
 
   @media (prefers-reduced-motion: reduce){
-    .node{ opacity:1; animation:none; }
-    .edge,.riser{ stroke-dashoffset:0; transition:none; }
+    .light{ opacity:1 !important; animation:none !important; }
     header::before{ display:none; }
   }
 </style>
@@ -66,35 +58,32 @@
 
     <div class="netfig reveal">
       <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <g>
-          <line class="edge" style="transition-delay:.2s" x1="70" y1="170" x2="180" y2="150"/>
-          <line class="edge" style="transition-delay:.3s" x1="180" y1="150" x2="140" y2="70"/>
-          <line class="edge" style="transition-delay:.4s" x1="140" y1="70" x2="260" y2="110"/>
-          <line class="edge" style="transition-delay:.5s" x1="260" y1="110" x2="330" y2="55"/>
-          <line class="edge" style="transition-delay:.6s" x1="330" y1="55" x2="420" y2="120"/>
-          <line class="edge" style="transition-delay:.5s" x1="260" y1="110" x2="340" y2="180"/>
-          <line class="edge" style="transition-delay:.7s" x1="420" y1="120" x2="470" y2="60"/>
-          <line class="edge" style="transition-delay:.8s" x1="470" y1="60" x2="560" y2="110"/>
-          <line class="edge" style="transition-delay:.9s" x1="560" y1="110" x2="620" y2="175"/>
-          <line class="edge" style="transition-delay:.7s" x1="420" y1="120" x2="430" y2="200"/>
-          <line class="edge" style="transition-delay:.8s" x1="430" y1="200" x2="510" y2="205"/>
-          <line class="edge" style="transition-delay:.9s" x1="510" y1="205" x2="620" y2="175"/>
-          <line class="edge" style="transition-delay:.4s" x1="180" y1="150" x2="200" y2="210"/>
-          <line class="edge" style="transition-delay:.6s" x1="340" y1="180" x2="430" y2="200"/>
+        <line x1="20" y1="212" x2="660" y2="212" stroke="#27365F" stroke-width="1"/>
+        <!-- a dark, closed door -->
+        <path d="M70,212 L70,170 A17 17 0 0 1 104,170 L104,212" fill="none" stroke="#5AD1E6" stroke-width="1.1" opacity="0.45"/>
+        <!-- a lit door -->
+        <polygon class="light" style="animation-delay:.2s" points="146,212 184,212 200,240 130,240" fill="#E9B877" opacity="0.13"/>
+        <path d="M146,212 L146,152 A19 19 0 0 1 184,152 L184,212" fill="#0B1022" stroke="#5AD1E6" stroke-width="1.3"/>
+        <path class="light" style="animation-delay:.2s" d="M152,212 L152,156 A13 13 0 0 1 178,156 L178,212 Z" fill="#E9B877" opacity="0.5"/>
+        <!-- the central, bright door with a figure stepping toward it -->
+        <ellipse class="light" style="animation-delay:.5s" cx="320" cy="150" rx="66" ry="86" fill="#E9B877" opacity="0.12"/>
+        <polygon class="light" style="animation-delay:.5s" points="290,212 350,212 376,248 264,248" fill="#E9B877" opacity="0.15"/>
+        <path d="M290,212 L290,122 A30 30 0 0 1 350,122 L350,212" fill="#0B1022" stroke="#5AD1E6" stroke-width="1.5"/>
+        <path class="light" style="animation-delay:.5s" d="M298,212 L298,128 A22 22 0 0 1 342,128 L342,212 Z" fill="#E9B877" opacity="0.55"/>
+        <g class="light" style="animation-delay:.8s">
+          <circle cx="322" cy="150" r="5" fill="#0B1022"/>
+          <path d="M313,210 Q322,158 331,210 Z" fill="#0B1022"/>
         </g>
-        <g class="node" style="animation-delay:.05s"><circle class="halo" cx="70" cy="170" r="9"/><circle class="core" cx="70" cy="170" r="3"/></g>
-        <g class="node" style="animation-delay:.18s"><circle class="halo" cx="140" cy="70" r="9"/><circle class="core" cx="140" cy="70" r="3"/></g>
-        <g class="node" style="animation-delay:.30s"><circle class="halo" cx="180" cy="150" r="10"/><circle class="core" cx="180" cy="150" r="3.4"/></g>
-        <g class="node" style="animation-delay:.42s"><circle class="halo" cx="200" cy="210" r="8"/><circle class="core" cx="200" cy="210" r="2.6"/></g>
-        <g class="node" style="animation-delay:.46s"><circle class="halo" cx="260" cy="110" r="10"/><circle class="core" cx="260" cy="110" r="3.4"/></g>
-        <g class="node" style="animation-delay:.58s"><circle class="halo" cx="330" cy="55" r="9"/><circle class="core" cx="330" cy="55" r="3"/></g>
-        <g class="node" style="animation-delay:.62s"><circle class="halo" cx="340" cy="180" r="9"/><circle class="core" cx="340" cy="180" r="3"/></g>
-        <g class="node" style="animation-delay:.72s"><circle class="halo" cx="420" cy="120" r="11"/><circle class="core" cx="420" cy="120" r="3.6"/></g>
-        <g class="node" style="animation-delay:.80s"><circle class="halo" cx="470" cy="60" r="9"/><circle class="core" cx="470" cy="60" r="3"/></g>
-        <g class="node" style="animation-delay:.86s"><circle class="halo" cx="430" cy="200" r="8"/><circle class="core" cx="430" cy="200" r="2.6"/></g>
-        <g class="node" style="animation-delay:.92s"><circle class="halo" cx="560" cy="110" r="10"/><circle class="core" cx="560" cy="110" r="3.2"/></g>
-        <g class="node" style="animation-delay:.98s"><circle class="halo" cx="510" cy="205" r="8"/><circle class="core" cx="510" cy="205" r="2.6"/></g>
-        <g class="node" style="animation-delay:1.05s"><circle class="halo" cx="620" cy="175" r="9"/><circle class="core" cx="620" cy="175" r="3"/></g>
+        <!-- a lit door -->
+        <polygon class="light" style="animation-delay:.65s" points="436,212 478,212 492,238 422,238" fill="#E9B877" opacity="0.12"/>
+        <path d="M436,212 L436,148 A21 21 0 0 1 478,148 L478,212" fill="#0B1022" stroke="#5AD1E6" stroke-width="1.3"/>
+        <path class="light" style="animation-delay:.65s" d="M442,212 L442,152 A15 15 0 0 1 472,152 L472,212 Z" fill="#E9B877" opacity="0.5"/>
+        <!-- a dark, closed door -->
+        <path d="M524,212 L524,172 A16 16 0 0 1 556,172 L556,212" fill="none" stroke="#5AD1E6" stroke-width="1.1" opacity="0.45"/>
+        <!-- a small lit door, just turning on -->
+        <polygon class="light" style="animation-delay:.95s" points="592,212 622,212 632,232 582,232" fill="#E9B877" opacity="0.12"/>
+        <path d="M592,212 L592,180 A15 15 0 0 1 622,180 L622,212" fill="#0B1022" stroke="#5AD1E6" stroke-width="1.1"/>
+        <path class="light" style="animation-delay:.95s" d="M597,212 L597,183 A10 10 0 0 1 617,183 L617,212 Z" fill="#E9B877" opacity="0.5"/>
       </svg>
     </div>
   </header>
@@ -117,39 +106,29 @@
       <p class="lede">It needs no campaign. It spreads because, in ten thousand unrelated niches, a particular person finds it solves a particular problem in their particular reality.</p>
 
       <div class="netfig reveal">
-        <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g>
-            <line class="edge" style="transition-delay:.6s" x1="90" y1="90" x2="200" y2="60"/>
-            <line class="edge" style="transition-delay:.8s" x1="200" y1="60" x2="330" y2="100"/>
-            <line class="edge" style="transition-delay:1s" x1="330" y1="100" x2="470" y2="70"/>
-            <line class="edge" style="transition-delay:1.2s" x1="470" y1="70" x2="600" y2="110"/>
-            <line class="edge" style="transition-delay:.9s" x1="150" y1="200" x2="300" y2="180"/>
-            <line class="edge" style="transition-delay:1.1s" x1="300" y1="180" x2="430" y2="210"/>
-            <line class="edge" style="transition-delay:1.3s" x1="430" y1="210" x2="560" y2="190"/>
-            <line class="edge" style="transition-delay:1s" x1="330" y1="100" x2="300" y2="180"/>
+        <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- a crowd of people; some have found their reason and are lit, others not yet -->
+          <g stroke="#5AD1E6" stroke-width="1" fill="none" opacity="0.5">
+            <g><circle cx="95" cy="178" r="3"/><path d="M89,198 Q95,184 101,198 Z"/></g>
+            <g><circle cx="180" cy="150" r="3"/><path d="M174,170 Q180,156 186,170 Z"/></g>
+            <g><circle cx="262" cy="196" r="3"/><path d="M256,216 Q262,202 268,216 Z"/></g>
+            <g><circle cx="350" cy="156" r="3"/><path d="M344,176 Q350,162 356,176 Z"/></g>
+            <g><circle cx="430" cy="200" r="3"/><path d="M424,220 Q430,206 436,220 Z"/></g>
+            <g><circle cx="512" cy="150" r="3"/><path d="M506,170 Q512,156 518,170 Z"/></g>
+            <g><circle cx="596" cy="194" r="3"/><path d="M590,214 Q596,200 602,214 Z"/></g>
           </g>
-          <g class="dots">
-            <g class="node" style="animation-delay:.05s"><circle class="halo" cx="90" cy="90" r="7"/><circle class="core" cx="90" cy="90" r="2.6"/></g>
-            <g class="node" style="animation-delay:.12s"><circle class="core" cx="150" cy="200" r="2.4"/></g>
-            <g class="node" style="animation-delay:.2s"><circle class="core" cx="200" cy="60" r="2.6"/></g>
-            <g class="node" style="animation-delay:.28s"><circle class="core" cx="120" cy="140" r="2.2"/></g>
-            <g class="node" style="animation-delay:.36s"><circle class="halo" cx="300" cy="180" r="7"/><circle class="core" cx="300" cy="180" r="2.8"/></g>
-            <g class="node" style="animation-delay:.44s"><circle class="core" cx="330" cy="100" r="2.6"/></g>
-            <g class="node" style="animation-delay:.52s"><circle class="core" cx="250" cy="130" r="2.2"/></g>
-            <g class="node" style="animation-delay:.6s"><circle class="core" cx="390" cy="140" r="2.4"/></g>
-            <g class="node" style="animation-delay:.68s"><circle class="halo" cx="470" cy="70" r="7"/><circle class="core" cx="470" cy="70" r="2.8"/></g>
-            <g class="node" style="animation-delay:.76s"><circle class="core" cx="430" cy="210" r="2.6"/></g>
-            <g class="node" style="animation-delay:.84s"><circle class="core" cx="520" cy="130" r="2.2"/></g>
-            <g class="node" style="animation-delay:.92s"><circle class="core" cx="560" cy="190" r="2.4"/></g>
-            <g class="node" style="animation-delay:1s"><circle class="halo" cx="600" cy="110" r="7"/><circle class="core" cx="600" cy="110" r="2.8"/></g>
-            <g class="node" style="animation-delay:.16s"><circle class="core" cx="60" cy="180" r="2.2"/></g>
-            <g class="node" style="animation-delay:.4s"><circle class="core" cx="240" cy="220" r="2.2"/></g>
-            <g class="node" style="animation-delay:.64s"><circle class="core" cx="370" cy="60" r="2.2"/></g>
-            <g class="node" style="animation-delay:.88s"><circle class="core" cx="500" cy="230" r="2.2"/></g>
-            <g class="node" style="animation-delay:1.08s"><circle class="core" cx="630" cy="170" r="2.2"/></g>
+          <g fill="#E9B877">
+            <g class="light" style="animation-delay:.1s"><circle cx="60" cy="150" r="3.2"/><path d="M53.5,171 Q60,156 66.5,171 Z"/></g>
+            <g class="light" style="animation-delay:.25s"><circle cx="140" cy="200" r="3.2"/><path d="M133.5,221 Q140,206 146.5,221 Z"/></g>
+            <g class="light" style="animation-delay:.4s"><circle cx="222" cy="140" r="3.2"/><path d="M215.5,161 Q222,146 228.5,161 Z"/></g>
+            <g class="light" style="animation-delay:.55s"><circle cx="306" cy="194" r="3.2"/><path d="M299.5,215 Q306,200 312.5,215 Z"/></g>
+            <g class="light" style="animation-delay:.7s"><circle cx="390" cy="150" r="3.2"/><path d="M383.5,171 Q390,156 396.5,171 Z"/></g>
+            <g class="light" style="animation-delay:.85s"><circle cx="470" cy="196" r="3.2"/><path d="M463.5,217 Q470,202 476.5,217 Z"/></g>
+            <g class="light" style="animation-delay:1s"><circle cx="552" cy="150" r="3.2"/><path d="M545.5,171 Q552,156 558.5,171 Z"/></g>
+            <g class="light" style="animation-delay:1.15s"><circle cx="632" cy="190" r="3.2"/><path d="M625.5,211 Q632,196 638.5,211 Z"/></g>
           </g>
         </svg>
-        <p class="figcap">Fig. 1 — no centre, no command. Each light is someone, somewhere, who found their own reason.</p>
+        <p class="figcap">Fig. 1 — no centre, no command. Each warm figure is someone, somewhere, who found their own reason.</p>
       </div>
 
       <p>The Argentine saving against triple-digit inflation. The Nigerian sending money home without a ten-percent toll. The dissident whose bank account can be frozen by decree. The merchant tired of chargebacks. The family in a war zone carrying their wealth across a border in a memorised phrase. None of them coordinated; none needed permission; each found their own doorway. The magic is that these uses are decentralised in the deepest sense — they solve <em>different</em> problems for <em>different</em> people in <em>different</em> places, so the adoption has no single point to attack and no single reason to reverse. Close one pathway and the others stand untouched.</p>
@@ -164,19 +143,32 @@
       <p class="lede">Each new use that genuinely works quietly changes the arithmetic for everyone else — and only ever in one direction.</p>
 
       <div class="netfig reveal">
-        <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <g class="node" style="animation-delay:.1s"><rect class="step" x="70" y="200" width="110" height="40"/></g>
-          <g class="node" style="animation-delay:.3s"><rect class="step" x="200" y="160" width="110" height="80"/></g>
-          <g class="node" style="animation-delay:.5s"><rect class="step" x="330" y="115" width="110" height="125"/></g>
-          <g class="node" style="animation-delay:.7s"><rect class="step" x="460" y="70" width="110" height="170"/></g>
-          <path class="riser" d="M70,200 L180,200 L180,160 L310,160 L310,115 L440,115 L440,70 L570,70" />
-          <path class="riser" style="transition-delay:.2s" d="M70,210 L180,210 L180,170 L310,170 L310,125 L440,125 L440,80 L570,80" stroke-opacity="0.5"/>
-          <g class="glyph"><text x="125" y="225" text-anchor="middle">niche use</text></g>
-          <text class="glyph a" x="500" y="55" text-anchor="middle">critical mass</text>
-          <text class="glyph" x="70" y="256">value &rarr;</text>
-          <text class="glyph a" x="610" y="256" text-anchor="end">&amp; legitimacy &rarr;</text>
+        <svg viewBox="0 0 680 270" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- a stair people climb toward a glowing doorway at the top -->
+          <polyline points="50,244 175,244 175,198 320,198 320,150 460,150 460,100 560,100" fill="none" stroke="#27365F" stroke-width="6" stroke-linejoin="round"/>
+          <polyline points="50,244 175,244 175,198 320,198 320,150 460,150 460,100 560,100" fill="none" stroke="#5AD1E6" stroke-width="1.2" stroke-linejoin="round" opacity="0.7"/>
+          <!-- the glowing doorway: critical mass -->
+          <ellipse class="light" style="animation-delay:.6s" cx="600" cy="64" rx="48" ry="62" fill="#E9B877" opacity="0.13"/>
+          <path d="M572,100 L572,40 A28 28 0 0 1 628,40 L628,100" fill="#0B1022" stroke="#5AD1E6" stroke-width="1.4"/>
+          <path class="light" style="animation-delay:.6s" d="M579,100 L579,46 A21 21 0 0 1 621,46 L621,100 Z" fill="#E9B877" opacity="0.55"/>
+          <!-- climbers: one low, more as it rises -->
+          <g fill="none" stroke="#5AD1E6" stroke-width="1" opacity="0.55">
+            <g><circle cx="110" cy="226" r="3"/><path d="M104,244 Q110,230 116,244 Z"/></g>
+          </g>
+          <g fill="#E9B877">
+            <g class="light" style="animation-delay:.15s"><circle cx="235" cy="180" r="3"/><path d="M229,198 Q235,184 241,198 Z"/></g>
+            <g class="light" style="animation-delay:.3s"><circle cx="265" cy="180" r="3"/><path d="M259,198 Q265,184 271,198 Z"/></g>
+            <g class="light" style="animation-delay:.4s"><circle cx="372" cy="132" r="3"/><path d="M366,150 Q372,136 378,150 Z"/></g>
+            <g class="light" style="animation-delay:.5s"><circle cx="402" cy="132" r="3"/><path d="M396,150 Q402,136 408,150 Z"/></g>
+            <g class="light" style="animation-delay:.62s"><circle cx="498" cy="82" r="3"/><path d="M492,100 Q498,86 504,100 Z"/></g>
+            <g class="light" style="animation-delay:.72s"><circle cx="524" cy="82" r="3"/><path d="M518,100 Q524,86 530,100 Z"/></g>
+            <g class="light" style="animation-delay:.82s"><circle cx="550" cy="82" r="3"/><path d="M544,100 Q550,86 556,100 Z"/></g>
+          </g>
+          <text class="glyph a" x="600" y="22" text-anchor="middle">critical mass</text>
+          <text class="glyph" x="50" y="266">value &rarr;</text>
+          <text class="glyph a" x="630" y="266" text-anchor="end">&amp; legitimacy &rarr;</text>
         </svg>
-        <p class="figcap">Fig. 2 — value and legitimacy climb the same staircase: two railings, one ascent.</p>
+        <p class="figcap">Fig. 2 — more people climb as it proves itself, and the door behind them only opens one way.</p>
       </div>
 
       <p>For those already in, leaving grows costlier each year — they would be exiting a thing more woven into the world than the day before. For those still out, the reasons to stay out keep thinning as it proves itself in one more place. The door swings one way, and harder over time. And here a property unique to this asset: <strong>value and legitimacy climb the same staircase.</strong> In an ordinary market a rising price is merely a richer valuation — and, past a point, a reason for caution. Here, a larger, more adopted, more valuable network is also a more credible and more defensible one. Worth and legitimacy reinforce each other; the higher it climbs, the more reasonable it becomes to be in it.</p>
