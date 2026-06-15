@@ -19,7 +19,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
   setTimeout(function(){ els.forEach(function(e){ e.classList.add('in'); }); }, 3000);
 })();
 
-/* calligraphic broad-nib strokes — converts any element marked data-calli="maxWidth" into a tapered, angle-weighted filled stroke */
+/* calligraphic broad-nib strokes – converts any element marked data-calli="maxWidth" into a tapered, angle-weighted filled stroke */
 (function(){
   var NS="http://www.w3.org/2000/svg";
   var pen = 40*Math.PI/180;
@@ -60,12 +60,12 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
   var a = document.createElement('aside');
   a.className = 'libcallout';
   a.innerHTML = '<p class="t">Follow the thread further</p>'
-    + '<p class="s">This piece is one strand of a larger argument. The Library follows the others &mdash; what sound money really is, the objections worth taking seriously, and the people willing it into being.</p>'
+    + '<p class="s">This piece is one strand of a larger argument. The Library follows the others &ndash; what sound money really is, the objections worth taking seriously, and the people willing it into being.</p>'
     + '<p style="margin:0"><a href="index.html#library">Open the Library &rarr;</a></p>';
   anchor.parentNode.insertBefore(a, anchor);
 })();
 
-/* ── Review mode — a private annotation layer. Activate by visiting any page with #review (it then persists across the whole site until you press Exit). Normal visitors never see it. Notes live in this browser; use "Copy all notes" to hand them to Claude. ── */
+/* ── Review mode – a private annotation layer. Activate by visiting any page with #review (it then persists across the whole site until you press Exit). Normal visitors never see it. Notes live in this browser; use "Copy all notes" to hand them to Claude. ── */
 (function(){
   var FLAG='tlc-review-on-v2', KEY='tlc-review-notes';
   /* Review window: ON by default so it's visible on every device. Press Exit (or ?noreview) to hide on this device. */
@@ -124,13 +124,13 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
   function count(){ bar.querySelector('.ct').textContent=Object.keys(notes).length; }
   count();
   function toast(m){ var t=document.createElement('div'); t.className='tlc-rv-toast'; t.textContent=m; document.body.appendChild(t); requestAnimationFrame(function(){ t.classList.add('on'); }); setTimeout(function(){ t.classList.remove('on'); setTimeout(function(){ t.remove(); },260); },1900); }
-  function exportText(){ var by={}; Object.keys(notes).forEach(function(k){ var p=k.split('#')[0]; (by[p]=by[p]||[]).push(notes[k]); }); var out='THE LONG CLOCK — REVIEW NOTES — '+new Date().toISOString().slice(0,16).replace('T',' ')+'\n'+Object.keys(notes).length+' notes total\n'; Object.keys(by).sort().forEach(function(p){ out+='\n=== '+p+' ===\n'; by[p].forEach(function(n){ out+='\n• ['+n.snippet+']\n  '+n.note+'\n'; }); }); return out; }
+  function exportText(){ var by={}; Object.keys(notes).forEach(function(k){ var p=k.split('#')[0]; (by[p]=by[p]||[]).push(notes[k]); }); var out='THE LONG CLOCK – REVIEW NOTES – '+new Date().toISOString().slice(0,16).replace('T',' ')+'\n'+Object.keys(notes).length+' notes total\n'; Object.keys(by).sort().forEach(function(p){ out+='\n=== '+p+' ===\n'; by[p].forEach(function(n){ out+='\n• ['+n.snippet+']\n  '+n.note+'\n'; }); }); return out; }
   function fallback(txt){ var ta=document.createElement('textarea'); ta.value=txt; ta.style.cssText='position:fixed;left:8px;top:8px;width:92vw;height:62vh;z-index:9999'; document.body.appendChild(ta); ta.focus(); ta.select(); try{document.execCommand('copy');}catch(e){} toast('Select-all + copy this, then paste to Claude'); setTimeout(function(){ ta.remove(); }, 9000); }
-  bar.querySelector('.cp').addEventListener('click', function(){ if(!Object.keys(notes).length){ toast('No notes yet'); return; } var txt=exportText(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ toast('All notes copied — paste them to Claude'); }, function(){ fallback(txt); }); } else fallback(txt); });
+  bar.querySelector('.cp').addEventListener('click', function(){ if(!Object.keys(notes).length){ toast('No notes yet'); return; } var txt=exportText(); if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(function(){ toast('All notes copied – paste them to Claude'); }, function(){ fallback(txt); }); } else fallback(txt); });
   bar.querySelector('.ex').addEventListener('click', function(){ try{ localStorage.setItem(FLAG,'0'); }catch(e){} if(location.hash) history.replaceState(null,'',location.pathname+location.search); location.reload(); });
 })();
 
-/* ── Byline date · appreciation (like) · share — appears on article pages only.
+/* ── Byline date · appreciation (like) · share – appears on article pages only.
    Date: override per page with <meta name="published" content="14 June 2026">,
    otherwise the default below is used. Reading time is estimated from the body.
    Likes use a free shared counter (swap LIKE_API for your own endpoint later). ── */
@@ -221,7 +221,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
     '<p class="prompt">If this earned a few minutes of your attention, let it be known.</p>'
    +'<div class="tlc-like">'
    +'  <button class="tlc-likebtn" type="button" aria-label="Appreciate this essay"><span class="ring"></span>'+svg('<path d="'+THUMB+'"/>')+'</button>'
-   +'  <span class="tlc-likemeta"><b class="ct">—</b> <span class="word">appreciations</span></span>'
+   +'  <span class="tlc-likemeta"><b class="ct">–</b> <span class="word">appreciations</span></span>'
    +'</div>'
    +'<div class="tlc-share"><p class="lbl">Pass it on</p><div class="tlc-shrow"></div></div>';
 
@@ -238,7 +238,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
     var key='longclock_tlc_v1_'+page.replace(/[^a-z0-9]+/gi,'_').toLowerCase();
     var likedKey='tlc-liked-'+page;
     var liked=false; try{ liked=localStorage.getItem(likedKey)==='1'; }catch(e){}
-    function render(n){ if(n==null){ ctEl.textContent='—'; return; } ctEl.textContent=n.toLocaleString(); wordEl.textContent=(n===1?'appreciation':'appreciations'); }
+    function render(n){ if(n==null){ ctEl.textContent='–'; return; } ctEl.textContent=n.toLocaleString(); wordEl.textContent=(n===1?'appreciation':'appreciations'); }
     if(liked) btn.classList.add('liked');
 
     if(window.fetch){
@@ -267,7 +267,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
     var row=wrap.querySelector('.tlc-shrow');
     var url=location.href.replace(/#.*$/,'');
     var title=(document.querySelector('h1')?document.querySelector('h1').textContent.trim():document.title);
-    var eu=encodeURIComponent(url), et=encodeURIComponent(title), etu=encodeURIComponent(title+' — '+url);
+    var eu=encodeURIComponent(url), et=encodeURIComponent(title), etu=encodeURIComponent(title+' – '+url);
 
     function iconBtn(label, inner, href){
       var a=document.createElement(href?'a':'button');
@@ -276,7 +276,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       row.appendChild(a); return a;
     }
 
-    /* native share sheet first — opens the device's own menu (iMessage, SMS,
+    /* native share sheet first – opens the device's own menu (iMessage, SMS,
        WhatsApp, AirDrop, Mail…) on phones and on Safari/most mobile browsers */
     if(navigator.share){
       var p=document.createElement('button'); p.className='tlc-sh primary'; p.type='button';
@@ -285,7 +285,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       row.appendChild(p);
     }
 
-    /* explicit options — always present so desktop gets everything too */
+    /* explicit options – always present so desktop gets everything too */
     iconBtn('Copy link', svg('<path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.5 1.5"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.5-1.5"/>'))
       .addEventListener('click', function(){
         if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(function(){ toast('Link copied'); }, function(){ toast(url); }); }
@@ -298,37 +298,37 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
   })();
 })();
 
-/* ── Sticky top nav — a slim, translucent bar with a grouped dropdown of every
+/* ── Sticky top nav – a slim, translucent bar with a grouped dropdown of every
    piece, so readers move between essays without returning to the homepage.
    Site-wide (injected here); auto-hides on scroll-down, returns on scroll-up. ── */
 (function(){
   if(!document.querySelector('header, main')) return;          /* skip scratch pages */
 
   var INDEX=[
-    { g:'The Long Clock — the core argument', items:[
+    { g:'The Long Clock – the core argument', items:[
       ['index.html','The Asset No Empire Can Freeze'],
       ['longclock-saylor.html',"The Steward's Wager"],
       ['longclock-incumbents.html',"The Old Guard's Dilemma"],
       ['longclock-doorways.html','Ten Thousand Doorways'],
       ['longclock-timechain.html','The Timechain'] ]},
-    { g:'Thread one — what sound money really is', items:[
+    { g:'Thread one – what sound money really is', items:[
       ['longclock-memory.html','What Money Remembers'],
       ['longclock-gold.html',"Gold's Long Reign"],
       ['longclock-energy.html','The Energy Theory of Money'],
       ['longclock-incorruptible.html','The Incorruptible'],
       ['longclock-satoshi.html','The Ghost in the Machine'],
-      ['longclock-whatismoney.html','What Is Money? — the series, distilled'] ]},
-    { g:'Thread two — the objections worth taking seriously', items:[
+      ['longclock-whatismoney.html','What Is Money? – the series, distilled'] ]},
+    { g:'Thread two – the objections worth taking seriously', items:[
       ['longclock-debasement.html','The Debasement Tax'],
       ['longclock-freeze.html','When States Freeze Money'],
       ['longclock-volatility.html','Volatility Is the Toll, Not the Trip'],
       ['longclock-century.html','The 100-Year Portfolio'],
       ['longclock-asymmetry.html','Take the Zero Off the Table'] ]},
-    { g:'Thread three — the people willing it into being', items:[
+    { g:'Thread three – the people willing it into being', items:[
       ['longclock-rails.html',"On Steve's Rails"],
       ['longclock-saylor-transcript.html','Saylor, the Transcript'],
       ['longclock-believers.html','The Quiet Believers'] ]},
-    { g:'Thread four — the machinery of the endgame', items:[
+    { g:'Thread four – the machinery of the endgame', items:[
       ['longclock-gametheory.html','The Game Theory of Bitcoin'],
       ['longclock-squeeze.html',"Why Price Falls When Everyone's Buying"],
       ['longclock-sp500.html','The Index Trap'],
