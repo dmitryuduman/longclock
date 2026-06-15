@@ -83,23 +83,27 @@
   .tocrow.current{ background:rgba(199,161,75,0.06); margin:0 -0.8rem; padding-left:0.8rem; padding-right:0.8rem; border-left:2px solid var(--gold); }
   @media(max-width:520px){ .tocrow{ grid-template-columns:1.7rem 1fr; } }
 
-  /* collapsible Library */
-  .lib{ max-width:var(--measure); margin:1.2rem auto 0; }
-  .lib > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:0.7rem; padding:1rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
-  .lib > summary::-webkit-details-marker{ display:none; }
-  .lib .libcue{ font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); }
-  .lib .libsub{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; letter-spacing:0.05em; color:var(--ink-soft); }
-  .lib .libchev{ margin-left:auto; color:var(--gold); transition:transform .25s ease; font-size:0.85rem; }
-  .lib[open] > summary{ border-bottom:0; }
-  .lib[open] .libchev{ transform:rotate(180deg); }
-  .lib > summary:hover .libcue{ color:var(--oxblood); }
-  .libinner{ border-bottom:1px solid var(--rule); animation:libdrop .28s ease; }
+  /* Library — themed threads, each an accordion card (one open at a time) */
+  .lib{ max-width:var(--measure); margin:1.4rem auto 0; }
+  .libhead{ display:flex; align-items:baseline; gap:0.7rem; margin:0 0 0.45rem; }
+  .libhead .libcue{ font-family:"Fraunces",serif; font-weight:600; font-size:1.18rem; color:var(--ink); }
+  .libhead .libsub{ font-family:"IBM Plex Mono",monospace; font-size:0.68rem; letter-spacing:0.05em; color:var(--ink-soft); margin-left:auto; }
   .tocintro{ max-width:var(--measure); margin:0.9rem auto 0.2rem; font-size:0.98rem; line-height:1.62; color:var(--ink-soft); }
   .tocintro b{ color:var(--ink); font-weight:600; }
-  .libgroup{ font-family:"IBM Plex Mono",monospace; font-size:0.66rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin:0; padding:1.15rem 0 0.15rem; display:flex; align-items:baseline; gap:0.6rem; }
-  .libgroup:first-child{ padding-top:0.5rem; }
-  .libgroup .lgn{ color:var(--ink-soft); }
-  .libgroup .lgt{ color:var(--ink-soft); font-style:normal; letter-spacing:0.06em; text-transform:none; font-size:0.72rem; }
+
+  .libthread{ border:0; border-bottom:1px solid var(--rule); padding:0; margin:0; }
+  .libthread:first-of-type{ border-top:1px solid var(--rule); }
+  .libthread > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:0.7rem; padding:0.95rem 0; }
+  .libthread > summary::-webkit-details-marker{ display:none; }
+  .libthread > summary::after{ content:"\25BE"; position:static; right:auto; top:auto; font-family:"IBM Plex Mono",monospace; font-size:0.8rem; color:var(--gold); transition:transform .25s ease; }
+  .libthread[open] > summary::after{ content:"\25BE"; transform:rotate(180deg); }
+  .libthread > summary:hover .lt-title{ color:var(--oxblood); }
+  .libthread[open] > summary .lt-eyebrow{ color:var(--gold); }
+  .lt-eyebrow{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); transition:color .2s ease; white-space:nowrap; }
+  .lt-title{ font-family:"Fraunces",serif; font-weight:600; font-size:1.04rem; color:var(--ink); transition:color .2s ease; }
+  .lt-count{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; letter-spacing:0.05em; color:var(--ink-soft); margin-left:auto; white-space:nowrap; }
+  .ltinner{ padding:0.1rem 0 0.7rem; animation:libdrop .28s ease; }
+  @media(max-width:520px){ .lt-title{ font-size:0.96rem; } .lt-eyebrow{ display:none; } }
   @keyframes libdrop{ from{ opacity:0; transform:translateY(-5px);} to{ opacity:1; transform:none; } }
 
   .canvas{
@@ -457,11 +461,12 @@
       </a>
     </nav>
     <p class="tocintro reveal">Read the five in order and you have the whole argument. The Library doesn't sit beside it &mdash; it goes <b>deeper on the same threads</b>: what sound money actually is, the objections worth taking seriously, and the people willing it into being. Follow whichever pulls at you.</p>
-    <details class="lib" id="library">
-      <summary><span class="libcue">Explore the Library</span><span class="libsub">eleven deeper readings, grouped by thread</span><span class="libchev" aria-hidden="true">&#9662;</span></summary>
-      <div class="libinner">
+    <div class="lib" id="library">
+      <p class="libhead"><span class="libcue">The Library</span><span class="libsub">eighteen deeper readings, grouped by thread</span></p>
 
-      <p class="libgroup"><span class="lgn">Thread one</span><span class="lgt">&mdash; what sound money really is</span></p>
+      <details class="libthread" name="libthread">
+      <summary><span class="lt-eyebrow">Thread one</span><span class="lt-title">What sound money really is</span><span class="lt-count">6 essays</span></summary>
+      <div class="ltinner">
       <a class="tocrow" href="longclock-memory.html">
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">What Money Remembers</span>
@@ -493,7 +498,12 @@
         <span class="tocdesc">The Saylor &times; Breedlove marathon, distilled &mdash; money as stored time and energy, in one readable sitting.</span>
       </a>
 
-      <p class="libgroup"><span class="lgn">Thread two</span><span class="lgt">&mdash; the objections worth taking seriously</span></p>
+      </div>
+      </details>
+
+      <details class="libthread" name="libthread">
+      <summary><span class="lt-eyebrow">Thread two</span><span class="lt-title">The objections worth taking seriously</span><span class="lt-count">5 essays</span></summary>
+      <div class="ltinner">
       <a class="tocrow" href="longclock-debasement.html">
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">The Debasement Tax</span>
@@ -520,7 +530,12 @@
         <span class="tocdesc">The binary, and the asymmetry it hides &mdash; accept the risk of zero, then see the upside (and the cost of sitting out).</span>
       </a>
 
-      <p class="libgroup"><span class="lgn">Thread three</span><span class="lgt">&mdash; the people willing it into being</span></p>
+      </div>
+      </details>
+
+      <details class="libthread" name="libthread">
+      <summary><span class="lt-eyebrow">Thread three</span><span class="lt-title">The people willing it into being</span><span class="lt-count">3 essays</span></summary>
+      <div class="ltinner">
       <a class="tocrow" href="longclock-rails.html">
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">On Steve's Rails</span>
@@ -537,7 +552,12 @@
         <span class="tocdesc">Why the most important buying is invisible &mdash; documented flows vs inferred motives.</span>
       </a>
 
-      <p class="libgroup"><span class="lgn">Thread four</span><span class="lgt">&mdash; the machinery of the endgame</span></p>
+      </div>
+      </details>
+
+      <details class="libthread" name="libthread">
+      <summary><span class="lt-eyebrow">Thread four</span><span class="lt-title">The machinery of the endgame</span><span class="lt-count">4 essays</span></summary>
+      <div class="ltinner">
       <a class="tocrow" href="longclock-gametheory.html">
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">The Game Theory of Bitcoin</span>
@@ -559,7 +579,8 @@
         <span class="tocdesc">STRC as the consumer-grade wrapper around bitcoin &mdash; interactive: treasury demand into BTC.</span>
       </a>
       </div>
-    </details>
+      </details>
+    </div>
   </div>
 
   <div class="div" id="div1"></div>
@@ -815,7 +836,7 @@
 
       <div class="continue" style="margin-top:2.6rem; padding-top:1.7rem; border-top:1px solid var(--rule);">
         <p class="eyebrow" style="margin-bottom:0.7rem;">Read on</p>
-        <p style="margin:0 0 1.3rem; font-size:1.08rem; line-height:1.6; color:var(--ink-soft);">The case carries into three companion essays — the man staking everything on it, the institutions quietly fighting the shift, and how it wins regardless.</p>
+        <p style="margin:0 0 1.3rem; font-size:1.08rem; line-height:1.6; color:var(--ink-soft);">The case carries into four companion essays – the man staking everything on it, the institutions quietly fighting the shift, the doorways no power can close, and the clock the machines will trust.</p>
         <a href="longclock-saylor.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">The Steward's Wager&nbsp;&rarr;</a>
         <a href="longclock-incumbents.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">The Old Guard's Dilemma&nbsp;&rarr;</a>
         <a href="longclock-doorways.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">Ten Thousand Doorways&nbsp;&rarr;</a>
@@ -833,7 +854,7 @@
   document.body.classList.add('js');
 
   var _lib=document.getElementById('library');
-  if(_lib && location.hash==='#library'){ _lib.open=true; setTimeout(function(){ _lib.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
+  if(_lib && location.hash==='#library'){ var _t=_lib.querySelector('.libthread'); if(_t){ _t.open=true; } setTimeout(function(){ _lib.scrollIntoView({behavior:'smooth',block:'start'}); },150); }
 
   // ---- guilloché generators (epicycloid "spirograph" + wave border) ----
   function spiroPath(R, r, d, turns, cx, cy){
