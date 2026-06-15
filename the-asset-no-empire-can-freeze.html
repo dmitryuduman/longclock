@@ -19,6 +19,8 @@
     --gold:#8A6A1C;
     --gold-line:#C7A14B;
     --oxblood:#6F2530;
+    --good:#46683B;
+    --accent:#8A6A1C;
     --rule:rgba(27,35,48,0.16);
     --measure:39rem;
   }
@@ -93,17 +95,19 @@
 
   .libthread{ border:0; border-bottom:1px solid var(--rule); padding:0; margin:0; }
   .libthread:first-of-type{ border-top:1px solid var(--rule); }
-  .libthread > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:0.7rem; padding:0.95rem 0; }
+  .libthread > summary{ list-style:none; cursor:pointer; display:flex; align-items:center; gap:0.85rem; padding:1.05rem 0.85rem; margin:0 -0.85rem; border-left:2px solid transparent; border-radius:4px; transition:background .2s ease, border-color .2s ease; }
   .libthread > summary::-webkit-details-marker{ display:none; }
-  .libthread > summary::after{ content:"\25BE"; position:static; right:auto; top:auto; font-family:"IBM Plex Mono",monospace; font-size:0.8rem; color:var(--gold); transition:transform .25s ease; }
-  .libthread[open] > summary::after{ content:"\25BE"; transform:rotate(180deg); }
+  .libthread > summary::after{ content:"\25BE"; position:static; right:auto; top:auto; font-family:"IBM Plex Mono",monospace; font-size:0.8rem; color:var(--gold-line); transition:transform .25s ease, color .2s ease; }
+  .libthread > summary:hover{ background:rgba(199,161,75,0.10); border-left-color:var(--gold-line); }
   .libthread > summary:hover .lt-title{ color:var(--oxblood); }
-  .libthread[open] > summary .lt-eyebrow{ color:var(--gold); }
-  .lt-eyebrow{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ink-soft); transition:color .2s ease; white-space:nowrap; }
-  .lt-title{ font-family:"Fraunces",serif; font-weight:600; font-size:1.04rem; color:var(--ink); transition:color .2s ease; }
-  .lt-count{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; letter-spacing:0.05em; color:var(--ink-soft); margin-left:auto; white-space:nowrap; }
-  .ltinner{ padding:0.1rem 0 0.7rem; animation:libdrop .28s ease; }
-  @media(max-width:520px){ .lt-title{ font-size:0.96rem; } .lt-eyebrow{ display:none; } }
+  .libthread > summary:hover::after{ color:var(--gold); }
+  .libthread[open] > summary{ background:rgba(199,161,75,0.07); border-left-color:var(--gold); }
+  .libthread[open] > summary::after{ transform:rotate(180deg); }
+  .lt-eyebrow{ font-family:"IBM Plex Mono",monospace; font-size:0.62rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); transition:color .2s ease; white-space:nowrap; }
+  .lt-title{ font-family:"Fraunces",serif; font-weight:600; font-size:1.13rem; color:var(--ink); transition:color .2s ease; }
+  .lt-count{ font-family:"IBM Plex Mono",monospace; font-size:0.58rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold); margin-left:auto; white-space:nowrap; border:1px solid rgba(199,161,75,0.45); border-radius:999px; padding:0.26rem 0.62rem; background:rgba(199,161,75,0.07); }
+  .ltinner{ padding:0.1rem 0 0.85rem; animation:libdrop .28s ease; }
+  @media(max-width:520px){ .lt-title{ font-size:1rem; } .lt-eyebrow{ display:none; } .libthread > summary{ gap:0.6rem; padding:1rem 0.7rem; margin:0 -0.7rem; } }
   @keyframes libdrop{ from{ opacity:0; transform:translateY(-5px);} to{ opacity:1; transform:none; } }
 
   .canvas{
@@ -301,9 +305,9 @@
     border-right:1px solid var(--rule);
     white-space:nowrap;
   }
-  .yes{ color:var(--gold); font-weight:600; }
+  .yes{ color:var(--good); font-weight:600; }
   .no{ color:var(--oxblood); font-weight:600; }
-  .mid{ color:var(--ink-soft); }
+  .mid{ color:var(--gold); font-weight:600; }
   .swipe{
     font-family:"IBM Plex Mono",monospace; font-size:0.66rem;
     letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-soft);
@@ -672,7 +676,7 @@
       <p class="pull">China is not buying gold because gold is pretty.<br><span class="gold">China is buying gold because gold cannot be frozen by a memo.</span></p>
       <p>That is the entire thesis in one sentence – and it is <em>your</em> thesis, not a crypto-enthusiast's. Bitcoin is simply that same insurance in a form that is harder to seize and far easier to move than a vault of bullion.</p>
       <p>Now the irony worth savouring. The United States – the very power that taught the world its reserves could be weaponized – is itself quietly accumulating the one asset that defangs the weapon. Today mostly through seizure: on the order of three hundred thousand coins, formalized by a 2025 executive order into a "Strategic Bitcoin Reserve," locked away rather than sold. Washington is hedging against the end of its own monopoly.</p>
-      <p class="lede">When the arsonist starts buying fire insurance, <strong>you do not conclude the fire is imaginary.</strong></p>
+      <p class="pull">When the arsonist starts buying fire insurance,<br><span class="gold">you do not conclude the fire is imaginary.</span></p>
 
       <p>And notice <em>how</em> it is being done – quietly. A state that announced a serious buying programme would only bid the price up against itself, making every coin it had yet to acquire dearer; the rational move is the opposite of a splashy reserve. Accumulate without fanfare, say little, take what forfeiture and patience allow, and let the position compound out of view. That is not a government chasing a headline before the next election. It is one positioning for the rest of the century – the exact move only someone who already understood the asset would think to make.</p>
       <p class="pull">A government playing for the next election does not buy quietly.<br><span class="gold">One playing for the next century does.</span></p>
@@ -681,7 +685,7 @@
       <p>And the arithmetic gives that motive its teeth. Federal debt has passed thirty-eight trillion dollars – beyond 120% of output – with interest alone now running over a trillion a year, and the thirty-year bond clearing at five percent for the first time since 2007, even as appetite for it thins. A state that can no longer grow or tax its way clear is left with the oldest exit: to inflate the debt away, by whatever name – financial repression, yield-curve control. In that light, quietly holding – and letting its citizens hold – the one asset that rises as the dollar falls stops looking eccentric and starts to look like a hedge against the very policy it is preparing to run. The analyst <a href="https://visserlabs.substack.com/p/bitcoins-silent-ipo-why-this-consolidation" style="color:var(--oxblood); text-decoration:underline; text-decoration-color:var(--gold-line);">Jordi Visser</a> reads bitcoin's present consolidation as a "silent IPO" – early holders distributing into exactly these institutional hands; the fuller synthesis is drawn out in <a href="longclock-saylor.html" style="color:var(--oxblood); text-decoration:underline; text-decoration-color:var(--gold-line);">The Steward's Wager</a>.</p>
 
       <p>And it is not only states. The same instinct has found its sharpest individual form in one steward – Michael Saylor – who has bound a public company, and what remains of his own life, to acquiring this asset and never selling it: holding it not to trade but to set permanently beyond reach. He has said that when he dies he will destroy the keys to his own coins, so that his passing quietly tightens the supply for everyone still holding the rest. Whatever you make of the man, the posture is the tell. This is not speculation; it is stewardship, on a horizon measured in generations.</p>
-      <p>And do not file him under Wall Street. This is not an operator who stumbled onto a hot trade; it is a man who looks at Bitcoin on a civilizational scale – and can back it. He took his MIT degree as a double major in aeronautics <em>and</em> the history of science, has been an omnivorous reader since boyhood, and presses on people not a finance title but the Durants' eleven-volume <em>Story of Civilization</em>. He weighs Bitcoin against the entire record of money – the currencies that collapse every few decades, the empires whose savings quietly evaporated, the three thousand years of monetary debasement behind us – not against this quarter's chart. That is the line between a speculator and a steward: one is trading the cycle; the other is trying to answer a question older than any living institution.</p>
+      <p>And do not file him under Wall Street. This is not an operator who stumbled onto a hot trade; it is a man who looks at Bitcoin on a civilizational scale – and can back it. He took his MIT degree as a double major in aeronautical engineering <em>and</em> the history of science, has been an omnivorous reader since boyhood, and presses on people not a finance title but the Durants' eleven-volume <em>Story of Civilization</em>. He weighs Bitcoin against the entire record of money – the currencies that collapse every few decades, the empires whose savings quietly evaporated, the three thousand years of monetary debasement behind us – not against this quarter's chart. That is the line between a speculator and a steward: one is trading the cycle; the other is trying to answer a question older than any living institution.</p>
       <p style="margin-top:0.4rem;"><a class="readmore" href="longclock-saylor.html">The Steward's Wager&nbsp;&rarr;</a></p>
 
       <div class="marginmark">
@@ -812,7 +816,7 @@
         <span><b>10,000 years</b> – the clock gold is measured by. Judge its rival on that clock, or admit you are judging by this quarter.</span>
       </div>
 
-      <p style="margin-top:1.6rem">And the decisive vote will not be cast by today's central bankers. It will be cast by people who are children now, and by those not yet born – so ask what world they are inheriting. They will never have filed a paper form or queued at a teller's window, never have known money as anything but figures on a screen. To them, "intangible" will not be a flaw; it will simply be what money is, and as far as they can tell always was. The notion that real value must take the form of a yellow metal locked in a vault on another continent will strike them roughly the way the gold standard strikes us: a quaint relic of an earlier age.</p>
+      <p style="margin-top:1.6rem">And the decisive vote will not be cast by today's central bankers. It will be cast by people who are children now, and by those not yet born – so ask what world they are inheriting. They will never have filed a paper form or queued at a teller's window, never have known money as anything but figures on a screen. To them, "intangible" will not be a flaw; it will simply be what money is, and as far as they can tell always was. The notion that real value must take the form of a yellow metal locked in a vault on another continent will strike them roughly the way the gold standard strikes us: a quaint relic of an earlier age. Push the clock further still and even the gold reads to them the way cowrie shells read to us – a polished trinket that served as money once, and has been a curiosity in a drawer ever since.</p>
       <p class="lede">A generation raised on digital everything will not need to be persuaded that digital scarcity is real. It will be their native intuition. <strong>Gold will be the thing that needs explaining.</strong></p>
       <p>This is not a small point, because deep expertise in the prevailing system is not neutral – it is a specific bias toward that system's permanence. The British establishment could not picture sterling dethroned. The monetary authorities of the 1960s treated the gold peg as eternal, until Nixon ended it overnight in 1971. History's hinges are missed, again and again, by precisely the people most fluent in the order that is passing. The central-banker consensus is not a view from nowhere. It is an interested party.</p>
 
@@ -843,7 +847,7 @@
         <a href="longclock-timechain.html" class="readmore" style="margin:0 0.6rem 0.6rem 0;">The Timechain&nbsp;&rarr;</a>
       </div>
 
-      <p class="foot"><b>On the figures.</b> Reserve and gold data reflect official-sector reporting through early-to-mid 2026 (World Gold Council, IMF, US Treasury). US Bitcoin holdings are largely forfeiture-based and ring-fenced under the March 2025 executive order; the Russian reserve freeze figure is the widely cited ~$300bn from 2022. Numbers move – the argument doesn't depend on the third decimal place.</p>
+      <p class="foot"><b>On the figures.</b> Reserve and gold data reflect official-sector reporting through early-to-mid 2026 (World Gold Council, IMF, US Treasury). US bitcoin holdings are largely forfeiture-based and ring-fenced under the March 2025 executive order; the Russian reserve freeze figure is the widely cited ~$300bn from 2022. Numbers move – the argument doesn't depend on the third decimal place.</p>
     </section>
 
   </main>
