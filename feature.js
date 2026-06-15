@@ -311,25 +311,24 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       ['longclock-incumbents.html',"The Old Guard's Dilemma"],
       ['longclock-doorways.html','Ten Thousand Doorways'],
       ['longclock-timechain.html','The Timechain'] ]},
+    { g:'Featured – pillars worth reading on their own', items:[
+      ['longclock-incorruptible.html','The Incorruptible'],
+      ['longclock-gametheory.html','The Game Theory of Bitcoin'],
+      ['longclock-asymmetry.html','Take the Zero Off the Table'],
+      ['longclock-rails.html',"On Steve's Rails"],
+      ['longclock-whatismoney.html','What Is Money? – the series, distilled'] ]},
     { g:'Thread one – what sound money really is', items:[
       ['longclock-memory.html','What Money Remembers'],
       ['longclock-gold.html',"Gold's Long Reign"],
       ['longclock-energy.html','The Energy Theory of Money'],
-      ['longclock-incorruptible.html','The Incorruptible'],
-      ['longclock-satoshi.html','The Ghost in the Machine'],
-      ['longclock-whatismoney.html','What Is Money? – the series, distilled'] ]},
+      ['longclock-satoshi.html','The Ghost in the Machine'] ]},
     { g:'Thread two – the objections worth taking seriously', items:[
       ['longclock-debasement.html','The Debasement Tax'],
       ['longclock-freeze.html','When States Freeze Money'],
       ['longclock-volatility.html','Volatility Is the Toll, Not the Trip'],
-      ['longclock-century.html','The 100-Year Portfolio'],
-      ['longclock-asymmetry.html','Take the Zero Off the Table'] ]},
-    { g:'Thread three – the people willing it into being', items:[
-      ['longclock-rails.html',"On Steve's Rails"],
-      ['longclock-saylor-transcript.html','Saylor, the Transcript'],
-      ['longclock-believers.html','The Quiet Believers'] ]},
-    { g:'Thread four – the machinery of the endgame', items:[
-      ['longclock-gametheory.html','The Game Theory of Bitcoin'],
+      ['longclock-century.html','The 100-Year Portfolio'] ]},
+    { g:'Thread three – the endgame, and the people willing it', items:[
+      ['longclock-saylor-transcript.html','Saylor, Before Bitcoin'],
       ['longclock-squeeze.html',"Why Price Falls When Everyone's Buying"],
       ['longclock-sp500.html','The Index Trap'],
       ['longclock-strc.html',"Saylor's iPhone Moment"] ]}

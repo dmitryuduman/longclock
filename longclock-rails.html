@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=11">
+<link rel="stylesheet" href="feature.css?v=12">
 <style>
   :root{
     --bg:#EAE7DF; --ink:#1D1D20; --ink-soft:#605E54;
@@ -41,7 +41,7 @@
   .comp{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:10px; padding:18px; background:rgba(255,255,255,0.4); }
   .comp svg{ width:100%; height:auto; display:block; }
   .comp .read{ display:flex; gap:1.4rem; flex-wrap:wrap; margin-top:10px; font-family:var(--font-mono); font-size:0.8rem; }
-  .comp .read .s{ color:var(--accent2); } .comp .read .a{ color:var(--accent); }
+  .comp .read .s{ color:var(--accent2); } .comp .read .a{ color:#B98A55; } .comp .read .ai{ color:var(--accent); font-weight:500; }
   .comp input[type=range]{ width:100%; accent-color:var(--accent); margin-top:10px; }
   .comp .yr{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-top:4px; }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
@@ -51,7 +51,7 @@
 <div class="canvas">
 
   <header class="col">
-    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; The Library &nbsp;·&nbsp; A companion to The Steward's Wager</p>
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;·&nbsp; Featured &nbsp;·&nbsp; A companion to The Steward's Wager</p>
     <h1>On Steve's Rails</h1>
     <div class="crown"></div>
     <p class="deck">Set the turtleneck beside the spreadsheets and the two men could not seem less alike – and not only in looks. Jobs was a chameleon, able to become whatever a room required; Saylor is one unwavering register, the same intense nerd on every stage. Look past all of that to how they think and how they bet, though, and a single pattern appears: a voracious reader sees an inevitability decades early, eats the ridicule, and stakes everything – while code quietly compounds the future faster than anyone's arithmetic expects.</p>
@@ -124,23 +124,25 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Why it arrives faster than you think</p></div>
       <h2>Code is the accelerant</h2>
       <p class="lede">Here is the part the skeptics of every era get wrong, and it is the same mistake twice: they forecast in straight lines, and anything built from code does not move in straight lines.</p>
-      <p>A prediction made of software has a peculiar property. At first it underwhelms – the first personal computers were toys, the first portable devices clumsy, and for years the visionary looks premature or wrong. Then the curve bends. Because code copies for free, improves on itself, and rides hardware that doubles on a schedule, adoption stops adding and starts multiplying. The world that felt a comfortable lifetime away arrives in a decade. Jobs's "computer in a book this decade" was a little early on the timing and exactly right on the destination – and when it came, it came not gently but all at once. Drag the years below and watch the gap open between what the straight-line forecaster expects and what compounding actually delivers.</p>
+      <p>A prediction made of software has a peculiar property. At first it underwhelms – the first personal computers were toys, the first portable devices clumsy, and for years the visionary looks premature or wrong. Then the curve bends. Because code copies for free, improves on itself, and rides hardware that doubles on a schedule, adoption stops adding and starts multiplying. The world that felt a comfortable lifetime away arrives in a decade. Jobs's "computer in a book this decade" was a little early on the timing and exactly right on the destination – and when it came, it came not gently but all at once. And now the compounding is itself compounding. Code once doubled on the patient cadence of cheaper hardware – a steady exponential, the orange line of the old world. But AI already writes most of the code at the labs building AI, and is beginning to improve the very systems that write it. When the thing that accelerates progress is itself the product, the <em>rate</em> accelerates: the curve no longer just rises, it bends upward. Anthropic <a href="https://www.anthropic.com/institute/recursive-self-improvement">reports</a> its engineers now ship roughly 8&times; the code per head they did in 2024, with the task-length its models can reliably handle doubling about every four months – and that doubling time is itself shrinking. That is not a steeper line of the same kind; it is a different kind of line, and a straight-line forecaster is not merely conservative about it – he is looking at the wrong shape entirely. Drag the years below and watch three gaps open at once: what the forecaster expects, what code used to compound to, and what code that improves itself compounds to now.</p>
 
       <div class="comp reveal">
         <svg viewBox="0 0 680 240" id="compart" aria-hidden="true">
           <line x1="56" y1="206" x2="648" y2="206" stroke="var(--ink-soft)" stroke-width="1"/>
           <line x1="56" y1="30" x2="56" y2="206" stroke="var(--ink-soft)" stroke-width="1"/>
-          <polyline id="lin" fill="none" stroke="#2F5D70" stroke-width="2" stroke-linecap="round"/>
-          <polyline id="exp" fill="none" stroke="#B5662A" stroke-width="2.6" stroke-linecap="round"/>
+          <polyline id="lin" fill="none" stroke="#2F5D70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline id="exp" fill="none" stroke="#B98A55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline id="ai" fill="none" stroke="#B5662A" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
           <circle id="lindot" r="3.2" fill="#2F5D70"/>
-          <circle id="expdot" r="3.6" fill="#B5662A"/>
+          <circle id="expdot" r="3.4" fill="#B98A55"/>
+          <circle id="aidot" r="4.5" fill="#B5662A"/>
         </svg>
-        <div class="read"><span class="s">straight-line forecast: <b id="linv">1&times;</b></span><span class="a">what code compounds: <b id="expv">1&times;</b></span></div>
+        <div class="read"><span class="s">straight-line forecast: <b id="linv">1&times;</b></span><span class="a">what code once compounded: <b id="expv">1&times;</b></span><span class="ai">what AI-era code compounds: <b id="aiv">1&times;</b></span></div>
         <p class="yr">years out: <b id="yrs">0</b></p>
-        <input type="range" min="0" max="100" value="18" id="years" aria-label="years into the future">
+        <input type="range" min="0" max="30" value="10" id="years" aria-label="years into the future">
       </div>
 
-      <p>Early on the two lines sit almost on top of each other, and the straight-line forecaster looks reasonable – even right. That is the trap. The divergence is slow, then sudden. It is why the people most fluent in the present consistently miss the hinge: <span class="key">they are not stupid, they are <em>linear</em>, in a domain that is exponential.</span> Anything that becomes software inherits that curve.</p>
+      <p>Early on, the forecaster and the old exponential sit almost on top of each other, and the straight-line guess looks reasonable – even right. That was always the trap. But the AI line never even pretends to play along: it is several times ahead inside the first year and pulls away faster every one after. The divergence used to be slow, then sudden; now it is sudden, then unfathomable. It is why the people most fluent in the present keep missing the hinge: <span class="key">they are not stupid, they are <em>linear</em>, in a domain that has stopped being merely exponential.</span> Anything that becomes software inherits that curve – and software now writes itself.</p>
       <p class="pull">Slow, then sudden.<br><span class="accent">Linear minds, exponential world.</span></p>
     </section>
 
@@ -182,8 +184,8 @@
       <h2>The right man for this mission</h2>
       <p class="lede">Here is the twist that lifts the parallel above flattery: the two missions needed opposite men – and each got the one he required.</p>
       <p>Jobs's famous reality-distortion field – the capacity to make a room believe the impossible was already half-built – was not mere vanity. It was a tool, and a necessary one. A personal computer, an iPhone, an App Store: each was an <em>evolving</em> product that had to be believed in before it was good enough to deserve belief, pressed on a mainstream that had no reason yet to want it. The distortion field was the accelerant – the force that pulled a reluctant world onto computing's rails years before the products earned it on merit alone. The charisma was load-bearing because the thing itself was still becoming. And those are the very rails – a democratised, networked, software world – that the next mission would have to run on.</p>
-      <p>Bitcoin is the opposite kind of object, and so it demands the opposite kind of champion. It is not evolving; it is fixed. It is not a matter of taste; it is verifiable. It does not need to be believed in to work – it works whether or not you believe, and it asks you to check rather than to trust. An asset like that is not served by a distortion field; it would be cheapened by one. <span class="key">It is served by rigor – the MIT-trained engineer who can show you the issuance schedule down to the last coin and dare you to find the flaw.</span> Saylor's want of Jobs's charm is not a handicap for this mission; it is a qualification. The evolving product needed a magician; the fixed protocol needed a proof – and each age produced the man its medium required.</p>
-      <p class="pull">An evolving product needed a magician.<br><span class="accent">A fixed protocol needed a proof.</span></p>
+      <p>Bitcoin is the opposite kind of object, and so it demands the opposite kind of champion. It is not evolving; it is fixed. It is not a matter of taste; it is verifiable. It does not need to be believed in to work – it works whether or not you believe, and it asks you to verify rather than to trust. An asset like that is not served by a distortion field; it would be cheapened by one. <span class="key">It is served by rigor – by an aeronautical engineer, schooled in about the most unforgiving discipline there is, the kind of mind that trusts a public, auditable rule over any amount of charm.</span> Saylor's want of Jobs's charm is not a handicap for this mission; it is a qualification. The evolving product needs a magician; the fixed protocol needs a proof – and each age produces the champion its medium requires.</p>
+      <p class="pull">An evolving product needs a magician.<br><span class="accent">A fixed protocol needs a proof.</span></p>
       <p>And notice what "fixed" actually buys, because it is the deepest point here. Bitcoin's refusal to change – the thing critics deride as rigidity – is the whole feature. It cannot be bribed, lobbied, inflated, or quietly rewritten in someone's favour, because there is no one in charge of it to corrupt. That is precisely what lets people build on it: savings, contracts, institutions, all resting on a floor that will not shift beneath them or sell them out. Almost everything that rots in human affairs rots for one reason – shifting incentives, captured institutions, the patient creep of self-interest – and a money that no one can alter quietly removes that variable from the equation. It is, in the most literal sense, an honest foundation. That idea is large enough to deserve an essay of its own; here it is enough to see why this exact man, pointing at this exact object, fits.</p>
     </section>
 
@@ -193,7 +195,7 @@
       <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">Why it takes an owner</p></div>
       <h2>Only a founder could have done either</h2>
       <p class="lede">Vision is the cheap part. The rare thing is the authority to act on a conviction the market hates &ndash; over and over, for years, without being fired for it. That authority is most of what being a founder buys.</p>
-      <p>A hired chief executive answers to two masters a founder can largely ignore: a board that can replace him, and a quarterly tape that punishes any bet whose payoff lies past the next earnings call. So the safe move tends to win &ndash; trim the strange idea, protect the number, manage the decline politely. The proof runs straight through this very story. Apple forced Jobs out in 1985, and for a dozen years competent caretakers &ndash; Sculley, then Spindler, then Amelio &ndash; ran it by the book and nearly into the ground, until it sat weeks from insolvency. They were not fools; they simply had no mandate to bet the company. The day the founder returned, the against-the-grain bets resumed &ndash; and so did the company. <span class="key">The missing ingredient was never talent in the building. It was someone with the standing to overrule the room.</span></p>
+      <p>A hired chief executive answers to two masters a founder can largely ignore: a board that can replace him, and a quarterly tape that punishes any bet whose payoff lies past the next earnings call. So the safe move tends to win &ndash; trim the strange idea, protect the number, manage the decline politely. The proof runs straight through this very story. Apple forced Jobs out in 1985, and for a dozen years competent caretakers &ndash; Sculley, then Spindler, then Amelio &ndash; ran it by the book and nearly into the ground, until it sat weeks from insolvency. They were not fools; they simply had no mandate to bet the company. The day the founder returned, the against-the-grain bets resumed &ndash; and so did the company. <span class="key">What had been missing was never competence – the caretakers had no shortage of it. It was someone with the standing to overrule the room.</span></p>
       <p>The pattern generalises with almost embarrassing reliability. The firms that keep lunging at the future tend to be the ones still steered by the person who started them &ndash; Bezos spending Amazon into the red on purpose for a decade, Huang holding Nvidia to a market that did not yet exist. The ones that ossify tend to be run by stewards of someone else's creation, where bureaucracy, careerism, and incentives aimed at the share price rather than the mission quietly sand off every edge &ndash; Boeing, after the engineers lost the building to the financiers, is the cautionary tale its own critics reach for first. Saylor is attempting the corporate equivalent of the impossible &ndash; lashing a public company to one volatile asset against every convention of treasury management &ndash; and the only reason the board has not stopped him is that, as founder, he holds the controlling votes. A salaried steward would have been removed in the first deep drawdown. <span class="key">A founder, and only a founder, gets to be wrong in public for as long as it takes to be right.</span></p>
       <p class="pull">Vision is common.<br><span class="accent">The standing to act on it, against the grain, is not.</span></p>
     </section>
@@ -234,7 +236,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="8" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=11"></script>
+<script src="feature.js?v=12"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";
@@ -247,23 +249,39 @@
 
   // compounding: linear vs exponential
   var x0=56,x1=648,yB=206,yT=34, W=x1-x0, H=yB-yT;
-  var lin=document.getElementById('lin'), exp=document.getElementById('exp');
-  var ld=document.getElementById('lindot'), ed=document.getElementById('expdot');
-  var linv=document.getElementById('linv'), expv=document.getElementById('expv'), yrs=document.getElementById('yrs');
+  var lin=document.getElementById('lin'), exp=document.getElementById('exp'), ai=document.getElementById('ai');
+  var ld=document.getElementById('lindot'), ed=document.getElementById('expdot'), ad=document.getElementById('aidot');
+  var linv=document.getElementById('linv'), expv=document.getElementById('expv'), aiv=document.getElementById('aiv'), yrs=document.getElementById('yrs');
   var slider=document.getElementById('years');
-  var K=Math.log(60)/100; // exp reaches ~60x at t=100
-  function linF(t){ return 1 + (6-1)*(t/100); }      // linear: ~6x over the span
-  function expF(t){ return Math.exp(K*t); }            // exponential: ~60x
-  function y(v){ var maxv=expF(100); return yB - (Math.log(v)/Math.log(maxv))*H; } // log-scaled axis so both fit
+  var MAX=30;                                    // horizon: 30 years out
+  function linF(t){ return 1 + 0.10*t; }          // straight-line forecast
+  function expF(t){ return Math.exp(0.3466*t); }  // what code once compounded: doubling ~every 2 years
+  // recursive self-improvement: the growth RATE itself compounds, so this curve is
+  // super-exponential. The axis is LINEAR and rescaled each frame to the AI value, so
+  // AI is a near-vertical takeoff pinned to the top while the other two collapse to the
+  // floor as it leaves them behind.
+  function aiF(t){ return Math.exp(2.0*t + 0.01*t*t); } // doubling ~every 4 months, and accelerating
+  function fmt(v){
+    if(v<10) return v.toFixed(1);
+    if(v<1e3) return ''+Math.round(v);
+    if(v<1e6) return Math.round(v).toLocaleString();
+    if(v<1e9) return (v/1e6).toFixed(1)+' million';
+    if(v<1e12) return (v/1e9).toFixed(1)+' billion';
+    if(v<1e15) return (v/1e12).toFixed(1)+' trillion';
+    return '10^'+Math.round(Math.log10(v));
+  }
   function draw(){
     var t=+slider.value; yrs.textContent=t;
-    var lp='', ep='', N=Math.max(1,Math.round(t));
-    for(var i=0;i<=N;i++){ var tt=i*t/N; var lx=x0+(tt/100)*W; lp+=lx.toFixed(1)+','+y(linF(tt)).toFixed(1)+' '; ep+=lx.toFixed(1)+','+y(expF(tt)).toFixed(1)+' '; }
-    lin.setAttribute('points',lp.trim()); exp.setAttribute('points',ep.trim());
-    var cx=x0+(t/100)*W;
-    ld.setAttribute('cx',cx.toFixed(1)); ld.setAttribute('cy',y(linF(t)).toFixed(1));
-    ed.setAttribute('cx',cx.toFixed(1)); ed.setAttribute('cy',y(expF(t)).toFixed(1));
-    linv.innerHTML=linF(t).toFixed(1)+'&times;'; expv.innerHTML=Math.round(expF(t))+'&times;';
+    var top=Math.max(aiF(t),1.0001);              // ceiling = current AI value; baseline (1x) sits on the floor
+    function Y(v){ return yB - ((v-1)/(top-1))*H; }
+    var lp='', ep='', ap='', N=Math.max(4,Math.round(t*4));
+    for(var i=0;i<=N;i++){ var tt=i*t/N; var lx=x0+(tt/MAX)*W; lp+=lx.toFixed(1)+','+Y(linF(tt)).toFixed(1)+' '; ep+=lx.toFixed(1)+','+Y(expF(tt)).toFixed(1)+' '; ap+=lx.toFixed(1)+','+Y(aiF(tt)).toFixed(1)+' '; }
+    lin.setAttribute('points',lp.trim()); exp.setAttribute('points',ep.trim()); ai.setAttribute('points',ap.trim());
+    var cx=x0+(t/MAX)*W;
+    ld.setAttribute('cx',cx.toFixed(1)); ld.setAttribute('cy',Y(linF(t)).toFixed(1));
+    ed.setAttribute('cx',cx.toFixed(1)); ed.setAttribute('cy',Y(expF(t)).toFixed(1));
+    ad.setAttribute('cx',cx.toFixed(1)); ad.setAttribute('cy',Y(aiF(t)).toFixed(1));
+    linv.innerHTML=fmt(linF(t))+'&times;'; expv.innerHTML=fmt(expF(t))+'&times;'; aiv.innerHTML=fmt(aiF(t))+'&times;';
   }
   slider.addEventListener('input',draw); draw();
 })();
