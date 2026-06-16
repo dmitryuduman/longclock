@@ -316,6 +316,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       ['longclock-gametheory.html','The Game Theory of Bitcoin'],
       ['longclock-asymmetry.html','Take the Zero Off the Table'],
       ['longclock-rails.html',"On Steve's Rails"],
+      ['longclock-nativetongue.html','The Native Tongue'],
       ['longclock-whatismoney.html','What Is Money? – the series, distilled'] ]},
     { g:'Thread one – what sound money really is', items:[
       ['longclock-memory.html','What Money Remembers'],

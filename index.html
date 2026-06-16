@@ -72,15 +72,19 @@
   .readmore:hover{ background:var(--oxblood); color:var(--paper); border-color:var(--oxblood); }
 
   /* ---------- contents / chapters ---------- */
-  .contents{ margin:2.8rem auto 0; max-width:var(--measure); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:0.4rem 0 0.6rem; }
-  .toclabel{ font-family:"IBM Plex Mono",monospace; font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin:0.9rem 0 0.5rem; }
-  .tocrow{ display:grid; grid-template-columns:2.4rem 1fr; gap:0.15rem 1rem; align-items:baseline; padding:0.9rem 0; border-bottom:1px dotted var(--rule); text-decoration:none; color:inherit; }
+  .contents{ margin:2.2rem auto 0; max-width:var(--measure); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:0.3rem 0 0.4rem; }
+  .toclabel{ font-family:"IBM Plex Mono",monospace; font-size:0.7rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin:0.7rem 0 0.35rem; }
+  .tocrow{ display:grid; grid-template-columns:2.1rem 1fr; gap:0.1rem 0.9rem; align-items:baseline; padding:0.5rem 0; border-bottom:1px dotted var(--rule); text-decoration:none; color:inherit; }
   .tocrow:last-child{ border-bottom:0; }
-  .tocnum{ font-family:"Fraunces",serif; font-weight:600; font-size:1.1rem; color:var(--gold); line-height:1; }
-  .toctitle{ font-family:"Fraunces",serif; font-weight:600; font-size:1.22rem; color:var(--ink); line-height:1.18; transition:color .2s ease; }
+  .tocnum{ font-family:"Fraunces",serif; font-weight:600; font-size:1.05rem; color:var(--gold); line-height:1; }
+  .toctitle{ font-family:"Fraunces",serif; font-weight:600; font-size:1.1rem; color:var(--ink); line-height:1.15; transition:color .2s ease; }
   a.tocrow:hover .toctitle{ color:var(--oxblood); }
   a.tocrow:hover .toctitle::after{ content:"\00a0\2192"; color:var(--gold-line); }
-  .tocdesc{ grid-column:2; font-size:1.0rem; color:var(--ink-soft); line-height:1.45; margin-top:0.1rem; }
+  .tocdesc{ grid-column:2; font-size:0.9rem; color:var(--ink-soft); line-height:1.32; margin-top:0.05rem; }
+  /* Featured tier: two columns so five pillars take three rows, not five */
+  .featgrid{ display:grid; grid-template-columns:1fr 1fr; column-gap:2.4rem; row-gap:0; }
+  .featgrid > .toclabel{ grid-column:1 / -1; }
+  @media(max-width:640px){ .featgrid{ grid-template-columns:1fr; column-gap:0; } }
   .tochere{ grid-column:2; font-family:"IBM Plex Mono",monospace; font-size:0.64rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--oxblood); margin-top:0.35rem; }
   .tocrow.current{ background:rgba(199,161,75,0.06); margin:0 -0.8rem; padding-left:0.8rem; padding-right:0.8rem; border-left:2px solid var(--gold); }
   @media(max-width:520px){ .tocrow{ grid-template-columns:1.7rem 1fr; } }
@@ -466,7 +470,7 @@
     </nav>
     <p class="tocintro reveal">Read the five in order and you have the whole argument. Beyond them sit the <b>pillars</b> &ndash; deep-dives strong enough to stand on their own &ndash; and the Library, which goes further on the same threads. Follow whichever pulls at you.</p>
 
-    <nav class="contents reveal" aria-label="Featured" style="margin-top:1.9rem;">
+    <nav class="contents reveal featgrid" aria-label="Featured" style="margin-top:1.5rem;">
       <p class="toclabel">Featured &ndash; pillars worth reading on their own</p>
       <a class="tocrow" href="longclock-incorruptible.html">
         <span class="tocnum">&#9670;</span>
@@ -487,6 +491,11 @@
         <span class="tocnum">&#9670;</span>
         <span class="toctitle">On Steve's Rails</span>
         <span class="tocdesc">Saylor, Jobs, and the visionary who reads the future early &ndash; and how AI-era code compounds it. Interactive.</span>
+      </a>
+      <a class="tocrow" href="longclock-nativetongue.html">
+        <span class="tocnum">&#9670;</span>
+        <span class="toctitle">The Native Tongue</span>
+        <span class="tocdesc">How a money becomes obvious to whoever comes next &ndash; the generational shift the old guard can't see. Interactive.</span>
       </a>
       <a class="tocrow" href="longclock-whatismoney.html">
         <span class="tocnum">&#9670;</span>
@@ -928,6 +937,6 @@
   }
 })();
 </script>
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 </body>
 </html>

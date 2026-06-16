@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>The Native Tongue – how a money becomes obvious to whoever comes next</title>
+<meta name="description" content="Every argument about whether Bitcoin is real money is held in a language that is dying out. The people who find it baffling grew up before the digital world; the people who find it obvious are growing up inside it. This is how disruption actually wins – not by converting the room, but by being inherited. A look at the generational, cognitive shift, through the lens of the iPhone.">
+<meta name="published" content="2026-06-15">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css?v=13">
+<style>
+  :root{
+    --bg:#E4D4F2; --ink:#211C2B; --ink-soft:#5C5468;
+    --accent:#5E3A8C; --accent-line:#B7A6CE; --accent2:#A85A2A;
+    --rule:rgba(33,28,43,0.16);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.045; --grain-blend:multiply;
+  }
+  html,body{ background-color:#E4D4F2; color:#211C2B; }
+  body{
+    background-image:
+      radial-gradient(80% 60% at 20% 6%, rgba(255,255,255,0.55), transparent 60%),
+      radial-gradient(85% 65% at 86% 16%, rgba(94,58,140,0.07), transparent 60%),
+      radial-gradient(120% 100% at 50% 118%, rgba(33,28,43,0.08), transparent 60%);
+    background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.5rem 0 0; }
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  /* ---- adoption-curve interactive (nt- prefixed to avoid feature.js?v=13 clashes) ---- */
+  .nt-viz{ max-width:46rem; margin:2.4rem auto 0.8rem; border:1px solid var(--rule); border-radius:12px; padding:22px 22px 24px; background:rgba(255,255,255,0.44); }
+  .nt-head{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1.1rem; }
+  .nt-viz svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .nt-axis{ stroke:var(--ink); stroke-width:1; opacity:0.5; }
+  .nt-grid{ stroke:var(--ink); stroke-width:0.6; opacity:0.13; }
+  .nt-today{ stroke:var(--ink); stroke-width:0.9; opacity:0.4; stroke-dasharray:3 4; }
+  .nt-marker{ stroke:var(--ink); stroke-width:1.4; opacity:0.7; }
+  .nt-cl{ fill:none; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round; }
+  .nt-lab{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.03em; }
+  .nt-axlab{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.02em; fill:var(--ink-soft); }
+  .nt-field{ margin-top:1.4rem; }
+  .nt-field label{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em; color:var(--ink); margin:0 0 0.5rem; }
+  .nt-field .nt-val{ font-weight:500; color:var(--accent); font-size:0.95rem; }
+  .nt-field input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:3px; background:var(--accent-line); outline:none; cursor:pointer; }
+  .nt-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.28); cursor:pointer; }
+  .nt-field input[type=range]::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.28); cursor:pointer; }
+  .nt-tick{ font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.04em; color:var(--ink-soft); display:flex; justify-content:space-between; margin-top:0.35rem; }
+  .nt-out{ margin-top:1.5rem; border-top:1px solid var(--rule); padding-top:1.3rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem 1.2rem; }
+  .nt-stat .nt-k{ font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.3rem; line-height:1.3; }
+  .nt-stat .nt-n{ font-family:var(--font-display); font-weight:600; font-size:1.5rem; line-height:1; }
+  .nt-stat .nt-n.p{ color:var(--accent2); }
+  .nt-stat .nt-n.n{ color:var(--ink-soft); }
+  .nt-stat .nt-n.b{ color:var(--accent); }
+  .nt-read{ grid-column:1 / -1; margin-top:0.4rem; border-top:1px dashed var(--rule); padding-top:1.1rem; }
+  .nt-read p{ margin:0; font-family:var(--font-body); font-size:1.05rem; line-height:1.56; color:var(--ink); }
+  .nt-read .nt-em{ color:var(--accent); font-style:italic; }
+  @media(max-width:540px){ .nt-out{ grid-template-columns:1fr; gap:0.9rem; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;&middot;&nbsp; Featured &nbsp;&middot;&nbsp; The native generation</p>
+    <h1>The Native Tongue</h1>
+    <div class="crown"></div>
+    <p class="deck">Every argument about whether Bitcoin is real money is being held in a language that is quietly dying out. The people who find it baffling grew up before the digital world; the people who find it obvious are growing up inside it. This is not a debate that gets won. It gets inherited &ndash; the way the smartphone was inherited, by a generation that never argued the point because it never had to.</p>
+    <p class="listen" title="Audio narration – coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="40" y1="150" x2="640" y2="150" stroke="#211C2B" stroke-width="1" opacity="0.5"/>
+          <g stroke="#5C5468" stroke-width="1.6" opacity="0.34"><circle cx="80" cy="104" r="12"/><path d="M62,150 C64,128 72,120 80,120 C88,120 96,128 98,150"/></g>
+          <g stroke="#5C5468" stroke-width="1.7" opacity="0.46"><circle cx="172" cy="102" r="12.5"/><path d="M153,150 C155,127 163,118 172,118 C181,118 189,127 191,150"/></g>
+          <g stroke="#6E5680" stroke-width="1.8" opacity="0.6"><circle cx="266" cy="100" r="13"/><path d="M246,150 C248,126 256,116 266,116 C276,116 284,126 286,150"/></g>
+          <g stroke="#6E5680" stroke-width="1.9" opacity="0.74"><circle cx="362" cy="98" r="13.5"/><path d="M341,150 C343,124 352,114 362,114 C372,114 381,124 383,150"/></g>
+          <g stroke="#5E3A8C" stroke-width="2" opacity="0.86"><circle cx="460" cy="96" r="14"/><path d="M438,150 C440,123 450,112 460,112 C470,112 480,123 482,150"/></g>
+          <g stroke="#5E3A8C" stroke-width="2.2" opacity="0.96"><circle cx="560" cy="93" r="14.5"/><path d="M537,150 C539,121 549,110 560,110 C571,110 581,121 583,150"/></g>
+          <g stroke="#5E3A8C" stroke-width="2.4"><circle cx="626" cy="91" r="9"/><path d="M611,150 C612,131 619,123 626,123 C633,123 640,131 641,150"/></g>
+        </g>
+        <text class="figcap" x="46" y="172" style="text-anchor:start;fill:#5C5468;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;">born before</text>
+        <text x="634" y="172" style="text-anchor:end;fill:#5E3A8C;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.04em;">born inside</text>
+      </svg>
+      <p class="figcap">Each cohort sits a little further inside the network. The argument is not settled along this line &ndash; it is inherited down it.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The pattern</p></div>
+      <h2>It happened first with a phone</h2>
+      <p class="opening lede">In 2007 a computer company that had never made a phone put a slab of glass on a stage, and the serious people laughed. It had no keyboard. It cost a fortune. The head of the world's dominant software platform said there was no chance it would win any significant share of the market; the chief executive of a leading handset maker was just as dismissive. They were, on the facts in front of them that day, being reasonable.</p>
+      <p>Then the curve arrived. In 2007 almost no American adult owned a smartphone at all; by 2011 about thirty-five per cent did, and by 2024 <span class="key">roughly ninety-one per cent</span> &ndash; and the stretch from one-in-ten to four-in-ten took only about two and a half years, faster than almost any technology that came before it. The people who had been right about the toy were wrong about the world, and the gap between those two judgments was less than a decade. This is what disruption actually looks like from inside: not a fair fight announced in advance, but a thing the incumbents are correct to dismiss on today's terms and ruined for dismissing on tomorrow's.</p>
+      <p>And what they miss is rarely what it looks like from outside. The executives who waved the iPhone away were <span class="key">fluent in a world that was ending</span>, and fluency in a dying world is the most expensive blindness there is. They evaluated the new thing in the grammar of the old one &ndash; buttons, enterprise email, battery life &ndash; and by that grammar they were right. The grammar was simply about to change underneath them.</p>
+      <p class="pull">Disruption looks like a toy<br><span class="accent">right up until it is the air you breathe.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">Two kinds of mind</p></div>
+      <h2>A line drawn by birthday</h2>
+      <p class="lede">In 2001, before any of this had a name, the writer Marc Prensky drew the line that explains the rest. He called the young who had grown up surrounded by computers <em>digital natives</em>, and everyone who arrived later <em>digital immigrants</em> &ndash; people who learned the new world as adults and would always, in his phrase, speak it with an accent.</p>
+      <p>The accent is the tell. The immigrant prints the email to read it, calls to ask whether you got the text, keeps a paper backup of the thing that cannot be lost. None of this is a failing; it is translation, done tirelessly. The immigrant is forever converting the digital back into the physical world they actually trust, and the native never learned that step, because there was nothing to convert from. Prensky's sharpest claim was not that the young were smarter. It was that they <span class="key">think and process information fundamentally differently</span> &ndash; that growing up inside a medium rewires what feels natural in it.</p>
+      <p>Every year, that line moves. A cohort of immigrants ages out of the room; a cohort of deeper natives ages in. The boundary is not fixed at some single generation &ndash; it slides forward continuously, and each new arrival is born a little further inside than the last.</p>
+      <p class="pull">An immigrant translates.<br><span class="accent">A native simply thinks.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The deeper fluency</p></div>
+      <h2>Thinking in code</h2>
+      <p class="lede">The shift runs deeper than swiping faster than your parents. The generations coming up do not merely use digital tools; they reason in the grammar of the digital &ndash; in abstraction, in networks, in things that are scarce because the rules say so and cannot quietly be made otherwise.</p>
+      <p>The idea has its skeptics, and they land a fair blow: being raised among screens makes no one wiser, or a sharper thinker, or even reliably handy with the machines &ndash; the teenager who cannot rescue the family wifi is a fair joke at the whole notion's expense. But the claim doing the work here is narrower than the one they swing at, and far harder to dispute. It is not that the young are more able. It is that a different set of things strikes them as <span class="key">unremarkable</span> &ndash; and what a person finds unremarkable at twenty is what they reach for, without a second thought, at fifty.</p>
+      <p>Consider how completely digital the world of someone young already is. Their money is a number on a screen they have never once handled as coins; their friendships, their work, their records, and the proof that any of it is theirs all live as data, and always have. To a mind raised entirely inside that world, a money that exists only as verifiable code is not a paradox to be explained away. It raises no eyebrow at all &ndash; it is simply money, in the medium everything else already lives in. <span class="key">The objection that it "isn't backed by anything" is not a question they think to ask.</span></p>
+      <p>It is the immigrant for whom it is genuinely hard, and the reason is worth taking seriously. Many of them lived through &ndash; or inherited the memory of &ndash; money that was once tangible: gold, and then paper trusted because it had once been gold. They watched that anchor cut, and the money become, in the end, a number a state can print at will. Having been burned by money that quietly turned into nothing, they see Bitcoin &ndash; which is, on the surface, also nothing you can hold &ndash; and the same alarm fires. <span class="key">The native never had the tangible anchor to lose, so feels no betrayal in intangibility</span>, and judges a money the way you would judge any tool: by what it does, and whether its rules can be broken. By that test, the one no official can secretly print is the sound one. Drag the year below and watch the two waves moving underneath the argument.</p>
+
+      <div class="nt-viz reveal" id="nt-viz">
+        <p class="nt-head">Interactive &ndash; the next S-curve</p>
+        <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line class="nt-grid" x1="64" y1="34" x2="650" y2="34"/>
+          <line class="nt-grid" x1="64" y1="96" x2="650" y2="96"/>
+          <line class="nt-grid" x1="64" y1="159" x2="650" y2="159"/>
+          <line class="nt-grid" x1="64" y1="221" x2="650" y2="221"/>
+          <line class="nt-axis" x1="64" y1="284" x2="650" y2="284"/>
+          <line class="nt-axis" x1="64" y1="30" x2="64" y2="284"/>
+          <text class="nt-axlab" x="58" y="38" text-anchor="end">100%</text>
+          <text class="nt-axlab" x="58" y="162" text-anchor="end">50%</text>
+          <text class="nt-axlab" x="58" y="287" text-anchor="end">0%</text>
+          <line class="nt-today" id="nt-today" x1="0" y1="30" x2="0" y2="284"/>
+          <text class="nt-axlab" id="nt-todaylab" x="0" y="300" text-anchor="middle">today</text>
+          <polyline class="nt-cl" id="nt-l-phone" stroke="#A85A2A" points=""/>
+          <polyline class="nt-cl" id="nt-l-native" stroke="#5C5468" points="" opacity="0.85"/>
+          <polyline class="nt-cl" id="nt-l-btc" stroke="#5E3A8C" points=""/>
+          <line class="nt-marker" id="nt-marker" x1="0" y1="30" x2="0" y2="284"/>
+          <circle id="nt-d-phone" r="4.5" fill="#A85A2A"/>
+          <circle id="nt-d-native" r="4.5" fill="#5C5468"/>
+          <circle id="nt-d-btc" r="4.5" fill="#5E3A8C"/>
+          <text class="nt-lab" x="640" y="24" text-anchor="end" fill="#A85A2A">smartphones</text>
+          <text class="nt-lab" x="640" y="250" text-anchor="end" fill="#5C5468">digital-native adults</text>
+          <text class="nt-lab" x="200" y="276" text-anchor="start" fill="#5E3A8C">sound digital money</text>
+        </svg>
+        <div class="nt-field">
+          <label for="nt-year"><span>Year</span><span class="nt-val" id="nt-year-val">2026</span></label>
+          <input type="range" id="nt-year" min="2007" max="2045" step="1" value="2026">
+          <div class="nt-tick"><span>2007</span><span>2026</span><span>2045</span></div>
+        </div>
+        <div class="nt-out">
+          <div class="nt-stat"><p class="nt-k">Smartphones<br>(adults)</p><p class="nt-n p" id="nt-s-phone">&ndash;</p></div>
+          <div class="nt-stat"><p class="nt-k">Digital-native<br>share of adults</p><p class="nt-n n" id="nt-s-native">&ndash;</p></div>
+          <div class="nt-stat"><p class="nt-k">Sound digital money<br>(illustrative)</p><p class="nt-n b" id="nt-s-btc">&ndash;</p></div>
+          <div class="nt-read"><p id="nt-read">Drag the year to follow the curves.</p></div>
+        </div>
+      </div>
+      <p class="figcap">Fig. 1 &ndash; the smartphone curve is fit to the real adoption points; the money curve is the same S-shape, drawn forward as illustration, not forecast. The point is the shape &ndash; and how much of it is still ahead.</p>
+
+      <p class="pull">To one mind it is code pretending to be money.<br><span class="accent">To the other it is money that finally stopped pretending.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Network effects</p></div>
+      <h2>Why a curve, and not a craze</h2>
+      <p class="lede">A fashion is a matter of taste, and taste reverses. What is happening here is structural, and structure compounds. Money is the purest network good there is: a thing worth holding precisely insofar as others hold it, useful in exact proportion to how many people will take it from you.</p>
+      <p>That is what turns a generational shift into an engine. Every native cohort that treats sound digital money as a default enlarges the network, and a larger network is a more obvious default for the cohort behind them, who enlarge it again. <span class="key">The thing the old guard reads as a passing enthusiasm is actually a loop feeding itself</span> &ndash; the same self-reinforcing dynamic that sits under every S-curve, the smartphone's included. Adoption does not climb because people were argued into it. It climbs because each new holder quietly raises the value, and lowers the strangeness, for the next one.</p>
+      <p>And this is not a forecast waiting to begin; it is already running, and you can photograph it mid-climb. Survey after survey finds the young holding crypto at multiples of their elders &ndash; <a href="https://www.gemini.com/blog/gemini-survey-finds-more-than-half-of-gen-z-owns-crypto">better than four in ten of the youngest American adults, against single digits among the oldest</a>. That gap is not noise to be averaged away. It is the curve, caught in the act, with the steep part still ahead of it. The companion essays follow the same loop from other angles &ndash; <a href="longclock-doorways.html">Ten Thousand Doorways</a> traces how it spreads use by use, and <a href="longclock-gametheory.html">The Game Theory of Bitcoin</a> shows why, once it is moving, the rational move is to join it early.</p>
+      <p class="pull">Taste fades.<br><span class="accent">A network compounds.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The blind spot</p></div>
+      <h2>You cannot hear an argument in a language you do not speak</h2>
+      <p class="lede">When a central banker or a veteran fund manager says Bitcoin makes no sense, they are not lying. In their native tongue, it genuinely doesn't. And that, not bad faith, is the thing worth understanding about the old guard.</p>
+      <p>They evaluate it with the only grammar they have. Is it a stock? It pays no dividend. A currency? No state stands behind it. A commodity? You cannot touch it. It answers to none of the categories they were raised inside, so they file it where the unclassifiable goes &ndash; under fraud, or fad. This is precisely what every incumbent does at the toy stage, and for precisely the reason the handset makers did: <span class="key">they are fluent in a world that is ending, and that fluency is exactly what stops them seeing the next one.</span> The point on <a href="longclock-incumbents.html">what the banks stand to lose</a> is that many of them will come around &ndash; but they will come around as immigrants, late and with an accent, not as the people who saw it first.</p>
+      <p>The pattern has already run once in plain sight, and recently. Through the early 2000s Apple's computers held a commanding share of exactly one market and almost no other: schools and universities. The serious verdict was that this was a curiosity with no bearing on anything that mattered &ndash; fine for art departments and dorm rooms, hopeless in the enterprise. But the students were not a niche; they were the next decade's managers, founders and buyers, and they carried the preference they had formed at eighteen into the offices and households they went on to run. When the iPhone arrived the same verdict returned almost word for word &ndash; it will never survive a corporate IT department &ndash; and it was overturned the same way, from below, as the people to whom it was obvious moved into the seats where the decisions get made. <span class="key">Adoption did not spread across the org chart so much as climb up it, one cohort at a time.</span> Bitcoin sits today roughly where those campus machines sat then: commonplace among the people who do not yet hold the balance sheets, and dismissed by the people who do.</p>
+      <p>And here demographics does its quiet, undramatic work. The balance sheets of the world are not eternal; they are inherited. The skeptics age out of their seats on the boards and the committees and the central banks, and the natives age into them &ndash; with the mandates, the votes, and the savings that have to go somewhere. You do not win a language war by winning debates. <span class="key">You win it by raising children who speak the new tongue first, and then simply waiting.</span> Which is why the argument never resolves and never had to: it is not being settled. It is being succeeded.</p>
+      <p>Steve Jobs &ndash; whose products furnish both of this essay's examples, and who has a chapter of his own in <a href="longclock-rails.html">On Steve's Rails</a> &ndash; once named the mechanism more plainly than an economist would dare. Death, he told a graduating class, is <span class="key">"very likely the single best invention of Life ... Life's change agent"</span>: its whole office is to retire the old so the new can take the floor. He was speaking of people, but it holds just as well for ideas and for the institutions that keep them. The old grammar need not be defeated in argument; it simply ages out of the room, and the room fills with people who never spoke it.</p>
+      <p class="pull">The old guard will not be persuaded.<br><span class="accent">They will be succeeded.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">The tide</p></div>
+      <h2>It only has to be obvious to whoever comes next</h2>
+      <p class="lede">Put the whole thing in a single line. A technology does not win when it convinces the people in charge. It wins when it becomes the native tongue of the people who will be.</p>
+      <p>Bitcoin does not need the central banker who finds it absurd, or the columnist who calls it a delusion, or the manager who cannot fit it in his spreadsheet. It needs only to keep being the obvious shape of money to everyone raised inside the network that makes it obvious &ndash; and that population grows by one cohort every year, automatically, whether or not a single argument is ever won on a stage or a podcast. The debate the old guard keeps demanding to have is, from the curve's point of view, beside the point. <span class="key">The curve is not arguing. It is recruiting, one birthday at a time.</span></p>
+      <p>A phone did exactly this, within living memory. It did not win a debate about keyboards; it raised a generation that never wanted one, and that generation went on to run the world. The phone never argued. It did not have to &ndash; and neither, in the end, will the money.</p>
+      <p class="pull">A thing wins not when it convinces the room,<br><span class="accent">but when it becomes the language of whoever inherits it.</span></p>
+
+      <p class="signoff">None of this says the young are right and the old are wrong &ndash; new defaults can be mistakes, and being born into something is not the same as understanding it. It says only that this is how the deepest changes have always travelled: not by converting the room, but by outliving it. So the question is not whether you find it obvious. It is whether the people who come after you will &ndash; and whether you would rather understand that now, or translate it later, with an accent.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">The visionaries who read the curve early &ndash; <a href="longclock-rails.html">On Steve's Rails</a>; how it spreads, one use at a time &ndash; <a href="longclock-doorways.html">Ten Thousand Doorways</a>; and what the incumbents stand to lose as the tongue changes &ndash; <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the figures.</b> The iPhone was introduced in 2007; US smartphone ownership among adults rose from about 35% in 2011 to roughly 91% by 2024 (Pew Research Center), and the move from a 10% to a 40% adoption rate took about two and a half years &ndash; among the fastest technology adoptions on record. The terms <i>digital native</i> and <i>digital immigrant</i> were coined by Marc Prensky in 2001, including the claim that natives "think and process information fundamentally differently" than those who came to the digital world as adults. The generational ownership gap draws on 2024 surveys (Gemini, YouGov, Policygenius), which put crypto ownership among the youngest US adults at roughly 42&ndash;51% versus single digits (about 5&ndash;8%) among the oldest. The adoption-curve figure is illustrative: the smartphone line is fit to the Pew points, while the "sound digital money" line is the same logistic S-shape drawn forward as an illustration of the pattern, not a forecast of any particular level or date. Nothing here is investment advice.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock – the core argument</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">– the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">– the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-incumbents.html"><span class="pn">III</span><span class="pt">The Old Guard's Dilemma</span><span class="pd">– what the banks stand to lose</span></a>
+      <a class="pr" href="longclock-doorways.html"><span class="pn">IV</span><span class="pt">Ten Thousand Doorways</span><span class="pd">– how it actually spreads</span></a>
+      <a class="pr" href="longclock-timechain.html"><span class="pn">V</span><span class="pt">The Timechain</span><span class="pd">– the clock the machines will trust</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="29" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
+
+<script src="feature.js?v=13"></script>
+<script>
+(function(){
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+})();
+</script>
+<script>
+/* adoption-curve interactive – nt- prefixed, self-contained, no storage */
+(function(){
+  var yr=document.getElementById('nt-year'); if(!yr) return;
+  var X0=64, X1=650, Y0=284, Y1=34, T0=2007, T1=2045, TODAY=2026;
+  function px(t){ return X0+(t-T0)/(T1-T0)*(X1-X0); }
+  function py(v){ return Y0-v*(Y0-Y1); }                 // v in 0..1
+  function logistic(t,L,t0,k){ return L/(1+Math.exp(-k*(t-t0))); }
+  function phone(t){ return logistic(t,0.92,2012,0.55); } // ~35% 2011, ~91% 2024
+  function nativ(t){ return logistic(t,1.0,2024,0.11); }  // share of adults who are digital natives
+  function btc(t){ return logistic(t,0.85,2032,0.32); }   // illustrative, lagging
+  function pts(fn){ var s=''; for(var t=T0;t<=T1;t++){ s+=px(t).toFixed(1)+','+py(fn(t)).toFixed(1)+' '; } return s.trim(); }
+  document.getElementById('nt-l-phone').setAttribute('points',pts(phone));
+  document.getElementById('nt-l-native').setAttribute('points',pts(nativ));
+  document.getElementById('nt-l-btc').setAttribute('points',pts(btc));
+  var tx=px(TODAY);
+  document.getElementById('nt-today').setAttribute('x1',tx); document.getElementById('nt-today').setAttribute('x2',tx);
+  document.getElementById('nt-todaylab').setAttribute('x',tx);
+  function pct(v){ return Math.round(v*100)+'%'; }
+  function dot(id,t,fn){ var d=document.getElementById(id); d.setAttribute('cx',px(t).toFixed(1)); d.setAttribute('cy',py(fn(t)).toFixed(1)); }
+  function upd(){
+    var t=+yr.value;
+    document.getElementById('nt-year-val').textContent=t;
+    var mx=px(t);
+    var mk=document.getElementById('nt-marker'); mk.setAttribute('x1',mx); mk.setAttribute('x2',mx);
+    dot('nt-d-phone',t,phone); dot('nt-d-native',t,nativ); dot('nt-d-btc',t,btc);
+    document.getElementById('nt-s-phone').textContent=pct(phone(t));
+    document.getElementById('nt-s-native').textContent=pct(nativ(t));
+    document.getElementById('nt-s-btc').textContent=pct(btc(t));
+    var nv=Math.round(nativ(t)*100), bv=Math.round(btc(t)*100);
+    var read;
+    if(t<2012){
+      read='In '+t+', smartphones are still a curiosity and sound digital money barely exists. Both look, to the serious people of the day, like toys &ndash; <span class="nt-em">which is exactly how the curve always begins</span>.';
+    } else if(t<=TODAY){
+      read='By '+t+', digital natives are about <span class="nt-em">'+nv+'% of adults</span> and roughly <span class="nt-em">'+bv+'%</span> hold sound digital money. The smartphone has already gone vertical; the money curve is where the phone was a decade into its climb &ndash; still dismissible, already moving.';
+    } else {
+      read='Run it to '+t+': digital natives are now about <span class="nt-em">'+nv+'% of adults</span>. If sound money traces the path the smartphone did, adoption sits near <span class="nt-em">'+bv+'%</span> &ndash; the steep middle of the S-curve, where the old debate is not won so much as <span class="nt-em">over</span>.';
+    }
+    document.getElementById('nt-read').innerHTML=read;
+  }
+  yr.addEventListener('input',upd); upd();
+})();
+</script>
+</body>
+</html>
