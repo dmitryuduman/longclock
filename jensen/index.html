@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Jensen Files · The Long Clock</title>
+<meta name="description" content="A field guide to Jensen Huang's public argument across seven appearances (Oct 2024 – Apr 2026): the spine of the idea, a scorecard of his calls, the companies and tech he keeps pointing at, and every transcript in full.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C0F0C; --bg2:#11150F; --card:#151A12; --card2:#1B2117;
+  --ink:#ECEFE4; --ink2:#B4B9A9; --ink3:#787E6F; --rule:#28301F;
+  --gold:#84C318; --gold2:#A9E04E; --teal:#54B3A6; --violet:#A38CC8;
+  --amber:#D9B45C; --coral:#E0865A;
+  --up:#6FC78C; --down:#E36A54; --short:#6FA8DC;
+  --serif:"Newsreader",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"Roboto Mono",monospace;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:radial-gradient(900px 500px at 12% -8%,rgba(132,195,24,.08),transparent 60%),radial-gradient(800px 600px at 100% 0%,rgba(84,179,166,.05),transparent 55%);
+  background-attachment:scroll;}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.12;margin:0}
+.mono{font-family:var(--mono)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+.muted{color:var(--ink2)}.dim{color:var(--ink3)}
+
+/* ============ NAV ============ */
+nav{position:sticky;top:0;z-index:50;background:rgba(12,15,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule)}
+.navin{max-width:var(--maxw);margin:0 auto;padding:0 26px;height:60px;display:flex;align-items:center;gap:26px}
+.brand{font-family:var(--serif);font-size:18px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.brand b{color:var(--gold);font-weight:600}
+.navlinks{display:flex;gap:24px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{font-size:13.5px;color:var(--ink2);text-decoration:none;letter-spacing:.01em;transition:color .2s;white-space:nowrap}
+.navlinks a:hover{color:var(--gold)}
+@media(max-width:880px){.navlinks{display:none}}
+
+/* ============ HERO ============ */
+header.hero{padding:74px 0 50px;border-bottom:1px solid var(--rule);position:relative}
+.hero h1{font-size:clamp(38px,6vw,64px);line-height:1.03;max-width:16ch;margin-bottom:22px}
+.hero h1 .gold{color:var(--gold)}
+.lede{font-size:clamp(17px,2.1vw,20px);color:var(--ink2);max-width:64ch;line-height:1.55}
+.lede b{color:var(--ink);font-weight:600}
+.statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px;max-width:760px}
+.stat{border-left:2px solid var(--gold);padding:4px 0 4px 16px}
+.stat .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--ink)}
+.stat .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-top:8px}
+@media(max-width:680px){.statrow{grid-template-columns:repeat(2,1fr);gap:24px 18px}}
+
+section{padding:64px 0;border-bottom:1px solid var(--rule)}
+.sechead{margin-bottom:36px;max-width:64ch}
+.sechead h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px}
+.sechead p{color:var(--ink2);font-size:16px;margin:0}
+
+/* ============ SPINE / ARC ============ */
+.spine{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.spine{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.spine{grid-template-columns:1fr}}
+.phase{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--rule);border-radius:14px;padding:24px 22px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
+.phase:hover{border-color:var(--gold);transform:translateY(-3px)}
+.phase .ph-n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}
+.phase .ph-when{font-family:var(--mono);font-size:11.5px;color:var(--ink3);margin:10px 0 2px}
+.phase h3{font-size:22px;margin:8px 0 12px;line-height:1.15}
+.phase p{font-size:14.5px;color:var(--ink2);margin:0 0 14px;line-height:1.5}
+.phase .ph-pick{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:20px;background:var(--card2);border:1px solid var(--rule);color:var(--ink2);letter-spacing:.03em}
+.chip.g{color:var(--gold2);border-color:rgba(132,195,24,.4)}
+
+/* ============ SCORECARD ============ */
+.disc{font-size:12.5px;color:var(--ink3);background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:12px 16px;margin-bottom:26px;line-height:1.5}
+.disc b{color:var(--ink2)}
+.kpis{display:flex;gap:26px;margin-bottom:26px;flex-wrap:wrap}
+.kpi .n{font-family:var(--serif);font-size:30px;line-height:1}
+.kpi .n.up{color:var(--gold)}
+.kpi .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:6px}
+
+/* verdict mix */
+.vmix-wrap{margin-bottom:30px}
+.vmix{display:flex;height:30px;border-radius:7px;overflow:hidden;border:1px solid var(--rule)}
+.vmix span{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:#0c0f0c;font-weight:500;transition:flex .9s cubic-bezier(.2,.8,.2,1);min-width:26px}
+.vmix .landed{background:var(--gold)}.vmix .playing{background:var(--teal)}
+.vmix .directional{background:var(--amber)}.vmix .pending{background:var(--violet)}
+.vmix .contested{background:var(--coral)}
+.vlegend{display:flex;gap:18px;flex-wrap:wrap;margin-top:13px}
+.vlegend span{font-family:var(--mono);font-size:11px;color:var(--ink2);display:flex;align-items:center;gap:6px}
+.vlegend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--rule);border-radius:12px}
+table.picks{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+table.picks th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);
+  text-align:left;padding:13px 14px;border-bottom:1px solid var(--rule);cursor:pointer;user-select:none;white-space:nowrap;background:var(--bg2)}
+table.picks th:hover{color:var(--gold)}
+table.picks th .ar{opacity:.4;font-size:9px}
+table.picks td{padding:13px 14px;border-bottom:1px solid var(--rule);vertical-align:middle}
+table.picks tr:last-child td{border-bottom:none}
+table.picks tbody tr.prow{cursor:pointer;transition:background .15s}
+table.picks tbody tr.prow:hover{background:var(--card2)}
+.call-cell{color:var(--ink);max-width:42ch;line-height:1.35}
+.cv{font-family:var(--mono);font-size:11px;color:var(--ink2);white-space:nowrap}
+.tp{font-family:var(--mono);font-size:11px;color:var(--ink2)}
+.vp{font-family:var(--mono);font-size:10px;padding:2px 9px;border-radius:20px;white-space:nowrap;letter-spacing:.04em}
+.vp.landed{background:rgba(132,195,24,.15);color:var(--gold2)}
+.vp.playing{background:rgba(84,179,166,.15);color:var(--teal)}
+.vp.directional{background:rgba(217,180,92,.15);color:var(--amber)}
+.vp.pending{background:rgba(163,140,200,.16);color:var(--violet)}
+.vp.contested{background:rgba(224,134,90,.15);color:var(--coral)}
+.exp-row td{background:var(--bg2);padding:0!important;border-bottom:1px solid var(--rule)}
+.exp-in{padding:6px 18px 18px;font-size:13.5px;color:var(--ink2);line-height:1.55;max-width:76ch}
+.exp-in .arc{color:var(--ink3);font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;display:block;margin:8px 0 8px}
+
+/* ============ TRACKER ============ */
+.spill{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.spill.own{background:rgba(132,195,24,.15);color:var(--gold2)}
+.spill.partner{background:rgba(84,179,166,.15);color:var(--teal)}
+.spill.rival{background:rgba(224,134,90,.15);color:var(--coral)}
+.spill.champions{background:rgba(217,180,92,.15);color:var(--amber)}
+.scoregrid{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:start}
+@media(max-width:920px){.scoregrid{grid-template-columns:1fr;gap:40px}}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:60px 1fr;align-items:center;gap:10px;cursor:default}
+.bar .tk{font-family:var(--mono);font-size:12.5px;color:var(--ink);text-align:right;letter-spacing:.02em}
+.bartrack{position:relative;height:24px;background:linear-gradient(90deg,transparent 49.6%,var(--rule) 49.6%,var(--rule) 50.4%,transparent 50.4%);border-radius:4px}
+.barfill{position:absolute;top:3px;height:18px;border-radius:3px;display:flex;align-items:center;min-width:2px;transition:width .9s cubic-bezier(.2,.8,.2,1)}
+.barfill.up{left:50%;background:linear-gradient(90deg,rgba(111,199,140,.55),var(--up))}
+.barfill.down{right:50%;background:linear-gradient(270deg,rgba(227,106,84,.55),var(--down))}
+.barval{font-family:var(--mono);font-size:11px;font-weight:500;color:#0c0f0c;padding:0 7px;white-space:nowrap}
+.barfill.down .barval{margin-left:auto}
+.tk-cell{font-family:var(--mono);font-weight:500;color:var(--ink)}
+.tk-cell .nm{display:block;font-family:var(--sans);font-size:11px;color:var(--ink3);font-weight:400;margin-top:1px}
+.ret{font-family:var(--mono);font-weight:500;text-align:right}
+.ret.up{color:var(--up)}.ret.down{color:var(--down)}
+
+/* ============ STACK ============ */
+.stackwrap{display:flex;flex-direction:column;gap:30px}
+.slayer .slhead{display:flex;align-items:baseline;gap:12px;margin-bottom:15px;border-bottom:1px solid var(--rule);padding-bottom:9px}
+.slayer .slname{font-family:var(--serif);font-size:21px;color:var(--ink)}
+.slayer .sln{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+.firmgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.firmgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.firmgrid{grid-template-columns:1fr}}
+.firm{background:var(--card);border:1px solid var(--rule);border-left:3px solid var(--teal);border-radius:11px;padding:15px 17px;transition:border-color .2s,transform .2s}
+.firm:hover{transform:translateY(-2px)}
+.firm.own{border-left-color:var(--gold)}.firm.partner{border-left-color:var(--teal)}
+.firm.champions{border-left-color:var(--amber)}.firm.rival{border-left-color:var(--coral)}
+.firm.watching{border-left-color:var(--violet)}
+.firm .fh{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.firm .fn{font-family:var(--sans);font-weight:600;font-size:14.5px;color:var(--ink);line-height:1.25}
+.firm .st{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:20px;white-space:nowrap;margin-top:1px}
+.firm.own .st{background:rgba(132,195,24,.15);color:var(--gold2)}
+.firm.partner .st{background:rgba(84,179,166,.15);color:var(--teal)}
+.firm.champions .st{background:rgba(217,180,92,.15);color:var(--amber)}
+.firm.rival .st{background:rgba(224,134,90,.15);color:var(--coral)}
+.firm.watching .st{background:rgba(163,140,200,.16);color:var(--violet)}
+.firm p{font-size:12.5px;color:var(--ink2);margin:0;line-height:1.5}
+
+/* ============ THEME MAP ============ */
+.themes{display:flex;flex-direction:column;gap:11px}
+.thr{display:grid;grid-template-columns:210px 1fr 44px;align-items:center;gap:14px;cursor:pointer;padding:6px 8px;border-radius:9px;transition:background .15s}
+.thr:hover{background:var(--card)}
+.thr.active{background:var(--card2)}
+.thr .nm{font-family:var(--sans);font-size:14px;color:var(--ink)}
+.thr .tk{position:relative;height:12px;background:var(--bg2);border-radius:7px;overflow:hidden}
+.thr .tf{position:absolute;left:0;top:0;height:100%;border-radius:7px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width 1s ease}
+.thr .ct{font-family:var(--mono);font-size:12px;color:var(--ink2);text-align:right}
+@media(max-width:560px){.thr{grid-template-columns:150px 1fr 34px;gap:10px}.thr .nm{font-size:12.5px}}
+
+/* ============ ROTATIONS ============ */
+.rot{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.rot{grid-template-columns:1fr}}
+.rotcard{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:24px;border-left:3px solid var(--teal)}
+.rotcard.win{border-left-color:var(--gold)}.rotcard.lag{border-left-color:var(--coral)}.rotcard.hold{border-left-color:var(--amber)}
+.rotcard h3{font-size:20px;margin-bottom:6px}
+.rotcard .tag{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:inline-block}
+.rotcard.win .tag{color:var(--gold2)}.rotcard.lag .tag{color:var(--coral)}.rotcard.hold .tag{color:var(--amber)}.rotcard .tag.t{color:var(--teal)}
+.rotcard p{font-size:14px;color:var(--ink2);margin:0;line-height:1.55}
+
+/* ============ ARCHIVE ============ */
+.controls{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+#search{flex:1;min-width:200px;background:var(--bg2);border:1px solid var(--rule);color:var(--ink);font-family:var(--sans);
+  font-size:14px;padding:11px 15px;border-radius:9px;outline:none;transition:border-color .2s}
+#search:focus{border-color:var(--gold)}
+.fbtns{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+.fbtn{font-family:var(--mono);font-size:11px;letter-spacing:.03em;padding:7px 12px;border-radius:20px;background:var(--bg2);
+  border:1px solid var(--rule);color:var(--ink2);cursor:pointer;transition:all .15s}
+.fbtn:hover{color:var(--ink)}
+.fbtn.on{background:var(--gold);color:#0c0f0c;border-color:var(--gold);font-weight:500}
+#count{font-family:var(--mono);font-size:11.5px;color:var(--ink3);margin:6px 0 18px}
+.archive{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:780px){.archive{grid-template-columns:1fr}}
+.note{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;transition:border-color .2s;cursor:pointer}
+.note:hover{border-color:var(--gold)}
+.note .meta{display:flex;align-items:center;gap:10px;margin-bottom:9px;flex-wrap:wrap}
+.note .dt{font-family:var(--mono);font-size:11px;color:var(--gold)}
+.note .vn{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.note .ty{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);
+  border:1px solid var(--rule);border-radius:4px;padding:1px 6px}
+.note h3{font-size:18px;line-height:1.2;margin-bottom:8px}
+.note .one{font-size:13.5px;color:var(--ink2);margin:0;line-height:1.5}
+.note .det{max-height:0;overflow:hidden;transition:max-height .45s ease;opacity:0}
+.note.open .det{max-height:1600px;opacity:1;margin-top:14px}
+.note .thesis{font-size:13.5px;color:var(--ink2);line-height:1.55;padding-top:14px;border-top:1px solid var(--rule)}
+.note .kp{margin:12px 0 0;padding:0;list-style:none}
+.note .kp li{font-size:13px;color:var(--ink2);padding:4px 0 4px 16px;position:relative;line-height:1.45}
+.note .kp li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.note .q{font-family:var(--serif);font-size:15.5px;color:var(--ink);font-style:normal;border-left:2px solid var(--gold);padding:2px 0 2px 14px;margin:14px 0 0;line-height:1.4}
+.note .tks{display:flex;flex-wrap:wrap;gap:5px;margin-top:13px}
+.note .thms{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
+.tag-s{font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:5px;background:var(--bg2);color:var(--ink3);border:1px solid var(--rule)}
+.tag-s.th{color:var(--gold2);border-color:rgba(132,195,24,.25)}
+
+footer{padding:54px 0 70px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr;gap:30px}
+@media(max-width:640px){footer .cols{grid-template-columns:1fr}}
+footer h4{font-size:20px;margin-bottom:12px}
+footer p{font-size:13px;color:var(--ink3);line-height:1.6;margin:0 0 12px;max-width:62ch}
+.toplink{font-family:var(--mono);font-size:11px;color:var(--gold);text-decoration:none;letter-spacing:.05em}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navin">
+    <span class="brand">The <b>Jensen</b> Files</span>
+    <div class="navlinks">
+      <a href="#spine">The Arc</a>
+      <a href="#scorecard">Scorecard</a>
+      <a href="#tracker">The Index</a>
+      <a href="#stack">The Stack</a>
+      <a href="#themes">Themes</a>
+      <a href="#rotations">Through-lines</a>
+      <a href="#archive">Transcripts</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Jensen Huang &middot; NVIDIA &middot; Oct 2024 – Apr 2026</div>
+    <h1>One operator, <span class="gold">one machine</span>, traced talk by talk.</h1>
+    <p class="lede">Across seven appearances – a keynote, two firesides, a live TV hit, and three long podcasts – Huang argues a single idea from every angle: <b>the computer has stopped being a tool and become a factory that manufactures intelligence</b>, and accelerated computing is the engine of a new industrial revolution. This is the field guide – the spine of the argument, a scorecard of his calls, the stack he keeps pointing at, and every transcript in full.</p>
+    <div class="statrow">
+      <div class="stat"><div class="n">7</div><div class="l">Appearances</div></div>
+      <div class="stat"><div class="n">18</div><div class="l">Months traced</div></div>
+      <div class="stat"><div class="n">30+</div><div class="l">Companies named</div></div>
+      <div class="stat"><div class="n">17</div><div class="l">Calls scored</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- SPINE -->
+<section id="spine"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Argument Arc</div>
+    <h2>How one idea compounded across eighteen months</h2>
+    <p>Huang rarely changes his mind – he widens the aperture. The through-line holds; the focal point moves from the chip, to the factory, to the labor market, to the grid, and finally to the question of what intelligence is worth.</p>
+  </div>
+  <div class="spine" id="spineGrid"></div>
+</div></section>
+
+<!-- SCORECARD -->
+<section id="scorecard"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Scorecard</div>
+    <h2>His calls, and how they've aged</h2>
+    <p>The concrete, checkable predictions – tracked from the date he made them to June 2026. Sortable. Click any row for the verdict behind it.</p>
+  </div>
+  <div class="disc reveal"><b>Read this first.</b> These are editorial readings, not NVIDIA's scorekeeping. Verdicts are assessed as of June 2026 against public reporting and the transcripts themselves. Several calls are Huang's own subjective observations, and a few are long-horizon bets that simply cannot be settled yet. <b>Landed</b> means the concrete prediction has clearly come true; <b>playing out</b> means it is tracking; <b>directional</b> means the framing took hold but the magnitude is unsettled; <b>pending</b> and <b>contested</b> mean the jury is still out.</div>
+  <div class="kpis reveal" id="kpis"></div>
+  <div class="vmix-wrap reveal">
+    <div class="eyebrow" style="margin-bottom:14px">The verdict mix</div>
+    <div class="vmix" id="vmix"></div>
+    <div class="vlegend" id="vlegend"></div>
+  </div>
+  <div class="reveal">
+    <div class="eyebrow" style="margin-bottom:14px">The full ledger</div>
+    <div class="tbl-wrap">
+      <table class="picks" id="picksTbl">
+        <thead><tr>
+          <th data-k="c">The call <span class="ar">▲▼</span></th>
+          <th data-k="d">When <span class="ar">▲▼</span></th>
+          <th data-k="topic">Topic <span class="ar">▲▼</span></th>
+          <th data-k="verdict">Verdict <span class="ar">▲▼</span></th>
+        </tr></thead>
+        <tbody id="picksBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div></section>
+
+<!-- TRACKER -->
+<section id="tracker"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Named-Names Index</div>
+    <h2>How the stocks he name-drops have actually done</h2>
+    <p>Every publicly traded company Huang has named across these seven appearances, tracked from roughly his first appearance in this record (October 2024) to June 2026. The chip king is not a stock-picker – but the market has its own opinion of the names he elevates.</p>
+  </div>
+  <div class="disc reveal"><b>Read this first.</b> This is not investment advice and not a claim that Huang recommended anything – he names companies as industry context, not tips. Returns are <b>approximate</b>, anchored to closing levels near October 2024 (CoreWeave from its March 2025 IPO) versus prices around 17–18 June 2026, sourced from public web data and rounded. Price moves reflect the whole AI cycle, not any single remark.</div>
+  <div class="kpis reveal" id="trKpis"></div>
+  <div class="scoregrid">
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:18px">Return since first named &middot; approx.</div>
+      <div class="bars" id="trBars"></div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:18px">The full ledger &middot; click a row</div>
+      <div class="tbl-wrap">
+        <table class="picks" id="trTbl">
+          <thead><tr>
+            <th data-k="t">Ticker <span class="ar">▲▼</span></th>
+            <th data-k="stance">Read <span class="ar">▲▼</span></th>
+            <th data-k="since">Since <span class="ar">▲▼</span></th>
+            <th data-k="ret" style="text-align:right">Return <span class="ar">▲▼</span></th>
+          </tr></thead>
+          <tbody id="trBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- STACK -->
+<section id="stack"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Stack</div>
+    <h2>The companies and tech he keeps pointing at</h2>
+    <p>Huang describes AI as a five-layer cake – energy, silicon, systems, models, applications. Here is who sits where in his telling, and how he treats each: as <b>his own</b>, as a <b>partner</b>, as a <b>rival</b>, as something he <b>champions</b>, or as a name to <b>watch</b>.</p>
+  </div>
+  <div class="stackwrap" id="stackWrap"></div>
+</div></section>
+
+<!-- THEMES -->
+<section id="themes"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Theme Map</div>
+    <h2>What he keeps coming back to</h2>
+    <p>Weighted by how heavily each theme runs across the seven appearances (heavy = 3, moderate = 2, light = 1, summed). Click a theme to filter the transcripts below.</p>
+  </div>
+  <div class="themes" id="themeMap"></div>
+</div></section>
+
+<!-- ROTATIONS -->
+<section id="rotations"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Through-lines</div>
+    <h2>What he repeated, sharpened, and hardened</h2>
+    <p>The handful of ideas that run the length of the record – one he never softens, two that grew teeth, and the one fight he chose to pick.</p>
+  </div>
+  <div class="rot" id="rotGrid"></div>
+</div></section>
+
+<!-- ARCHIVE -->
+<section id="archive"><div class="wrap">
+  <div class="sechead reveal">
+    <div class="eyebrow">The Transcripts</div>
+    <h2>All seven appearances, in full</h2>
+    <p>Search and filter by format or theme. Click any card to expand the thesis, the key points, and a signature line.</p>
+  </div>
+  <div class="controls reveal">
+    <input id="search" type="text" placeholder="Search the transcripts – a company, a theme, a phrase..." aria-label="Search">
+  </div>
+  <div class="fbtns reveal" id="typeFilters"></div>
+  <div class="fbtns reveal" id="themeFilters"></div>
+  <div id="count"></div>
+  <div class="archive" id="archiveGrid"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <div>
+      <h4>The Jensen Files</h4>
+      <p>A field guide to Jensen Huang's public argument, built from seven primary-source transcripts spanning October 2024 to April 2026: the Tech Unheard fireside with Arm's Rene Haas, the GTC 2025 keynote, the Milken Institute conversation with Michael Milken, CNBC's Squawk Box, and long-form podcasts with Joe Rogan, Lex Fridman, and Dwarkesh Patel.</p>
+      <p>Quotes are verbatim. Verdicts and groupings are editorial. This is a companion to <a class="toplink" href="https://thelongclock.com">The Long Clock</a> – a place to step back from the noise and read one operator's argument as a single, evolving thing.</p>
+    </div>
+    <div>
+      <h4>Navigate</h4>
+      <p>
+        <a class="toplink" href="#spine">The Arc</a> &nbsp;·&nbsp;
+        <a class="toplink" href="#scorecard">Scorecard</a> &nbsp;·&nbsp;
+        <a class="toplink" href="#stack">The Stack</a><br>
+        <a class="toplink" href="#themes">Themes</a> &nbsp;·&nbsp;
+        <a class="toplink" href="#rotations">Through-lines</a> &nbsp;·&nbsp;
+        <a class="toplink" href="#archive">Transcripts</a>
+      </p>
+      <p style="margin-top:18px"><a class="toplink" href="#top">↑ Back to top</a></p>
+    </div>
+  </div>
+</div></footer>
+
+<script>
+/* ============ DATA ============ */
+var TRANSCRIPTS=[
+ {id:"2026-04-15",date:"2026-04-15",title:"Electrons In, Tokens Out",venue:"Dwarkesh Podcast · Dwarkesh Patel",type:"podcast",
+  one:"His most combative case: NVIDIA's moat is the whole electrons-to-tokens stack, and conceding China would be a self-inflicted strategic wound.",
+  thesis:"Huang reframes NVIDIA not as a chip company but as the converter of electrons into tokens. Every supply-chain bottleneck, he argues, is a two-to-three-year problem (the real shortage is plumbers and electricians), and ceding the second-largest market to China – which already has the energy, the researchers, and the fabs – would hand the global AI standard to a non-American stack.",
+  kp:["Moore's Law is dead – transistors add ~25% over three years, yet Blackwell is 50x Hopper, all from co-design and changed algorithms.",
+      "ASIC competition is 'a unique instance, not a trend' – TPU and Trainium growth is '100% Anthropic.'",
+      "Energy can substitute for chip quality: China gangs many 7nm chips together because energy there is effectively free.",
+      "He prefers dependability to the highest bidder – a fixed price, first-in-first-out allocation, 'the foundation of the industry.'",
+      "Confusing 'jobs' with 'tasks' risks scaring people out of radiology and software careers the country needs."],
+  q:"The input is electrons, the output is tokens. In the middle is NVIDIA.",
+  companies:["TSMC","Huawei","Google / TPU","Anthropic","Broadcom","SK Hynix","ASML","Groq"],
+  themes:["Accelerated computing","CUDA & software moat","China & export controls","AI & jobs","Power & energy","Inference"]},
+
+ {id:"2026-03-24",date:"2026-03-24",title:"We've Achieved AGI",venue:"Lex Fridman Podcast #494",type:"podcast",
+  one:"Four scaling laws collapse into one – intelligence scales with compute – from a $4 trillion company 'not limited by any physical limits.'",
+  thesis:"In his most philosophical appearance, Huang lays out four scaling laws (pre-training, post-training, test-time, and a new agentic law), argues synthetic data removes the data ceiling, claims AGI is effectively already here by a build-a-billion-dollar-company test, and closes on mortality – intelligence will be commoditized, while compassion and character become the superhuman powers.",
+  kp:["Extreme co-design scaled computing a million-fold in ten years, versus ~100x from Moore's Law alone.",
+      "Inference is 'thinking,' and thinking is far harder than reading – test-time compute is not cheap or commoditized.",
+      "The CUDA install base is the single biggest moat: 'it wasn't three people that made CUDA successful, it was 43,000 people.'",
+      "Jobs transform rather than vanish – radiologists grew after computer vision went superhuman; coding becomes specification, 30M toward 1B coders.",
+      "He doesn't believe in succession planning and hopes to 'die on the job.'"],
+  q:"Intelligence is gonna be commoditized. Compassion, generosity – I believe those are superhuman powers.",
+  companies:["CUDA","Vera Rubin","TSMC","xAI / Colossus","Perplexity","Eli Lilly","SK Hynix","DeepSeek"],
+  themes:["Scaling laws","Accelerated computing","CUDA & software moat","Inference","Agentic AI","AI & jobs","AI for science","Management & leadership"]},
+
+ {id:"2025-12-03",date:"2025-12-03",title:"A Click Ahead, Not a Galaxy",venue:"The Joe Rogan Experience #2422",type:"podcast",
+  one:"The reassurance tour: to a mainstream audience, AI is just faster software, defenders stay a click ahead, and the machine isn't conscious – 'just a bunch of numbers.'",
+  thesis:"Speaking to a general audience, Huang reframes AI as the next chapter of software in an unavoidable technology race. Most of the recent capability gain, he argues, is being channeled into safety; runaway-superintelligence fears are a 'click ahead' problem more like cybersecurity than a rogue actor; the machine is not conscious; and jobs will transform rather than disappear.",
+  kp:["The US is in an unavoidable technology race, continuous with the Industrial Revolution and the Cold War.",
+      "'Without energy growth, we can have no industrial growth' – power is the precondition for everything.",
+      "Most of AI's recent 100x–1000x gain is channeled toward safety: reasoning, reflection, less hallucination.",
+      "AI isn't conscious – striking 'scheming' behaviors are statistical imitation: 'it's just a bunch of numbers.'",
+      "Expect small modular nuclear reactors deployed locally to data centers within six to seven years."],
+  q:"AI is not like a galaxy ahead. It's a click ahead.",
+  companies:["CUDA","GeForce","DGX-1","OpenAI","TSMC","Tesla","AlexNet"],
+  themes:["AI safety","Power & energy","AI & jobs","Accelerated computing","CUDA & software moat","Sovereign AI","Management & leadership"]},
+
+ {id:"2025-10-08",date:"2025-10-08",title:"The Year Tokens Turned Profitable",venue:"CNBC · Squawk Box",type:"tv",
+  one:"A quiet inflection: AI crosses from loss-making to profitable tokens, and NVIDIA begins selling whole systems direct to OpenAI.",
+  thesis:"On live TV, Huang marks the moment reasoning models made tokens genuinely profitable, frames AI infrastructure as a permanent new industry like electricity, distinguishes today's build-out from the dot-com bust, and lays out a nuanced China strategy: keep the US chip lead while making the American stack the global standard.",
+  kp:["For the first time NVIDIA will sell whole systems direct to OpenAI, not only through clouds.",
+      "Every gigawatt of AI factory costs roughly $50–60 billion.",
+      "Between Hopper and Blackwell, token cost falls 10–20x versus the ~20% transistors alone would give.",
+      "'We're not far ahead' of China overall – China leads on energy, the US on chips, China's open models ahead.",
+      "Data centers should self-generate power behind the meter – gas now, nuclear in several years."],
+  q:"We've created a brand-new industry called AI infrastructure ... permanent infrastructure for society, every society.",
+  companies:["OpenAI","AMD","xAI","Cursor","Microsoft / Azure","Oracle","Huawei","CoreWeave"],
+  themes:["AI factories","Power & energy","China & export controls","Sovereign AI","Accelerated computing","Inference"]},
+
+ {id:"2025-05-12",date:"2025-05-12",title:"From Tool to Workforce",venue:"Milken Institute · Michael Milken",type:"fireside",
+  one:"AI crosses out of the $1 trillion IT economy into the $100 trillion labor economy – and America should export its stack or cede the standard.",
+  thesis:"At Milken, Huang argues AI is unlike prior IT because it augments and automates labor itself, moving it into the hundred-trillion-dollar economy. He frames AI factories producing 'tokens' as a manufacturing revolution, warns that export controls won't limit adversaries' militaries, and says losing China means leaving behind ~$50 billion – 'like Boeing, the entire company.'",
+  kp:["'You're not going to lose your job to an AI, but to somebody who uses AI.'",
+      "AI factories apply energy to produce tokens – words, images, chemicals, proteins, robot motor skills.",
+      "NVIDIA is building gigawatt-scale factories costing ~$50–60 billion each; tens of gigawatts within a decade.",
+      "AI is the chance to close the greatest technology divide ever – only ~30M programmers, 7.5B left out.",
+      "Conceding China leaves ~$50 billion on the table and lets Huawei set the standard."],
+  q:"You're not going to lose your job to an AI, but you're going to lose your job to somebody who uses AI.",
+  companies:["NVIDIA","Intel","IBM","Huawei","OpenAI","Google / Gemini","Perplexity"],
+  themes:["AI & jobs","AI factories","Sovereign AI","China & export controls","Physical AI & robotics","Management & leadership"]},
+
+ {id:"2025-03-19",date:"2025-03-19",title:"One Hundred Times More Than We Thought",venue:"NVIDIA GTC 2025 · Keynote",type:"keynote",
+  one:"Reasoning and agentic AI detonate compute demand 100x; inference becomes the extreme problem, and the industry goes power-limited.",
+  thesis:"In the GTC keynote, Huang declares the scaling law 'hyper-accelerated' – agentic, reasoning AI needs ~100x more compute than expected. He reframes data centers as token-generating 'AI factories,' calls inference the ultimate extreme computing problem, lays out the once-a-year Blackwell to Rubin to Feynman roadmap, and predicts robotics 'could very well be the largest industry of all.'",
+  kp:["Compute need is 'easily 100 times more than we thought we needed this time last year.'",
+      "Every future data center will be power-limited – 'your revenues are power limited.'",
+      "Blackwell NVLink72 is 40x Hopper's inference and 25x better at ISO-power – 'the ultimate Moore's law.'",
+      "100% of NVIDIA's software engineers will be AI-assisted by the end of 2025.",
+      "By end of decade the world is ~50 million workers short – robots at '$50,000 a year to come to work.'"],
+  q:"Every single data center in the future will be power limited. Your revenues are power limited.",
+  companies:["Blackwell","Vera Rubin","Dynamo","GM","TSMC","Tesla / Waymo","GR00T / Omniverse","CoreWeave"],
+  themes:["Scaling laws","AI factories","Inference","Power & energy","Physical AI & robotics","Agentic AI","AI for science"]},
+
+ {id:"2024-10-09",date:"2024-10-09",title:"The Computer Becomes a Factory",venue:"Tech Unheard · Rene Haas (Arm)",type:"fireside",
+  one:"The origin frame: the computer stops being a tool and becomes a machine that manufactures intelligence.",
+  thesis:"In a fireside with Arm's Rene Haas, Huang sets out the spine of everything that follows: AI factories run around the clock 'manufacturing intelligence,' the unit of computing is now the whole data center, annual full-stack co-design beats Moore's Law by 2–3x a year, and CUDA's value is an installed base where 'no software ever dies.'",
+  kp:["AI factories run all the time, ingesting data and producing tokens – 'intelligence is being manufactured at a very large scale.'",
+      "NVIDIA delivers 2–3x more performance at the same energy and cost every year – 'way faster than Moore's Law.'",
+      "Architectural compatibility across Hopper, Blackwell, and Rubin protects an investment 'a thousand times larger than the hardware.'",
+      "Rack power density rose ~10x, from ~12kW to 120kW, and is still climbing the curve.",
+      "Physical AI – machines that obey and understand the laws of physics – is named as 'the next big thing.'"],
+  q:"For the very first time we're no longer a tool, an instrument – we're a manufacturing industry.",
+  companies:["NVIDIA","Arm","Mellanox","Grace","Blackwell","SHIELD / DGX-1","OpenAI"],
+  themes:["AI factories","Accelerated computing","CUDA & software moat","Inference","Management & leadership"]}
+];
+
+var PHASES=[
+ {n:"Phase 01",when:"Oct 2024",t:"Tool → Factory",
+  d:"The origin frame. With Arm's Rene Haas, Huang reframes the computer itself: it stops being an instrument and becomes a machine that manufactures intelligence around the clock. Annual full-stack co-design, he argues, already beats Moore's Law by 2–3x a year.",
+  picks:["AI factories","Annual cadence","CUDA install base"]},
+ {n:"Phase 02",when:"Mar 2025",t:"The 100x Shock",
+  d:"At GTC, the scaling law goes 'hyper-accelerated': reasoning and agentic AI need ~100x more compute than anyone expected. Inference becomes the extreme problem, the build-out heads for $1 trillion, and the industry becomes power-limited.",
+  picks:["100x compute","$1T build-out","Power-limited"]},
+ {n:"Phase 03",when:"May 2025",t:"Tool → Workforce",
+  d:"At Milken, the frame jumps economies: AI is no longer a tool in the $1T IT market but a worker in the $100T labor market. 'You won't lose your job to an AI, but to someone who uses AI.' Export the American stack – or cede the standard.",
+  picks:["$100T labor","Sovereign AI","Export the stack"]},
+ {n:"Phase 04",when:"Oct 2025",t:"Profitable Tokens",
+  d:"On CNBC, a quiet inflection: reasoning models push tokens from loss-making to profitable. AI infrastructure becomes 'permanent infrastructure for society,' NVIDIA sells full systems direct to OpenAI, and the China race tightens.",
+  picks:["Profitable tokens","Direct-to-OpenAI","Behind-the-meter power"]},
+ {n:"Phase 05",when:"Dec 2025",t:"A Click Ahead",
+  d:"On Joe Rogan, the reassurance tour. To a mainstream audience AI is just faster software; defenders stay 'a click ahead,' most compute is channeled into safety, and the machine is not conscious – 'just a bunch of numbers.'",
+  picks:["AI ≈ software","Channeled to safety","Not conscious"]},
+ {n:"Phase 06",when:"Mar–Apr 2026",t:"We've Achieved AGI",
+  d:"With Lex Fridman and Dwarkesh Patel, the argument hardens. Four scaling laws collapse into one – intelligence scales with compute. The CUDA install base is the moat, China must not be conceded, and intelligence becomes a commodity while character becomes the superpower.",
+  picks:["Four scaling laws","Don't concede China","Intelligence commoditized"]}
+];
+
+var PREDS=[
+ {c:"The data-center build-out reaches $1 trillion 'very soon.'",d:"2025-03-19",v:"GTC 2025",topic:"Build-out",verdict:"landed",
+  detail:"Dell'Oro raised its 2026 data-center capex forecast above $1 trillion; the figure he was 'fairly certain' about arrived inside two years."},
+ {c:"When Blackwell ships in volume, 'you couldn't give Hopper away.'",d:"2025-03-19",v:"GTC 2025",topic:"Product",verdict:"landed",
+  detail:"Blackwell ramped through 2025 into 2026 as the default AI accelerator; Hopper was displaced as the front line, exactly as described."},
+ {c:"NVIDIA growing toward multi-trillion scale is 'inevitable.'",d:"2026-03-24",v:"Lex Fridman",topic:"Company",verdict:"landed",
+  detail:"NVIDIA passed roughly $5 trillion in market value by June 2026 – the most valuable company in the world – overshooting the $3–4T he framed as obvious."},
+ {c:"100% of NVIDIA's software engineers AI-assisted by end of 2025.",d:"2025-03-19",v:"GTC 2025",topic:"Labor",verdict:"landed",
+  detail:"By October 2025 he stated every NVIDIA engineer used an AI coder (Cursor) – his most checkable internal prediction, and it held."},
+ {c:"Vera Rubin ships in the second half of 2026.",d:"2025-03-19",v:"GTC 2025",topic:"Roadmap",verdict:"playing",
+  detail:"Rubin entered full production in 2026, with first shipments slated for Q3 and a Q4 volume ramp – landing on the once-a-year cadence he promised."},
+ {c:"'We are now a power-limited industry.'",d:"2025-03-19",v:"GTC 2025",topic:"Energy",verdict:"playing",
+  detail:"Power and grid interconnection became the binding constraint on AI build-outs through 2025–26, with behind-the-meter generation surging – as forecast."},
+ {c:"Token cost falls roughly 10x every single year.",d:"2026-04-15",v:"Dwarkesh",topic:"Economics",verdict:"playing",
+  detail:"Consistent with the observed 10–20x Hopper-to-Blackwell drop; an ongoing claim rather than a settled one, but tracking."},
+ {c:"Reasoning and agentic AI need ~100x more compute than expected.",d:"2025-03-19",v:"GTC 2025",topic:"Scaling",verdict:"playing",
+  detail:"Test-time 'thinking' compute exploded across 2025–26, vindicating the direction; the precise multiple is unfalsifiable."},
+ {c:"Tokens have crossed from loss-making to profitable.",d:"2025-10-08",v:"CNBC",topic:"Economics",verdict:"playing",
+  detail:"His own observation of an inflection, broadly echoed by frontier-lab unit-economics claims – though margins remain contested."},
+ {c:"'You won't lose your job to an AI, but to someone who uses AI.'",d:"2025-05-12",v:"Milken",topic:"Labor",verdict:"directional",
+  detail:"The framing became near-canonical in 2025–26; whether it holds at scale, against genuine displacement, is still being argued."},
+ {c:"Programmers grow from 30 million toward 1 billion.",d:"2026-03-24",v:"Lex Fridman",topic:"Labor",verdict:"directional",
+  detail:"The radiology analogy – more radiologists after AI, not fewer – holds historically; the billion-coder endpoint is a long-horizon projection."},
+ {c:"Robotics 'could be the largest industry of all'; ~50M worker shortage.",d:"2025-03-19",v:"GTC 2025",topic:"Robotics",verdict:"pending",
+  detail:"Physical-AI and humanoid pilots accelerated, but the largest-industry claim and the 50-million figure remain unproven and years out."},
+ {c:"Small modular nuclear near data centers within 6–7 years.",d:"2025-12-03",v:"Joe Rogan",topic:"Energy",verdict:"pending",
+  detail:"SMR partnerships were announced across 2025–26, but local deployment at scale is still ahead of us, not behind."},
+ {c:"'$1,000 per million tokens is just around the corner.'",d:"2026-03-24",v:"Lex Fridman",topic:"Economics",verdict:"pending",
+  detail:"A premium, low-latency inference tier is emerging, but the specific price point is not yet established."},
+ {c:"AI threats stay 'a click ahead,' not a galaxy – progress is gradual.",d:"2025-12-03",v:"Joe Rogan",topic:"Safety",verdict:"pending",
+  detail:"No discontinuous 'galaxy ahead' event has occurred, consistent with the claim, but it is a forward bet that cannot yet be settled."},
+ {c:"'I think we've achieved AGI.'",d:"2026-03-24",v:"Lex Fridman",topic:"AGI",verdict:"contested",
+  detail:"True only under his build-a-billion-dollar-company definition; by most other definitions this is hotly disputed."},
+ {c:"Export controls won't deny China compute – don't concede the market.",d:"2026-04-15",v:"Dwarkesh",topic:"Geopolitics",verdict:"contested",
+  detail:"Huawei's domestic ramp supports his fungibility argument, but whether conceding China is a net loss or a security gain is an active policy fight."}
+];
+
+var STACK=[
+ {name:"Behind-the-meter gas",layer:"Energy",stance:"champions",st:"Champions",note:"Urges data centers to 'become power-generation companies ourselves' – self-generate now, because the grid moves too slowly."},
+ {name:"Small modular nuclear",layer:"Energy",stance:"watching",st:"Watching",note:"Predicts hundreds-of-megawatt reactors deployed locally to data centers within six to seven years; gas now, nuclear next."},
+ {name:"GE Vernova · Caterpillar",layer:"Energy",stance:"partner",st:"Partner",note:"Among the power and turbine suppliers feeding gigawatt AI factories; energy is 'the first layer of the stack.'"},
+
+ {name:"NVIDIA – Blackwell / Rubin",layer:"Silicon & systems",stance:"own",st:"His own",note:"The annual-cadence flagship line: Blackwell shipping, Vera Rubin in production for 2H 2026, Feynman after. '50x Hopper' from co-design, not transistors."},
+ {name:"CUDA",layer:"Silicon & systems",stance:"own",st:"The moat",note:"Hundreds of millions of compatible GPUs across every cloud and industry – '43,000 people,' not three. His single biggest advantage."},
+ {name:"NVLink · Spectrum-X",layer:"Silicon & systems",stance:"own",st:"His own",note:"Scale-up fabric that 'builds supercomputers in the supply chain'; networking is why he bought Mellanox."},
+ {name:"TSMC",layer:"Silicon & systems",stance:"partner",st:"Partner",note:"Three-decade fab partner 'without a contract'; co-developed CoWoS and silicon-photonics packaging. Morris Chang reportedly offered him the CEO job in 2013."},
+ {name:"SK Hynix · Micron · Samsung",layer:"Silicon & systems",stance:"partner",st:"Partner",note:"HBM memory makers he pushed to invest early; HBM and LPDDR are 'cell-phone memory for supercomputers.'"},
+ {name:"ASML",layer:"Silicon & systems",stance:"partner",st:"Partner",note:"EUV lithography – 'convincing TSMC convinces ASML.' A 2–3 year bottleneck, never a permanent one."},
+ {name:"Arm",layer:"Silicon & systems",stance:"partner",st:"Partner",note:"Architecture behind the Grace CPU; helped NVIDIA become a system-on-chip company."},
+ {name:"AMD",layer:"Silicon & systems",stance:"rival",st:"Rival",note:"On its OpenAI deal: 'surprised they'd give away 10% of the company before they even built it... clever, I guess.' Lisa Su is his cousin."},
+ {name:"Broadcom · TPU · Trainium",layer:"Silicon & systems",stance:"rival",st:"Rival",note:"Dismisses the ASIC story as 'a unique instance, not a trend – 100% Anthropic,' noting ASIC margins are nearly as high as NVIDIA's."},
+ {name:"Huawei · SMIC",layer:"Silicon & systems",stance:"rival",st:"Rival",note:"Proof China makes its own sophisticated chips – 'we're not enriched uranium, it's a chip they can make themselves.' Stuck at 7nm, but advancing."},
+
+ {name:"OpenAI",layer:"Models & labs",stance:"partner",st:"Partner",note:"Delivered them the first DGX-1 in 2016; now selling whole systems direct. 'Only regret is we didn't invest more.'"},
+ {name:"xAI · Colossus",layer:"Models & labs",stance:"partner",st:"Partner",note:"Elon's Memphis cluster, built in ~4 months to 200,000 GPUs – his exemplar of systems-thinking. 'Almost everything Elon is part of, you want to be part of.'"},
+ {name:"Anthropic",layer:"Models & labs",stance:"partner",st:"Partner",note:"Now an investor (reportedly ~$10B) – and the single driver he credits for all TPU and Trainium growth."},
+ {name:"Google · Gemini · TPU",layer:"Models & labs",stance:"rival",st:"Rival",note:"Gemini 'is better' among proprietary models and trains on TPU – his most credible silicon rival – yet still runs in NVIDIA clouds."},
+ {name:"DeepSeek · Qwen · MiniMax",layer:"Models & labs",stance:"watching",st:"Watching",note:"Chinese open-source labs he says are 'well ahead' on open models – the reason he warns about ceding the standard."},
+
+ {name:"Cursor",layer:"Apps & agents",stance:"champions",st:"Champions",note:"The AI coder used by '100% of NVIDIA's engineers' – his favorite proof that agents augment rather than replace."},
+ {name:"Perplexity",layer:"Apps & agents",stance:"champions",st:"Champions",note:"Longtime favorite; a Dynamo launch partner and a runner of NVIDIA's open Nemotron models."},
+ {name:"OpenEvidence · Lovable",layer:"Apps & agents",stance:"watching",st:"Watching",note:"Among the fastest-growing enterprise apps he name-checks – medical diagnosis ('digital nurses') and vibe-coding."},
+
+ {name:"Tesla · Waymo · Wayve · Waabi",layer:"Physical AI & science",stance:"partner",st:"Partner",note:"Self-driving stacks he calls the 'ChatGPT moment' for hardware; all train or run on NVIDIA."},
+ {name:"Figure · GR00T · Omniverse",layer:"Physical AI & science",stance:"champions",st:"Champions",note:"Humanoid robotics and the simulation stack behind 'physical AI' – what he says 'could very well be the largest industry of all.'"},
+ {name:"Eli Lilly",layer:"Physical AI & science",stance:"partner",st:"Partner",note:"Runs an NVIDIA supercomputer for drug discovery; 'understanding the biological machine is right around the corner – five years probably.'"}
+];
+
+var THEMES=[["Accelerated computing",21],["AI factories",19],["Power & energy",18],["Management & leadership",17],["CUDA & software moat",16],["AI & jobs",15],["Inference",13],["China & export controls",13],["Physical AI & robotics",13],["Agentic AI",12],["Scaling laws",10],["AI safety",10],["AI for science",9],["Sovereign AI",9]];
+
+var ROTATIONS=[
+ {cls:"hold",tag:"Repeated · unwavering",t:"Moore's Law is dead; co-design wins",
+  d:"From the 2024 fireside to the 2026 podcasts, the same engine drives every argument: transistors are nearly tapped out, so full-stack co-design – not lithography – delivers the 10–50x leaps. It is the one claim he never softens, and the market has largely conceded it."},
+ {cls:"win",tag:"Sharpened · and validated",t:"The AI factory, from metaphor to ledger",
+  d:"What began as a rhetorical frame ('the computer is now a factory') hardened into unit economics: tokens-per-watt, $50–60B per gigawatt, profitable tokens. By 2026 the $1-trillion build-out he promised in 2025 had actually arrived."},
+ {cls:"win",tag:"Reframed · tool to worker",t:"From the $1T market to the $100T market",
+  d:"His biggest aperture shift: AI stopped being a tool humans use and became a tool that uses tools – moving the prize from the few-trillion IT industry into the hundred-trillion labor economy. Everything after Milken 2025 builds on this."},
+ {cls:"lag",tag:"Hardened · and contested",t:"Don't concede China – the fight he picked",
+  d:"The one place his tone turns combative. Across CNBC, Lex, and Dwarkesh he sharpened from 'nuanced strategy' to open frustration with export controls – 'we're not enriched uranium.' It is his least settled claim, and the one most likely to age unpredictably."}
+];
+
+var PERF=[
+ {t:"MU",n:"Micron",stance:"partner",st:"HBM partner",anchor:104,cur:1043,ret:905,since:"Oct '24",note:"His HBM thesis made flesh – the 'cell-phone memory for supercomputers' he pushed memory makers to build. The single best-aging name he points at, now past a $1T market cap."},
+ {t:"INTC",n:"Intel",stance:"rival",st:"His foil",anchor:23,cur:122,ret:430,since:"Oct '24",note:"The company he names as the cautionary tale – 'they rejected our approach.' Its 2025–26 turnaround is the scoreboard's biggest irony."},
+ {t:"AMD",n:"AMD",stance:"rival",st:"Rival",anchor:144,cur:512,ret:255,since:"Oct '24",note:"His nearest GPU rival – and cousin Lisa Su's company – riding the same AI-compute wave he narrates, OpenAI deal and all."},
+ {t:"CRWV",n:"CoreWeave",stance:"champions",st:"Champions",anchor:40,cur:117,ret:193,since:"IPO Mar '25",note:"The neocloud he backed and says he 'didn't invest enough' in. Public since March 2025; Nasdaq-100 bound."},
+ {t:"ARM",n:"Arm Holdings",stance:"partner",st:"Partner",anchor:143,cur:412,ret:188,since:"Oct '24",note:"The architecture behind his Grace CPU; CEO Rene Haas hosted the earliest appearance in this record."},
+ {t:"TSM",n:"TSMC",stance:"partner",st:"Partner",anchor:191,cur:434,ret:127,since:"Oct '24",note:"The fab partner 'without a contract' he calls indispensable – every Blackwell and Rubin die runs through it."},
+ {t:"GOOGL",n:"Alphabet",stance:"rival",st:"Rival",anchor:165,cur:373,ret:126,since:"Oct '24",note:"Gemini plus TPU – his most credible silicon rival – yet still a customer of his clouds. 'Gemini's better,' he conceded."},
+ {t:"AVGO",n:"Broadcom",stance:"rival",st:"Rival",anchor:172,cur:384,ret:123,since:"Oct '24",note:"The ASIC threat he waves off as '100% Anthropic.' The market priced the custom-silicon story anyway."},
+ {t:"TSLA",n:"Tesla",stance:"partner",st:"Partner",anchor:244,cur:404,ret:66,since:"Oct '24",note:"The self-driving stack he calls the 'ChatGPT moment' for hardware; trains and runs on NVIDIA."},
+ {t:"NVDA",n:"NVIDIA",stance:"own",st:"His own",anchor:132.71,cur:205,ret:55,since:"Oct '24",note:"The house itself – roughly $5T and the world's most valuable company. A 'modest' 55% sits atop a split-adjusted decade."},
+ {t:"AMZN",n:"Amazon",stance:"partner",st:"Partner",anchor:186,cur:240,ret:29,since:"Oct '24",note:"AWS – a Blackwell and Rubin launch cloud he says he is 'ramping like crazy.'"},
+ {t:"LLY",n:"Eli Lilly",stance:"partner",st:"Partner",anchor:905,cur:1118,ret:24,since:"Oct '24",note:"Runs an NVIDIA supercomputer for drug discovery – his proof that 'understanding the biological machine' is near."},
+ {t:"ORCL",n:"Oracle",stance:"partner",st:"Partner",anchor:169,cur:194,ret:15,since:"Oct '24",note:"OCI, an early Blackwell cloud; its RPO surge became a macro talking point – and a volatile 2026 ride."},
+ {t:"MSFT",n:"Microsoft",stance:"partner",st:"Partner",anchor:417,cur:394,ret:-6,since:"Oct '24",note:"Azure, his largest cloud channel – and the one named name underwater over the window, off its 2026 peak."}
+];
+
+var VERDICTS={landed:"Landed",playing:"Playing out",directional:"Directional",pending:"Pending",contested:"Contested"};
+var VORDER={landed:0,playing:1,directional:2,pending:3,contested:4};
+
+/* ============ BUILD ============ */
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function shortDate(d){var m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];var p=d.split('-');return m[+p[1]-1]+" '"+p[0].slice(2);}
+function fmtFull(d){var m=["January","February","March","April","May","June","July","August","September","October","November","December"];var p=d.split('-');return (+p[2])+' '+m[+p[1]-1]+' '+p[0];}
+
+function build(){renderSpine();renderScorecard();renderTracker();renderStack();renderThemes();renderRotations();renderArchive();initReveal();}
+
+/* ---- tracker ---- */
+var STANCE_LABEL={own:"His own",partner:"Partner",rival:"Rival",champions:"Champions"};
+var trSort={k:'ret',dir:-1};
+function fmtRet(v){return (v>0?'+':'')+Math.round(v)+'%';}
+function renderTracker(){
+  var ps=PERF.slice();
+  var ups=ps.filter(function(p){return p.ret>0}).length;
+  var best=ps.reduce(function(a,b){return b.ret>a.ret?b:a});
+  var sorted=ps.map(function(p){return p.ret}).sort(function(a,b){return a-b});
+  var mid=sorted.length%2?sorted[(sorted.length-1)/2]:(sorted[sorted.length/2-1]+sorted[sorted.length/2])/2;
+  document.getElementById('trKpis').innerHTML=
+    '<div class="kpi"><div class="n">'+ps.length+'</div><div class="l">Names tracked</div></div>'+
+    '<div class="kpi"><div class="n up">'+ups+' / '+ps.length+'</div><div class="l">Up over window</div></div>'+
+    '<div class="kpi"><div class="n up">'+fmtRet(best.ret)+'</div><div class="l">Best · '+best.t+'</div></div>'+
+    '<div class="kpi"><div class="n up">'+fmtRet(mid)+'</div><div class="l">Median name</div></div>';
+  var bs=ps.slice().sort(function(a,b){return b.ret-a.ret});
+  var maxAbs=Math.max.apply(null,bs.map(function(p){return Math.abs(p.ret)}));
+  function scale(v){return Math.min(48,(Math.sqrt(Math.abs(v))/Math.sqrt(maxAbs))*48);}
+  document.getElementById('trBars').innerHTML=bs.map(function(p){
+    var cls=p.ret>=0?'up':'down';
+    return '<div class="bar"><div class="tk">'+p.t+'</div>'+
+      '<div class="bartrack"><div class="barfill '+cls+'" style="width:'+scale(p.ret)+'%"><span class="barval">'+fmtRet(p.ret)+'</span></div></div></div>';
+  }).join('');
+  renderTrackerTable(ps);
+}
+function renderTrackerTable(ps){
+  var s=trSort;
+  ps.sort(function(a,b){var x=a[s.k],y=b[s.k];if(s.k==='ret')return (x-y)*s.dir;return (''+x).localeCompare(''+y)*s.dir;});
+  document.getElementById('trBody').innerHTML=ps.map(function(p,i){
+    var rcls=p.ret>=0?'up':'down';
+    var main='<tr data-tri="'+i+'" class="prow">'+
+      '<td class="tk-cell">'+p.t+'<span class="nm">'+esc(p.n)+'</span></td>'+
+      '<td><span class="spill '+p.stance+'">'+p.st+'</span></td>'+
+      '<td class="cv">'+p.since+'</td>'+
+      '<td class="ret '+rcls+'">'+fmtRet(p.ret)+'</td></tr>';
+    var exp='<tr class="exp-row" data-trexp="'+i+'" style="display:none"><td colspan="4"><div class="exp-in">'+
+      '<span class="arc">$'+p.anchor+' → $'+p.cur+' · approx.</span>'+esc(p.note)+'</div></td></tr>';
+    return main+exp;
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('#trBody .prow'),function(r){
+    r.addEventListener('click',function(){
+      var ex=document.querySelector('[data-trexp="'+r.getAttribute('data-tri')+'"]');
+      ex.style.display=ex.style.display==='none'?'table-row':'none';
+    });
+  });
+}
+document.addEventListener('click',function(e){
+  var th=e.target.closest('#trTbl th');if(!th)return;
+  var k=th.getAttribute('data-k');
+  if(trSort.k===k)trSort.dir*=-1;else{trSort.k=k;trSort.dir=(k==='ret'?-1:1);}
+  renderTrackerTable(PERF.slice());
+});
+
+function renderSpine(){
+  document.getElementById('spineGrid').innerHTML=PHASES.map(function(p){
+    return '<div class="phase reveal"><div class="ph-n">'+p.n+'</div>'+
+      '<div class="ph-when">'+p.when+'</div><h3>'+p.t+'</h3><p>'+p.d+'</p>'+
+      '<div class="ph-pick">'+p.picks.map(function(t){return '<span class="chip g">'+t+'</span>'}).join('')+'</div></div>';
+  }).join('');
+}
+
+/* ---- scorecard ---- */
+function renderScorecard(){
+  var ps=PREDS.slice();
+  var counts={landed:0,playing:0,directional:0,pending:0,contested:0};
+  ps.forEach(function(p){counts[p.verdict]++;});
+  document.getElementById('kpis').innerHTML=
+    '<div class="kpi"><div class="n">7</div><div class="l">Appearances</div></div>'+
+    '<div class="kpi"><div class="n">'+ps.length+'</div><div class="l">Calls tracked</div></div>'+
+    '<div class="kpi"><div class="n up">'+counts.landed+'</div><div class="l">Already landed</div></div>'+
+    '<div class="kpi"><div class="n">0</div><div class="l">Clearly wrong</div></div>';
+  // verdict mix
+  var order=["landed","playing","directional","pending","contested"];
+  document.getElementById('vmix').innerHTML=order.map(function(k){
+    var w=counts[k]/ps.length*100;
+    return w>0?'<span class="'+k+'" style="flex:'+counts[k]+' 0 0">'+counts[k]+'</span>':'';
+  }).join('');
+  document.getElementById('vlegend').innerHTML=order.map(function(k){
+    return '<span><i class="vmix '+k+'" style="background:'+verdictColor(k)+'"></i>'+VERDICTS[k]+' · '+counts[k]+'</span>';
+  }).join('');
+  renderPicksTable(ps);
+}
+function verdictColor(k){return {landed:'var(--gold)',playing:'var(--teal)',directional:'var(--amber)',pending:'var(--violet)',contested:'var(--coral)'}[k];}
+
+var sortState={k:'d',dir:-1};
+function renderPicksTable(ps){
+  var s=sortState;
+  ps.sort(function(a,b){
+    var x,y;
+    if(s.k==='verdict'){x=VORDER[a.verdict];y=VORDER[b.verdict];return (x-y)*s.dir;}
+    x=a[s.k];y=b[s.k];return (''+x).localeCompare(''+y)*s.dir;
+  });
+  document.getElementById('picksBody').innerHTML=ps.map(function(p,i){
+    var main='<tr data-i="'+i+'" class="prow">'+
+      '<td class="call-cell">'+esc(p.c)+'</td>'+
+      '<td class="cv">'+shortDate(p.d)+'</td>'+
+      '<td class="tp">'+p.topic+'</td>'+
+      '<td><span class="vp '+p.verdict+'">'+VERDICTS[p.verdict]+'</span></td></tr>';
+    var exp='<tr class="exp-row" data-exp="'+i+'" style="display:none"><td colspan="4"><div class="exp-in">'+
+      '<span class="arc">'+p.v+' · '+fmtFull(p.d)+'</span>'+esc(p.detail)+'</div></td></tr>';
+    return main+exp;
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('#picksBody .prow'),function(r){
+    r.addEventListener('click',function(){
+      var ex=document.querySelector('[data-exp="'+r.getAttribute('data-i')+'"]');
+      ex.style.display=ex.style.display==='none'?'table-row':'none';
+    });
+  });
+}
+document.addEventListener('click',function(e){
+  var th=e.target.closest('#picksTbl th');if(!th)return;
+  var k=th.getAttribute('data-k');
+  if(sortState.k===k)sortState.dir*=-1;else{sortState.k=k;sortState.dir=(k==='d'?-1:1);}
+  renderPicksTable(PREDS.slice());
+});
+
+/* ---- stack ---- */
+function renderStack(){
+  var layers=["Energy","Silicon & systems","Models & labs","Apps & agents","Physical AI & science"];
+  document.getElementById('stackWrap').innerHTML=layers.map(function(L,idx){
+    var firms=STACK.filter(function(f){return f.layer===L;});
+    var cards=firms.map(function(f){
+      return '<div class="firm '+f.stance+'"><div class="fh"><span class="fn">'+esc(f.name)+'</span>'+
+        '<span class="st">'+f.st+'</span></div><p>'+esc(f.note)+'</p></div>';
+    }).join('');
+    return '<div class="slayer reveal"><div class="slhead"><span class="slname">'+L+'</span>'+
+      '<span class="sln">Layer '+(idx+1)+' · '+firms.length+' names</span></div>'+
+      '<div class="firmgrid">'+cards+'</div></div>';
+  }).join('');
+}
+
+/* ---- themes ---- */
+function renderThemes(){
+  var max=THEMES[0][1];
+  document.getElementById('themeMap').innerHTML=THEMES.map(function(t){
+    var w=(t[1]/max*100);
+    return '<div class="thr" data-theme="'+t[0]+'"><div class="nm">'+t[0]+'</div>'+
+      '<div class="tk"><div class="tf" style="width:'+w+'%"></div></div>'+
+      '<div class="ct">'+t[1]+'</div></div>';
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('.thr'),function(r){
+    r.addEventListener('click',function(){
+      var th=r.getAttribute('data-theme');
+      activeTheme=(activeTheme===th)?null:th;
+      syncThemeButtons();applyFilters();
+      document.getElementById('archive').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+}
+
+/* ---- rotations ---- */
+function renderRotations(){
+  document.getElementById('rotGrid').innerHTML=ROTATIONS.map(function(r){
+    return '<div class="rotcard '+r.cls+' reveal"><span class="tag">'+r.tag+'</span>'+
+      '<h3>'+r.t+'</h3><p>'+r.d+'</p></div>';
+  }).join('');
+}
+
+/* ---- archive ---- */
+var activeTheme=null,activeType=null,q="";
+var TYPES=[["all","All"],["keynote","Keynote"],["fireside","Fireside"],["tv","TV / live"],["podcast","Podcast"]];
+function renderArchive(){
+  document.getElementById('typeFilters').innerHTML=TYPES.map(function(t){
+    return '<button class="fbtn'+(t[0]==='all'?' on':'')+'" data-type="'+t[0]+'">'+t[1]+'</button>';
+  }).join('');
+  document.getElementById('themeFilters').innerHTML='<button class="fbtn theme-f on" data-theme="">All themes</button>'+
+    THEMES.map(function(t){return '<button class="fbtn theme-f" data-theme="'+t[0]+'">'+t[0]+'</button>'}).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('#typeFilters .fbtn'),function(b){
+    b.addEventListener('click',function(){activeType=b.getAttribute('data-type')==='all'?null:b.getAttribute('data-type');
+      Array.prototype.forEach.call(document.querySelectorAll('#typeFilters .fbtn'),function(x){x.classList.remove('on')});
+      b.classList.add('on');applyFilters();});
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.theme-f'),function(b){
+    b.addEventListener('click',function(){var th=b.getAttribute('data-theme');activeTheme=th||null;syncThemeButtons();applyFilters();});
+  });
+  document.getElementById('search').addEventListener('input',function(e){q=e.target.value.toLowerCase().trim();applyFilters();});
+  applyFilters();
+}
+function syncThemeButtons(){
+  Array.prototype.forEach.call(document.querySelectorAll('.theme-f'),function(x){
+    x.classList.toggle('on',(x.getAttribute('data-theme')||null)===activeTheme || (!activeTheme && x.getAttribute('data-theme')===''));});
+}
+function noteMatches(n){
+  if(activeType && n.type!==activeType)return false;
+  if(activeTheme && (n.themes||[]).indexOf(activeTheme)<0)return false;
+  if(q){var hay=(n.title+' '+n.one+' '+n.thesis+' '+n.venue+' '+(n.companies||[]).join(' ')+' '+(n.themes||[]).join(' ')+' '+(n.kp||[]).join(' ')+' '+n.q).toLowerCase();
+    if(hay.indexOf(q)<0)return false;}
+  return true;
+}
+function applyFilters(){
+  var list=TRANSCRIPTS.filter(noteMatches).slice().sort(function(a,b){return (b.date||'').localeCompare(a.date||'')});
+  document.getElementById('count').textContent=list.length+' appearance'+(list.length===1?'':'s')+
+    (activeTheme?' · '+activeTheme:'')+(activeType?' · '+activeType:'')+(q?' · "'+q+'"':'');
+  document.getElementById('archiveGrid').innerHTML=list.map(function(n){
+    var tks=(n.companies||[]).map(function(t){return '<span class="tag-s">'+esc(t)+'</span>'}).join('');
+    var thms=(n.themes||[]).map(function(t){return '<span class="tag-s th">'+esc(t)+'</span>'}).join('');
+    var kp=(n.kp||[]).map(function(k){return '<li>'+esc(k)+'</li>'}).join('');
+    var qb=n.q?'<div class="q">"'+esc(n.q)+'"</div>':'';
+    return '<div class="note" tabindex="0"><div class="meta"><span class="dt">'+fmtFull(n.date)+'</span>'+
+      '<span class="vn">'+esc(n.venue)+'</span><span class="ty">'+n.type+'</span></div><h3>'+esc(n.title)+'</h3><p class="one">'+esc(n.one)+'</p>'+
+      '<div class="det"><div class="thesis">'+esc(n.thesis)+'</div>'+
+      (kp?'<ul class="kp">'+kp+'</ul>':'')+qb+
+      (tks?'<div class="tks">'+tks+'</div>':'')+
+      (thms?'<div class="thms">'+thms+'</div>':'')+'</div></div>';
+  }).join('') || '<p class="dim" style="grid-column:1/-1">No appearances match. Try clearing a filter.</p>';
+  Array.prototype.forEach.call(document.querySelectorAll('.note'),function(c){
+    c.addEventListener('click',function(){c.classList.toggle('open')});
+    c.addEventListener('keypress',function(e){if(e.key==='Enter')c.classList.toggle('open')});
+  });
+}
+
+/* reveal-on-scroll */
+function initReveal(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){Array.prototype.forEach.call(els,function(el){el.classList.add('in')});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  Array.prototype.forEach.call(els,function(el){io.observe(el)});
+}
+
+try{build();}catch(e){Array.prototype.forEach.call(document.querySelectorAll('.reveal'),function(el){el.classList.add('in')});}
+</script>
+</body>
+</html>
