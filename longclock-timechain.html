@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#E7E4DA; --ink:#1C1E22; --ink-soft:#6A6B64;
@@ -122,7 +122,30 @@
     <div class="div"><span class="mark">&#9670;</span></div>
 
     <section class="col reveal">
-      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Settlement without a handshake</p></div>
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Provenance</p></div>
+      <h2>What you can pin to it</h2>
+      <p class="lede">A clock is only useful if you can fasten something to it. You can &ndash; and not by uploading the thing, but by leaving a fingerprint of it.</p>
+      <p>Any file, of any size &ndash; a photograph, a contract, a dataset, the weights of a model &ndash; reduces to a short cryptographic hash, a fingerprint unique to those exact bytes. Seal that fingerprint into a block and you hold a permanent receipt: this precise thing existed, unaltered, by this time. Change one pixel afterwards and the fingerprint no longer matches; nothing about the original can be quietly revised. <span class="key">It converts "trust me, this is when it happened" into "check the chain."</span></p>
+      <p>Set that against the forgery age and the use writes itself. A reporter can anchor raw footage the hour it is filmed, so that when a doctored cut surfaces months later, the record itself testifies which came first. A laboratory can seal its readings before anyone has a reason to wish them different. The provenance of the data a model was trained on, the version of the weights that actually shipped, the chain of custody on a piece of evidence &ndash; each becomes something you verify rather than something you are asked to take on faith. None of it needs a subscription, a permission, or a company still solvent in ten years to honour the stamp. <span class="key">The proof lives in the same record the money does, and is secured the same way.</span></p>
+      <p class="pull">"Trust me, this is when it happened" &ndash;<br><span class="accent">becomes "check the chain."</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The objections</p></div>
+      <h2>But couldn't anyone stamp the time?</h2>
+      <p class="lede">The fair challenge is that timestamps are ancient and cheap, and this one is neither. A notary, a corporate timestamp authority, a dated row in a database &ndash; each fixes when a thing existed, and none burns a power station to do it. So why pay for this?</p>
+      <p>Because a timestamp is worth precisely what it would cost to forge, and every centralized one shares a single weakness: whoever can issue the stamp can re-issue it. A server's clock rolls back; a database is quietly rewritten; an authority is subpoenaed, bought, or pressured into vouching for whatever date suits the day. <span class="key">A centralized timestamp is a promise; the timechain's is a cost.</span> To move one past entry you must redo every joule of work piled on top of it since &ndash; not a matter of policy but of physics, the one ledger no issuer and no government can rewind without the whole world watching it happen.</p>
+      <p>Then why this chain, and not a lighter one that also stamps its blocks? Because the stamp is only as immovable as the work stacked behind it, and here security is not a feature but an accumulation: the chain with the deepest, most widely distributed proof of work is the most expensive to rewrite, and that lead lengthens with every block. Other chains can timestamp; none has as much reality piled behind the claim. It is a difference of degree, not a law of nature &ndash; but in security, degree is the entire game.</p>
+      <p>And the flattest objection of all: a clock is not money. True &ndash; but the money was only ever the timechain's first use. Scarcity means nothing without an unforgeable record of who holds the scarce thing, and since when; <span class="key">the twenty-one million and the clock that guards it are one invention seen from two sides.</span></p>
+      <p class="pull">Any authority that can stamp the time<br><span class="accent">can also restamp it. This is the one clock that can't be reset.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">Settlement without a handshake</p></div>
       <h2>What the agents will hold</h2>
       <p class="lede">The same decade that taught software to forge has also set it loose to act – autonomous agents that negotiate, hire, and pay, at machine speed and machine scale.</p>
 
@@ -148,7 +171,7 @@
     <div class="div"><span class="mark">&#9670;</span></div>
 
     <section class="col reveal close">
-      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The counterweight</p></div>
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">The counterweight</p></div>
       <h2>The one number that holds</h2>
       <p class="lede">Point intelligence at almost anything and its marginal cost falls toward zero. Cognition, content, code, even companionship – abundant, endless, nearly free.</p>
 
@@ -200,7 +223,7 @@
   </filter>
 </defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 const NS="http://www.w3.org/2000/svg";
 const RM = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
