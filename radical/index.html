@@ -126,7 +126,18 @@
   .rd .figstat .fl{font-family:var(--fm);font-size:0.66rem;letter-spacing:0.07em;text-transform:uppercase;opacity:0.7;margin-top:0.6rem;}
   .rd .pull{font-family:var(--fd);font-weight:500;font-size:clamp(1.45rem,3.6vw,2rem);line-height:1.26;color:var(--ink);margin:2.3rem 0;padding-left:1.1rem;border-left:3px solid var(--gold);}
   .rd .pull .a2{color:var(--gold);}
-  .rd .endnote{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));font-size:0.92rem;opacity:0.72;}
+  .rd sup{font-family:var(--fm);font-size:0.58em;color:var(--gold);padding-left:1px;font-weight:600;}
+  .rd .figstat .fl sup{color:inherit;opacity:0.8;}
+  .rd .tam{margin:1.9rem 0 0.4rem;}
+  .rd .tam .tb{display:flex;align-items:center;gap:10px;margin:0.36rem 0;font-family:var(--fm);font-size:0.7rem;}
+  .rd .tam .tb .tl{width:6.6rem;flex:none;opacity:0.72;}
+  .rd .tam .tb .tt{flex:1;height:13px;border-radius:3px;background:rgba(128,128,128,0.12);overflow:hidden;}
+  .rd .tam .tb .tf{display:block;height:100%;border-radius:3px;background:currentColor;opacity:0.42;}
+  .rd .tam .tb .tf.btc{background:var(--gold);opacity:1;}
+  .rd .tam .tb .tv{width:3.6rem;text-align:right;flex:none;opacity:0.85;}
+  .rd .srcs{margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.18)));font-family:var(--fm);font-size:0.6rem;line-height:1.75;letter-spacing:0.01em;opacity:0.55;}
+  .rd .srcs b{opacity:0.85;font-weight:600;color:var(--gold);}
+  .rd .endnote{margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));font-size:0.92rem;opacity:0.72;}
   .flag .nextwrap{margin-top:2.4rem;padding-top:1.7rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.25)));}
   .flag .nextwrap h4{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin:0 0 1.1rem;text-align:center;}
   .flag .nextgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
@@ -157,11 +168,11 @@
         <div class="flaghead">
           <p class="fe">The full case</p>
           <h2 class="flagtitle">The Asset No Empire Can Freeze</h2>
-          <p class="flagkick">You do not have to own a single coin to find this the most interesting thing happening in money. Here is the whole case &ndash; the history, the mechanics, and the stakes &ndash; with the strongest objections kept in plain sight.</p>
+          <p class="flagkick">You do not have to own a single coin to find this the most interesting thing happening in money. The whole case &ndash; the history, the mechanics, the numbers, and the risks &ndash; with every figure sourced and the objections in plain sight.</p>
         </div>
 
         <article class="rd" id="rd-full" data-note="The case">
-          <p class="lead">For most of fifteen years the serious money called Bitcoin a mania for people who had missed every other boat. Then, quietly, the serious money began to buy. A public company staked its entire balance sheet on it; the largest asset managers on earth launched funds to hold it; the same regulators who warned against it waved those funds through. Something changed their minds, and it was not the price. It was a realization about power, scarcity, and time that is difficult to unsee once you have seen it &ndash; and this is that realization, laid out in full.</p>
+          <p class="lead">For most of fifteen years the serious money called Bitcoin a mania for people who had missed every other boat. Then, quietly, the serious money began to buy. A public company staked its entire balance sheet on it; the largest asset managers on earth launched funds to hold it; the same regulators who had warned against it waved those funds through. Something changed their minds, and it was not the price. It was a realization about power, scarcity, and time that is difficult to unsee once you have seen it &ndash; and this is that realization, laid out in full.</p>
 
           <h3>The shift no one is pricing</h3>
           <p>Money has changed shape before, and each time it quietly rewrote who held power. Coined metal gave way to paper; paper to the gold standard; the gold standard to the pure government promise we live under today. None of these were mere technical upgrades. Money is the deepest instrument of control a state possesses &ndash; over its own citizens, and over the rivals in its orbit &ndash; and whoever defines it sets the terms for everyone forced to use it.</p>
@@ -179,43 +190,54 @@
 
           <h3>The asset no empire can freeze</h3>
           <p>Money has always, underneath everything, been about power &ndash; and power means the ability to take. In 2022 a large share of one major economy&rsquo;s reserves was frozen in a matter of days. Nothing was carried out of a vault; it was simply switched off, because those reserves existed only as entries in financial systems other people controlled. Every treasury and central bank on earth absorbed the lesson at once.</p>
-          <div class="figstat" data-note="Stat: reserves frozen"><div class="fn">~$300B</div><div class="fl">of a major nation&rsquo;s reserves, frozen in days &ndash; 2022</div></div>
+          <div class="figstat" data-note="Stat: reserves frozen"><div class="fn">~$300B</div><div class="fl">of a major nation&rsquo;s reserves, frozen in days &ndash; 2022<sup>1</sup></div></div>
           <p>Any wealth you hold inside someone else&rsquo;s ledger is wealth they can switch off the instant you fall from favour. Gold in a foreign vault can be embargoed; a domestic hoard can be confiscated, as American citizens learned in 1933; dollars can be sanctioned; even your own bank can freeze an account on a Friday afternoon and leave you to argue on Monday. Bitcoin is the first store of value that breaks the pattern. Held as a secret only you possess and enforced by a network no government runs and none can switch off, it can be carried across any border in your memory, moved across the world in minutes, and verified by anyone without asking a soul.</p>
           <p class="pull">Every money before it could, in the end, be taken.<br><span class="a2">This is the first one that cannot.</span></p>
           <p>Once a reserve manager truly internalises that, every other reserve they hold starts to look conditional &ndash; permission someone else can revoke. <a class="more" href="https://www.thelongclock.com/longclock-freeze.html">When states freeze money &rarr;</a></p>
 
           <h3>Why money rots</h3>
           <p>Step back and ask what money even is, because the confusion starts there. It is not the paper, and it is not the metal, and it is certainly not the number in a banking app. Money is memory &ndash; a society&rsquo;s running ledger of who did the work and who is therefore owed. When you hold it, you hold a claim on the future effort of strangers, and a receipt for the effort you already gave. Which means the only quality that finally matters is integrity: can the record be trusted to stay honest across the decades between earning it and spending it?</p>
-          <p>For every national currency, the answer has been no. The keeper of the ledger always, eventually, rewrites it. Rome clipped and thinned its silver; modern central banks expand the supply with a politer vocabulary and a far faster tool. The mechanism never changes &ndash; new money is created and reaches the powerful first, and by the time it filters down to wages and savings, prices have already risen to swallow it. It is a tax nobody votes for, falling hardest on whoever was prudent enough to save in cash.</p>
-          <div class="figstat" data-note="Stat: debasement"><div class="fn">~3&cent;</div><div class="fl">what a 1913 US dollar&rsquo;s purchasing power has shrunk to</div></div>
+          <p>For every national currency, the answer has been no. The keeper of the ledger always, eventually, rewrites it. Rome clipped and thinned its silver; modern central banks expand the supply with a politer vocabulary and a far faster tool. The chart below is not an argument &ndash; it is simply the published record of how many dollars exist.</p>
+          <div class="rdfig" data-note="Visual: US M2 money supply">
+            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-label="US M2 money supply rising from about 0.3 trillion in 1959 to about 21 trillion today">
+              <line x1="56" y1="262" x2="648" y2="262" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              <line x1="56" y1="28" x2="56" y2="262" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+              <g font-size="10" opacity="0.55" text-anchor="end"><text x="50" y="266">$0</text><text x="50" y="191">$7T</text><text x="50" y="117">$14T</text><text x="50" y="43">$21T</text></g>
+              <g font-size="10" opacity="0.55" text-anchor="middle"><text x="56" y="280">1959</text><text x="511" y="280">2009</text><text x="648" y="280">2024</text></g>
+              <path d="M56,259 C 280,251 430,212 511,176 C 580,146 620,84 648,40" fill="none" stroke="var(--gold)" stroke-width="2.8"/>
+              <circle cx="511" cy="176" r="3.5" fill="var(--gold)"/><text x="503" y="166" font-size="10" text-anchor="end" fill="var(--gold)">~$8T</text>
+              <circle cx="648" cy="40" r="3.5" fill="var(--gold)"/><text x="642" y="36" font-size="10" text-anchor="end" fill="var(--gold)">~$21T</text>
+              <text x="120" y="120" font-size="12" fill="currentColor" opacity="0.78">US dollars in existence (M2)<sup>6</sup></text>
+            </svg>
+          </div>
+          <p class="rdcap">The supply curve of the dollar. Bitcoin&rsquo;s is a flat line at 21,000,000 &ndash; drawn once, in 2009, and never editable since. The dilution is a tax nobody votes for, and it lands hardest on whoever saved in cash.</p>
+          <div class="figstat" data-note="Stat: debasement"><div class="fn">~3&cent;</div><div class="fl">what a 1913 US dollar&rsquo;s purchasing power has shrunk to<sup>2</sup></div></div>
           <p>This is not a fringe complaint; it is the quiet condition of modern life &ndash; the reason a single salary once bought a house and now barely covers the rent, the reason you must become an investor simply to stand still. <a class="more" href="https://www.thelongclock.com/longclock-memory.html">What money remembers &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-debasement.html">The debasement tax &rarr;</a></p>
 
           <h3>A sum no one can inflate</h3>
           <p>Humanity already found one partial answer: gold. For five thousand years it held value precisely because no one could conjure more of it on command &ndash; you had to tear it out of the earth at real cost. That hardness is why it outlasted every paper currency laid beside it. But gold is heavy, slow, and hard to verify, so it pooled into vaults and into paper claims on vaults &ndash; and a thing locked in a vault on someone&rsquo;s sovereign soil can be embargoed or seized. Gold solved scarcity and failed at custody.</p>
-          <p>Bitcoin keeps gold&rsquo;s hardness and discards its weaknesses. There will only ever be twenty-one million units, released on a fixed and slowing schedule, and that cap is not a founder&rsquo;s promise that bends under pressure &ndash; it is a rule that every participant independently runs and checks. To mint the twenty-one-million-and-first coin you would have to convince the entire network to run different software against its own interest, which is to say you cannot. For the first time, the quantity of a money is a settled fact rather than a policy a committee can revisit in a crisis.</p>
-          <div class="rdfig" data-note="Visual: bounded vs unbounded supply">
-            <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" aria-label="Dollars created keep rising; bitcoin supply flattens to a fixed ceiling">
-              <line x1="52" y1="262" x2="648" y2="262" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-              <line x1="52" y1="28" x2="52" y2="262" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-              <path d="M56,250 C 300,244 470,196 648,40" fill="none" stroke="currentColor" stroke-width="2.6" opacity="0.8"/>
-              <path d="M56,250 C 150,150 250,112 380,102 C 480,96 560,95 648,95" fill="none" stroke="var(--gold)" stroke-width="2.6"/>
-              <line x1="380" y1="95" x2="648" y2="95" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 4" opacity="0.55"/>
-              <text x="300" y="70" font-size="12" fill="currentColor" opacity="0.8">Dollars in existence &ndash; no ceiling</text>
-              <text x="392" y="86" font-size="12" fill="var(--gold)">21,000,000 &ndash; every bitcoin there will ever be</text>
-              <text x="56" y="284" font-size="10" opacity="0.55">time &rarr;</text>
-            </svg>
-          </div>
-          <p class="rdcap">One line answers more demand by printing more. The other cannot &ndash; it can only reprice.</p>
+          <p>Bitcoin keeps gold&rsquo;s hardness and discards its weaknesses. There will only ever be twenty-one million units, released on a fixed and slowing schedule, and that cap is not a founder&rsquo;s promise that bends under pressure &ndash; it is a rule that every participant independently runs and checks. To mint the twenty-one-million-and-first coin you would have to convince the entire network to run different software against its own interest, which is to say you cannot.</p>
+          <div class="figstat" data-note="Stat: fixed supply"><div class="fn">21,000,000</div><div class="fl">the entire supply &ndash; fixed since 2009, about 94% already mined<sup>4</sup></div></div>
           <p>It matters, too, that the thing has no owner. Its creator published the design, mined alongside everyone else, and then vanished &ndash; never moving the early coins, never cashing in, leaving no company to subpoena, no chief executive to pressure, no headquarters to raid. The network is just mathematics run by strangers the world over, which is exactly why no one can switch it off or change its terms. <a class="more" href="https://www.thelongclock.com/longclock-incorruptible.html">The incorruptible &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-gold.html">Gold&rsquo;s long reign &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-satoshi.html">The ghost in the machine &rarr;</a></p>
 
           <h3>The trap that catches everyone</h3>
-          <p>Put unseizability and a fixed supply together and you get a behaviour no previous asset could trigger. If there will only ever be twenty-one million, then every coin one buyer takes is a coin no future buyer can ever have. The moment a single serious player &ndash; first a company, then a country &ndash; begins treating it as a reserve, every rival faces the same cold arithmetic: acquire some before the others corner more, or be priced out for good. Each participant, reasoning alone and purely in self-interest, arrives at the identical move. That is not a marketing slogan; it is the structure of the situation, and structures like it resolve in one direction.</p>
+          <p>Put unseizability and a fixed supply together and you get a behaviour no previous asset could trigger. If there will only ever be twenty-one million, then every coin one buyer takes is a coin no future buyer can ever have. The moment a single serious player &ndash; first a company, then a country &ndash; begins treating it as a reserve, every rival faces the same cold arithmetic: acquire some before the others corner more, or be priced out for good. To grasp the force of that, look at the size of the pools it could draw from, against the size of bitcoin itself.</p>
+          <div class="tam" data-note="Visual: store-of-value pools">
+            <div class="tb"><span class="tl">Real estate</span><span class="tt"><span class="tf" style="width:100%"></span></span><span class="tv">~$390T</span></div>
+            <div class="tb"><span class="tl">Bonds</span><span class="tt"><span class="tf" style="width:36%"></span></span><span class="tv">~$140T</span></div>
+            <div class="tb"><span class="tl">Equities</span><span class="tt"><span class="tf" style="width:31%"></span></span><span class="tv">~$120T</span></div>
+            <div class="tb"><span class="tl">Broad money</span><span class="tt"><span class="tf" style="width:31%"></span></span><span class="tv">~$120T</span></div>
+            <div class="tb"><span class="tl">Gold</span><span class="tt"><span class="tf" style="width:4.6%"></span></span><span class="tv">~$18T</span></div>
+            <div class="tb"><span class="tl">Bitcoin</span><span class="tt"><span class="tf btc" style="width:0.5%"></span></span><span class="tv">~$2T</span></div>
+          </div>
+          <p class="rdcap">The world&rsquo;s stores of value, to scale<sup>5</sup>. The gold sliver at the bottom is all the bitcoin there is.</p>
+          <p>Shift even one or two per cent of those pools toward bitcoin and you have several times the value of every coin that exists, chasing a supply that cannot grow by a single unit to meet it. And here the fixed cap does something no ordinary market allows. Everywhere else, a higher price calls forth more &ndash; more drilling, more mining, more sellers tempted to part with what they hold. Bitcoin cannot answer that way. The buying only locks more of it into reserves that rarely sell, so the pool actually for sale thins, and a thinner pool forces the price higher to ration what is left, which pulls in the next buyer.</p>
           <p class="pull">A higher price has always summoned more supply.<br><span class="a2">For the first time, it summons less.</span></p>
-          <p>Here the fixed cap does something no ordinary market allows. Everywhere else, a higher price calls forth more &ndash; more drilling, more mining, more sellers tempted to part with what they hold. Bitcoin cannot answer that way. The buying only locks more of it into reserves that rarely sell, so the pool actually for sale thins, and a thinner pool forces the price higher to ration what is left, which pulls in the next buyer. It is a flywheel with no natural brake, and it is why Michael Saylor likes to say it &ldquo;breaks the models&rdquo; &ndash; the textbook supply-and-demand picture quietly stops applying. <a class="more" href="https://www.thelongclock.com/longclock-gametheory.html">The game theory of Bitcoin &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-squeeze.html">Why price falls when everyone&rsquo;s buying &rarr;</a></p>
+          <p>It is a flywheel with no natural brake, and it is why Michael Saylor likes to say it &ldquo;breaks the models&rdquo; &ndash; the textbook supply-and-demand picture quietly stops applying. <a class="more" href="https://www.thelongclock.com/longclock-gametheory.html">The game theory of Bitcoin &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-squeeze.html">Why price falls when everyone&rsquo;s buying &rarr;</a></p>
 
           <h3>The steward, and the machine</h3>
           <p>You can already watch the first movers build for exactly this. The clearest is Saylor, who turned an ordinary public company into a vehicle whose entire purpose is to accumulate the asset and hold it across generations, never selling, financing the buying in ways designed to compound the position rather than trade it. Set aside whether you admire the man; the point is that he has published a working template, and working templates get copied.</p>
-          <div class="figstat" data-note="Stat: Strategy holdings"><div class="fn">~846,000</div><div class="fl">bitcoin already held by one company &ndash; about 4% of all that will ever exist</div></div>
+          <div class="figstat" data-note="Stat: Strategy holdings"><div class="fn">~846,000</div><div class="fl">bitcoin held by a single company &ndash; about 4% of all that will ever exist<sup>3</sup></div></div>
           <p>What looks today like one zealot&rsquo;s obsession is the early shape of an institutional behaviour, and the deeper you look the more the structure resembles a machine: capital raised against the hoard buys more of the asset that backs the hoard, the position compounds, and as the gains are marked to market they begin to surface as ordinary corporate earnings &ndash; the one language every market is forced to respect. <a class="more" href="https://www.thelongclock.com/longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-machine.html">The Compounding Machine &rarr;</a></p>
 
           <h3>It wins by being inherited</h3>
@@ -242,6 +264,7 @@
           <p class="pull">The fear is priced by the quarter.<br><span class="a2">The clock is built by the century.</span></p>
           <p>That is what the name points at. Not a stock, not a fad, but a long clock: one fixed sum, one honest beat, kept truthfully for anyone willing to think past the noise. <a class="more" href="https://www.thelongclock.com/longclock-timechain.html">The Timechain &rarr;</a></p>
 
+          <p class="srcs"><b>Sources.</b> 1 &ndash; roughly $300B of Russian central-bank reserves immobilised by the US, EU and allies, 2022 (official statements; Reuters). 2 &ndash; US Bureau of Labor Statistics CPI: one 1913 dollar holds roughly three cents of its original purchasing power. 3 &ndash; Strategy (formerly MicroStrategy) bitcoin holdings, ~846,000 BTC, company disclosures, 2026. 4 &ndash; the Bitcoin protocol: a 21,000,000 cap and a block roughly every ten minutes since the genesis block, 3 January 2009; ~19.9M mined to date. 5 &ndash; global store-of-value pools are rough, widely-cited approximations (real estate, bonds, equities, broad money, gold). 6 &ndash; US M2 money stock, Federal Reserve (FRED): ~$0.3T in 1959, ~$8T in 2009, ~$21T in 2024.</p>
           <p class="endnote">None of this is financial advice. It is the strongest version of the case its defenders make, set honestly beside the risks worth taking seriously. The essays behind each link go deeper, argue harder, and hand you the material to make up your own mind.</p>
         </article>
 
@@ -273,8 +296,7 @@
         </div>
       </div>
     </div>
-  </section>
-  <footer data-note="Footer">THE LONG CLOCK · RADICAL PROTOTYPE · the clock the machines will trust</footer>
+  </section>  <footer data-note="Footer">THE LONG CLOCK · RADICAL PROTOTYPE · the clock the machines will trust</footer>
 </div>
 
 <div id="rvhint">Review mode on. Click any outlined block – or a node's readout – to leave a note. Saved on this page; “Copy notes” sends them back.</div>
