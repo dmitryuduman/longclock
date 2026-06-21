@@ -86,6 +86,7 @@
   .cpr-yt{ display:flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden; align-self:end; font-family:var(--font-mono); font-size:0.62rem; width:max-content; }
   .cpr-yt button{ background:transparent; border:0; padding:7px 14px; cursor:pointer; color:var(--ink-soft); }
   .cpr-yt button.on{ background:var(--accent); color:#fff; }
+  .cpr-fnote{ font-family:var(--font-mono); font-size:0.58rem; line-height:1.45; letter-spacing:0.02em; color:var(--ink-soft); margin:0.4rem 0 0; }
   @media(max-width:540px){ .cpr-controls{ grid-template-columns:1fr; } }
 </style>
 </head>
@@ -159,7 +160,7 @@
         <div class="cf-controls">
           <div class="cf-field">
             <label for="cf-strc"><span>STRC market cap &ndash; the funnel</span><span class="cf-v" id="cf-strc-v">$50B</span></label>
-            <input type="range" id="cf-strc" min="0" max="100" step="0.5" value="43.5">
+            <input type="range" id="cf-strc" min="0" max="100" step="0.001" value="43.459">
             <div class="cf-tick"><span>$5B</span><span>$70B</span><span>$1T</span></div>
             <p class="cf-sub" id="cf-strc-pct" style="margin-top:0.45rem">&asymp;0.0011% of the ~$800T store-of-value TAM &ndash; the runway</p>
           </div>
@@ -202,12 +203,13 @@
         <svg class="cpr-chart" id="cpr-svg" viewBox="0 0 720 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Capital into STRC versus BTC bought and projected BTC price"></svg>
         <p class="cpr-read" id="cpr-read"></p>
         <div class="cpr-controls">
+          <div class="cpr-field"><label for="cpr-mark"><span>Capital into STRC &ndash; tied to the table</span><span class="cpr-v" id="cpr-mark-v">$50.0B</span></label><input type="range" id="cpr-mark" min="0" max="100" step="0.001" value="43.459"></div>
           <div class="cpr-field"><label for="cpr-cap"><span>Capital scale &ndash; x-axis ceiling</span><span class="cpr-v" id="cpr-cap-v">$250B</span></label><input type="range" id="cpr-cap" min="0" max="100" step="1" value="31"></div>
-          <div class="cpr-field"><label for="cpr-g"><span>Bitcoin actually for sale &ndash; the hard ceiling</span><span class="cpr-v" id="cpr-g-v">1.00M BTC</span></label><input type="range" id="cpr-g" min="25" max="400" step="5" value="100"></div>
+          <div class="cpr-field"><label for="cpr-g"><span>Bitcoin realistically for sale</span><span class="cpr-v" id="cpr-g-v">2.00M BTC</span></label><input type="range" id="cpr-g" min="25" max="400" step="5" value="200"><p class="cpr-fnote">&asymp; bitcoin on exchanges (~2.4M) less the slice that will not actually sell near today&rsquo;s price</p></div>
           <div class="cpr-field"><label><span>Price axis scale</span></label><div class="cpr-yt" id="cpr-yt"><button data-y="lin" class="on">Linear</button><button data-y="log">Log</button></div></div>
         </div>
       </div>
-      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. &ldquo;BTC at today&rsquo;s price&rdquo; is just capital &divide; price &ndash; the illusion that the supply is there to buy. It is not: only a small pool is genuinely on offer, so coins-actually-acquired saturates toward that ceiling (A&middot;C &divide; (C + P&#8320;&middot;A)) and everything else turns into price instead &ndash; the resulting-price line rising with the square of capital against the pool (P&#8320; &times; (1 + capital &divide; P&#8320;A)&sup2;). This is the replacement-cost wall behind <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying</a>: no one, Strategy included, can buy millions of coins at anything near spot, because the act of trying sends the price away from them. Set &ldquo;bitcoin for sale&rdquo; to what you believe is truly available; the scarcer it is, the more violently price, not quantity, has to move.</p>
+      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. &ldquo;BTC at today&rsquo;s price&rdquo; is just capital &divide; price &ndash; the illusion that the supply is there to buy. It is not: only a small pool is genuinely on offer, so coins-actually-acquired saturates toward that ceiling (A&middot;C &divide; (C + P&#8320;&middot;A)) and everything else turns into price instead &ndash; the resulting-price line rising with the square of capital against the pool (P&#8320; &times; (1 + capital &divide; P&#8320;A)&sup2;). This is the replacement-cost wall behind <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying</a>: no one, Strategy included, can buy millions of coins at anything near spot, because the act of trying sends the price away from them. &ldquo;Bitcoin for sale&rdquo; is not the remaining supply but the <em>available</em> supply &ndash; roughly the bitcoin sitting on exchanges (on the order of ~2.4M) minus the slice that will not actually sell near today&rsquo;s price. Set it to your own estimate; the scarcer it is, the more violently price, not quantity, has to move.</p>
 
       <p>Be precise about what this shows and what it does not. The price curve is a toy, a deliberately simple hyperbola that blows up as demand approaches the float; the real path would be slower and far messier. But two things in it are not toys. <span class="key">A fixed float, thinned by hoarding, cannot satisfy unlimited capital at a fixed price</span> &ndash; past some point quantity stops adjusting and price must. And whatever price results is marked, every quarter, against the hoard and reported as earnings. The bill scales with the funnel; the earnings scale with the price; and the float, alone among them, cannot scale at all.</p>
       <p class="pull">The float is fixed, and thinning.<br><span class="accent">The pools it drinks from are measured in hundreds of trillions.</span></p>
@@ -347,7 +349,7 @@
 /* capital vs projected-price chart (cpr-) – self-contained vanilla SVG, no storage */
 (function(){
   var svg=document.getElementById('cpr-svg'); if(!svg) return;
-  var capR=document.getElementById('cpr-cap'), gR=document.getElementById('cpr-g'), yt=document.getElementById('cpr-yt');
+  var capR=document.getElementById('cpr-cap'), gR=document.getElementById('cpr-g'), yt=document.getElementById('cpr-yt'), markS=document.getElementById('cpr-mark');
   var cfStrc=document.getElementById('cf-strc'), cfPrice=document.getElementById('cf-price');
   if(!capR||!gR||!yt||!cfStrc) return;
   var NS='http://www.w3.org/2000/svg', MINED=19900000, HOARD=0.70, CAP21=21000000;
@@ -404,6 +406,7 @@
     var ct=coinsToday(mC), ca=coinsAcq(mC), pp=priceAt(mC);
     document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b> of capital, today&rsquo;s '+priceFmt(p0)+' makes it look like <b>'+btcFmt(ct)+' BTC</b> is up for grabs. It is not. Only about <span class="cpr-em">'+btcFmt(ca)+' BTC</span> is realistically for sale, so forcing that capital through it reprices bitcoin to <b>'+priceFmt(pp)+'</b>. The repricing, not the coins, is the flywheel.';
     document.getElementById('cpr-cap-v').textContent=usd(Cmax);
+    if(markS){ var mv=document.getElementById('cpr-mark-v'); if(mv) mv.textContent=usd(mC); }
     document.getElementById('cpr-g-v').textContent=(avail()/1e6).toFixed(2)+'M BTC';
   }
   function capFromCf(){ return 5e9*Math.pow(200,(+cfStrc.value)/100); }                                  // table funnel slider -> dollars
@@ -412,10 +415,11 @@
   function readAt(evt){ var r=svg.getBoundingClientRect(), pw=W-L-Rm, Cmax=capMax(); var px=(evt.clientX-r.left)/r.width*W; markC=Math.max(0,Math.min(Cmax,(px-L)/pw*Cmax)); cfStrc.value=cfValFromCap(markC); cfStrc.dispatchEvent(new Event('input',{bubbles:true})); }
   svg.addEventListener('pointermove',readAt); svg.addEventListener('pointerdown',readAt);
   [capR,gR].forEach(function(e){ e.addEventListener('input',render); });
-  cfStrc.addEventListener('input',function(){ markC=capFromCf(); fitCeil(markC); render(); });            // table drives the chart
+  cfStrc.addEventListener('input',function(){ markC=capFromCf(); if(markS) markS.value=cfStrc.value; fitCeil(markC); render(); });   // table (or scrub) drives the chart
+  if(markS) markS.addEventListener('input',function(){ cfStrc.value=markS.value; cfStrc.dispatchEvent(new Event('input',{bubbles:true})); });  // chart capital slider drives the table
   if(cfPrice) cfPrice.addEventListener('input',render);
   yt.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b)return; ylog=b.getAttribute('data-y')==='log'; yt.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);}); render(); });
-  markC=capFromCf(); fitCeil(markC); render();
+  markC=capFromCf(); if(markS) markS.value=cfStrc.value; fitCeil(markC); render();
 })();
 </script>
 </body>
