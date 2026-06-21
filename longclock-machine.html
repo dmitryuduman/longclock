@@ -87,6 +87,14 @@
   .cpr-yt button{ background:transparent; border:0; padding:7px 14px; cursor:pointer; color:var(--ink-soft); }
   .cpr-yt button.on{ background:var(--accent); color:#fff; }
   .cpr-fnote{ font-family:var(--font-mono); font-size:0.58rem; line-height:1.45; letter-spacing:0.02em; color:var(--ink-soft); margin:0.4rem 0 0; }
+  /* the for-sale float draining into reserve */
+  .cprb{ margin:0 0 1.5rem; }
+  .cprb-cap{ font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.4rem; display:flex; justify-content:space-between; gap:1rem; }
+  .cprb-cap b{ color:var(--accent2); font-weight:500; }
+  .cprb-track{ position:relative; height:26px; border-radius:5px; background:rgba(24,32,42,0.06); border:1px solid var(--rule); overflow:hidden; }
+  .cprb-fill{ position:absolute; left:0; top:0; height:100%; background:var(--accent2); }
+  .cprb-labels{ display:flex; justify-content:space-between; gap:1rem; font-family:var(--font-mono); font-size:0.62rem; color:var(--ink-soft); margin-top:0.4rem; }
+  .cprb-labels b{ color:var(--ink); font-weight:600; }
   @media(max-width:540px){ .cpr-controls{ grid-template-columns:1fr; } }
 </style>
 </head>
@@ -194,7 +202,7 @@
 
       <div class="cpr-fig reveal" id="cpr-fig">
         <p class="cpr-head">The same capital, two prices</p>
-        <p class="cpr-sub0">Today&rsquo;s price is the illusion. Capital floods a supply that barely exists: it can buy only the small pool actually on offer, and reprices every coin already held far higher. The buying is what moves the price &ndash; that is the flywheel. The marker starts where the calculator above is set &ndash; move the funnel up there and this point follows; scrub here and the funnel moves too, so the two always read like-for-like.</p>
+        <p class="cpr-sub0">Every other market answers a higher price with more supply. Bitcoin cannot: there will only ever be 21M, and the buying only locks more of it away &ndash; so price, not quantity, absorbs the demand, and past a point no model can say how high. This is the nuance Saylor means when he says it &ldquo;breaks the models.&rdquo; Watch the for-sale float drain as capital rises. The marker starts where the calculator above is set &ndash; move the funnel up there and this point follows; scrub here and the funnel moves too, so the two read like-for-like.</p>
         <div class="cpr-legend">
           <span><i style="border-top-style:dashed;border-color:var(--accent)"></i> BTC at today&rsquo;s price</span>
           <span><i style="border-color:var(--accent)"></i> BTC actually acquired</span>
@@ -202,6 +210,11 @@
         </div>
         <svg class="cpr-chart" id="cpr-svg" viewBox="0 0 720 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Capital into STRC versus BTC bought and projected BTC price"></svg>
         <p class="cpr-read" id="cpr-read"></p>
+        <div class="cprb" id="cprb">
+          <p class="cprb-cap"><span>The for-sale float, draining into reserve</span><span>price to clear: <b id="cprb-price">$124k</b></span></p>
+          <div class="cprb-track"><span class="cprb-fill" id="cprb-fill" style="width:28%"></span></div>
+          <div class="cprb-labels"><span><b id="cprb-res">562k</b> locked into reserve</span><span><b id="cprb-left">1.44M</b> still on the market</span></div>
+        </div>
         <div class="cpr-controls">
           <div class="cpr-field"><label for="cpr-mark"><span>Capital into STRC &ndash; tied to the table</span><span class="cpr-v" id="cpr-mark-v">$50.0B</span></label><input type="range" id="cpr-mark" min="0" max="100" step="0.001" value="43.459"></div>
           <div class="cpr-field"><label for="cpr-cap"><span>Capital scale &ndash; x-axis ceiling</span><span class="cpr-v" id="cpr-cap-v">$250B</span></label><input type="range" id="cpr-cap" min="0" max="100" step="1" value="31"></div>
@@ -404,7 +417,12 @@
     svg.appendChild(E('rect',{x:L,y:T,width:pw,height:ph,fill:'transparent'}));
     // readout + labels
     var ct=coinsToday(mC), ca=coinsAcq(mC), pp=priceAt(mC);
-    document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b> of capital, today&rsquo;s '+priceFmt(p0)+' makes it look like <b>'+btcFmt(ct)+' BTC</b> is up for grabs. It is not. Only about <span class="cpr-em">'+btcFmt(ca)+' BTC</span> is realistically for sale, so forcing that capital through it reprices bitcoin to <b>'+priceFmt(pp)+'</b>. The repricing, not the coins, is the flywheel.';
+    var left=Math.max(0,avail()-ca), drainPct=Math.min(1,ca/avail());
+    document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b>, today&rsquo;s '+priceFmt(p0)+' makes <b>'+btcFmt(ct)+' BTC</b> look like it is there for the taking. It is not. Of the ~<b>'+btcFmt(avail())+'</b> that might realistically sell, this capital locks <span class="cpr-em">'+btcFmt(ca)+'</span> into reserve and leaves <b>'+btcFmt(left)+'</b> on the market &ndash; so the price to clear the next coin settles near <b>'+priceFmt(pp)+'</b>. Push further and the float drains toward zero; supply is fixed at 21M, so nothing new arrives to meet the bid and the price has no natural ceiling. <b>This is where the usual models break.</b>';
+    var bf=document.getElementById('cprb-fill'); if(bf) bf.style.width=(drainPct*100).toFixed(1)+'%';
+    var br=document.getElementById('cprb-res'); if(br) br.textContent=btcFmt(ca);
+    var bl=document.getElementById('cprb-left'); if(bl) bl.textContent=btcFmt(left);
+    var bp=document.getElementById('cprb-price'); if(bp) bp.textContent=priceFmt(pp);
     document.getElementById('cpr-cap-v').textContent=usd(Cmax);
     if(markS){ var mv=document.getElementById('cpr-mark-v'); if(mv) mv.textContent=usd(mC); }
     document.getElementById('cpr-g-v').textContent=(avail()/1e6).toFixed(2)+'M BTC';
