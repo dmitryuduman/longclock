@@ -180,9 +180,9 @@
           </div>
         </div>
         <div class="cf-out">
-          <div class="cf-stat"><p class="cf-k">BTC the capital buys at today's price</p><p class="cf-n" id="cf-coins">133k</p><p class="cf-sub" id="cf-coins-sub">of a 5.97M liquid float</p></div>
+          <div class="cf-stat"><p class="cf-k">BTC it would buy at today's price &ndash; if the supply existed</p><p class="cf-n" id="cf-coins">133k</p><p class="cf-sub" id="cf-coins-sub">of a 5.97M liquid float</p></div>
           <div class="cf-stat"><p class="cf-k">Share of the liquid float it absorbs</p><p class="cf-n hi" id="cf-share">2.2%</p><p class="cf-sub" id="cf-share-sub">float left: 5.84M BTC</p></div>
-          <div class="cf-stat"><p class="cf-k">Implied clearing price</p><p class="cf-n hi" id="cf-implied">$65k</p><p class="cf-sub">the squeeze, as the float thins</p></div>
+          <div class="cf-stat"><p class="cf-k">Reflexive clearing price</p><p class="cf-n hi" id="cf-implied">$65k</p><p class="cf-sub">repricing the whole hoard, not just new coins</p></div>
           <div class="cf-stat"><p class="cf-k">Annual preferred-dividend bill</p><p class="cf-n" id="cf-div">$1.0B</p><p class="cf-sub">market cap &times; the rate</p></div>
           <div class="cf-stat"><p class="cf-k">Booked to the income statement (GAAP)</p><p class="cf-n neg" id="cf-gaap">&minus;$0.8B</p><p class="cf-sub">unrealized P/L on ~846k coins</p></div>
           <div class="cf-stat"><p class="cf-k">Bitcoin locked out of circulation</p><p class="cf-n" id="cf-locked">14.0M</p><p class="cf-sub">hoard + this purchase</p></div>
@@ -193,22 +193,22 @@
 
       <div class="cpr-fig reveal" id="cpr-fig">
         <p class="cpr-head">The same capital, two prices</p>
-        <p class="cpr-sub0">What that capital buys if the price never moved, against a price that compounds as the float thins. Hover the chart to read any point; drag the sliders to rescale.</p>
+        <p class="cpr-sub0">Today&rsquo;s price is the illusion. Capital floods a supply that barely exists: it can buy only the small pool actually on offer, and reprices every coin already held far higher. That repricing is the reflexive flywheel. Hover to read any point; drag the sliders to rescale.</p>
         <div class="cpr-legend">
           <span><i style="border-top-style:dashed;border-color:var(--accent)"></i> BTC at today&rsquo;s price</span>
           <span><i style="border-color:var(--accent)"></i> BTC actually acquired</span>
-          <span><i style="border-color:var(--accent2)"></i> Projected BTC price</span>
+          <span><i style="border-color:var(--accent2)"></i> Reflexive BTC price</span>
         </div>
         <svg class="cpr-chart" id="cpr-svg" viewBox="0 0 720 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Capital into STRC versus BTC bought and projected BTC price"></svg>
         <p class="cpr-read" id="cpr-read"></p>
         <div class="cpr-controls">
           <div class="cpr-field"><label for="cpr-cap"><span>Capital scale &ndash; x-axis ceiling</span><span class="cpr-v" id="cpr-cap-v">$700B</span></label><input type="range" id="cpr-cap" min="0" max="100" step="1" value="65"></div>
-          <div class="cpr-field"><label for="cpr-g"><span>Sellable float &ndash; BTC actually for sale</span><span class="cpr-v" id="cpr-g-v">3.5M BTC</span></label><input type="range" id="cpr-g" min="15" max="80" step="1" value="35"></div>
+          <div class="cpr-field"><label for="cpr-g"><span>Bitcoin actually for sale &ndash; the hard ceiling</span><span class="cpr-v" id="cpr-g-v">1.00M BTC</span></label><input type="range" id="cpr-g" min="25" max="400" step="5" value="100"></div>
           <div class="cpr-field"><label for="cpr-price"><span>Bitcoin price today</span><span class="cpr-v" id="cpr-price-v">$64,000</span></label><input type="range" id="cpr-price" min="30000" max="200000" step="1000" value="64000"></div>
           <div class="cpr-field"><label><span>Price axis scale</span></label><div class="cpr-yt" id="cpr-yt"><button data-y="lin" class="on">Linear</button><button data-y="log">Log</button></div></div>
         </div>
       </div>
-      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. Coins-at-today&rsquo;s-price is simply capital &divide; price. The projected price is a float-squeeze curve &ndash; P&#8320; &times; e^(capital &divide; the dollar value of the sellable float) &ndash; built on the premise that only a thin slice of bitcoin is genuinely for sale near today&rsquo;s price; thin that slice and the price goes parabolic, the mechanism in <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying</a>. Coins-actually-acquired can never exceed that sellable float, so the same capital clears far fewer coins than the naive line implies. It deliberately ignores the new supply that higher prices would coax out, so read the steep end as a ceiling, not a target.</p>
+      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. &ldquo;BTC at today&rsquo;s price&rdquo; is just capital &divide; price &ndash; the illusion that the supply is there to buy. It is not: only a small pool is genuinely on offer, so coins-actually-acquired saturates toward that ceiling (A&middot;C &divide; (C + P&#8320;&middot;A)) and reprices the rest into price &ndash; the reflexive line rising with the square of capital against the pool (P&#8320; &times; (1 + capital &divide; P&#8320;A)&sup2;). This is the replacement-cost wall behind <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying</a>: no one, Strategy included, can buy millions of coins at anything near spot, because the act of trying sends the price away from them. Set &ldquo;bitcoin for sale&rdquo; to what you believe is truly available; the scarcer it is, the more violently price, not quantity, has to move.</p>
 
       <p>Be precise about what this shows and what it does not. The price curve is a toy, a deliberately simple hyperbola that blows up as demand approaches the float; the real path would be slower and far messier. But two things in it are not toys. <span class="key">A fixed float, thinned by hoarding, cannot satisfy unlimited capital at a fixed price</span> &ndash; past some point quantity stops adjusting and price must. And whatever price results is marked, every quarter, against the hoard and reported as earnings. The bill scales with the funnel; the earnings scale with the price; and the float, alone among them, cannot scale at all.</p>
       <p class="pull">The float is fixed, and thinning.<br><span class="accent">The pools it drinks from are measured in hundreds of trillions.</span></p>
@@ -354,10 +354,10 @@
   var W=720,H=380,L=62,Rm=66,T=18,B=48, ylog=false, markC=null;
   function capMax(){ return 100e9*Math.pow(20,(+capR.value)/100); }    // $100B .. $2T
   function P0(){ return +pR.value; }
-  function fSell(){ return (+gR.value)/10*1e6; }                       // sellable float: 1.5M .. 8.0M BTC
-  function priceAt(C){ return P0()*Math.exp(Math.min(20, C/(P0()*fSell()))); }  // float squeeze: thin float -> parabolic
+  function avail(){ return (+gR.value)/100*1e6; }                      // BTC genuinely for sale: 0.25M .. 4.0M
   function coinsToday(C){ return C/P0(); }
-  function coinsAcq(C){ return fSell()*(1-Math.exp(-C/(P0()*fSell()))); }       // can never exceed the sellable float
+  function coinsAcq(C){ var A=avail(); return A*C/(C+P0()*A); }        // saturates toward A: capital can never buy more than the pool on offer
+  function priceAt(C){ var A=avail(), m=1+C/(P0()*A); return P0()*m*m; } // reflexive repricing, rising with the square of capital against the pool
   function usd(n){ var a=Math.abs(n); if(a>=1e12)return '$'+(a/1e12).toFixed(2)+'T'; if(a>=1e9)return '$'+Math.round(a/1e9)+'B'; if(a>=1e6)return '$'+Math.round(a/1e6)+'M'; return '$'+Math.round(a).toLocaleString(); }
   function btcFmt(n){ if(n>=1e6)return (n/1e6).toFixed(2)+'M'; if(n>=1e3)return Math.round(n/1e3)+'k'; return Math.round(n).toLocaleString(); }
   function priceFmt(p){ if(p>=1e12)return '$'+(p/1e12).toFixed(1)+'T'; if(p>=1e9)return '$'+(p/1e9).toFixed(1)+'B'; if(p>=1e6)return '$'+(p/1e6).toFixed(2)+'M'; return '$'+Math.round(p/1000)+'k'; }
@@ -402,9 +402,9 @@
     svg.appendChild(E('rect',{x:L,y:T,width:pw,height:ph,fill:'transparent'}));
     // readout + labels
     var ct=coinsToday(mC), ca=coinsAcq(mC), pp=priceAt(mC);
-    document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b> of capital: at today&rsquo;s '+priceFmt(p0)+' that reads as <b>'+btcFmt(ct)+'</b> BTC &ndash; but the funnel lifts the price to <b>'+priceFmt(pp)+'</b>, so the same capital actually clears <span class="cpr-em">'+btcFmt(ca)+' BTC</span>. The climbing price takes <b>'+btcFmt(ct-ca)+'</b> off the table.';
+    document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b> of capital, today&rsquo;s '+priceFmt(p0)+' makes it look like <b>'+btcFmt(ct)+' BTC</b> is up for grabs. It is not. Only about <span class="cpr-em">'+btcFmt(ca)+' BTC</span> is realistically for sale, so forcing that capital through it reprices bitcoin to <b>'+priceFmt(pp)+'</b>. The repricing, not the coins, is the flywheel.';
     document.getElementById('cpr-cap-v').textContent=usd(Cmax);
-    document.getElementById('cpr-g-v').textContent=(fSell()/1e6).toFixed(1)+'M BTC';
+    document.getElementById('cpr-g-v').textContent=(avail()/1e6).toFixed(2)+'M BTC';
     document.getElementById('cpr-price-v').textContent='$'+p0.toLocaleString();
   }
   function readAt(evt){ var r=svg.getBoundingClientRect(); var px=(evt.clientX-r.left)/r.width*W, pw=W-L-Rm, Cmax=capMax(); markC=Math.max(0,Math.min(Cmax,(px-L)/pw*Cmax)); render(); }
