@@ -88,6 +88,23 @@
   [data-note].hasnote{position:relative;}
   [data-note].hasnote::after{content:"✎";position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--oxblood);color:#fff;border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);}
   #rvhint{position:fixed;left:16px;bottom:16px;z-index:80;max-width:18rem;font-family:var(--fm);font-size:0.66rem;line-height:1.5;color:var(--ink-soft);background:rgba(234,230,217,0.9);border:1px solid var(--rule);border-radius:8px;padding:8px 10px;display:none;} body.rvon #rvhint{display:block;}
+  /* flagship reader */
+  .flag .rdwrap{max-width:42rem;margin:0 auto;}
+  .flaghead{text-align:center;margin:0 auto 1.8rem;}
+  .flag .fe{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin:0;}
+  .flagtitle{font-family:var(--fd);font-weight:600;font-size:clamp(2rem,4.6vw,2.9rem);line-height:1.05;margin:0.5rem 0 0;}
+  .rdtog{display:inline-flex;gap:6px;margin-top:1.4rem;font-family:var(--fm);font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .rdtog button{background:transparent;color:inherit;opacity:0.55;border:1px solid var(--rule,var(--faint,rgba(128,128,128,0.3)));border-radius:999px;padding:7px 16px;cursor:pointer;transition:.2s;font-family:inherit;font-size:inherit;letter-spacing:inherit;}
+  .rdtog button:hover{opacity:0.85;}
+  .rdtog button.on{opacity:1;border-color:var(--gold);color:var(--gold);}
+  .rd{font-family:var(--fb);font-size:1.09rem;line-height:1.74;}
+  .rd[hidden]{display:none;}
+  .rd .lead{font-family:var(--fd);font-weight:500;font-size:1.32rem;line-height:1.5;margin:0 0 1.5rem;}
+  .rd h3{font-family:var(--fd);font-weight:600;font-size:1.34rem;line-height:1.15;margin:2.2rem 0 0.55rem;}
+  .rd p{margin:0 0 1.05rem;}
+  .rd .more{font-family:var(--fm);font-size:0.66rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--oxblood,var(--cyan,var(--gold)));border-bottom:1px solid currentColor;padding-bottom:1px;white-space:nowrap;}
+  .rd .more:hover{opacity:0.7;}
+  .rd .endnote{margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));font-size:0.92rem;opacity:0.72;}
 </style>
 </head>
 <body>
@@ -112,6 +129,80 @@
 
 <div class="wrap">
 
+    <section class="blk flag" id="read" data-note="Flagship: the whole argument">
+    <div class="rdwrap">
+      <div class="flaghead">
+        <p class="fe">Start here</p>
+        <h2 class="flagtitle">The Whole Argument</h2>
+        <div class="rdtog" id="rdtog">
+          <button data-r="brief" class="on">Brief &middot; 5 min</button>
+          <button data-r="full">In full &middot; 12 min</button>
+        </div>
+      </div>
+
+      <article class="rd" id="rd-brief" data-note="Brief essay">
+        <p class="lead">Strip away the price charts and the slogans and one question is left: what happens when, for the first time, a form of money has a supply that is fixed, public, and beyond anyone&rsquo;s power to change? Here is the short answer. Each thread opens into a longer essay.</p>
+
+        <h3>Money is memory</h3>
+        <p>Money is how a society remembers who did the work and who is owed for it. A currency is a ledger written in everyone&rsquo;s heads at once. The best money is simply the one that keeps the most honest record over the longest time, and the worst is the one whose keeper can quietly rewrite the entries. <a class="more" href="https://www.thelongclock.com/longclock-memory.html">What money remembers &rarr;</a></p>
+
+        <h3>The quiet tax</h3>
+        <p>Every national currency in history has been diluted. New units are created; the ones already in your pocket buy less. It is a tax that no one votes for and most never notice, and it falls hardest on the people who save in cash. The dollar has shed most of its purchasing power inside a single century. <a class="more" href="https://www.thelongclock.com/longclock-debasement.html">The debasement tax &rarr;</a></p>
+
+        <h3>A sum that cannot be moved</h3>
+        <p>Bitcoin&rsquo;s supply is capped at twenty-one million, and the cap is enforced not by a promise but by the rules every participant runs. No central banker, no founder, no government can issue the twenty-one-million-and-first coin. For the first time the quantity of a money is a fact rather than a policy. <a class="more" href="https://www.thelongclock.com/longclock-incorruptible.html">The incorruptible &rarr;</a></p>
+
+        <h3>The asset no empire can freeze</h3>
+        <p>Reserves held as another country&rsquo;s debt can be frozen with a keystroke, as roughly three hundred billion dollars of Russia&rsquo;s were in 2022. Gold in a foreign vault can be embargoed. Bitcoin is the first reserve asset a holder can keep, move, and verify without anyone&rsquo;s permission: the one form of savings no empire can freeze. <a class="more" href="https://www.thelongclock.com/longclock-freeze.html">When states freeze money &rarr;</a></p>
+
+        <h3>The trap that catches everyone</h3>
+        <p>Because the supply is fixed, the moment one nation or large company starts accumulating, the rest face a problem: every coin bought is one the latecomers can never have. The rational move for each player, decided alone, is to acquire some before the others do. That is not hype; it is game theory. <a class="more" href="https://www.thelongclock.com/longclock-gametheory.html">The game theory of Bitcoin &rarr;</a></p>
+
+        <h3>The steward</h3>
+        <p>Michael Saylor is the clearest example of the next move: not a trader hunting an exit, but a steward building a company whose whole purpose is to hold the asset across generations and never sell. Whatever you make of the man, the structure he is assembling is the template others have begun to copy. <a class="more" href="https://www.thelongclock.com/longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-machine.html">The Compounding Machine &rarr;</a></p>
+
+        <h3>It wins by being inherited</h3>
+        <p>Technologies of this kind do not win by convincing the people in charge. They win by becoming obvious to whoever comes next. To a generation raised on digital scarcity and self-custody, a money no one can print needs no defending; it is simply how money should have worked all along. Adoption arrives through ten thousand small doorways, not one grand decree. <a class="more" href="https://www.thelongclock.com/longclock-doorways.html">Ten Thousand Doorways &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-nativetongue.html">The Native Tongue &rarr;</a></p>
+
+        <h3>Take the zero off the table</h3>
+        <p>You do not have to be certain to take it seriously. The honest case is about asymmetry: a position sized so that being wrong costs a known, survivable amount, while being right pays a return nothing else on the menu can. The question is not whether it might fail, but whether a small, deliberate stake is worth the chance that it does not. <a class="more" href="https://www.thelongclock.com/longclock-asymmetry.html">Take the zero off the table &rarr;</a></p>
+
+        <h3>Yes, it is volatile</h3>
+        <p>The strongest objections deserve a hearing. The price swings violently, but that is the toll a young, freely traded asset pays while the world argues about what it is worth, not proof that the destination is wrong. Held across a long enough horizon, the volatility has been the price of admission and not the trip itself. <a class="more" href="https://www.thelongclock.com/longclock-volatility.html">Volatility is the toll &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-century.html">The 100-year portfolio &rarr;</a></p>
+
+        <h3>The clock</h3>
+        <p>Underneath all of it runs a single stubborn heartbeat: a chain of timestamps that no one owns and anyone can check, ticking once roughly every ten minutes since 2009. It is the most tamper-resistant record humanity has built, and in an age of cheap forgery it may be the ledger machines themselves come to trust. That is the long clock. <a class="more" href="https://www.thelongclock.com/longclock-timechain.html">The Timechain &rarr;</a></p>
+
+        <p class="endnote">None of this is financial advice. It is the case as its defenders would make it, with the strongest objections set beside it. Read on, disagree where you like, and follow the threads that interest you.</p>
+      </article>
+
+      <article class="rd" id="rd-full" hidden data-note="Full essay">
+        <p class="lead">There is a question hiding under every argument about Bitcoin, and almost no one asks it plainly: what is money actually for, and what changes when a form of it finally does that job without asking anyone&rsquo;s permission? This is the long answer, start to finish.</p>
+
+        <h3>What money is for</h3>
+        <p>Begin with what money is, because the confusion starts there. Money is not paper, and it is not metal, and it is not the figure in a banking app. Money is memory. It is how a community keeps track of who has contributed and who is therefore owed, so that a baker can sell bread today and claim shoes next winter without bartering loaves for leather on the spot. Every currency is a shared ledger of human effort, held in millions of minds and account books at once. When you hold money you are not holding value; you are holding a claim on the future work of strangers, and a record of the work you already did.</p>
+        <p>That reframing decides everything else. If money is a record, then the only quality that finally matters is integrity: can the record be trusted to stay true across time? A good money keeps faith with the person who earned it in their twenties and spends it in their seventies. A bad money lets someone with a printing press quietly dilute that claim while they sleep. The whole history of money is a search for a ledger that cannot be corrupted, and almost every attempt has eventually been corrupted by the very institution trusted to keep it. <a class="more" href="https://www.thelongclock.com/longclock-whatismoney.html">What is money? &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-energy.html">The energy theory of money &rarr;</a></p>
+
+        <h3>The disease, and the old cure</h3>
+        <p>The corruption has a name: debasement. Rome clipped and thinned its silver denarius until it was a coin in name only. Paper currencies have done the same with a faster tool, the printing press, and a politer vocabulary. The mechanism never changes. New units are created and handed first to those nearest the source; by the time the new money reaches ordinary hands, prices have already risen to meet it. It is a transfer of wealth from savers to issuers that no parliament ever puts to a vote, and over a lifetime it is enormous. A dollar from the early twentieth century buys a few cents of goods today. <a class="more" href="https://www.thelongclock.com/longclock-debasement.html">The debasement tax &rarr;</a></p>
+        <p>Humanity found one durable answer long ago: gold. For roughly five thousand years gold held value precisely because no one could conjure more of it on demand; you had to dig it out of the ground at real cost. That hardness is why it outlasted every paper currency placed beside it. But gold has flaws that the modern world exposed. It is heavy, so it pools into a few great vaults; it is hard to verify and move, so ordinary people end up holding paper claims on gold they never see; and a vault sitting on sovereign soil can be seized, embargoed, or simply closed. Gold solved scarcity but not custody, and a money you cannot hold or move freely is only half a money. <a class="more" href="https://www.thelongclock.com/longclock-gold.html">Gold&rsquo;s long reign &rarr;</a></p>
+
+        <h3>A money that answers to no one</h3>
+        <p>Bitcoin is the first money that keeps gold&rsquo;s hardness while curing its weaknesses. Its supply is capped at twenty-one million units, released on a fixed and slowing schedule, and that cap is not a founder&rsquo;s pledge that could be broken under pressure. It is enforced by the rules that every participant independently runs and checks. To create a twenty-one-million-and-first coin, you would have to persuade the entire network to run different software against its own interest, which is to say you cannot. For the first time, the supply of a money is a settled fact rather than a standing policy that a committee can revisit in a crisis. <a class="more" href="https://www.thelongclock.com/longclock-incorruptible.html">The incorruptible &rarr;</a></p>
+        <p>It matters, too, that the thing has no owner. Its creator published the design, mined alongside everyone else, and then disappeared, never moving the early coins. There is no company to subpoena, no chief executive to lean on, no headquarters to raid. The network is just software and mathematics run by strangers the world over, which is exactly why no one can switch it off or change its terms. <a class="more" href="https://www.thelongclock.com/longclock-satoshi.html">The ghost in the machine &rarr;</a></p>
+        <p>From that ownerless hardness comes the property that turns a curiosity into a strategic asset: it cannot be frozen. In 2022 roughly three hundred billion dollars of one of the world&rsquo;s largest economies&rsquo; reserves were frozen overnight, because those reserves existed only as entries in other nations&rsquo; financial systems. Any reserve you hold inside someone else&rsquo;s ledger is a reserve they can switch off. Bitcoin is the first store of value a person or a state can hold, move across the world, and verify without asking permission from any bank or government. It is, in the most literal sense, the asset no empire can freeze. <a class="more" href="https://www.thelongclock.com/longclock-freeze.html">When states freeze money &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/the-asset-no-empire-can-freeze.html">The asset no empire can freeze &rarr;</a></p>
+
+        <h3>Why it spreads, and how it ends</h3>
+        <p>A fixed supply changes the behaviour of everyone who notices it. If there will only ever be twenty-one million, then every coin one buyer accumulates is one no future buyer can have. The instant a single serious player, a company or a country, begins to treat it as a reserve, every rival faces the same cold logic: acquire some before the others corner more, or risk being priced out entirely. Each participant, reasoning alone, arrives at the same move. That is not a marketing story; it is the structure of the situation, and it tends to resolve in one direction. <a class="more" href="https://www.thelongclock.com/longclock-gametheory.html">The game theory of Bitcoin &rarr;</a></p>
+        <p>You can already see the first movers building for it. The clearest is Michael Saylor, who turned a public company into a vehicle whose explicit purpose is to accumulate the asset and hold it across generations, never selling, financing the buying in ways designed to compound the holding rather than trade it. Set aside whether you admire him; the point is that he has published a template, and templates get copied. What looks today like one eccentric&rsquo;s conviction is the early shape of an institutional behaviour. <a class="more" href="https://www.thelongclock.com/longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-machine.html">The Compounding Machine &rarr;</a></p>
+        <p>Underneath the institutions, the deeper current is generational. Technologies of this kind never win by converting the people in charge; they win by becoming the native assumption of whoever comes next. A generation that grew up with digital scarcity, self-custody, and an instinctive distrust of institutions does not need the case for sound money argued. To them a money no one can inflate is obvious, the way the smartphone was obvious to children who never knew a world without one. Adoption does not arrive as a single decree but through ten thousand ordinary doorways, each person and firm and town adopting it for its own reasons until the old way simply looks strange. <a class="more" href="https://www.thelongclock.com/longclock-doorways.html">Ten Thousand Doorways &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-nativetongue.html">The Native Tongue &rarr;</a></p>
+        <p>None of which requires you to be sure. The honest way to hold a position like this is by its asymmetry: size it so that being wrong costs an amount you have decided in advance you can lose, while being right pays a return that nothing else available can match. And the standard objections, taken seriously, do not break the case so much as describe the cost of entry. The price is wildly volatile, yes, because a young asset the whole world is still pricing must swing as opinion changes; across a long enough horizon that volatility has been the toll, not the journey. Held with patience and the right size, the swings are the fare you pay for a seat. <a class="more" href="https://www.thelongclock.com/longclock-asymmetry.html">Take the zero off the table &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-volatility.html">Volatility is the toll &rarr;</a> &nbsp; <a class="more" href="https://www.thelongclock.com/longclock-century.html">The 100-year portfolio &rarr;</a></p>
+        <p>Step back far enough and the price stops being the story. Beneath all of it runs one stubborn heartbeat: a chain of timestamps no one owns and anyone can verify, adding a block once roughly every ten minutes since the start of 2009 without missing a beat. It is the most tamper-resistant record humanity has ever built, an honest clock in an age of cheap forgery, and as machines increasingly transact with machines it may become the ledger they themselves come to trust. That is what the name points at. Not a stock, not a fad, but a long clock: one fixed sum, one honest beat, kept truthfully for anyone willing to think past the noise. <a class="more" href="https://www.thelongclock.com/longclock-timechain.html">The Timechain &rarr;</a></p>
+
+        <p class="endnote">None of this is financial advice. It is the strongest version of the case its defenders make, set beside the objections worth taking seriously. The essays behind each link go deeper, argue harder, and give you the material to make up your own mind.</p>
+      </article>
+    </div>
+  </section>
   <section class="blk" data-note="Featured spotlight">
     <p class="sh rv">Start here</p>
     <h2 class="st rv">A taste, before the table of contents</h2>
@@ -197,5 +288,13 @@ var ESS={
   paint();
 })();
 </script>
-</body>
+<script>
+(function(){var t=document.getElementById('rdtog');if(!t)return;
+  t.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    t.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
+    var r=b.getAttribute('data-r');
+    document.getElementById('rd-brief').hidden=(r!=='brief');
+    document.getElementById('rd-full').hidden=(r!=='full');});
+})();
+</script></body>
 </html>
