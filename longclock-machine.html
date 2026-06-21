@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>The Compounding Machine – what Michael Saylor is building for the long term</title>
+<meta name="description" content="Strip away the daily noise and Michael Saylor is not betting on a price. He is building a machine that funnels capital out of the world's vast store-of-value pools, through digital credit, into a bitcoin float that cannot grow – and, once the accounting caught up, books the result straight onto the income statement. On the capital funnel, the supply squeeze, replacement cost, and fair-value earnings, with an interactive model.">
+<meta name="published" content="2026-06-16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="feature.css?v=13">
+<style>
+  :root{
+    --bg:#C6D0DC; --ink:#18202A; --ink-soft:#586472;
+    --accent:#2E4E6E; --accent-line:#9FB0C4; --accent2:#9A6A2E;
+    --rule:rgba(24,32,42,0.17);
+    --font-display:"Fraunces", Georgia, serif;
+    --font-body:"Spectral", Georgia, serif;
+    --font-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --measure:40rem; --grain-opacity:0.04; --grain-blend:multiply;
+  }
+  html,body{ background-color:#C6D0DC; color:#18202A; }
+  body{
+    background-image:
+      radial-gradient(80% 60% at 20% 6%, rgba(255,255,255,0.5), transparent 60%),
+      radial-gradient(85% 65% at 86% 16%, rgba(46,78,110,0.08), transparent 60%),
+      radial-gradient(120% 100% at 50% 118%, rgba(24,32,42,0.09), transparent 60%);
+    background-size:cover; background-repeat:no-repeat;
+  }
+  main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
+  main a:hover{ text-decoration-color:var(--accent); }
+  .crown{ height:1px; background:linear-gradient(to right, transparent, var(--accent-line) 16%, var(--accent-line) 84%, transparent); margin:1.5rem 0 0; }
+  .netfig{ max-width:46rem; margin:2.6rem auto 1rem; }
+  .netfig svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .figcap{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0.9rem auto 0; max-width:38rem; text-align:center; }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  /* ---- capital-funnel model (cf- prefixed to avoid feature.js?v=13 clashes) ---- */
+  .cf-calc{ max-width:46rem; margin:2.4rem auto 0.8rem; border:1px solid var(--rule); border-radius:12px; padding:22px 22px 24px; background:rgba(255,255,255,0.4); }
+  .cf-head{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1.1rem; }
+  .cf-tam{ margin:0 0 1.6rem; }
+  .cf-tl{ font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.6rem; }
+  .cf-bar{ display:flex; align-items:center; gap:10px; margin:0.32rem 0; font-family:var(--font-mono); font-size:0.7rem; }
+  .cf-bar .cf-bl{ width:7rem; flex:none; color:var(--ink-soft); }
+  .cf-bar .cf-bt{ flex:1; height:11px; background:rgba(24,32,42,0.06); border-radius:3px; overflow:hidden; }
+  .cf-bar .cf-bf{ display:block; height:100%; border-radius:3px; background:var(--accent-line); }
+  .cf-bar .cf-bf.src{ background:var(--accent); }
+  .cf-bar .cf-bf.btc{ background:var(--accent2); }
+  .cf-bar .cf-bv{ width:3.6rem; text-align:right; flex:none; color:var(--ink); }
+  .cf-controls{ display:flex; flex-direction:column; gap:1.2rem; }
+  .cf-field label{ display:flex; justify-content:space-between; align-items:baseline; font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em; color:var(--ink); margin:0 0 0.5rem; gap:1rem; }
+  .cf-field .cf-v{ font-weight:500; color:var(--accent); font-size:0.92rem; white-space:nowrap; }
+  .cf-field input[type=range]{ -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:3px; background:var(--accent-line); outline:none; cursor:pointer; }
+  .cf-field input[type=range]::-webkit-slider-thumb{ -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.28); cursor:pointer; }
+  .cf-field input[type=range]::-moz-range-thumb{ width:18px; height:18px; border-radius:50%; background:var(--accent); border:2px solid #fff; box-shadow:0 1px 3px rgba(0,0,0,0.28); cursor:pointer; }
+  .cf-tick{ font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.04em; color:var(--ink-soft); display:flex; justify-content:space-between; margin-top:0.35rem; }
+  .cf-out{ margin-top:1.6rem; border-top:1px solid var(--rule); padding-top:1.4rem; display:grid; grid-template-columns:1fr 1fr; gap:1.2rem 1.4rem; }
+  .cf-stat .cf-k{ font-family:var(--font-mono); font-size:0.62rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.25rem; line-height:1.3; }
+  .cf-stat .cf-n{ font-family:var(--font-display); font-weight:600; font-size:1.5rem; line-height:1.05; color:var(--ink); }
+  .cf-stat .cf-n.hi{ color:var(--accent2); }
+  .cf-stat .cf-n.neg{ color:#9A3636; }
+  .cf-stat .cf-sub{ font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.02em; color:var(--ink-soft); margin-top:0.2rem; }
+  .cf-read{ grid-column:1 / -1; margin-top:0.3rem; border-top:1px dashed var(--rule); padding-top:1.2rem; }
+  .cf-read p{ margin:0; font-family:var(--font-body); font-size:1.06rem; line-height:1.58; color:var(--ink); }
+  .cf-read .cf-em{ color:var(--accent); font-style:italic; }
+  @media(max-width:540px){ .cf-out{ grid-template-columns:1fr; } .cf-bar .cf-bl{ width:6rem; } }
+</style>
+</head>
+<body>
+<div class="canvas">
+
+  <header class="col">
+    <p class="eyebrow"><a href="index.html" class="backlink">&larr; The Long Clock</a> &nbsp;&middot;&nbsp; Featured &nbsp;&middot;&nbsp; The long game</p>
+    <h1>The Compounding Machine</h1>
+    <div class="crown"></div>
+    <p class="deck">Strip away the daily noise and Michael Saylor is not betting on a price. He is assembling a machine whose worst case is roughly today's price and whose best case is a standing claim on the world's money &ndash; defined-supply digital property, held forever. Once the accounting caught up, the machine began to print.</p>
+    <p class="listen" title="Audio narration – coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg> Listen <span class="soon">coming soon</span></p>
+
+    <div class="netfig reveal">
+      <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g class="ink" fill="none" stroke-linecap="round">
+          <circle cx="340" cy="112" r="80" stroke="#18202A" stroke-width="1.4" opacity="0.32"/>
+          <circle cx="340" cy="112" r="80" stroke="#9A6A2E" stroke-width="10" stroke-linecap="butt" stroke-dasharray="20.1 482.5" transform="rotate(-90 340 112)"/>
+          <circle cx="340" cy="112" r="66" stroke="#18202A" stroke-width="0.7" opacity="0.4"/>
+        </g>
+        <text x="340" y="106" text-anchor="middle" font-family="Fraunces,serif" font-weight="600" font-size="30" fill="#18202A">21M</text>
+        <text x="340" y="130" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing="0.12em" fill="#586472">FIXED FOREVER</text>
+        <text x="430" y="44" text-anchor="start" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing="0.04em" fill="#9A6A2E">one company's slice</text>
+      </svg>
+      <p class="figcap">A circle of twenty-one million that can never be widened. The gold arc is one company's permanent claim &ndash; and it does not hand the coins back.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The asymmetry of permanence</p></div>
+      <h2>Why he buys like the supply is finite</h2>
+      <p class="opening lede">Everyone has a version of the regret. The neighbours who could have bought the waterfront before it was waterfront; the family that looked at empty harbour-front lots and decided the price was silly. In hindsight the call is obvious, and obvious is the one thing it never is at the time.</p>
+      <p>Bitcoin is defined-supply digital property: twenty-one million units, no more, ever, on a coast that cannot be extended. Hold that in your head and Saylor's behaviour stops looking manic and starts looking arithmetical. <span class="key">The downside is a price you can name today; the upside is a share of the monetary premium that currently sits in bonds, gold, and land.</span> And whatever slice you take of a fixed thing, you hold it forever, because there is no more being made. That is not a reason to buy carefully. Against a quantity the world has not finished pricing, it is a reason to buy all you can while the deeds are still cheap.</p>
+      <p>This is the part the daily tape obscures. A normal asset rewards patience and punishes haste, because supply will be there tomorrow. A fixed asset inverts it: haste is the strategy, because the float you do not take is float someone else will. He is not gambling on a number. He is staking a claim on a coastline before the rest of the market agrees it is one.</p>
+      <p class="pull">Beachfront on a coast that can never be extended &ndash;<br><span class="accent">and the deeds are still, for now, cheap.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The accounting</p></div>
+      <h2>The rule that turned a hoard into earnings</h2>
+      <p class="lede">For years the accounting rules punished exactly what Strategy was built to do. It held an enormous pile of bitcoin and was permitted to record the dips but never the recoveries &ndash; a hoard that could only ever look like a liability on paper.</p>
+      <p>Saylor did not just wait that out; he lobbied to change it, pressing the standard-setters at FASB to let the asset be marked honestly. Under the fair-value standard that followed (ASU 2023-08, in force from 2025), each quarter's change in the price of bitcoin now flows straight into reported GAAP earnings, up or down, in full. <span class="key">What had been a vault became an engine.</span> A static pile that the rules forced into the shadows is now a line on the income statement that prints, or bleeds, with every move in the price. Most observers filed this under "more volatility." Few have followed it to where it actually leads &ndash; a thread <a href="longclock-sp500.html">The Index Trap</a> picks up on the way to the S&amp;P 500.</p>
+      <p class="pull">The coins did not change.<br><span class="accent">What the company is allowed to report did.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The funnel</p></div>
+      <h2>Where the capital comes from, and the float that can't grow</h2>
+      <p class="lede">Start with scale, because it is the whole game. The world's store of value sits in a few enormous pools &ndash; real estate near three hundred and ninety trillion dollars, bonds around a hundred and forty, equities a hundred and thirty, broad money a hundred-odd, gold sixteen. Bitcoin, against all of it, is a rounding error near two trillion.</p>
+      <p>Digital credit is a straw lowered into those pools. An instrument like STRC offers a yield to capital that is sitting in low-paying bonds and cash, or parked in assets that cost a fortune to hold, and routes the proceeds into bitcoin. Every dollar it raises buys coins and removes them from a float that cannot grow &ndash; a float already being thinned by the ETFs and corporate treasuries that hoard whatever they buy. <span class="key">At today's depressed price you can watch how much of that float each wave of capital swallows, and find the point where it simply runs out.</span></p>
+      <p>And here is the move that closes the loop back to earnings. When the absorbed demand lifts the price, the fair-value rule books the gain on Strategy's hoard <em>straight onto the income statement</em>, as reported GAAP profit. Today, with bitcoin trading below the company's average cost, that line is red &ndash; which is precisely why the market is panicking. Scale the funnel, and watch where it flips.</p>
+
+      <div class="cf-calc reveal" id="cf-calc">
+        <p class="cf-head">Calculator &ndash; the funnel, the float, and the income statement</p>
+        <div class="cf-tam">
+          <p class="cf-tl">Where the capital sits today &ndash; global stores of value</p>
+          <div class="cf-bar"><span class="cf-bl">Real estate</span><span class="cf-bt"><span class="cf-bf" style="width:100%"></span></span><span class="cf-bv">$393T</span></div>
+          <div class="cf-bar"><span class="cf-bl">Bonds</span><span class="cf-bt"><span class="cf-bf src" style="width:35%"></span></span><span class="cf-bv">$139T</span></div>
+          <div class="cf-bar"><span class="cf-bl">Equities</span><span class="cf-bt"><span class="cf-bf" style="width:33%"></span></span><span class="cf-bv">$128T</span></div>
+          <div class="cf-bar"><span class="cf-bl">Broad money</span><span class="cf-bt"><span class="cf-bf src" style="width:31%"></span></span><span class="cf-bv">~$120T</span></div>
+          <div class="cf-bar"><span class="cf-bl">Gold</span><span class="cf-bt"><span class="cf-bf" style="width:4%"></span></span><span class="cf-bv">$16T</span></div>
+          <div class="cf-bar"><span class="cf-bl">Bitcoin</span><span class="cf-bt"><span class="cf-bf btc" style="width:0.6%"></span></span><span class="cf-bv">~$2T</span></div>
+          <p class="cf-sub" style="font-family:var(--font-mono);font-size:0.6rem;color:var(--ink-soft);margin-top:0.6rem">Navy bars are the low-yield pools the funnel draws from; the gold sliver is bitcoin, the destination.</p>
+        </div>
+        <div class="cf-controls">
+          <div class="cf-field">
+            <label for="cf-strc"><span>STRC market cap &ndash; the funnel</span><span class="cf-v" id="cf-strc-v">$8.5B</span></label>
+            <input type="range" id="cf-strc" min="0" max="100" step="0.5" value="10">
+            <div class="cf-tick"><span>$5B</span><span>$70B</span><span>$1T</span></div>
+            <p class="cf-sub" id="cf-strc-pct" style="margin-top:0.45rem">&asymp;0.0011% of the ~$800T store-of-value TAM &ndash; the runway</p>
+          </div>
+          <div class="cf-field">
+            <label for="cf-rate"><span>STRC dividend rate</span><span class="cf-v" id="cf-rate-v">12%</span></label>
+            <input type="range" id="cf-rate" min="8" max="16" step="0.25" value="12">
+            <div class="cf-tick"><span>8%</span><span>12%</span><span>16%</span></div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-hoard"><span>Hoarded by ETFs + treasuries + long-term holders</span><span class="cf-v" id="cf-hoard-v">70%</span></label>
+            <input type="range" id="cf-hoard" min="40" max="90" step="1" value="70">
+            <div class="cf-tick"><span>40%</span><span>65%</span><span>90%</span></div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-price"><span>Bitcoin price today</span><span class="cf-v" id="cf-price-v">$64,000</span></label>
+            <input type="range" id="cf-price" min="30000" max="200000" step="1000" value="64000">
+            <div class="cf-tick"><span>$30k</span><span>$115k</span><span>$200k</span></div>
+          </div>
+        </div>
+        <div class="cf-out">
+          <div class="cf-stat"><p class="cf-k">BTC the capital buys at today's price</p><p class="cf-n" id="cf-coins">133k</p><p class="cf-sub" id="cf-coins-sub">of a 5.97M liquid float</p></div>
+          <div class="cf-stat"><p class="cf-k">Share of the liquid float it absorbs</p><p class="cf-n hi" id="cf-share">2.2%</p><p class="cf-sub" id="cf-share-sub">float left: 5.84M BTC</p></div>
+          <div class="cf-stat"><p class="cf-k">Implied clearing price</p><p class="cf-n hi" id="cf-implied">$65k</p><p class="cf-sub">the squeeze, as the float thins</p></div>
+          <div class="cf-stat"><p class="cf-k">Annual preferred-dividend bill</p><p class="cf-n" id="cf-div">$1.0B</p><p class="cf-sub">market cap &times; the rate</p></div>
+          <div class="cf-stat"><p class="cf-k">Booked to the income statement (GAAP)</p><p class="cf-n neg" id="cf-gaap">&minus;$0.8B</p><p class="cf-sub">unrealized P/L on ~846k coins</p></div>
+          <div class="cf-stat"><p class="cf-k">Bitcoin locked out of circulation</p><p class="cf-n" id="cf-locked">14.0M</p><p class="cf-sub">hoard + this purchase</p></div>
+          <div class="cf-read"><p id="cf-read">Drag the funnel up and watch the float thin, the price lift, and the income-statement line flip.</p></div>
+        </div>
+      </div>
+      <p class="figcap">Fig. 1 &ndash; an illustrative model, not a forecast. The price response is a transparent squeeze toy that spikes as demand nears the float; the float and hoarding assumptions are yours to argue with. The point is the direction &ndash; and the line the gain runs to: the income statement.</p>
+
+      <p>Be precise about what this shows and what it does not. The price curve is a toy, a deliberately simple hyperbola that blows up as demand approaches the float; the real path would be slower and far messier. But two things in it are not toys. <span class="key">A fixed float, thinned by hoarding, cannot satisfy unlimited capital at a fixed price</span> &ndash; past some point quantity stops adjusting and price must. And whatever price results is marked, every quarter, against the hoard and reported as earnings. The bill scales with the funnel; the earnings scale with the price; and the float, alone among them, cannot scale at all.</p>
+      <p class="pull">The float is fixed, and thinning.<br><span class="accent">The pools it drinks from are measured in hundreds of trillions.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Scarcity</p></div>
+      <h2>You could not build this stack twice</h2>
+      <p class="lede">Saylor put the scarcity in a sentence that is easy to skim past and worth stopping on. It cost roughly fifty billion dollars, he has said, to reach about three per cent of all bitcoin; the next fifty billion will not buy three per cent again &ndash; it will buy perhaps one, or less.</p>
+      <p>That is the supply squeeze felt from the inside. <span class="key">Every coin Strategy takes is a coin removed from everyone else's reach</span>, and the float thins as the buying continues &ndash; the mechanism traced in <a href="longclock-squeeze.html">Why Price Falls When Everyone's Buying</a>. But there is a sharper consequence for how the company itself should be valued. No latecomer outside the ETFs could assemble a comparable stack without bidding the price up so violently in the act that they would pay many times Saylor's cost basis to do it. The position is, in the most literal sense, irreproducible. So the right lens for the hoard is not the spot value of the coins but their <span class="key">replacement cost</span> &ndash; what it would take the next person to recreate it &ndash; and recreating it is self-defeating, because the attempt would send the price away from them as they reached.</p>
+      <p class="pull">The only way to copy the position<br><span class="accent">is to bid it out of your own reach.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">V.</span><p class="eyebrow">The flywheel</p></div>
+      <h2>A perpetual bid, and a multiple that changes kind</h2>
+      <p class="lede">Around the hoard, Saylor has built a credit stack &ndash; perpetual preferred instruments led by STRC, the largest preferred stock in the world, with rivals it has already spawned, like Strive's SATA, crowding in behind. Read in isolation they look like financing. Read together they are a pump.</p>
+      <p>Capital raised against the hoard buys more of the asset that backs the hoard: a standing, structural bid on bitcoin that does not wait for sentiment. And it reframes the league table. Even if Strategy is one day out-accumulated in percentage terms, the largest collateral base lets it keep leading in absolute value, riding the unrealized uplift the whole way. Then the loop widens beyond one company. Each corporation that puts bitcoin on its balance sheet lowers the barrier for the next; seasoned credit makes it routine; price action draws fresh buyers; and the asset is infinitely scalable in dollars, so the bid never runs out of room. As that flows through to fair-value earnings, the very <em>kind</em> of valuation shifts. Today Strategy trades on a premium to its assets &ndash; a sentiment gauge. <span class="key">As the earnings swell, the conversation moves to a multiple on earnings, which the market cannot wave away once bitcoin is a material share of corporate profits at large.</span> Add the generational tailwind of <a href="longclock-nativetongue.html">The Native Tongue</a> &ndash; validity arriving simply because the next cohort inherits it &ndash; and a perpetual credit bid beneath the price, and the downside volatility that scares people today should compress over time, which only feeds the wheel again.</p>
+      <p class="pull">An asset today, an earnings stream tomorrow &ndash;<br><span class="accent">and earnings are far harder to argue with.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal">
+      <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">Discipline</p></div>
+      <h2>The unglamorous moves</h2>
+      <p class="lede">A maniac would not bother with the boring parts. A steward does almost nothing else. Behind the headline buying, Saylor has been quietly engineering the thing that makes the buying survivable: the company's standing as a borrower.</p>
+      <p>He has begun working down the convertible-debt overhang rather than letting it loom, and in 2026 Strategy sold a sliver of bitcoin for the first time since 2022. Read as capitulation, it was nothing of the kind. It was proof &ndash; a demonstration that the asset on the balance sheet is genuinely liquid, not effectively frozen, which is precisely what a credit rating turns on. <span class="key">Selling a little to prove he could is how a holder earns the right to keep the rest.</span> Every notch of improved rating is cheaper capital, and cheaper capital, for this company, converts directly into more coins per share. The same man who looks reckless on the buy side is, on the financing side, doing the patient, unshowy work that the <a href="longclock-saylor.html">Steward's Wager</a> is named for.</p>
+      <p class="pull">The reckless part makes the headlines.<br><span class="accent">The careful part is the strategy.</span></p>
+    </section>
+
+    <div class="div"><span class="mark">&#9670;</span></div>
+
+    <section class="col reveal close">
+      <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">The honest ledger</p></div>
+      <h2>Short-term fear, long-term arithmetic</h2>
+      <p class="lede">The market right now is fixated on one column of the ledger. Intellectual honesty requires the other, and it is not a formality &ndash; the risks here are real, specific, and capable of ending the story badly.</p>
+      <p>Start with the sharpest one, the same one the calculator quietly flags when the price line runs red. The earnings are paper; the dividends are cash. In a long, deep bitcoin winter the print turns to a vast reported loss while the preferred bill arrives every quarter all the same, and the only ways to meet it &ndash; sell bitcoin into weakness, or issue equity and yet more preferreds &ndash; are exactly the actions critics describe as a <span class="key">death spiral</span>: paying yesterday's obligations by diluting tomorrow's holders or shrinking the very hoard the thesis rests on. The premium to net asset value can collapse, punishing holders even if bitcoin holds. Leverage magnifies the downside as surely as the upside. And forced selling, the spectre at the back of every leveraged book, is not impossible in a deep enough drawdown. None of this is a smear; it is the real texture of the machine, and anyone who waves it away is making the mirror-image error of the panic.</p>
+      <p>The discipline is the one this site keeps returning to. Name the worst case, size the position so it cannot ruin you, set it aside &ndash; the method of <a href="longclock-asymmetry.html">Take the Zero Off the Table</a> &ndash; and only then look at the shape of what remains. What remains is a convex claim on a fixed asset, run by a steward hardening it against its own failure modes, whose downside is a price you can name and whose upside scales without a ceiling. <span class="key">Those who can see that geometry read a panic as the discount, not the verdict.</span> The rest are too busy watching the candle to notice what is being built behind it.</p>
+      <p class="pull">The fear is priced by the quarter.<br><span class="accent">The machine is built by the decade.</span></p>
+
+      <p class="signoff">None of this is a recommendation, and none of it is a promise &ndash; the zero is real, the leverage is real, and a long enough winter would test every joint in the structure. It is an argument about shape: that beneath the noise sits defined-supply property, an accounting engine now allowed to show its work, and a builder doing the dull things that make a bet durable. Whether that is prudent or perilous for you is a question only your own position sizing can answer. That the machine is being built, in plain sight, is not in doubt.</p>
+
+      <div class="more-door">
+        <p class="t">Read on</p>
+        <p class="s">The visionary's pattern this rests on &ndash; <a href="longclock-rails.html">On Steve's Rails</a>; the man behind it &ndash; <a href="longclock-saylor.html">The Steward's Wager</a>; the accounting path into the index &ndash; <a href="longclock-sp500.html">The Index Trap</a>; and the squeeze that powers it all &ndash; <a href="longclock-squeeze.html">Why Price Falls When Everyone's Buying</a>.</p>
+      </div>
+
+      <p class="foot"><b>On the figures.</b> Global store-of-value pools are rough, widely-cited ballparks &ndash; real estate ~$393T, bonds ~$139T, equities ~$128T, broad money ~$120T, gold ~$16T, against bitcoin near $2T (the Jesse Myers "global asset landscape" framing). Bitcoin traded around $64,000 in mid-June 2026, below Strategy's ~$66,384 average cost. The company holds roughly 846,000 BTC (about 4% of supply); Saylor has said it plans to slow accumulation only between roughly 5% and 7.5% of total supply, and that the ~$50B it took to reach ~3% will not buy 3% again. The fair-value standard is FASB ASU 2023-08 (effective for fiscal years beginning after 15 December 2024); Strategy publicly advocated for it. STRC is Strategy's variable-rate perpetual preferred (currently ~11.5%, the model defaults to 12%), the largest preferred stock by market value; SATA is a competing perpetual preferred issued by Strive, not by Strategy. The model is illustrative arithmetic: capital &divide; price for coins absorbed, a hyperbolic squeeze for the clearing price, and holdings &times; (price &minus; cost) for the mark-to-market booked to GAAP earnings &ndash; it ignores tax, operating costs, second-round effects, and the slow, messy reality of price discovery. In 2026 Strategy sold bitcoin for the first time since 2022 and has discussed meeting obligations via bitcoin sales, MSTR issuance above a ~1.22&times; NAV multiple, or further STRC issuance. <b>Nothing here is investment advice</b>; it explains a structure, not a trade, and is written by people who are not your financial advisers.</p>
+    </section>
+
+  </main>
+
+  <aside class="colophon col">
+    <p class="cm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 12V6M12 12l4 2" stroke-linecap="round"/></svg> The Long Clock – Featured</p>
+    <nav class="partrail">
+      <a class="pr" href="index.html"><span class="pn">I</span><span class="pt">The Asset No Empire Can Freeze</span><span class="pd">– the reserve-power case</span></a>
+      <a class="pr" href="longclock-saylor.html"><span class="pn">II</span><span class="pt">The Steward's Wager</span><span class="pd">– the man who bound his life to it</span></a>
+      <a class="pr" href="longclock-rails.html"><span class="pn">&#9670;</span><span class="pt">On Steve's Rails</span><span class="pd">– how the visionary reads the curve early</span></a>
+      <a class="pr" href="longclock-sp500.html"><span class="pn">&#9670;</span><span class="pt">The Index Trap</span><span class="pd">– the accounting path into the S&amp;P 500</span></a>
+      <a class="pr" href="longclock-squeeze.html"><span class="pn">&#9670;</span><span class="pt">Why Price Falls When Everyone's Buying</span><span class="pd">– the supply squeeze</span></a>
+    </nav>
+  </aside>
+</div>
+
+<svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="23" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.0"/></filter></defs></svg>
+
+<script src="feature.js?v=13"></script>
+<script>
+(function(){
+  var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.ink').forEach(function(g){ if(!rmq) g.setAttribute('filter','url(#pen)'); });
+})();
+</script>
+<script>
+/* capital-funnel model – cf- prefixed, self-contained, no storage */
+(function(){
+  var el=function(id){return document.getElementById(id);};
+  var strc=el('cf-strc'), rate=el('cf-rate'), hoard=el('cf-hoard'), price=el('cf-price');
+  if(!strc||!rate||!hoard||!price) return;
+  var MINUS='−', MINED=19900000, BASIS=66384, MSTR=846000, TAM=796e12;
+  function cap(){ return 5e9*Math.pow(200, (+strc.value)/100); }   // log map 0..100 -> $5B..$1T
+  function usd(n){ var s=n<0?MINUS:''; var a=Math.abs(n);
+    if(a>=1e12) return s+'$'+(a/1e12).toFixed(2)+'T';
+    if(a>=1e9) return s+'$'+(a/1e9).toFixed(a/1e9>=100?0:1)+'B';
+    if(a>=1e6) return s+'$'+Math.round(a/1e6)+'M';
+    return s+'$'+Math.round(a).toLocaleString(); }
+  function coinsFmt(n){ if(n>=1e6) return (n/1e6).toFixed(2)+'M'; if(n>=1e3) return Math.round(n/1e3)+'k'; return Math.round(n).toLocaleString(); }
+  function priceFmt(p){ return p>=1e6 ? '$'+(p/1e6).toFixed(2)+'M' : '$'+Math.round(p/1000)+'k'; }
+  function update(){
+    var C=cap(), r=(+rate.value)/100, h=(+hoard.value)/100, p=+price.value;
+    var floatBtc=MINED*(1-h);
+    var coins=C/p;
+    var exhausted=coins>=floatBtc;
+    var share=coins/floatBtc;
+    var implied=exhausted?Infinity:p*floatBtc/(floatBtc-coins);
+    var divBill=C*r;
+    var gaap=exhausted?Infinity:MSTR*(implied-BASIS);
+    var locked=Math.min(MINED, MINED*h+coins);
+    el('cf-strc-v').textContent=usd(C);
+    var pctTam=C/TAM*100;
+    el('cf-strc-pct').textContent='≈'+(pctTam>=1?pctTam.toFixed(1):pctTam>=0.01?pctTam.toFixed(2):pctTam.toFixed(4))+'% of the ~$800T store-of-value TAM – the runway';
+    el('cf-rate-v').textContent=(+rate.value)+'%';
+    el('cf-hoard-v').textContent=Math.round(+hoard.value)+'%';
+    el('cf-price-v').textContent='$'+p.toLocaleString();
+    el('cf-coins').textContent=coinsFmt(coins);
+    el('cf-coins-sub').textContent='of a '+(floatBtc/1e6).toFixed(2)+'M liquid float';
+    var sh=el('cf-share');
+    if(exhausted){ sh.textContent='>100%'; sh.className='cf-n neg'; el('cf-share-sub').textContent='float exhausted at this price'; }
+    else { sh.textContent=(share*100<10?(share*100).toFixed(1):Math.round(share*100))+'%'; sh.className='cf-n hi'; el('cf-share-sub').textContent='float left: '+((floatBtc-coins)/1e6).toFixed(2)+'M BTC'; }
+    var im=el('cf-implied');
+    if(exhausted){ im.textContent='∞'; im.className='cf-n hi'; } else { im.textContent=priceFmt(implied); im.className='cf-n hi'; }
+    el('cf-div').textContent=usd(divBill);
+    var g=el('cf-gaap');
+    if(exhausted){ g.textContent='enormous'; g.className='cf-n hi'; }
+    else { g.textContent=(gaap>=0?'+':MINUS)+usd(Math.abs(gaap)).replace(/^[−]/,''); g.className='cf-n '+(gaap>=0?'hi':'neg'); }
+    el('cf-locked').textContent=(locked/1e6).toFixed(2)+'M';
+    var read;
+    if(exhausted){
+      read='At <strong>'+usd(C)+'</strong> the funnel wants <strong>'+coinsFmt(coins)+'</strong> coins &ndash; more than the entire <strong>'+(floatBtc/1e6).toFixed(2)+'M</strong>-coin liquid float at today&rsquo;s price. <span class="cf-em">Quantity can no longer adjust, so price must</span>: the wall is hit, and the only open question is how high.';
+    } else if(gaap<0){
+      read='At <strong>'+usd(C)+'</strong> the funnel buys <strong>'+coinsFmt(coins)+'</strong> coins &ndash; '+(share*100).toFixed(1)+'% of the float &ndash; nudging the clearing price to <strong>'+priceFmt(implied)+'</strong>. Still below the '+usd(BASIS)+'/coin cost basis, the hoard marks to a <span class="cf-em">'+usd(gaap)+' loss</span> on the income statement: the red line the panic is staring at. Push the funnel up.';
+    } else {
+      read='At <strong>'+usd(C)+'</strong> the funnel absorbs <strong>'+(share*100<10?(share*100).toFixed(1):Math.round(share*100))+'%</strong> of the float and lifts the clearing price to <strong>'+priceFmt(implied)+'</strong>. Marked against ~846k coins, that books <span class="cf-em">'+(gaap>=0?'+':MINUS)+usd(Math.abs(gaap)).replace(/^[−]/,'')+'</span> straight onto the income statement &ndash; against a dividend bill of just <strong>'+usd(divBill)+'</strong> a year.';
+    }
+    el('cf-read').innerHTML=read;
+  }
+  [strc,rate,hoard,price].forEach(function(e){ e.addEventListener('input',update); });
+  update();
+})();
+</script>
+</body>
+</html>
