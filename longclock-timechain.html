@@ -50,6 +50,15 @@
   .ghostbtn:hover{ border-color:var(--ink-soft); }
 
   @media (prefers-reduced-motion: reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  /* rubric additions: citations + audience router */
+  .cite{ font-family:var(--font-mono); font-size:0.58em; color:var(--accent); font-weight:600; vertical-align:super; line-height:0; padding-left:1px; }
+  .ognext{ max-width:var(--measure); margin:1.4rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .ognext .nc{ border:1px solid var(--rule); border-radius:10px; padding:0.9rem 1rem 1rem; background:rgba(255,255,255,0.3); }
+  .ognext .nk{ font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+  .ognext .nt{ font-family:var(--font-display); font-weight:600; font-size:0.98rem; margin:0.32rem 0 0.55rem; line-height:1.2; color:var(--ink); }
+  .ognext a{ display:block; font-family:var(--font-body); font-size:0.9rem; line-height:1.4; color:var(--accent2); padding:0.16rem 0; text-decoration:none; }
+  .ognext a:hover{ opacity:0.72; }
+  @media(max-width:620px){ .ognext{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -102,7 +111,7 @@
     <section class="col reveal">
       <div class="marker"><span class="numeral">II.</span><p class="eyebrow">Proof of time</p></div>
       <h2>One honest clock</h2>
-      <p class="lede">Strip Bitcoin to its foundation and you do not find money first. You find a timestamp. Satoshi's own name for it, in the earliest code, was the <em>timechain</em>.</p>
+      <p class="lede">Strip Bitcoin to its foundation and you do not find money first. You find a timestamp. Satoshi's own name for it, in the earliest code, was the <em>timechain</em>.<sup class="cite">1</sup></p>
       <p>Roughly every ten minutes the network seals a new block onto an unbroken chain – each one cryptographically bound to the last, each one stamped with the work it cost to make. To rewrite a single past entry you would have to redo all the energy spent since, an amount that grows every day and rests not on any institution's promise but on physics. This is <span class="key">the one thing a synthetic intelligence cannot fabricate: real work, really done, in the real world.</span> And anyone can anchor a document, a measurement, a moment to this chain and prove, forever after, that it existed by then. In a world drowning in plausible fakes, provable existence-at-a-time stops being a technicality and becomes a foundation.</p>
 
       <div class="tickwrap reveal">
@@ -165,7 +174,7 @@
 
       <p>An AI agent cannot open a bank account, pass an identity check, or wait three days for a wire to clear. It can, however, hold a key. A money that settles finally, permissionlessly, and programmatically – without asking anyone's leave and without a counterparty who can renege – is not a luxury for a machine economy; <span class="key">it is the only kind that fits its shape.</span> Whether bitcoin or some other rail ends up filling that role is genuinely open: stablecoins and closed corporate networks are competing hard for it. But the need is unmistakable, and only one neutral, bearer settlement layer exists that no single company or state can switch off.</p>
       <p class="pull">A bank account is a permission.<br><span class="accent">A key is a possession.</span></p>
-      <p>And this is no longer hypothetical. In June 2026 Coinbase launched <a href="https://www.coindesk.com/tech/2026/06/11/coinbase-launches-ai-agent-accounts-that-can-trade-and-spend-on-your-behalf">"Coinbase for Agents"</a>, wiring assistants like ChatGPT and Claude directly into user accounts to trade and – soon – spend on their owner's behalf within preset caps, atop a machine-to-machine payment protocol, x402, that has already cleared tens of millions of transactions for agents buying their own compute, data, and APIs. <span class="key">The plumbing for an economy in which software pays software is being laid right now.</span> Saylor has been saying it for years: the machines will need money, and they will not wait for a bank to open. Be precise about what this proves and what it doesn't – today's agent rails move mostly dollars and stablecoins, not bitcoin. But every one of them inherits the exact problem the timechain was built to solve, and the more value that flows through software hands, the louder the question of what it all finally settles into: a neutral, bearer layer no company that issued the rails can later switch off.</p>
+      <p>And this is no longer hypothetical. In June 2026 Coinbase launched <a href="https://www.coindesk.com/tech/2026/06/11/coinbase-launches-ai-agent-accounts-that-can-trade-and-spend-on-your-behalf">"Coinbase for Agents"</a>, wiring assistants like ChatGPT and Claude directly into user accounts to trade and – soon – spend on their owner's behalf within preset caps, atop a machine-to-machine payment protocol, x402, that has already cleared tens of millions of transactions for agents buying their own compute, data, and APIs.<sup class="cite">2</sup> <span class="key">The plumbing for an economy in which software pays software is being laid right now.</span> Saylor has been saying it for years: the machines will need money, and they will not wait for a bank to open. Be precise about what this proves and what it doesn't – today's agent rails move mostly dollars and stablecoins, not bitcoin. But every one of them inherits the exact problem the timechain was built to solve, and the more value that flows through software hands, the louder the question of what it all finally settles into: a neutral, bearer layer no company that issued the rails can later switch off.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -194,12 +203,13 @@
 
       <p class="signoff">Every other record can now be rewritten, every other voice synthesized, every other supply expanded at will. The long clock keeps ticking – one honest beat, one fixed sum – and that, in the end, may turn out to be the most valuable thing in the world.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">Why one man is racing to pull this future forward – <a href="longclock-saylor.html">The Steward's Wager</a> – how it actually spreads, <a href="longclock-doorways.html">Ten Thousand Doorways</a> – and the institutions it unsettles, <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>. The case begins at <a href="index.html">The Asset No Empire Can Freeze</a>.</p>
+      <div class="ognext" data-note="Where to go next">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Weigh the volatility and the long clock.</p><a href="longclock-volatility.html">Volatility is the toll &rarr;</a><a href="longclock-century.html">The 100-year portfolio &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">What the clock guards, and why it holds.</p><a href="longclock-incorruptible.html">The incorruptible &rarr;</a><a href="longclock-energy.html">The energy theory of money &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">The people willing it forward.</p><a href="longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a><a href="index.html">The Asset No Empire Can Freeze &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On this piece.</b> The timestamping and proof-of-work claims here are well established and uncontroversial. The "money of machines" is a thesis about where incentives point, not a forecast – other rails are competing for that role, and the autonomous-agent economy is still young. "Timechain" is Satoshi's own term, used in Bitcoin's earliest code for the chain of timestamped blocks.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> 1 &ndash; &ldquo;timechain&rdquo; is Satoshi's own term in Bitcoin's earliest code for the chain of timestamped blocks, which has sealed a block roughly every ten minutes since the genesis block of 3 January 2009. 2 &ndash; Coinbase's &ldquo;Coinbase for Agents&rdquo; and the x402 machine-to-machine payment protocol were reported in June 2026 (linked above). The timestamping and proof-of-work claims here are well established and uncontroversial; the &ldquo;money of machines&rdquo; is a thesis about where incentives point, not a forecast &ndash; other rails (stablecoins, closed corporate networks) are competing for that role, and the autonomous-agent economy is still young.</p>
     </section>
 
   </main>
