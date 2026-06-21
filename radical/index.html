@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<title>The Long Clock – Radical</title>
+<meta name="description" content="A radical reimagining of The Long Clock: the whole work as a luminous instrument you explore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,900&family=IBM+Plex+Mono:wght@400;500&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D14; --bg2:#11151F; --ink:#ECEAE2; --soft:#8A93A3; --faint:#2A3340;
+    --gold:#E0B24A; --cyan:#5FD0C0; --rose:#E08AA0;
+    --fd:"Fraunces",Georgia,serif; --fb:"Spectral",Georgia,serif; --fm:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:1.05rem;line-height:1.7;overflow-x:hidden;
+    background-image:radial-gradient(60% 50% at 50% 0%,rgba(224,178,74,0.10),transparent 60%),radial-gradient(70% 60% at 85% 90%,rgba(95,208,192,0.07),transparent 60%);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem;}
+
+  .top{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:0.8rem;padding:0.7rem 1.5rem;background:rgba(10,13,20,0.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--faint);font-family:var(--fm);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;}
+  .top .mk{color:var(--ink);} .top .tag{color:var(--gold);} .top .sp{flex:1;} .top a{color:var(--soft);}
+
+  /* hero */
+  .hero{position:relative;min-height:96vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 1.5rem;overflow:hidden;}
+  .halo{position:absolute;top:50%;left:50%;width:min(120vw,900px);height:min(120vw,900px);transform:translate(-50%,-50%);border-radius:50%;
+    border:1px solid rgba(224,178,74,0.16);box-shadow:0 0 120px 10px rgba(224,178,74,0.08) inset;pointer-events:none;}
+  .halo.h2{width:min(80vw,620px);height:min(80vw,620px);border-color:rgba(95,208,192,0.14);}
+  @media(prefers-reduced-motion:no-preference){.halo{animation:breathe 9s ease-in-out infinite;} .halo.h2{animation:breathe 11s ease-in-out infinite reverse;}}
+  @keyframes breathe{0%,100%{opacity:0.5;}50%{opacity:1;}}
+  .hero .em{position:relative;font-family:var(--fm);font-size:0.72rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin:0 0 1.4rem;}
+  .hero h1{position:relative;font-family:var(--fd);font-weight:900;font-size:clamp(2.8rem,10vw,6.4rem);line-height:0.95;margin:0;letter-spacing:-0.015em;
+    background:linear-gradient(180deg,#FBF5E6,#E0B24A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero .line{position:relative;max-width:32rem;margin:1.8rem auto 0;font-size:1.3rem;line-height:1.5;color:var(--ink);}
+  .hero .enter{position:relative;margin-top:2.6rem;font-family:var(--fm);font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);border:1px solid rgba(224,178,74,0.5);border-radius:999px;padding:0.75rem 1.5rem;transition:.25s;}
+  .hero .enter:hover{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+
+  /* instrument */
+  .inst{padding:3rem 0 1rem;text-align:center;}
+  .sh{font-family:var(--fm);font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);}
+  .st{font-family:var(--fd);font-weight:600;font-size:1.8rem;margin:0.5rem 0 0.4rem;}
+  .stsub{color:var(--soft);font-size:0.98rem;margin:0 0 1.4rem;}
+  .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:0 0 1rem;font-family:var(--fm);font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .filters button{background:transparent;color:var(--soft);border:1px solid var(--faint);border-radius:999px;padding:7px 14px;cursor:pointer;transition:.2s;}
+  .filters button:hover{border-color:var(--soft);color:var(--ink);}
+  .filters button.on{background:var(--gold);color:var(--bg);border-color:var(--gold);}
+  .mapwrap{max-width:760px;margin:0 auto;}
+  #map{width:100%;height:auto;display:block;overflow:visible;}
+  #map circle.node{cursor:pointer;transition:r .15s ease;}
+  #map .ring,#map .spoke{stroke:var(--faint);fill:none;}
+  #map text.core{font-family:var(--fd);font-weight:600;fill:var(--gold);}
+  #map text.coresub{font-family:var(--fm);fill:var(--soft);}
+  @media(prefers-reduced-motion:no-preference){ #rings{transform-origin:380px 360px;animation:spin 140s linear infinite;} .halo{animation:tw 5s ease-in-out infinite;} }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes tw{0%,100%{opacity:0.14;}50%{opacity:0.26;}}
+  #map circle.node{opacity:1;}
+  body.dim .node:not(.sel){opacity:0.18;transition:opacity .3s ease;}
+  /* view toggle + list view */
+  .vtog{display:flex;gap:8px;justify-content:center;margin:0 0 1.2rem;font-family:var(--fm);font-size:0.66rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .vtog button{background:transparent;color:var(--soft);border:1px solid var(--faint);border-radius:999px;padding:7px 16px;cursor:pointer;transition:.2s;}
+  .vtog button:hover{border-color:var(--soft);color:var(--ink);}
+  .vtog button.on{background:var(--ink);color:var(--gold);border-color:var(--gold);}
+  .lv{max-width:46rem;margin:0 auto;text-align:left;display:none;}
+  body.listview .lv{display:block;} body.listview #mapwrap,body.listview #filters,body.listview #readout{display:none;}
+  .lv h3{font-family:var(--fm);font-size:0.64rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin:1.8rem 0 0.5rem;border-bottom:1px solid var(--faint);padding-bottom:0.4rem;}
+  .lv a.li{display:block;padding:0.75rem 0;border-bottom:1px solid var(--faint);transition:.15s;}
+  .lv a.li:hover{padding-left:0.5rem;}
+  .lv .lt{font-family:var(--fd);font-weight:600;font-size:1.14rem;}
+  .lv .ld{color:var(--soft);font-size:0.92rem;line-height:1.4;margin-top:0.1rem;}
+  /* featured spotlight */
+  .spot{padding:3.2rem 0 0.5rem;}
+  .spotgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+  .spotcard{display:block;text-align:left;border:1px solid var(--faint);border-radius:14px;padding:1.5rem 1.5rem 1.4rem;background:rgba(17,21,31,0.6);transition:.22s;}
+  .spotcard:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 12px 36px rgba(0,0,0,0.4);}
+  .spotcard .spk{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);}
+  .spotcard .sptt{display:block;font-family:var(--fd);font-weight:600;font-size:1.5rem;margin:0.4rem 0 0.7rem;line-height:1.1;}
+  .spotcard .spq{display:block;font-family:var(--fd);font-style:italic;font-size:1.12rem;line-height:1.42;color:var(--ink);}
+  .spotcard .spr{display:inline-block;margin-top:0.9rem;font-family:var(--fm);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);}
+  @media(max-width:680px){.spotgrid{grid-template-columns:1fr;}}
+
+  /* readout */
+  .readout{max-width:40rem;margin:1.4rem auto 0;min-height:5.2rem;border:1px solid var(--faint);border-radius:12px;background:rgba(17,21,31,0.7);padding:1.1rem 1.3rem;text-align:left;transition:.2s;}
+  .readout .rtier{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);}
+  .readout .rttl{font-family:var(--fd);font-weight:600;font-size:1.4rem;margin:0.25rem 0 0.3rem;line-height:1.12;}
+  .readout .rdsc{color:var(--soft);font-size:0.98rem;line-height:1.5;}
+  .readout .ropen{display:inline-block;margin-top:0.6rem;font-family:var(--fm);font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan);}
+
+  section.blk{padding:3.5rem 0;border-top:1px solid var(--faint);}
+  footer{padding:3rem 0 5rem;border-top:1px solid var(--faint);font-family:var(--fm);font-size:0.7rem;letter-spacing:0.06em;color:var(--soft);text-align:center;}
+
+  /* review */
+  #rvbar{position:fixed;right:16px;bottom:16px;z-index:80;display:flex;align-items:center;gap:8px;}
+  #rvbar button{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.04em;padding:8px 12px;border:1px solid var(--gold);border-radius:999px;background:var(--bg2);color:var(--ink);cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,0.5);}
+  #rvbar button:hover{background:var(--gold);color:var(--bg);}
+  #rvbar .cnt{color:var(--gold);}
+  body.rvon [data-note]{outline:1.5px dashed rgba(224,178,74,0.6);outline-offset:3px;cursor:pointer;border-radius:6px;}
+  body.rvon [data-note]:hover{outline-color:var(--rose);background:rgba(224,178,74,0.06);}
+  [data-note].hasnote{position:relative;}
+  [data-note].hasnote::after{content:"✎";position:absolute;top:-8px;right:-8px;width:20px;height:20px;background:var(--rose);color:var(--bg);border-radius:50%;font-size:11px;display:flex;align-items:center;justify-content:center;font-family:var(--fm);z-index:5;}
+  #rvhint{position:fixed;left:16px;bottom:16px;z-index:80;max-width:18rem;font-family:var(--fm);font-size:0.66rem;line-height:1.5;color:var(--soft);background:rgba(17,21,31,0.92);border:1px solid var(--faint);border-radius:8px;padding:8px 10px;display:none;}
+  body.rvon #rvhint{display:block;}
+</style>
+</head>
+<body>
+
+<div class="top" data-note="Top bar"><span class="mk">The Long Clock</span><span class="tag">Radical</span><span class="sp"></span><a href="#instrument">The instrument ↓</a></div>
+
+<header class="hero" data-note="Hero / cover">
+  <div class="halo"></div><div class="halo h2"></div>
+  <p class="em">One honest beat · one fixed sum</p>
+  <h1>The Long Clock</h1>
+  <p class="line">A patient case for the asset no empire can freeze – the whole argument, rebuilt as a single instrument you can explore.</p>
+  <a class="enter" href="#instrument">Enter the instrument ↓</a>
+</header>
+
+<div class="wrap">
+  <section class="spot" data-note="Featured spotlight">
+    <p class="sh" style="text-align:center">Start here</p>
+    <h2 class="st" style="text-align:center">Two ideas the rest orbits</h2>
+    <div class="spotgrid">
+      <a class="spotcard" href="https://www.thelongclock.com/longclock-nativetongue.html" data-note="Spotlight: The Native Tongue">
+        <span class="spk">The generational turn</span>
+        <span class="sptt">The Native Tongue</span>
+        <span class="spq">“A technology does not win when it convinces the people in charge. It wins when it becomes the native tongue of the people who will be.”</span>
+        <span class="spr">Read the essay →</span>
+      </a>
+      <a class="spotcard" href="https://www.thelongclock.com/longclock-machine.html" data-note="Spotlight: The Compounding Machine">
+        <span class="spk">What Saylor is building</span>
+        <span class="sptt">The Compounding Machine</span>
+        <span class="spq">“The downside is a price you can name today; the upside is a share of all the money there is – held forever.”</span>
+        <span class="spr">Read the essay →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="inst" id="instrument" data-note="The instrument / orrery">
+    <p class="sh">The instrument</p>
+    <h2 class="st">Two dozen essays, one fixed centre</h2>
+    <p class="stsub">A constellation of the whole work. Hover to read; click to enter – or switch to a plain list.</p>
+    <div class="vtog" id="vtog"><button data-v="map" class="on">Constellation</button><button data-v="list">List</button></div>
+    <div class="filters" id="filters">
+      <button data-f="all" class="on">Everything</button>
+      <button data-f="spine">The spine</button>
+      <button data-f="feat">Featured</button>
+      <button data-f="lib">The library</button>
+    </div>
+    <div class="mapwrap" id="mapwrap"><svg id="map" viewBox="0 0 760 720" xmlns="http://www.w3.org/2000/svg" aria-label="Constellation of essays"></svg></div>
+    <div class="readout" id="readout" data-note="Readout panel">
+      <p class="rtier">Begin</p>
+      <p class="rttl">Hover the constellation</p>
+      <p class="rdsc">Each light is an essay. The five in the inner ring are the spine; the next ring, the pillars; the outer ring, the library. Touch any to read its line.</p>
+    </div>
+    <div class="lv" id="listview"></div>
+  </section>
+
+  <footer data-note="Footer">THE LONG CLOCK · RADICAL PROTOTYPE · the clock the machines will trust</footer>
+</div>
+
+<div id="rvhint">Review mode on. Click any outlined block – or a node's readout – to leave a note. Saved on this page; “Copy notes” sends them back.</div>
+<div id="rvbar"><button id="rvtoggle">✎ Review<span class="cnt" id="rvcount"></span></button><button id="rvcopy" hidden>Copy notes</button></div>
+
+<script>
+var NODES=[
+ {tier:'spine',n:'I',t:'The Asset No Empire Can Freeze',d:'The reserve-power case, for the reader who finds Bitcoin unconvincing.',u:'https://www.thelongclock.com/index.html',c:'#E0B24A'},
+ {tier:'spine',n:'II',t:"The Steward's Wager",d:'Michael Saylor, past the caricature – the man willing it into being.',u:'https://www.thelongclock.com/longclock-saylor.html',c:'#E0B24A'},
+ {tier:'spine',n:'III',t:"The Old Guard's Dilemma",d:'What the banks stand to lose – and why the cannier ones are joining.',u:'https://www.thelongclock.com/longclock-incumbents.html',c:'#E0B24A'},
+ {tier:'spine',n:'IV',t:'Ten Thousand Doorways',d:'How it actually wins – by being useful everywhere at once.',u:'https://www.thelongclock.com/longclock-doorways.html',c:'#E0B24A'},
+ {tier:'spine',n:'V',t:'The Timechain',d:'The clock the machines will trust, in an age of forgery.',u:'https://www.thelongclock.com/longclock-timechain.html',c:'#E0B24A'},
+ {tier:'feat',t:'The Incorruptible',d:'A money no one can change is an honest foundation.',u:'https://www.thelongclock.com/longclock-incorruptible.html',c:'#5FD0C0'},
+ {tier:'feat',t:'The Game Theory of Bitcoin',d:"The prisoner's dilemma of nations, and the only winning move.",u:'https://www.thelongclock.com/longclock-gametheory.html',c:'#7FD08A'},
+ {tier:'feat',t:'Take the Zero Off the Table',d:'The binary, and the asymmetry it hides.',u:'https://www.thelongclock.com/longclock-asymmetry.html',c:'#E07A7A'},
+ {tier:'feat',t:"On Steve's Rails",d:'The visionary who reads the curve early – and how AI-era code compounds it.',u:'https://www.thelongclock.com/longclock-rails.html',c:'#E0B24A'},
+ {tier:'feat',t:'The Compounding Machine',d:'What Saylor is building for the long term.',u:'https://www.thelongclock.com/longclock-machine.html',c:'#6FA8E0'},
+ {tier:'feat',t:'The Native Tongue',d:'How a money becomes obvious to whoever comes next.',u:'https://www.thelongclock.com/longclock-nativetongue.html',c:'#B68AE0'},
+ {tier:'feat',t:'What Is Money?',d:'The Saylor × Breedlove marathon, distilled.',u:'https://www.thelongclock.com/longclock-whatismoney.html',c:'#5FD0B0'},
+ {tier:'lib',t:'What Money Remembers',d:'Money as a ledger of who owes what.',u:'https://www.thelongclock.com/longclock-memory.html',c:'#6FD0C0'},
+ {tier:'lib',t:"Gold's Long Reign",d:'The honest case for gold – and the two times the anchor was cut.',u:'https://www.thelongclock.com/longclock-gold.html',c:'#6FD0C0'},
+ {tier:'lib',t:'The Energy Theory of Money',d:'Scarcity welded to physics.',u:'https://www.thelongclock.com/longclock-energy.html',c:'#6FD0C0'},
+ {tier:'lib',t:'The Ghost in the Machine',d:'Who Satoshi is – and why it no longer matters.',u:'https://www.thelongclock.com/longclock-satoshi.html',c:'#6FD0C0'},
+ {tier:'lib',t:'The Debasement Tax',d:'The levy no one votes for.',u:'https://www.thelongclock.com/longclock-debasement.html',c:'#E0A85A'},
+ {tier:'lib',t:'When States Freeze Money',d:"Possession that needs permission isn't possession.",u:'https://www.thelongclock.com/longclock-freeze.html',c:'#E0A85A'},
+ {tier:'lib',t:'Volatility Is the Toll, Not the Trip',d:'Terror up close, a climb from a distance.',u:'https://www.thelongclock.com/longclock-volatility.html',c:'#E0A85A'},
+ {tier:'lib',t:'The 100-Year Portfolio',d:'What actually survives a century.',u:'https://www.thelongclock.com/longclock-century.html',c:'#E0A85A'},
+ {tier:'lib',t:'Saylor, Before Bitcoin',d:'His words and predictions before he owned a coin.',u:'https://www.thelongclock.com/longclock-saylor-transcript.html',c:'#E08AA0'},
+ {tier:'lib',t:"Why Price Falls When Everyone's Buying",d:'The non-linear supply squeeze of a fixed asset.',u:'https://www.thelongclock.com/longclock-squeeze.html',c:'#E08AA0'},
+ {tier:'lib',t:'The Index Trap',d:'How a rising bitcoin can pull Strategy into the S&P 500.',u:'https://www.thelongclock.com/longclock-sp500.html',c:'#E08AA0'},
+ {tier:"lib",t:"Saylor's iPhone Moment",d:'STRC as the consumer-grade wrapper around bitcoin.',u:'https://www.thelongclock.com/longclock-strc.html',c:'#E08AA0'},
+ {tier:'lib',t:'The Quiet Believers',d:'Why the most important buying is the least visible – documented flows vs inferred motives.',u:'https://www.thelongclock.com/longclock-believers.html',c:'#E08AA0'}
+];
+(function(){
+  var NS='http://www.w3.org/2000/svg', map=document.getElementById('map'), cx=380, cy=360;
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  var rings=el('g',{id:'rings'});
+  [118,205,288].forEach(function(r){rings.appendChild(el('circle',{class:'ring',cx:cx,cy:cy,r:r,'stroke-width':0.7,opacity:0.5}));});
+  map.appendChild(rings);
+  // core
+  map.appendChild(el('circle',{cx:cx,cy:cy,r:46,fill:'rgba(224,178,74,0.06)',stroke:'#E0B24A','stroke-width':1.2}));
+  var c1=el('text',{class:'core',x:cx,y:cy-2,'text-anchor':'middle','font-size':22});c1.textContent='21M';map.appendChild(c1);
+  var c2=el('text',{class:'coresub',x:cx,y:cy+18,'text-anchor':'middle','font-size':9,'letter-spacing':'0.14em'});c2.textContent='FIXED';map.appendChild(c2);
+  function ring(tier){return tier==='spine'?118:tier==='feat'?205:288;}
+  var groups={spine:[],feat:[],lib:[]}; NODES.forEach(function(d){groups[d.tier].push(d);});
+  var nodeEls=[];
+  ['spine','feat','lib'].forEach(function(tier){
+    var arr=groups[tier], R=ring(tier), N=arr.length;
+    arr.forEach(function(d,i){
+      var a=(i/N)*2*Math.PI - Math.PI/2;
+      var x=cx+Math.cos(a)*R, y=cy+Math.sin(a)*R;
+      // spoke
+      map.appendChild(el('line',{class:'spoke',x1:cx,y1:cy,x2:x.toFixed(1),y2:y.toFixed(1),'stroke-width':0.5,opacity:0.35}));
+      var rad=tier==='spine'?13:tier==='feat'?9:6.5;
+      var halo=el('circle',{class:'halo',cx:x.toFixed(1),cy:y.toFixed(1),r:rad+6,fill:d.c,opacity:0.14,style:'animation-delay:'+(i*0.4)+'s'});
+      var g=el('circle',{class:'node '+tier,cx:x.toFixed(1),cy:y.toFixed(1),r:rad,fill:d.c,stroke:'#0A0D14','stroke-width':1.5});
+      g._d=d;g._r=rad;
+      if(tier==='spine'){var tx=el('text',{x:x.toFixed(1),y:(y+4).toFixed(1),'text-anchor':'middle','font-family':'IBM Plex Mono,monospace','font-size':9,fill:'#0A0D14','font-weight':600,'pointer-events':'none'});tx.textContent=d.n;}
+      map.appendChild(halo);map.appendChild(g);if(tx)map.appendChild(tx);
+      nodeEls.push(g);
+      function show(){document.getElementById('readout').innerHTML='<p class="rtier">'+(d.tier==='spine'?'Spine · '+d.n:d.tier==='feat'?'Featured':'Library')+'</p><p class="rttl" style="color:'+d.c+'">'+d.t+'</p><p class="rdsc">'+d.d+'</p><a class="ropen" href="'+d.u+'">Open the essay →</a>';g.setAttribute('r',d._r+2.5);}
+      g.addEventListener('mouseenter',show); g.addEventListener('mouseleave',function(){g.setAttribute('r',d._r);});
+      g.addEventListener('click',function(){ if(document.body.classList.contains('rvon')){return;} location.href=d.u; });
+      g.setAttribute('data-note',d.t);
+    });
+  });
+  // depth filter
+  var fb=document.getElementById('filters');
+  fb.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    fb.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
+    var f=b.getAttribute('data-f');
+    if(f==='all'){document.body.classList.remove('dim');nodeEls.forEach(function(g){g.classList.remove('sel');});}
+    else{document.body.classList.add('dim');nodeEls.forEach(function(g){g.classList.toggle('sel',g._d.tier===f);});}
+  });
+})();
+// list view + map/list toggle
+(function(){
+  var lv=document.getElementById('listview'); if(!lv||!window.NODES) return;
+  var groups={spine:[],feat:[],lib:[]}, names={spine:'The spine',feat:'Featured',lib:'The library'};
+  NODES.forEach(function(d){groups[d.tier].push(d);});
+  ['spine','feat','lib'].forEach(function(k){var h=document.createElement('h3');h.textContent=names[k];lv.appendChild(h);
+    groups[k].forEach(function(d){var a=document.createElement('a');a.className='li';a.href=d.u;a.setAttribute('data-note',d.t);
+      a.innerHTML='<span class="lt" style="color:'+d.c+'">'+(d.n?d.n+'. ':'')+d.t+'</span><span class="ld">'+d.d+'</span>';lv.appendChild(a);});});
+  var vt=document.getElementById('vtog');
+  vt.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+    vt.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);});
+    document.body.classList.toggle('listview',b.getAttribute('data-v')==='list');});
+})();
+// review tool
+(function(){
+  var KEY='lc-notes:'+location.pathname, notes={}, on=false;
+  try{notes=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(notes));}catch(e){} paint();}
+  function paint(){var n=0;document.querySelectorAll('[data-note]').forEach(function(el){var id=el.getAttribute('data-note');if(notes[id]){if(el.classList)el.classList.add('hasnote');n++;}else if(el.classList)el.classList.remove('hasnote');});
+    document.getElementById('rvcount').textContent=n?(' · '+n):'';document.getElementById('rvcopy').hidden=!n;}
+  document.getElementById('rvtoggle').addEventListener('click',function(){on=!on;document.body.classList.toggle('rvon',on);this.firstChild.textContent=on?'✎ Reviewing':'✎ Review';});
+  document.addEventListener('click',function(e){if(!on)return;if(e.target.closest('#rvbar')||e.target.closest('#rvhint'))return;var z=e.target.closest('[data-note]');if(!z)return;e.preventDefault();e.stopPropagation();var id=z.getAttribute('data-note');var v=window.prompt('Note on “'+id+'”:',notes[id]||'');if(v===null)return;if(v.trim()==='')delete notes[id];else notes[id]=v.trim();save();},true);
+  document.getElementById('rvcopy').addEventListener('click',function(){var out='REVIEW NOTES – '+location.pathname+'\n\n'+Object.keys(notes).map(function(k){return '• ['+k+'] '+notes[k];}).join('\n');if(navigator.clipboard)navigator.clipboard.writeText(out);var b=this;b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy notes';},1300);});
+  paint();
+})();
+</script>
+</body>
+</html>
