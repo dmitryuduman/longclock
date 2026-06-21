@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#0B1022; --ink:#E9ECF7; --ink-soft:#98A1BD;
@@ -50,6 +50,15 @@
     .light{ opacity:1 !important; animation:none !important; }
     header::before{ display:none; }
   }
+  /* rubric additions: citations + audience router */
+  .cite{ font-family:var(--font-mono); font-size:0.58em; color:var(--accent); font-weight:600; vertical-align:super; line-height:0; padding-left:1px; }
+  .ognext{ max-width:var(--measure); margin:1.4rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .ognext .nc{ border:1px solid var(--rule); border-radius:10px; padding:0.9rem 1rem 1rem; background:rgba(233,236,247,0.04); }
+  .ognext .nk{ font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+  .ognext .nt{ font-family:var(--font-display); font-weight:600; font-size:0.98rem; margin:0.32rem 0 0.55rem; line-height:1.2; color:var(--ink); }
+  .ognext a{ display:block; font-family:var(--font-body); font-size:0.9rem; line-height:1.4; color:var(--accent); padding:0.16rem 0; text-decoration:none; }
+  .ognext a:hover{ opacity:0.75; }
+  @media(max-width:620px){ .ognext{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -139,8 +148,8 @@
         <p class="figcap">Fig. 1 – no centre, no command. Each warm figure is someone, somewhere, who found their own reason.</p>
       </div>
 
-      <p>The Argentine saving against triple-digit inflation. The Nigerian sending money home without a ten-percent toll. The dissident whose bank account can be frozen by decree. The merchant tired of chargebacks. The family in a war zone carrying their wealth across a border in a memorised phrase. None of them coordinated; none needed permission; each found their own doorway. The magic is that these uses are decentralised in the deepest sense – they solve <em>different</em> problems for <em>different</em> people in <em>different</em> places, so <span class="key">the adoption has no single point to attack and no single reason to reverse.</span> Close one pathway and the others stand untouched.</p>
-      <p>Watch it happen in real time. As Iran's rial collapsed past a million to the dollar and a shooting war closed the Strait of Hormuz in 2026, ordinary Iranians moved what savings they had left into bitcoin &ndash; quietly, through phones, ahead of the next devaluation and the next internet blackout &ndash; because a memorised phrase crosses a border that a frozen bank account cannot. In the very same water, the regime they were fleeing reached for the very same tool: transit tolls and a bitcoin-settled insurance scheme for the tankers running the strait, a way to still be paid once the dollar rails were shut to it. <span class="key">The hunted and the hunter, reaching through the same doorway</span> &ndash; neither asking anyone's permission, neither able to close the door on the other. That is what &ldquo;no single point to attack&rdquo; looks like when the news catches up to it.</p>
+      <p>The Argentine saving against triple-digit inflation. The Nigerian sending money home without a ten-percent toll. The dissident whose bank account can be frozen by decree. The merchant tired of chargebacks. The family in a war zone carrying their wealth across a border in a memorised phrase.<sup class="cite">1</sup> None of them coordinated; none needed permission; each found their own doorway. The magic is that these uses are decentralised in the deepest sense – they solve <em>different</em> problems for <em>different</em> people in <em>different</em> places, so <span class="key">the adoption has no single point to attack and no single reason to reverse.</span> Close one pathway and the others stand untouched.</p>
+      <p>Watch it happen in real time. As Iran's rial collapsed past a million to the dollar<sup class="cite">2</sup> and a shooting war closed the Strait of Hormuz in 2026, ordinary Iranians moved what savings they had left into bitcoin &ndash; quietly, through phones, ahead of the next devaluation and the next internet blackout &ndash; because a memorised phrase crosses a border that a frozen bank account cannot. In the very same water, the regime they were fleeing reached for the very same tool: transit tolls and a bitcoin-settled insurance scheme for the tankers running the strait, a way to still be paid once the dollar rails were shut to it. <span class="key">The hunted and the hunter, reaching through the same doorway</span> &ndash; neither asking anyone's permission, neither able to close the door on the other. That is what &ldquo;no single point to attack&rdquo; looks like when the news catches up to it.</p>
       <p class="pull">No campaign. No decree.<br><span class="accent">Ten thousand people, each finding their own door.</span></p>
     </section>
 
@@ -191,17 +200,19 @@
       <h2>By the time they agree, it is over</h2>
       <p class="lede">Put the patience and the spread together, and the civilisational shape appears. No one has to seize it; it is seized by everyone, a little.</p>
       <p><span class="key">By the time the world agrees on who holds the real lead, the lead is already uncatchable</span> – the supply long since dispersed into strong hands, the network too woven in to unwind. It is the quietest victory in monetary history: not won in a war or a treaty, but in ten thousand private decisions that, only in hindsight, all pointed the same way. There is no surrender to accept, because there was never a battle to announce.</p>
+      <p>The weakest link in this argument deserves naming, because it is real. Most doorways are small, and the two largest &ndash; saving against inflation and cheap remittance &ndash; are in practice increasingly served by dollar stablecoins, not bitcoin itself; bitcoin's own volatility makes it a poor week-to-week store for someone living hand to mouth. And a determined state can still throttle the on-ramps even where it cannot close the network. The honest reply is that bitcoin is the settlement layer beneath those stablecoins and the one doorway no issuer can revoke &ndash; but if usefulness is the whole case, it has to keep winning these niches on the merits. <span class="key">That is an argument from how networks tend to behave, not a guarantee that they will.</span></p>
       <p class="pull">Nothing is conquered.<br><span class="accent">It is simply, everywhere, chosen.</span></p>
       <p>This is why the patient sovereign and the relentless steward are playing the same game from opposite ends. One declines to chase it, so as not to disturb the spread; the other absorbs the float, so the standard arrives sooner. Both are betting that usefulness, not force, is what wins the money of the next age – and that the asset's deepest feature is almost altruistic: it belongs to no one, so it can be useful to anyone, which is exactly why it spreads.</p>
 
       <p class="signoff">Nothing this large was ever decreed. It is chosen, quietly, one doorway at a time – until choosing otherwise becomes the strange thing to do.</p>
 
-      <div class="more-door">
-        <p class="t">Read the rest</p>
-        <p class="s">The man trying to pull this future forward – <a href="longclock-saylor.html">The Steward's Wager</a> – the institutions it unsettles, <a href="longclock-incumbents.html">The Old Guard's Dilemma</a> – and why it matters most in an age of forgery, <a href="longclock-timechain.html">The Timechain</a>. The case begins at <a href="index.html">The Asset No Empire Can Freeze</a>.</p>
+      <div class="ognext" data-note="Where to go next">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Then weigh the volatility and the long clock.</p><a href="longclock-volatility.html">Volatility is the toll &rarr;</a><a href="longclock-century.html">The 100-year portfolio &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">Why a fixed sum makes the spread one-way.</p><a href="longclock-gametheory.html">The game theory of Bitcoin &rarr;</a><a href="longclock-nativetongue.html">The Native Tongue &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">The people willing it from both ends.</p><a href="longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a><a href="index.html">The Asset No Empire Can Freeze &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On this piece.</b> This is the most hopeful and the most speculative of the four – an argument about how networks and incentives tend to behave, not a forecast. The use cases named are illustrative of real, documented patterns of adoption; how far and how fast they generalise is the open question. Usefulness is the claim; inevitability is not.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> 1 &ndash; bitcoin adoption driven by high inflation and costly remittances is well documented in Argentina, Nigeria, and other emerging markets (Chainalysis Global Crypto Adoption Index and similar surveys). 2 &ndash; Iran's rial fell past roughly one million to the US dollar on open-market rates by 2025; bitcoin use in high-inflation economies is widely reported. The specific mid-2026 Strait of Hormuz episode is a near-term illustration of the pattern, not settled reportage. This is the most hopeful and most speculative of the five &ndash; an argument about how networks and incentives tend to behave. Usefulness is the claim; inevitability is not.</p>
     </section>
 
   </main>
@@ -217,6 +228,6 @@
     </nav>
   </aside>
 </div>
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 </body>
 </html>
