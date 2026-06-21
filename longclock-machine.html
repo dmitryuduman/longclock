@@ -202,13 +202,13 @@
         <svg class="cpr-chart" id="cpr-svg" viewBox="0 0 720 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Capital into STRC versus BTC bought and projected BTC price"></svg>
         <p class="cpr-read" id="cpr-read"></p>
         <div class="cpr-controls">
-          <div class="cpr-field"><label for="cpr-cap"><span>Capital scale &ndash; x-axis ceiling</span><span class="cpr-v" id="cpr-cap-v">$1T</span></label><input type="range" id="cpr-cap" min="0" max="100" step="1" value="55"></div>
-          <div class="cpr-field"><label for="cpr-g"><span>Price-response intensity</span><span class="cpr-v" id="cpr-g-v">moderate</span></label><input type="range" id="cpr-g" min="40" max="180" step="1" value="110"></div>
+          <div class="cpr-field"><label for="cpr-cap"><span>Capital scale &ndash; x-axis ceiling</span><span class="cpr-v" id="cpr-cap-v">$700B</span></label><input type="range" id="cpr-cap" min="0" max="100" step="1" value="65"></div>
+          <div class="cpr-field"><label for="cpr-g"><span>Sellable float &ndash; BTC actually for sale</span><span class="cpr-v" id="cpr-g-v">3.5M BTC</span></label><input type="range" id="cpr-g" min="15" max="80" step="1" value="35"></div>
           <div class="cpr-field"><label for="cpr-price"><span>Bitcoin price today</span><span class="cpr-v" id="cpr-price-v">$64,000</span></label><input type="range" id="cpr-price" min="30000" max="200000" step="1000" value="64000"></div>
           <div class="cpr-field"><label><span>Price axis scale</span></label><div class="cpr-yt" id="cpr-yt"><button data-y="lin" class="on">Linear</button><button data-y="log">Log</button></div></div>
         </div>
       </div>
-      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. Coins-at-today&rsquo;s-price is simply capital &divide; price; the projected price is a transparent compounding curve &ndash; P&#8320; &times; (1 + capital / reference)<sup>intensity</sup>, the reference scaled to the liquid float &ndash; and coins-actually-acquired integrates the buying against that rising price. The gap between the two navy lines is the bitcoin the climbing price quietly takes off the table; past the dashed line, today&rsquo;s price would have you &ldquo;buying&rdquo; more bitcoin than will ever exist.</p>
+      <p class="figcap">Fig. 2 &ndash; illustrative, not a forecast. Coins-at-today&rsquo;s-price is simply capital &divide; price. The projected price is a float-squeeze curve &ndash; P&#8320; &times; e^(capital &divide; the dollar value of the sellable float) &ndash; built on the premise that only a thin slice of bitcoin is genuinely for sale near today&rsquo;s price; thin that slice and the price goes parabolic, the mechanism in <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying</a>. Coins-actually-acquired can never exceed that sellable float, so the same capital clears far fewer coins than the naive line implies. It deliberately ignores the new supply that higher prices would coax out, so read the steep end as a ceiling, not a target.</p>
 
       <p>Be precise about what this shows and what it does not. The price curve is a toy, a deliberately simple hyperbola that blows up as demand approaches the float; the real path would be slower and far messier. But two things in it are not toys. <span class="key">A fixed float, thinned by hoarding, cannot satisfy unlimited capital at a fixed price</span> &ndash; past some point quantity stops adjusting and price must. And whatever price results is marked, every quarter, against the hoard and reported as earnings. The bill scales with the funnel; the earnings scale with the price; and the float, alone among them, cannot scale at all.</p>
       <p class="pull">The float is fixed, and thinning.<br><span class="accent">The pools it drinks from are measured in hundreds of trillions.</span></p>
@@ -352,18 +352,15 @@
   if(!capR||!gR||!pR||!yt) return;
   var NS='http://www.w3.org/2000/svg', MINED=19900000, HOARD=0.70, CAP21=21000000;
   var W=720,H=380,L=62,Rm=66,T=18,B=48, ylog=false, markC=null;
-  function capMax(){ return 100e9*Math.pow(50,(+capR.value)/100); }
-  function gVal(){ return (+gR.value)/100; }
+  function capMax(){ return 100e9*Math.pow(20,(+capR.value)/100); }    // $100B .. $2T
   function P0(){ return +pR.value; }
-  function Cref(){ return MINED*(1-HOARD)*P0()*0.5; }
-  function priceAt(C){ return P0()*Math.pow(1+C/Cref(), gVal()); }
+  function fSell(){ return (+gR.value)/10*1e6; }                       // sellable float: 1.5M .. 8.0M BTC
+  function priceAt(C){ return P0()*Math.exp(Math.min(20, C/(P0()*fSell()))); }  // float squeeze: thin float -> parabolic
   function coinsToday(C){ return C/P0(); }
-  function coinsAcq(C){ var g=gVal(), x=C/Cref();
-    if(Math.abs(g-1)<1e-4) return (Cref()/P0())*Math.log(1+x);
-    return (Cref()/P0())*((Math.pow(1+x,1-g)-1)/(1-g)); }
+  function coinsAcq(C){ return fSell()*(1-Math.exp(-C/(P0()*fSell()))); }       // can never exceed the sellable float
   function usd(n){ var a=Math.abs(n); if(a>=1e12)return '$'+(a/1e12).toFixed(2)+'T'; if(a>=1e9)return '$'+Math.round(a/1e9)+'B'; if(a>=1e6)return '$'+Math.round(a/1e6)+'M'; return '$'+Math.round(a).toLocaleString(); }
   function btcFmt(n){ if(n>=1e6)return (n/1e6).toFixed(2)+'M'; if(n>=1e3)return Math.round(n/1e3)+'k'; return Math.round(n).toLocaleString(); }
-  function priceFmt(p){ return p>=1e6?'$'+(p/1e6).toFixed(2)+'M':'$'+Math.round(p/1000)+'k'; }
+  function priceFmt(p){ if(p>=1e12)return '$'+(p/1e12).toFixed(1)+'T'; if(p>=1e9)return '$'+(p/1e9).toFixed(1)+'B'; if(p>=1e6)return '$'+(p/1e6).toFixed(2)+'M'; return '$'+Math.round(p/1000)+'k'; }
   function E(tag,at){ var e=document.createElementNS(NS,tag); for(var k in at) e.setAttribute(k,at[k]); return e; }
   function render(){
     while(svg.firstChild) svg.removeChild(svg.firstChild);
@@ -407,7 +404,7 @@
     var ct=coinsToday(mC), ca=coinsAcq(mC), pp=priceAt(mC);
     document.getElementById('cpr-read').innerHTML='At <b>'+usd(mC)+'</b> of capital: at today&rsquo;s '+priceFmt(p0)+' that reads as <b>'+btcFmt(ct)+'</b> BTC &ndash; but the funnel lifts the price to <b>'+priceFmt(pp)+'</b>, so the same capital actually clears <span class="cpr-em">'+btcFmt(ca)+' BTC</span>. The climbing price takes <b>'+btcFmt(ct-ca)+'</b> off the table.';
     document.getElementById('cpr-cap-v').textContent=usd(Cmax);
-    var g=gVal(); document.getElementById('cpr-g-v').textContent=(g<0.8?'gentle':g<=1.2?'moderate':'aggressive');
+    document.getElementById('cpr-g-v').textContent=(fSell()/1e6).toFixed(1)+'M BTC';
     document.getElementById('cpr-price-v').textContent='$'+p0.toLocaleString();
   }
   function readAt(evt){ var r=svg.getBoundingClientRect(); var px=(evt.clientX-r.left)/r.width*W, pw=W-L-Rm, Cmax=capMax(); markC=Math.max(0,Math.min(Cmax,(px-L)/pw*Cmax)); render(); }
