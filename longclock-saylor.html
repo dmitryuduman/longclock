@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#14151A; --ink:#ECE7DA; --ink-soft:#9F998B;
@@ -33,6 +33,14 @@
   .ornaments{ position:absolute; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
   main a{ color:var(--accent); text-decoration:underline; text-decoration-color:var(--accent-line); text-underline-offset:2px; }
   main a:hover{ text-decoration-color:var(--accent); }
+  .cite{ font-family:var(--font-mono); font-size:0.58em; color:var(--accent); font-weight:600; vertical-align:super; line-height:0; padding-left:1px; }
+  .ognext{ max-width:var(--measure); margin:1.4rem auto 0; display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .ognext .nc{ border:1px solid var(--rule); border-radius:10px; padding:0.9rem 1rem 1rem; background:rgba(255,255,255,0.04); }
+  .ognext .nk{ font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); }
+  .ognext .nt{ font-family:var(--font-display); font-weight:600; font-size:0.98rem; margin:0.32rem 0 0.55rem; line-height:1.2; color:var(--ink); }
+  .ognext a{ display:block; font-family:var(--font-body); font-size:0.9rem; line-height:1.4; color:var(--accent); padding:0.16rem 0; text-decoration:none; }
+  .ognext a:hover{ opacity:0.72; }
+  @media(max-width:620px){ .ognext{ grid-template-columns:1fr; } }
   .canvas{ max-width:54rem; }
   .col{ max-width:40rem; }
   h1{ text-shadow:0 1px 0 rgba(0,0,0,0.4); }
@@ -146,7 +154,7 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Alignment</p></div>
       <h2>Watch what he did, not how he sounds</h2>
       <p class="lede">The most persuasive thing about Saylor isn't anything he says. It's the exits he has closed behind himself.</p>
-      <p>He made his fortune long before bitcoin; he did not need this. He has no children, no heirs to enrich. He has said he intends to destroy the keys to his own coins when he dies – what he called a proportional donation to everyone on earth who owns bitcoin, since coins that leave the supply make every remaining one scarcer. He has waved off the philanthropic exit too, on the view that human institutions drift, over time, toward their own interests. Strip those away and something unusual is left.</p>
+      <p>He made his fortune long before bitcoin; he did not need this. He has no children, no heirs to enrich. He has said he intends to destroy the keys to his own coins when he dies<sup class="cite">1</sup> – what he called a proportional donation to everyone on earth who owns bitcoin, since coins that leave the supply make every remaining one scarcer. He has waved off the philanthropic exit too, on the view that human institutions drift, over time, toward their own interests. Strip those away and something unusual is left.</p>
       <p class="pull">His only way to win<br><span class="accent">is for the thing itself to win.</span></p>
       <p>This is why the greed framing doesn't quite land. Greed has an exit – cash out, diversify, retire. Saylor has spent years removing every exit, until <span class="key">his incentives and bitcoin's are the same object seen from two sides.</span> You can call the conviction misguided; you cannot easily call it self-serving, because he has engineered away the self-serving moves. None of which <em>proves</em> the thesis – alignment is not vindication. A man can close every exit and still be wrong. It only means his motives are the wrong place to aim your suspicion; spend it on the idea instead.</p>
     </section>
@@ -158,7 +166,7 @@
       <h2>A hoard meant never to move</h2>
       <p class="lede">Strategy – the company once called MicroStrategy – holds on the order of 845,000 of the 21 million bitcoin that will ever exist, and intends to part with almost none of it. <strong>That is the part the trader's mind cannot parse.</strong></p>
       <p>He is not building a position to trade out of. He is establishing bitcoin as permanent reserve collateral – the bedrock a future financial order can be built on, the way the old one rested on gold and government debt. And here the asset's strangest property matters: when gold's price rises, the world mines more of it, and the new supply caps the gain. <span class="key">Bitcoin has no such valve – issuance is fixed regardless of price.</span></p>
-      <p>The "never sell" absolutism has since softened, and tellingly. In late May 2026 Strategy sold a token 32 bitcoin – about $2.5 million, a rounding error against the hoard – not because it needed the cash, but to <em>inoculate</em> the market to the idea, as management framed it on the last earnings call, that the company will trim from time to time. The point was credibility, not retreat: a balance sheet that can <em>never</em> sell is one a creditor cannot lend against, because collateral that will never be parted with cannot be priced. Days later the company bought roughly 1,500 more, <span class="key">remaining, decisively, a net buyer</span> – the doctrine bent just far enough to be bankable, and not an inch further. The pressure was not abstract: S&amp;P Global Ratings had assigned Strategy a &lsquo;B-&rsquo; credit rating and named the refusal to sell a weakness – one that, in a crunch, raises the odds of a forced sale "at severely depressed prices." The token sale was the first answer to exactly that critique, explored in <a href="longclock-strc.html">Saylor's iPhone Moment</a>.</p>
+      <p>The "never sell" absolutism has since softened, and tellingly. In late May 2026 Strategy sold a token 32 bitcoin – about $2.5 million, a rounding error against the hoard – not because it needed the cash, but to <em>inoculate</em> the market to the idea, as management framed it on the last earnings call, that the company will trim from time to time. The point was credibility, not retreat: a balance sheet that can <em>never</em> sell is one a creditor cannot lend against, because collateral that will never be parted with cannot be priced. Days later the company bought roughly 1,500 more, <span class="key">remaining, decisively, a net buyer</span> – the doctrine bent just far enough to be bankable, and not an inch further. The pressure was not abstract: S&amp;P Global Ratings had assigned Strategy a &lsquo;B-&rsquo; credit rating and named the refusal to sell a weakness – one that, in a crunch, raises the odds of a forced sale "at severely depressed prices."<sup class="cite">2</sup> The token sale was the first answer to exactly that critique, explored in <a href="longclock-strc.html">Saylor's iPhone Moment</a>.</p>
 
       <div class="fig reveal">
         <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
@@ -356,7 +364,7 @@
       <div class="marker"><span class="numeral">VII.</span><p class="eyebrow">The endgame</p></div>
       <h2>Bitcoin's silent IPO</h2>
       <p class="lede">Step back from the man and the company, and the consolidation looks less like Saylor buying and more like one move inside a larger, quieter event.</p>
-      <p>The macro analyst Jordi Visser calls what bitcoin is doing now its <a href="https://visserlabs.substack.com/p/bitcoins-silent-ipo-why-this-consolidation">"silent IPO"</a> – not a bear market but a liquidity event. For the first time, the original whales, some holding since the single-digit days, can finally exit at size without cratering the price, and they are methodically distributing a decade of coins into a new, institutional holder base. Concentration giving way to distribution; cypherpunks handing the torch to fiduciaries. The very thing that feels like weakness is, in his reading, maturation.</p>
+      <p>The macro analyst Jordi Visser calls what bitcoin is doing now its <a href="https://visserlabs.substack.com/p/bitcoins-silent-ipo-why-this-consolidation">"silent IPO"</a><sup class="cite">3</sup> – not a bear market but a liquidity event. For the first time, the original whales, some holding since the single-digit days, can finally exit at size without cratering the price, and they are methodically distributing a decade of coins into a new, institutional holder base. Concentration giving way to distribution; cypherpunks handing the torch to fiduciaries. The very thing that feels like weakness is, in his reading, maturation.</p>
       <p>Now ask who is catching the float. The ETFs. Sovereign funds. And the treasury companies – the most <em>visible</em> of the buyers, which is not the same as the largest. The treasuries and the spot ETFs are forced to disclose – the treasuries quarterly, IBIT and its peers daily; private funds and states reveal far less, far later, so the public ledger flatters the loudest accumulators and quietly understates everyone buying in the dark. <span class="key">That asymmetry of disclosure is itself part of bitcoin's game theory.</span> Here Saylor's role turns legible: by absorbing an ever-larger share of that distributed supply onto a single balance sheet that parts with almost none of it, he is not merely accumulating – <span class="key">he is trying to <em>force</em> the outcome.</span> Compress into a few years a migration of coins into permanent hands that might otherwise take decades; take the float off the market faster than the world can reprice it. Brute-force the supply-and-demand mechanics of a bitcoin standard into being.</p>
       <p class="pull">Don't announce the reserve.<br><span class="accent">Change the plumbing, and let a believer fill it.</span></p>
       <p>His mission is not political, but he has been anything but absent from the politics – a visible, sustained presence in the orbit of the pro-bitcoin administration, from before it took office and through its time in power. The government that followed has been, almost uniformly, friendly to the asset. Read it as strategy and a quiet logic appears. A state that wanted to ride the same wave would not announce a buying programme and bid the price against itself – it would change the plumbing instead: clear the regulatory path, let the accounting flip to fair value, let the ETFs and the treasury companies accumulate, and stay silent. Encouraging a Saylor implicitly, by simply declining to stand in his way, is itself a policy.</p>
@@ -411,12 +419,13 @@
 
       <p class="signoff">Take him seriously not because he is certain – certainty is cheap – but because he has arranged his life so that he has no reason left to be anything else.</p>
 
-      <div class="more-door">
-        <p class="t">Read next</p>
-        <p class="s">If Saylor is the believer, the banks are the resistance – what the old guard stands to lose, and why the cannier ones are already joining: <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>. Then how it actually spreads, <a href="longclock-doorways.html">Ten Thousand Doorways</a>, and why it matters most in an age of forgery, <a href="longclock-timechain.html">The Timechain</a>.</p>
+      <div class="ognext" data-note="Where to go next">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Then judge the wager on the long clock.</p><a href="longclock-volatility.html">Volatility is the toll &rarr;</a><a href="longclock-century.html">The 100-year portfolio &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">How the machine he built actually works.</p><a href="longclock-machine.html">The Compounding Machine &rarr;</a><a href="longclock-strc.html">Saylor&rsquo;s iPhone Moment &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">The resistance, and how it spreads.</p><a href="longclock-incumbents.html">The Old Guard&rsquo;s Dilemma &rarr;</a><a href="longclock-doorways.html">Ten Thousand Doorways &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On the figures.</b> Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026. It does not currently qualify for the S&amp;P 500 – it met the bar once, then lost it when mark-to-market bitcoin losses pushed its trailing GAAP earnings negative; a return to net-positive earnings would make it eligible again. The intention to destroy his keys at death, described as a proportional donation to all holders, is Saylor's own, stated in 2025. The charts are illustrative of the mechanisms, not to scale. The "silent IPO" lens is Jordi Visser's (visserlabs.substack.com); the political and fiscal synthesis built around it is this essay's own, and the most speculative thread here. Numbers move; the argument does not turn on the decimal.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> 1 &ndash; Strategy (formerly MicroStrategy) held on the order of 845,000 BTC as of mid-2026, and Saylor's stated intention to destroy the keys to his own coins at death, framed as a proportional donation to all holders, is his own, stated in 2025. 2 &ndash; the token ~32-BTC sale of late May 2026 and the subsequent ~1,500-BTC purchase are per company disclosures and the earnings call; S&amp;P Global Ratings assigned Strategy a &lsquo;B-&rsquo; rating and named the no-sell stance a weakness. 3 &ndash; the &ldquo;silent IPO&rdquo; framing is Jordi Visser's (visserlabs.substack.com); the political and fiscal synthesis built around it is this essay's own, and the most speculative thread here. On S&amp;P 500 eligibility: Strategy does not qualify today, having lost eligibility when mark-to-market bitcoin losses pushed its trailing GAAP earnings negative; a return to net-positive earnings would reopen the door. The charts are illustrative of the mechanisms, not to scale; the argument does not turn on the decimal.</p>
     </section>
 
   </main>
@@ -435,7 +444,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.2"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 /* faint charcoal-gray ornaments to give the dark ground depth */
 (function(){
