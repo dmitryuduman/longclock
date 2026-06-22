@@ -138,15 +138,28 @@
   .rd .srcs{margin-top:1.5rem;padding-top:1.1rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.18)));font-family:var(--fm);font-size:0.6rem;line-height:1.75;letter-spacing:0.01em;opacity:0.55;}
   .rd .srcs b{opacity:0.85;font-weight:600;color:var(--gold);}
   .rd .endnote{margin-top:1.6rem;padding-top:1.3rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));font-size:0.92rem;opacity:0.72;}
-  .flag .nextwrap{margin-top:2.4rem;padding-top:1.7rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.25)));}
-  .flag .nextwrap h4{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin:0 0 1.1rem;text-align:center;}
-  .flag .nextgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
-  .flag .nextcard{border:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));border-radius:12px;padding:1.1rem 1.1rem 1.2rem;background:rgba(128,128,128,0.04);}
-  .flag .nextcard .nk{font-family:var(--fm);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
-  .flag .nextcard .nt{font-family:var(--fd);font-weight:600;font-size:1.08rem;margin:0.35rem 0 0.6rem;line-height:1.2;}
-  .flag .nextcard a{display:block;font-family:var(--fb);font-size:0.93rem;line-height:1.4;color:var(--oxblood,var(--cyan,var(--gold)));padding:0.22rem 0;border:0;}
-  .flag .nextcard a:hover{opacity:0.7;}
-  @media(max-width:640px){.flag .nextgrid{grid-template-columns:1fr;}}
+    .flag .collwrap{margin-top:2.8rem;padding-top:2rem;border-top:1px solid var(--rule,var(--faint,rgba(128,128,128,0.25)));}
+  .flag .colleyebrow{font-family:var(--fm);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 0.5rem;text-align:center;}
+  .flag .colltitle{font-family:var(--fd);font-weight:600;font-size:clamp(1.55rem,4.2vw,2.1rem);line-height:1.08;letter-spacing:-0.01em;text-align:center;margin:0 0 0.7rem;text-wrap:balance;}
+  .flag .colllead{font-family:var(--fb);font-size:1.02rem;line-height:1.6;text-align:center;max-width:36rem;margin:0 auto 2.2rem;opacity:0.82;}
+  .flag .collspine{display:grid;grid-template-columns:repeat(5,1fr);gap:0.7rem;margin:0 0 2.4rem;}
+  .flag .spinecard{display:block;text-decoration:none;border:1px solid var(--rule,var(--faint,rgba(128,128,128,0.2)));border-top:2px solid var(--gold);border-radius:10px;padding:0.85rem 0.9rem 1rem;background:rgba(128,128,128,0.04);transition:background .2s ease;}
+  .flag .spinecard:hover{background:rgba(128,128,128,0.09);}
+  .flag .spinenum,.flag .spinename,.flag .spineteaser{display:block;}
+  .flag .spinenum{font-family:var(--fm);font-size:0.62rem;letter-spacing:0.1em;color:var(--gold);}
+  .flag .spinename{font-family:var(--fd);font-weight:600;font-size:0.97rem;line-height:1.16;margin:0.32rem 0 0.34rem;color:inherit;}
+  .flag .spineteaser{font-family:var(--fb);font-size:0.79rem;line-height:1.34;opacity:0.7;}
+  .flag .collgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;}
+  .flag .colhead{font-family:var(--fm);font-size:0.64rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin:0 0 0.18rem;}
+  .flag .colsub{font-family:var(--fd);font-weight:600;font-size:1.06rem;line-height:1.18;margin:0 0 0.95rem;}
+  .flag .collitem{display:block;text-decoration:none;border:0;border-bottom:1px solid var(--rule,var(--faint,rgba(128,128,128,0.16)));padding:0.6rem 0;}
+  .flag .collitem:last-child{border-bottom:0;}
+  .flag .collitem .ci-t,.flag .collitem .ci-d{display:block;}
+  .flag .collitem .ci-t{font-family:var(--fb);font-weight:600;font-size:0.95rem;line-height:1.3;color:var(--oxblood,var(--cyan,var(--gold)));transition:opacity .2s ease;}
+  .flag .collitem .ci-d{font-family:var(--fb);font-size:0.81rem;line-height:1.35;opacity:0.68;margin-top:0.12rem;}
+  .flag .collitem:hover .ci-t{opacity:0.62;}
+  @media(max-width:760px){.flag .collspine{grid-template-columns:1fr 1fr;}.flag .collgrid{grid-template-columns:1fr;gap:2rem;}}
+  @media(max-width:460px){.flag .collspine{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -273,29 +286,51 @@
           <p class="endnote">None of this is financial advice. It is the strongest version of the case its defenders make, set honestly beside the risks worth taking seriously. The essays behind each link go deeper, argue harder, and hand you the material to make up your own mind.</p>
         </article>
 
-        <div class="nextwrap" data-note="Where to go next">
-          <h4>Wherever you&rsquo;re starting from</h4>
-          <div class="nextgrid">
-            <div class="nextcard">
-              <p class="nk">Still skeptical</p>
-              <p class="nt">Read the objections, taken seriously.</p>
-              <a href="https://www.thelongclock.com/longclock-volatility.html">Volatility is the toll &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-century.html">The 100-year portfolio &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-asymmetry.html">Take the zero off the table &rarr;</a>
+                <div class="collwrap" data-note="The collection">
+          <p class="colleyebrow">The collection</p>
+          <h4 class="colltitle">The whole argument, in twenty-five essays</h4>
+          <p class="colllead">Read the five-part spine in order for the complete case &ndash; or start wherever you stand right now. Every piece below goes further than this page, argues harder, and hands you the material to make up your own mind.</p>
+
+          <div class="collspine">
+            <a class="spinecard" href="https://www.thelongclock.com/"><span class="spinenum">I</span><span class="spinename">The Asset No Empire Can Freeze</span><span class="spineteaser">Reserve power in a multipolar age.</span></a>
+            <a class="spinecard" href="https://www.thelongclock.com/longclock-saylor.html"><span class="spinenum">II</span><span class="spinename">The Steward&rsquo;s Wager</span><span class="spineteaser">Saylor, past the caricature.</span></a>
+            <a class="spinecard" href="https://www.thelongclock.com/longclock-incumbents.html"><span class="spinenum">III</span><span class="spinename">The Old Guard&rsquo;s Dilemma</span><span class="spineteaser">What the banks stand to lose.</span></a>
+            <a class="spinecard" href="https://www.thelongclock.com/longclock-doorways.html"><span class="spinenum">IV</span><span class="spinename">Ten Thousand Doorways</span><span class="spineteaser">How it wins: useful everywhere at once.</span></a>
+            <a class="spinecard" href="https://www.thelongclock.com/longclock-timechain.html"><span class="spinenum">V</span><span class="spinename">The Timechain</span><span class="spineteaser">The clock the machines will trust.</span></a>
+          </div>
+
+          <div class="collgrid">
+            <div class="collcol">
+              <p class="colhead">Still skeptical</p>
+              <p class="colsub">The objections, taken seriously.</p>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-volatility.html"><span class="ci-t">Volatility Is the Toll &rarr;</span><span class="ci-d">Terror up close, a climb from a distance.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-century.html"><span class="ci-t">The 100-Year Portfolio &rarr;</span><span class="ci-d">What actually survives a century.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-freeze.html"><span class="ci-t">When States Freeze Money &rarr;</span><span class="ci-d">Possession that needs permission isn&rsquo;t possession.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-debasement.html"><span class="ci-t">The Debasement Tax &rarr;</span><span class="ci-d">The levy no one ever votes for.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-asymmetry.html"><span class="ci-t">Take the Zero Off the Table &rarr;</span><span class="ci-d">Size the risk of zero, then weigh the upside.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-gold.html"><span class="ci-t">Gold&rsquo;s Long Reign &rarr;</span><span class="ci-d">The honest case for gold &ndash; and its two breaks.</span></a>
             </div>
-            <div class="nextcard">
-              <p class="nk">Curious</p>
-              <p class="nt">Follow the mechanism that drives it.</p>
-              <a href="https://www.thelongclock.com/longclock-memory.html">What money remembers &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-incorruptible.html">The incorruptible &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-gametheory.html">The game theory of Bitcoin &rarr;</a>
+            <div class="collcol">
+              <p class="colhead">Curious</p>
+              <p class="colsub">What it is, and how it works.</p>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-whatismoney.html"><span class="ci-t">What Is Money? &rarr;</span><span class="ci-d">Money as stored time and energy.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-memory.html"><span class="ci-t">What Money Remembers &rarr;</span><span class="ci-d">A ledger of who owes what, from Yap to the chain.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-energy.html"><span class="ci-t">The Energy Theory of Money &rarr;</span><span class="ci-d">Scarcity welded to physics.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-incorruptible.html"><span class="ci-t">The Incorruptible &rarr;</span><span class="ci-d">A money no one can change.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-gametheory.html"><span class="ci-t">The Game Theory of Bitcoin &rarr;</span><span class="ci-d">The only winning move for nations.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-satoshi.html"><span class="ci-t">The Ghost in the Machine &rarr;</span><span class="ci-d">Who Satoshi is &ndash; and why it no longer matters.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-nativetongue.html"><span class="ci-t">The Native Tongue &rarr;</span><span class="ci-d">Why it&rsquo;s obvious to whoever comes next.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-rails.html"><span class="ci-t">On Steve&rsquo;s Rails &rarr;</span><span class="ci-d">The visionary who reads the future early.</span></a>
             </div>
-            <div class="nextcard">
-              <p class="nk">Already convinced</p>
-              <p class="nt">The endgame, and the people willing it.</p>
-              <a href="https://www.thelongclock.com/longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-machine.html">The Compounding Machine &rarr;</a>
-              <a href="https://www.thelongclock.com/longclock-timechain.html">The Timechain &rarr;</a>
+            <div class="collcol">
+              <p class="colhead">Already convinced</p>
+              <p class="colsub">The endgame, and the people willing it.</p>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-saylor-transcript.html"><span class="ci-t">Saylor, Before Bitcoin &rarr;</span><span class="ci-d">His words and predictions, a decade early.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-machine.html"><span class="ci-t">The Compounding Machine &rarr;</span><span class="ci-d">The earnings almost no one has modelled.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-squeeze.html"><span class="ci-t">Why Price Falls When Everyone&rsquo;s Buying &rarr;</span><span class="ci-d">The non-linear squeeze of a fixed asset.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-sp500.html"><span class="ci-t">The Index Trap &rarr;</span><span class="ci-d">How a rising bitcoin pulls Strategy into the S&amp;P 500.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-strc.html"><span class="ci-t">Saylor&rsquo;s iPhone Moment &rarr;</span><span class="ci-d">STRC: the consumer-grade wrapper around bitcoin.</span></a>
+              <a class="collitem" href="https://www.thelongclock.com/longclock-believers.html"><span class="ci-t">The Quiet Believers &rarr;</span><span class="ci-d">The most important buying is the least visible.</span></a>
             </div>
           </div>
         </div>
