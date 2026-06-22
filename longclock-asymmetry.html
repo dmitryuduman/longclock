@@ -118,7 +118,7 @@
       <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The binary</p></div>
       <h2>It mostly goes one of two ways</h2>
       <p class="opening lede">A normal stock can drift sideways for a decade and bore you to death. Bitcoin is unlikely to grant you that mercy. Over a long enough horizon it is closer to a binary than to a normal asset: either it succeeds in becoming a major monetary and reserve asset, or it decays toward zero.</p>
-      <p>There is no comfortable middle lane where it sits at today's price forever, paying out the way a bond does. A monetary asset is winning a winner-take-most argument or losing it; the network either keeps compounding adoption until it is too large and too useful to ignore, or it loses the argument and bleeds out. <span class="key">The "muddle through unchanged" outcome – the one our instincts reach for because it feels safe and moderate – is the least likely outcome of the three.</span> Yet it is the silent assumption underneath most of the criticism: a tacit belief that the thing can just hover, neither vindicated nor dead, indefinitely.</p>
+      <p>That claim deserves an argument, not a stipulation – because the natural skeptical move is to deny the binary outright. Why can't bitcoin just plateau, the doubter asks: settle into a volatile, one-or-two-trillion-dollar "digital gold lite," neither conquering the monetary world nor dying, for decades? The answer is in what kind of thing it is. A store of value is not a normal product, where a mediocre offering can hold a stable niche forever; <span class="key">it is a coordination game, and coordination games do not have stable middles.</span> Money is worth holding only to the degree others will hold it later – its value is the expectation of other people's expectations, a Schelling point that everyone converges on precisely because they expect everyone else to. That makes the dynamics reflexive in a way a soft-drink brand's are not. A monetary network that is visibly winning pulls in the next holder, the next treasury, the next sovereign, each of whom makes it safer for the one after – adoption compounds adoption. One that visibly stalls runs the same loop in reverse: if it is not gaining as the obvious long-term store of value, the rational move is to migrate to whatever is, and each departure makes the next more sensible. The good either keeps gathering the monetary premium toward itself or bleeds it to a rival. <span class="key">There is no comfortable middle lane where it hovers at today's price forever, paying out the way a bond does</span> – not because such a price is unimaginable on any given afternoon, but because nothing holds it there. The "muddle through unchanged" outcome – the one our instincts reach for because it feels safe and moderate – is the least stable of the three, a ball balanced on a ridge between two valleys. Yet it is the silent assumption underneath most of the criticism: a tacit belief that the thing can just sit, neither vindicated nor dead, indefinitely.</p>
       <p class="pull">It is winning a winner-take-most argument,<br><span class="accent">or it is quietly bleeding out.</span></p>
       <p>This is also why the debates never resolve. Watch any honest discussion of the pro-bitcoin or pro-MSTR case and you will see the same move, again and again: a person evaluates a sub-argument – the volatility, the corporate structure, the regulatory risk – and then, mid-thought, <span class="key">re-imports the whole zero-scenario back into it</span> and concludes "well, but if it all goes to zero, none of this matters." Of course it doesn't. Nothing does, in that branch. Smuggling the zero into every sub-question doesn't make you rigorous; it makes you paralysed. Every argument collapses into the same argument, and you never get to the part where you actually decide anything.</p>
       <p class="pull">The middle path – sideways forever at today's price –<br><span class="accent">is the one outcome it almost certainly won't grant you.</span></p>
@@ -133,6 +133,7 @@
       <p>Separate the two questions that everyone insists on tangling together. The first is the <span class="key">survival question</span>: can this asset go to zero, and if it does, do I survive it? The second is the <span class="key">magnitude question</span>: if it does not go to zero, how large is the other branch? These are different questions and they want different tools. The first is answered with position sizing. The second is answered with reasoning about adoption, scale, and time. You cannot answer them at the same time, because you cannot see the upside clearly while you are flinching at the downside in every sentence.</p>
       <p class="pull">Survival is answered with position sizing.<br><span class="accent">Magnitude is answered with everything else.</span></p>
       <p>So answer survival first, and answer it honestly. Assume the zero can happen. Size your position so that if it does, your life is unchanged – a sum you can lose completely and still sleep, still retire, still send the kids to school. <span class="key">Once the position is small enough that the zero is survivable, the zero has been paid for.</span> You have bought the insurance. You do not need to re-purchase it in the middle of every subsequent paragraph. Take it off the table, and the second question finally comes into focus.</p>
+      <p>The order matters, because the two tools can disagree. Naive expected value, run alone, will happily tell you to bet everything on a wager with positive expectation – and for an asset that can genuinely go to zero, "everything" is how you get wiped out before the good branch ever arrives, never to recover. Survival sizing is the constraint that prevents that ruin; the survival-weighted, Kelly-flavoured discipline of <a href="longclock-century.html">the long-horizon view</a> caps the bet first. <span class="key">You maximise expected value only after the survival constraint binds:</span> size so a zero is survivable, and only then is the convex bet, on its own merits, worth making with what remains. Expected value tells you the shape is worth wanting; sizing tells you how much of it you can safely hold. They are not rivals – they operate in sequence, and in that order.</p>
       <p class="pull">You cannot study the far shore<br><span class="accent">while staring at your own feet.</span></p>
     </section>
 
@@ -183,7 +184,12 @@
             <div class="az-tick"><span>0%</span><span>45%</span><span>90%</span></div>
           </div>
           <div class="az-field">
-            <label for="az-mult"><span>Upside multiple if it doesn&rsquo;t</span><span class="az-val" id="az-mult-val">8.0&times;</span></label>
+            <label for="az-pflat"><span>Your odds it just stalls &ndash; flat for years, neither</span><span class="az-val" id="az-pflat-val">30%</span></label>
+            <input type="range" id="az-pflat" min="0" max="90" step="1" value="30">
+            <div class="az-tick"><span>0%</span><span>45%</span><span>90%</span></div>
+          </div>
+          <div class="az-field">
+            <label for="az-mult"><span>Upside multiple if it succeeds</span><span class="az-val" id="az-mult-val">8.0&times;</span></label>
             <input type="range" id="az-mult" min="1" max="30" step="0.5" value="8">
             <div class="az-tick"><span>1&times;</span><span>15&times;</span><span>30&times;</span></div>
           </div>
@@ -201,12 +207,12 @@
           </div>
           <div class="az-stat">
             <p class="az-k">Probability-weighted outcome</p>
-            <p class="az-n hi" id="az-ev">$123</p>
+            <p class="az-n hi" id="az-ev">$113</p>
             <p class="az-sub">expected portfolio, per $100</p>
           </div>
           <div class="az-stat">
             <p class="az-k">Edge over sitting out</p>
-            <p class="az-n hi" id="az-edge">+$23</p>
+            <p class="az-n hi" id="az-edge">+$13</p>
             <p class="az-sub">expected, vs $100 staying flat</p>
           </div>
           <div class="az-bar"><span class="az-fill" id="az-bar-fill"></span><span class="az-mark" id="az-bar-mark"></span></div>
@@ -214,7 +220,7 @@
           <div class="az-read"><p id="az-read">Move the sliders to see the shape.</p></div>
         </div>
       </div>
-      <p class="figcap">Fig. 2 &ndash; a model, not advice. It shows the arithmetic of a fixed downside against an open-ended upside; every input is yours to argue with.</p>
+      <p class="figcap">Fig. 2 &ndash; a model, not advice. The middle slider lets you give the &ldquo;goes nowhere&rdquo; outcome real weight &ndash; the very outcome the essay argues is unlikely. Hand it a third of the probability and watch what the convex tail still does. Every input is yours to argue with.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -225,7 +231,6 @@
       <p class="lede">Here is the half of the ledger almost everyone leaves blank. People treat "risk" as if it had only one direction – the risk of losing money you put in. There is another risk, and for an asymmetric bet it is often the larger one: the risk of not being in.</p>
       <p>Run the logic forward. If you assign <em>any</em> non-trivial probability to bitcoin not going to zero – not certainty, just a real, honest, double-digit chance – then declining to hold it is not a neutral act. <span class="key">Not holding is itself a position. It is a bet that the failure branch wins.</span> "Cash on the sidelines" feels like the absence of a wager, but against a binary it is a concentrated wager on the zero outcome – the very outcome you were so careful to insure against on the other side. You have, without noticing, taken the most aggressive position available: all of your chips on failure.</p>
       <p>Put it in the language of expected value. A modest probability of a very large payoff can dominate a high probability of a small one; that is what convexity means arithmetically. A twenty-per-cent chance at a tenfold return is worth more, in expectation, than near-certainty of standing still – and standing still is what the sideline buys you in the success branch. The asymmetry that protects you on the downside works against you when you are absent: <span class="key">being underexposed to a convex bet is not the safe choice, it is a different bet with its own, quietly enormous, cost.</span></p>
-      <p class="pull">Cash on the sidelines feels like no wager at all.<br><span class="accent">Against a binary, it is all your chips on failure.</span></p>
       <p>And there is the human ledger, too – regret, which markets are not supposed to care about but people cannot help caring about. The story you should rehearse is not only "I bought and it went to zero." It is also the other one: <span class="key">bitcoin keeps winning its argument, the asset and the companies built on it appreciate for years, and you watched the entire thing from outside, having concluded that the safe move was to do nothing.</span> Both are real outcomes. An honest accounting weighs the cost of being wrong in each direction. Most people only ever weigh one.</p>
       <p class="pull">"Sitting it out" is not the absence of a bet.<br><span class="accent">It is a maximal bet on the one outcome you feared.</span></p>
     </section>
@@ -237,7 +242,8 @@
       <h2>MSTR: the same bet, with a lever</h2>
       <p class="lede">Strategy – the company once known as MicroStrategy – is the same binary wearing a second skin. It is a leveraged, convex expression of bitcoin: when the underlying moves, MSTR tends to move further, in both directions. That makes its upside larger and its risks sharper, and it deserves the same honesty in both columns.</p>
       <p>So name its own risks plainly, because they are genuine and specific. The stock has often traded at a <span class="key">premium to the net value of the bitcoin it holds</span>, and that premium can compress or vanish, punishing holders even if bitcoin itself holds up. The company carries <span class="key">debt and financing obligations</span>; leverage that magnifies the gains magnifies the strains. It issues shares to buy more, which can <span class="key">dilute</span> existing holders. And in a deep enough, long enough crash, the spectre at the back of every leveraged structure – <span class="key">forced selling</span> – is not impossible. These are not smears; they are the real texture of the second layer, and anyone who waves them away is doing the mirror image of the sin this whole essay is against.</p>
-      <p>But the discipline is identical. Name the risks. Size the position so that the worst case – including a premium collapse on top of a bitcoin drawdown – is survivable for you. Then, with that paid for, look at the shape. What remains is an even more convex claim on the same success branch: <span class="key">a way to express the binary with more torque, for those who have sized it so the extra torque cannot break them.</span> The companion piece on the man who built that structure with his life – <a href="longclock-saylor.html">The Steward's Wager</a> – argues that the leverage is deliberate, not accidental. The point here is only the geometry: a second asymmetric bet stacked on the first, with a larger downside that must be respected and a larger upside that is the reason anyone takes it.</p>
+      <p>And be honest that the two downsides are not the same animal. With spot bitcoin held outright, the floor is genuinely flat: you can lose your stake and not one cent more, no margin call, no liability beyond what you put in – the loss side really is the band you chose. <span class="key">A leveraged structure does not give you that clean floor.</span> Debt, financing terms and reflexivity mean a deep enough crash can force outcomes the holder never chose – selling at the bottom, a premium that collapses faster than bitcoin falls, a fixed obligation that comes due at the worst moment. Sizing mitigates that tail – held small, even a brutal outcome stays survivable for you personally – but it does not flatten the structure itself; the path can be uglier than a simple "I lost my stake," and pretending otherwise would be the very sin this essay is against.</p>
+      <p>So the discipline is the same shape but the worst case is heavier. Name the risks. Size the position so that the worst case – a premium collapse on top of a bitcoin drawdown, with the reflexive tail included – is survivable for you. Then, with that paid for, look at the shape. What remains is an even more convex claim on the same success branch: <span class="key">a way to express the binary with more torque, for those who have sized it so the extra torque cannot break them.</span> The companion piece on the man who built that structure with his life – <a href="longclock-saylor.html">The Steward's Wager</a> – argues that the leverage is deliberate, not accidental. The point here is only the geometry: a second asymmetric bet stacked on the first, with a larger and rougher downside that must be respected and a larger upside that is the reason anyone takes it.</p>
       <p class="pull">More torque is more of both.<br><span class="accent">Size for the downside; the upside takes care of itself.</span></p>
     </section>
 
@@ -326,21 +332,31 @@
 /* expected-value calculator – az- prefixed, self-contained, no storage */
 (function(){
   var el=function(id){return document.getElementById(id);};
-  var aIn=el('az-alloc'), pIn=el('az-pzero'), mIn=el('az-mult');
-  if(!aIn||!pIn||!mIn) return;
+  var aIn=el('az-alloc'), pIn=el('az-pzero'), fIn=el('az-pflat'), mIn=el('az-mult');
+  if(!aIn||!pIn||!fIn||!mIn) return;
   var MINUS='−';
   function money(n){ return '$'+Math.round(n).toLocaleString(); }
   function update(){
     var a=parseFloat(aIn.value);          // % of portfolio in bitcoin
     var p=parseFloat(pIn.value)/100;      // probability of total loss
-    var m=parseFloat(mIn.value);          // upside multiple if it survives
-    var up=(100-a)+a*m;                   // $ per $100 if it works
-    var ev=(100-a)+(1-p)*a*m;             // expected $ per $100
+    var f=parseFloat(fIn.value)/100;      // probability it just stalls (flat)
+    var m=parseFloat(mIn.value);          // upside multiple if it succeeds
+    // three outcomes that must sum to 1: zero, flat, success.
+    // if the user's zero + flat odds exceed 1, scale them down proportionally
+    // so success keeps a non-negative share rather than letting the model break.
+    if(p+f>1){ var s=p+f; p=p/s; f=f/s; }
+    var pSucc=1-p-f;                      // residual: odds it actually succeeds
+    // flat branch returns roughly the stake (no gain, no loss); zero branch loses it; success pays m.
+    var up=(100-a)+a*m;                   // $ per $100 in the success branch
+    var ev=(100-a)+ f*a + pSucc*a*m;      // expected $ per $100 across all three branches
     var edge=ev-100;                      // expected vs sitting out
-    var survOdds=(1-p)*100;               // your odds it survives
-    var beSurv=100/m;                     // break-even survival probability (%)
+    var survOdds=(1-p)*100;               // your odds it does NOT go to zero
+    // success probability the upside must clear to break even (given p, m):
+    // edge = a*(f + pSucc*m - 1) >= 0, with f = 1 - p - pSucc, gives pSucc >= p/(m-1).
+    var beSucc=(m>1)? (p/(m-1))*100 : 100;
     el('az-alloc-val').textContent=a.toFixed(1)+'%';
     el('az-pzero-val').textContent=Math.round(p*100)+'%';
+    el('az-pflat-val').textContent=Math.round(f*100)+'%';
     el('az-mult-val').innerHTML=m.toFixed(1)+'&times;';
     el('az-loss').textContent=a.toFixed(1)+'%';
     el('az-up').textContent=money(up);
@@ -348,23 +364,24 @@
     var edgeEl=el('az-edge');
     edgeEl.textContent=(edge>=0?'+':MINUS)+money(Math.abs(edge));
     edgeEl.className='az-n '+(edge>=0?'hi':'neg');
-    el('az-bar-fill').style.width=Math.max(0,Math.min(100,survOdds))+'%';
-    el('az-bar-mark').style.left=Math.max(0,Math.min(100,beSurv))+'%';
-    el('az-barcap').innerHTML='Odds it survives: <strong>'+Math.round(survOdds)+'%</strong> &middot; break-even line: <strong>'+beSurv.toFixed(0)+'%</strong> (the upside needs '+m.toFixed(1)+'&times; to clear it)';
+    var succOdds=pSucc*100;
+    el('az-bar-fill').style.width=Math.max(0,Math.min(100,succOdds))+'%';
+    el('az-bar-mark').style.left=Math.max(0,Math.min(100,beSucc))+'%';
+    el('az-barcap').innerHTML='Odds it succeeds: <strong>'+Math.round(succOdds)+'%</strong> &middot; break-even line: <strong>'+beSucc.toFixed(0)+'%</strong> (the success odds the '+m.toFixed(1)+'&times; needs to clear, given your zero and flat odds)';
     var read;
     if(a===0){
       read='Put nothing in and the arithmetic is simple: no downside, and no upside either. Sitting out is the one position with a guaranteed <span class="az-em">zero on the table</span> &ndash; and a guaranteed zero off it.';
     } else {
       var verdict = edge>0.5 ? 'ahead of' : (edge<-0.5 ? 'behind' : 'even with');
       var tail;
-      if(edge>0.5){ tail=' The bet only has to survive <span class="az-em">'+beSurv.toFixed(0)+'% of the time</span> to beat sitting flat &ndash; here you have put its odds at '+Math.round(survOdds)+'%.'; }
-      else if(edge<-0.5){ tail=' At these inputs the bet is expected to <span class="az-em">lose</span>: the upside is not large enough, or you have priced failure too high, to clear the '+beSurv.toFixed(0)+'% survival it needs.'; }
-      else { tail=' You are sitting right at <span class="az-em">break-even</span> &ndash; the upside just offsets the odds of zero.'; }
-      read='You put <strong>'+a.toFixed(1)+'%</strong> of the portfolio on the table &ndash; that <strong>'+a.toFixed(1)+'%</strong> is the whole downside, flat and known today. If bitcoin runs <strong>'+m.toFixed(1)+'&times;</strong>, the portfolio ends near <strong>'+money(up)+'</strong> per $100. Weight that by your own <strong>'+Math.round(p*100)+'%</strong> odds of a total loss and the expected portfolio is <strong>'+money(ev)+'</strong> per $100 &ndash; <span class="az-em">'+(edge>=0?'+':MINUS)+money(Math.abs(edge))+'</span>, '+verdict+' sitting out at $100.'+tail;
+      if(edge>0.5){ tail=' Even after handing <span class="az-em">'+Math.round(f*100)+'% of the probability to a flat, going-nowhere decade</span>, the convex tail still pays &ndash; success only has to land '+beSucc.toFixed(0)+'% of the time to beat sitting out, and you have put it at '+Math.round(succOdds)+'%.'; }
+      else if(edge<-0.5){ tail=' At these inputs the bet is expected to <span class="az-em">lose</span>: too much weight on zero and flat, or too little upside, to clear the '+beSucc.toFixed(0)+'% success it needs.'; }
+      else { tail=' You are sitting right at <span class="az-em">break-even</span> &ndash; the convex tail just offsets the odds of zero and the dead-weight of the flat years.'; }
+      read='You put <strong>'+a.toFixed(1)+'%</strong> of the portfolio on the table &ndash; that <strong>'+a.toFixed(1)+'%</strong> is the whole downside, flat and known today. You give it a <strong>'+Math.round(p*100)+'%</strong> chance of zero and a <strong>'+Math.round(f*100)+'%</strong> chance of going nowhere; the remaining <strong>'+Math.round(succOdds)+'%</strong> is the success branch, where a <strong>'+m.toFixed(1)+'&times;</strong> run lifts the portfolio to about <strong>'+money(up)+'</strong> per $100. Blend all three and the expected portfolio is <strong>'+money(ev)+'</strong> per $100 &ndash; <span class="az-em">'+(edge>=0?'+':MINUS)+money(Math.abs(edge))+'</span>, '+verdict+' sitting out at $100.'+tail;
     }
     el('az-read').innerHTML=read;
   }
-  aIn.addEventListener('input',update); pIn.addEventListener('input',update); mIn.addEventListener('input',update);
+  aIn.addEventListener('input',update); pIn.addEventListener('input',update); fIn.addEventListener('input',update); mIn.addEventListener('input',update);
   update();
 })();
 </script>
