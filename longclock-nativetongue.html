@@ -134,7 +134,8 @@
       <p class="lede">The shift runs deeper than swiping faster than your parents. The generations coming up do not merely use digital tools; they reason in the grammar of the digital &ndash; in abstraction, in networks, in things that are scarce because the rules say so and cannot quietly be made otherwise.</p>
       <p>The idea has its skeptics, and they land a fair blow: being raised among screens makes no one wiser, or a sharper thinker, or even reliably handy with the machines &ndash; the teenager who cannot rescue the family wifi is a fair joke at the whole notion's expense. But the claim doing the work here is narrower than the one they swing at, and far harder to dispute. It is not that the young are more able. It is that a different set of things strikes them as <span class="key">unremarkable</span> &ndash; and what a person finds unremarkable at twenty is what they reach for, without a second thought, at fifty.</p>
       <p>Consider how completely digital the world of someone young already is. Their money is a number on a screen they have never once handled as coins; their friendships, their work, their records, and the proof that any of it is theirs all live as data, and always have. To a mind raised entirely inside that world, a money that exists only as verifiable code is not a paradox to be explained away. It raises no eyebrow at all &ndash; it is simply money, in the medium everything else already lives in. <span class="key">The objection that it "isn't backed by anything" is not a question they think to ask.</span></p>
-      <p>It is the immigrant for whom it is genuinely hard, and the reason is worth taking seriously. Many of them lived through &ndash; or inherited the memory of &ndash; money that was once tangible: gold, and then paper trusted because it had once been gold. They watched that anchor cut, and the money become, in the end, a number a state can print at will. Having been burned by money that quietly turned into nothing, they see Bitcoin &ndash; which is, on the surface, also nothing you can hold &ndash; and the same alarm fires. <span class="key">The native never had the tangible anchor to lose, so feels no betrayal in intangibility</span>, and judges a money the way you would judge any tool: by what it does, and whether its rules can be broken. By that test, the one no official can secretly print is the sound one. Drag the year below and watch the two waves moving underneath the argument.</p>
+      <p>It is the immigrant for whom it is genuinely hard, and the reason is worth taking seriously. Many of them lived through &ndash; or inherited the memory of &ndash; money that was once tangible: gold, and then paper trusted because it had once been gold. They watched that anchor cut, and the money become, in the end, a number a state can print at will. Having been burned by money that quietly turned into nothing, they see Bitcoin &ndash; which is, on the surface, also nothing you can hold &ndash; and the same alarm fires. <span class="key">The native never had the tangible anchor to lose, so feels no betrayal in intangibility</span>, and judges a money the way you would judge any tool: by what it does, and whether its rules can be broken.</p>
+      <p>But here a careful reader should stop the argument before it overreaches, because it is about to try to prove too much. That the young find this money unremarkable is evidence about <em>what will spread</em> &ndash; about which intuitions the next set of decisions will be made inside. It is not, by itself, proof that the thing <em>deserves</em> to spread. A whole generation finding something obvious has never been the same as that something being right; natives inherit good defaults and bad ones with equal ease, and the comfort described here would attach just as readily to a digital money that was unsound. <span class="key">Ease of adoption is a fact about people, not a verdict on the asset.</span> So this essay makes the narrower claim and leaves the larger one where it belongs: whether a fixed, unprintable, verifiable money actually deserves to be inherited is the question argued in <a href="longclock-whatismoney.html">What Is Money?</a> and <a href="longclock-incorruptible.html">The Incorruptible</a>. What the native tongue settles is only the matter of who will be in the room to decide &ndash; and in what language they will hear the case. Drag the year below and watch the two waves moving underneath the argument.</p>
 
       <div class="nt-viz reveal" id="nt-viz">
         <p class="nt-head">Interactive &ndash; the next S-curve</p>
@@ -157,14 +158,20 @@
           <circle id="nt-d-phone" r="4.5" fill="#A85A2A"/>
           <circle id="nt-d-native" r="4.5" fill="#5C5468"/>
           <circle id="nt-d-btc" r="4.5" fill="#5E3A8C"/>
-          <text class="nt-lab" x="640" y="24" text-anchor="end" fill="#A85A2A">smartphones</text>
+          <line class="nt-ceil" id="nt-ceil" x1="64" y1="0" x2="650" y2="0" stroke="#5E3A8C" stroke-width="0.9" stroke-dasharray="2 5" opacity="0.5"/>
+          <text class="nt-lab" x="640" y="24" text-anchor="end" fill="#A85A2A">smartphones (real)</text>
           <text class="nt-lab" x="640" y="250" text-anchor="end" fill="#5C5468">digital-native adults</text>
-          <text class="nt-lab" x="200" y="276" text-anchor="start" fill="#5E3A8C">sound digital money</text>
+          <text class="nt-lab" x="200" y="276" text-anchor="start" fill="#5E3A8C">sound digital money (your assumption)</text>
         </svg>
         <div class="nt-field">
           <label for="nt-year"><span>Year</span><span class="nt-val" id="nt-year-val">2026</span></label>
           <input type="range" id="nt-year" min="2007" max="2045" step="1" value="2026">
           <div class="nt-tick"><span>2007</span><span>2026</span><span>2045</span></div>
+        </div>
+        <div class="nt-field">
+          <label for="nt-ceil-in"><span>Your assumption: where sound money tops out</span><span class="nt-val" id="nt-ceil-val">85%</span></label>
+          <input type="range" id="nt-ceil-in" min="0" max="100" step="1" value="85">
+          <div class="nt-tick"><span>never catches on (0%)</span><span>becomes the default (100%)</span></div>
         </div>
         <div class="nt-out">
           <div class="nt-stat"><p class="nt-k">Smartphones<br>(adults)</p><p class="nt-n p" id="nt-s-phone">&ndash;</p></div>
@@ -173,7 +180,7 @@
           <div class="nt-read"><p id="nt-read">Drag the year to follow the curves.</p></div>
         </div>
       </div>
-      <p class="figcap">Fig. 1 &ndash; the smartphone curve is fit to the real adoption points; the money curve is the same S-shape, drawn forward as illustration, not forecast. The point is the shape &ndash; and how much of it is still ahead.</p>
+      <p class="figcap">Fig. 1 &ndash; only the smartphone line is real, fit to the Pew points. The money line is not a forecast: it is whatever <em>you</em> assume, an S-curve drawn to the ceiling you set with the slider. Set it to zero and the thesis fails; the point is never the level, only the shape &ndash; and how much of it is still ahead.</p>
 
       <p class="pull">To one mind it is code pretending to be money.<br><span class="accent">To the other it is money that finally stopped pretending.</span></p>
     </section>
@@ -185,8 +192,7 @@
       <h2>Why a curve, and not a craze</h2>
       <p class="lede">A fashion is a matter of taste, and taste reverses. What is happening here is structural, and structure compounds. Money is the purest network good there is: a thing worth holding precisely insofar as others hold it, useful in exact proportion to how many people will take it from you.</p>
       <p>That is what turns a generational shift into an engine. Every native cohort that treats sound digital money as a default enlarges the network, and a larger network is a more obvious default for the cohort behind them, who enlarge it again. <span class="key">The thing the old guard reads as a passing enthusiasm is actually a loop feeding itself</span> &ndash; the same self-reinforcing dynamic that sits under every S-curve, the smartphone's included. Adoption does not climb because people were argued into it. It climbs because each new holder quietly raises the value, and lowers the strangeness, for the next one.</p>
-      <p>And this is not a forecast waiting to begin; it is already running, and you can photograph it mid-climb. Survey after survey finds the young holding crypto at multiples of their elders &ndash; <a href="https://www.gemini.com/blog/gemini-survey-finds-more-than-half-of-gen-z-owns-crypto">better than four in ten of the youngest American adults, against single digits among the oldest</a>. That gap is not noise to be averaged away. It is the curve, caught in the act, with the steep part still ahead of it. The companion essays follow the same loop from other angles &ndash; <a href="longclock-doorways.html">Ten Thousand Doorways</a> traces how it spreads use by use, and <a href="longclock-gametheory.html">The Game Theory of Bitcoin</a> shows why, once it is moving, the rational move is to join it early.</p>
-      <p class="pull">Taste fades.<br><span class="accent">A network compounds.</span></p>
+      <p>And this is not a forecast waiting to begin; it is already running, and you can photograph it mid-climb. Survey after survey finds the young holding crypto at multiples of their elders &ndash; <a href="https://www.gemini.com/blog/gemini-survey-finds-more-than-half-of-gen-z-owns-crypto">better than four in ten of the youngest American adults, against single digits among the oldest</a>. Be honest about what that number is and is not. Much of it is not patient sound-money saving at all; it is speculation, meme-coins, the casino end of the thing &ndash; and an honest reader should subtract that noise before claiming anything. <span class="key">The signal worth keeping is not "the young treat Bitcoin as their store of value."</span> It is something smaller and far more durable underneath: that the young are at ease with scarcity enforced by code rather than by a vault, and do not need to be persuaded that a thing with no physical form can nonetheless be real, owned, and finite. That comfort is the prerequisite the immigrant lacks &ndash; and it is what the speculation, the curiosity, and eventually the saving are all built on top of. Strip the froth away and the structural fact remains: the next cohort starts where the last one had to be dragged. The companion essays follow the same loop from other angles &ndash; <a href="longclock-doorways.html">Ten Thousand Doorways</a> traces how it spreads use by use, and <a href="longclock-gametheory.html">The Game Theory of Bitcoin</a> shows why, once it is moving, the rational move is to join it early.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -197,7 +203,6 @@
       <p class="lede">When a central banker or a veteran fund manager says Bitcoin makes no sense, they are not lying. In their native tongue, it genuinely doesn't. And that, not bad faith, is the thing worth understanding about the old guard.</p>
       <p>They evaluate it with the only grammar they have. Is it a stock? It pays no dividend. A currency? No state stands behind it. A commodity? You cannot touch it. It answers to none of the categories they were raised inside, so they file it where the unclassifiable goes &ndash; under fraud, or fad. This is precisely what every incumbent does at the toy stage, and for precisely the reason the handset makers did: <span class="key">they are fluent in a world that is ending, and that fluency is exactly what stops them seeing the next one.</span> The point on <a href="longclock-incumbents.html">what the banks stand to lose</a> is that many of them will come around &ndash; but they will come around as immigrants, late and with an accent, not as the people who saw it first.</p>
       <p>The pattern has already run once in plain sight, and recently. Through the early 2000s Apple's computers held a commanding share of exactly one market and almost no other: schools and universities. The serious verdict was that this was a curiosity with no bearing on anything that mattered &ndash; fine for art departments and dorm rooms, hopeless in the enterprise. But the students were not a niche; they were the next decade's managers, founders and buyers, and they carried the preference they had formed at eighteen into the offices and households they went on to run. When the iPhone arrived the same verdict returned almost word for word &ndash; it will never survive a corporate IT department &ndash; and it was overturned the same way, from below, as the people to whom it was obvious moved into the seats where the decisions get made. <span class="key">Adoption did not spread across the org chart so much as climb up it, one cohort at a time.</span> Bitcoin sits today roughly where those campus machines sat then: commonplace among the people who do not yet hold the balance sheets, and dismissed by the people who do.</p>
-      <p class="pull">Adoption did not spread across the org chart.<br><span class="accent">It climbed up it, one cohort at a time.</span></p>
       <p>And here demographics does its quiet, undramatic work. The balance sheets of the world are not eternal; they are inherited. The skeptics age out of their seats on the boards and the committees and the central banks, and the natives age into them &ndash; with the mandates, the votes, and the savings that have to go somewhere. You do not win a language war by winning debates. <span class="key">You win it by raising children who speak the new tongue first, and then simply waiting.</span> Which is why the argument never resolves and never had to: it is not being settled. It is being succeeded.</p>
       <p>Steve Jobs &ndash; whose products furnish both of this essay's examples, and who has a chapter of his own in <a href="longclock-rails.html">On Steve's Rails</a> &ndash; once named the mechanism more plainly than an economist would dare. Death, he told a graduating class, is <span class="key">"very likely the single best invention of Life ... Life's change agent"</span>: its whole office is to retire the old so the new can take the floor. He was speaking of people, but it holds just as well for ideas and for the institutions that keep them. The old grammar need not be defeated in argument; it simply ages out of the room, and the room fills with people who never spoke it.</p>
       <p class="pull">The old guard will not be persuaded.<br><span class="accent">They will be succeeded.</span></p>
@@ -251,17 +256,19 @@
 /* adoption-curve interactive – nt- prefixed, self-contained, no storage */
 (function(){
   var yr=document.getElementById('nt-year'); if(!yr) return;
+  var ceilIn=document.getElementById('nt-ceil-in');
   var X0=64, X1=650, Y0=284, Y1=34, T0=2007, T1=2045, TODAY=2026;
+  var btcCeil=0.85;                                       // reader-set ceiling for the illustrative money curve
   function px(t){ return X0+(t-T0)/(T1-T0)*(X1-X0); }
   function py(v){ return Y0-v*(Y0-Y1); }                 // v in 0..1
   function logistic(t,L,t0,k){ return L/(1+Math.exp(-k*(t-t0))); }
-  function phone(t){ return logistic(t,0.92,2012,0.55); } // ~35% 2011, ~91% 2024
+  function phone(t){ return logistic(t,0.92,2012,0.55); } // ~35% 2011, ~91% 2024 (the one real, fit line)
   function nativ(t){ return logistic(t,1.0,2024,0.11); }  // share of adults who are digital natives
-  function btc(t){ return logistic(t,0.85,2032,0.32); }   // illustrative, lagging
+  function btc(t){ return btcCeil<=0 ? 0 : logistic(t,btcCeil,2032,0.32); } // illustrative; ceiling set by reader
   function pts(fn){ var s=''; for(var t=T0;t<=T1;t++){ s+=px(t).toFixed(1)+','+py(fn(t)).toFixed(1)+' '; } return s.trim(); }
   document.getElementById('nt-l-phone').setAttribute('points',pts(phone));
   document.getElementById('nt-l-native').setAttribute('points',pts(nativ));
-  document.getElementById('nt-l-btc').setAttribute('points',pts(btc));
+  function drawBtc(){ document.getElementById('nt-l-btc').setAttribute('points',pts(btc)); var cy=py(btcCeil).toFixed(1); var cl=document.getElementById('nt-ceil'); cl.setAttribute('y1',cy); cl.setAttribute('y2',cy); cl.style.opacity=btcCeil<=0?0:0.5; }
   var tx=px(TODAY);
   document.getElementById('nt-today').setAttribute('x1',tx); document.getElementById('nt-today').setAttribute('x2',tx);
   document.getElementById('nt-todaylab').setAttribute('x',tx);
@@ -278,16 +285,21 @@
     document.getElementById('nt-s-btc').textContent=pct(btc(t));
     var nv=Math.round(nativ(t)*100), bv=Math.round(btc(t)*100);
     var read;
-    if(t<2012){
+    if(btcCeil<=0){
+      read='You have set the money ceiling to <span class="nt-em">zero</span> &ndash; the honest null case. The smartphone line still rises (that part is real and measured), but sound digital money never catches on. The native-tongue argument only claims the <span class="nt-em">shape</span> is available; whether it ever fills in is exactly the assumption this slider lets you deny.';
+    } else if(t<2012){
       read='In '+t+', smartphones are still a curiosity and sound digital money barely exists. Both look, to the serious people of the day, like toys &ndash; <span class="nt-em">which is exactly how the curve always begins</span>.';
     } else if(t<=TODAY){
-      read='By '+t+', digital natives are about <span class="nt-em">'+nv+'% of adults</span> and roughly <span class="nt-em">'+bv+'%</span> hold sound digital money. The smartphone has already gone vertical; the money curve is where the phone was a decade into its climb &ndash; still dismissible, already moving.';
+      read='By '+t+', digital natives are about <span class="nt-em">'+nv+'% of adults</span>. The smartphone line (the real one) has already gone vertical. On <span class="nt-em">your</span> assumption that money tops out near '+Math.round(btcCeil*100)+'%, it sits around <span class="nt-em">'+bv+'%</span> today &ndash; about where the phone was a decade into its climb: still dismissible, already moving.';
     } else {
-      read='Run it to '+t+': digital natives are now about <span class="nt-em">'+nv+'% of adults</span>. If sound money traces the path the smartphone did, adoption sits near <span class="nt-em">'+bv+'%</span> &ndash; the steep middle of the S-curve, where the old debate is not won so much as <span class="nt-em">over</span>.';
+      read='Run it to '+t+'. Digital natives are now about <span class="nt-em">'+nv+'% of adults</span> &ndash; that demographic tide is real. <span class="nt-em">If</span> sound money traces an S-curve to the '+Math.round(btcCeil*100)+'% ceiling you chose, adoption sits near <span class="nt-em">'+bv+'%</span> here &ndash; the steep middle, where a debate tends to end not by being won but by being over. Lower the ceiling and that ending moves; the shape is the claim, the level is yours.';
     }
     document.getElementById('nt-read').innerHTML=read;
   }
-  yr.addEventListener('input',upd); upd();
+  function setCeil(){ if(!ceilIn) return; btcCeil=(+ceilIn.value)/100; document.getElementById('nt-ceil-val').textContent=Math.round(btcCeil*100)+'%'; drawBtc(); upd(); }
+  if(ceilIn) ceilIn.addEventListener('input',setCeil);
+  yr.addEventListener('input',upd);
+  drawBtc(); upd();
 })();
 </script>
 </body>
