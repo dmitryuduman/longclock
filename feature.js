@@ -316,6 +316,7 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       ['longclock-gametheory.html','The Game Theory of Bitcoin'],
       ['longclock-asymmetry.html','Take the Zero Off the Table'],
       ['longclock-rails.html',"On Steve's Rails"],
+      ['longclock-machine.html','The Compounding Machine'],
       ['longclock-nativetongue.html','The Native Tongue'],
       ['longclock-whatismoney.html','What Is Money? – the series, distilled'] ]},
     { g:'Thread one – what sound money really is', items:[
@@ -332,7 +333,8 @@ try{ document.documentElement.setAttribute('data-page', (location.pathname.split
       ['longclock-saylor-transcript.html','Saylor, Before Bitcoin'],
       ['longclock-squeeze.html',"Why Price Falls When Everyone's Buying"],
       ['longclock-sp500.html','The Index Trap'],
-      ['longclock-strc.html',"Saylor's iPhone Moment"] ]}
+      ['longclock-strc.html',"Saylor's iPhone Moment"],
+      ['longclock-believers.html','The Quiet Believers'] ]}
   ];
   var page=(location.pathname.split('/').pop()||'index.html').replace(/[?#].*$/,'')||'index.html';
 
