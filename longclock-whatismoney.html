@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#EFE9DC; --ink:#22201A; --ink-soft:#665F4F;
@@ -42,6 +42,14 @@
   .rowctl input[type=range]{ flex:1; min-width:180px; accent-color:var(--accent); }
   .rowctl .v{ font-family:var(--font-mono); font-size:0.85rem; color:var(--accent); min-width:3.2em; text-align:right; }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -83,6 +91,7 @@
       <h2>From shells to the stones of Yap</h2>
       <p class="lede">Before they reach Bitcoin, the conversation walks through the whole museum of money – and in doing so quietly demolishes the story most of us were taught.</p>
       <p>The textbook tale is that money began with barter, then someone invented coins for convenience. Breedlove pushes back on the myth: societies rarely ran on pure barter, and the deeper pattern is that humans keep reaching for whatever is hardest to produce. Cowrie shells worked as money until ships made them easy to gather. Glass beads worked in West Africa until Europeans flooded the market and the savings of a continent evaporated. The rule underneath every case is the same – money is whatever is hardest to make more of, and the moment someone finds a cheap way to make more, the holders are robbed.</p>
+      <p class="pull">Money is whatever is hardest to make more of.<br><span class="accent">Find a cheap way to make more, and the holders are robbed.</span></p>
       <p>The case study they linger on is the Pacific island of Yap and its giant stone wheels, the Rai. The stones were too heavy to move, so ownership was tracked entirely in the islanders' shared memory – a verbal ledger of who owned which stone, even one resting at the bottom of the sea. It is a startling preview of a digital age: <span class="key">the stones proved that money was never really the object, but the ledger of who is owed what</span>. And Yap's money failed for the oldest reason of all – once Western ships arrived with modern tools, new stones could suddenly be cut cheaply, and the hard money went soft.</p>
     </section>
 
@@ -92,8 +101,8 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Gold and 1971</p></div>
       <h2>The best money we had, and the night it was cut loose</h2>
       <p class="lede">Gold, the pair agree, won the long tournament of money for one reason: it is genuinely hard to produce. You cannot print it; you can only mine it, slowly, at rising cost. That is why nearly every ounce ever dug up still exists.</p>
-      <p>But gold carried a fatal weakness that the series dwells on at length: it is heavy and hard to move, so people surrendered it to custodians – banks, mints, governments – and held paper claims instead. And a claim can be broken. Saylor maps the counterparty risk on gold at every level: municipal, state, federal, corporate. As he dryly notes of any single guardian outlasting the centuries, <span class="key">"over a long enough timeline, mortality rate is 100%."</span> The very thing that made gold usable – putting it in someone else's vault – is what made it seizable, as America's own citizens learned when their gold was confiscated by executive order in 1933.</p>
-      <p>The hinge of the whole monetary story arrives in 1971, when the last formal link between the dollar and gold was severed. From that night on, the world ran on pure fiat – money backed by nothing but the promise of the issuer. The leak that had been slow became structural. Money could now be created at will, and was.</p>
+      <p>But gold carried a fatal weakness that the series dwells on at length: it is heavy and hard to move, so people surrendered it to custodians – banks, mints, governments – and held paper claims instead. And a claim can be broken. Saylor maps the counterparty risk on gold at every level: municipal, state, federal, corporate. As he dryly notes of any single guardian outlasting the centuries, <span class="key">"over a long enough timeline, mortality rate is 100%."</span> The very thing that made gold usable – putting it in someone else's vault – is what made it seizable, as America's own citizens learned when their gold was confiscated by executive order in 1933.<sup class="cite">1</sup></p>
+      <p>The hinge of the whole monetary story arrives in 1971, when the last formal link between the dollar and gold was severed.<sup class="cite">2</sup> From that night on, the world ran on pure fiat – money backed by nothing but the promise of the issuer. The leak that had been slow became structural. Money could now be created at will, and was.</p>
       <p class="pull">Gold's flaw was never its hardness.<br><span class="accent">It was that you had to hand it to someone.</span></p>
     </section>
 
@@ -105,6 +114,7 @@
       <p class="lede">Here the conversation sharpens into a moral argument. Inflation, they insist, is badly named. It is not a weather event that happens to prices; it is a transfer – value quietly taken from everyone who holds the currency and handed to whoever prints it first.</p>
       <p>Saylor's energy frame makes the scale visceral. At a debasement rate of around 7% a year, half the energy stored in the system leaks away every decade – so the saver who did everything right still watches their life's work evaporate while it sits untouched. This is why, the pair argue, people fled into stocks and real estate not out of greed but out of self-defence: the dollar had stopped being a place to store value, so the energy ran uphill into anything scarcer.</p>
       <p>Breedlove gives the argument its bluntest form in his own writing, which threads through the series: <span class="key">"Money is a tool for trading human time. Central banks, the modern-era masters of money, wield this tool as a weapon to steal time."</span> Inflation, in this reading, is not an economic side-effect. It is the slow confiscation of the hours of your life – a tax no one voted for, collected from the patient and the poor.</p>
+      <p class="pull">Inflation is not an economic side-effect.<br><span class="accent">It is a tax no one voted for, collected from the patient and the poor.</span></p>
 
       <div class="reckoner reveal">
         <p class="rh">The leak, made concrete &ndash; drag the rate</p>
@@ -126,6 +136,7 @@
       <h2>What soft money does to a soul</h2>
       <p class="lede">The deepest claim in the series is not financial at all. It is that the hardness of a society's money shapes the character of its people.</p>
       <p>When money holds its value, saving is rational: you can defer a reward and trust that your stored work will still be there. Economists call this low time preference – the capacity to plan, build, and wait. When money leaks, that bargain breaks. Saving becomes a slow loss, so the rational move flips to spending now, borrowing heavily, and chasing yield. <span class="key">Soft money rewires a civilisation toward the short term</span> – toward debt, speculation, and impatience – while hard money quietly teaches patience, stewardship, and the long view. Austrian economics supplies the vocabulary here, but the moral is plain: the money trains the man.</p>
+      <p class="pull">Soft money rewires a civilisation toward the short term.<br><span class="accent">Hard money quietly teaches it to wait.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -140,12 +151,13 @@
 
       <p class="signoff">The genius of the series is that it never really argues for Bitcoin. It argues about money – what it is, where it came from, how it is stolen – and lets Bitcoin arrive as the obvious shape of the missing piece. Twenty hours to ask one question; one question to reframe everything. If you only keep one sentence, keep the oldest one in the conversation: your money is your stored time, and the only question that matters is whether anyone else can take it.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The man who bet his company on this argument – <a href="longclock-saylor.html">The Steward's Wager</a> – and why gold kept failing at exactly the custodian problem in <a href="longclock-gold.html">Gold's Long Reign</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">If "inflation is theft" sounds overstated, weigh the strongest objections directly.</p><a href="longclock-debasement.html">The Debasement Tax &rarr;</a><a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">Trace the same story from money's deep past, and from why gold kept failing.</p><a href="longclock-memory.html">What Money Remembers &rarr;</a><a href="longclock-gold.html">Gold's Long Reign &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">Then meet the man who bet his company on this argument.</p><a href="longclock-saylor.html">The Steward's Wager &rarr;</a><a href="longclock-incorruptible.html">The Incorruptible &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On the quotes.</b> Verbatim lines are drawn from public transcripts and Robert Breedlove's published writing: Saylor's "the civilization that channels energy most effectively wins" and "over a long enough timeline, mortality rate is 100%" appear in the Saylor Series; "money is a tool for trading human time… to steal time" opens Breedlove's essay <em>Masters and Slaves of Money</em>; and "the only money in history optimized for moving value across spacetime" is Breedlove's recurring formulation. Passages not in quotation marks are faithful paraphrase of the series' arguments. The "half the energy every decade" figure follows the series' own framing of roughly 7% annual debasement.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> 1 – In 1933, US Executive Order 6102 required citizens to deliver most privately held gold to the Federal Reserve. 2 – In 1971 the US ended dollar-to-gold convertibility (the "Nixon shock"), and the postwar gold-anchored system was formally abandoned soon after. The verbatim lines are drawn from public transcripts and Robert Breedlove's published writing: Saylor's "the civilization that channels energy most effectively wins" and "over a long enough timeline, mortality rate is 100%" appear in the Saylor Series; "money is a tool for trading human time… to steal time" opens Breedlove's essay <em>Masters and Slaves of Money</em>; and "the only money in history optimized for moving value across spacetime" is Breedlove's recurring formulation. Passages not in quotation marks are faithful paraphrase of the series' arguments. The "half the energy every decade" figure is illustrative – it follows the series' own framing of roughly 7% annual debasement.</p>
     </section>
 
   </main>
@@ -164,7 +176,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var rate=document.getElementById('rate'), ratev=document.getElementById('ratev');

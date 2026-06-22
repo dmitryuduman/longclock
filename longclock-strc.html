@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#F0E7DC; --ink:#2A2018; --ink-soft:#6E5E50;
@@ -61,6 +61,15 @@
   .strc-barcap{ grid-column:1 / -1; font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.04em; color:var(--ink-soft); margin-top:-0.5rem; }
   @media(max-width:540px){ .strc-out{ grid-template-columns:1fr; } }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -112,8 +121,8 @@
       <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The wrapper</p></div>
       <h2>What STRC actually is</h2>
       <p class="lede">STRC – formally Strategy's Variable Rate Series A Perpetual "Stretch" Preferred Stock (Nasdaq: STRC) – is the casing. It sits between debt and common equity, and it is engineered to behave like nothing bitcoin behaves like: a calm, dollar-denominated instrument that pays you to hold it.</p>
-      <p>Three properties make it the product, not the capability. It pays a <b>variable dividend, monthly, in cash</b> – recently around an 11.5% annualized rate. The rate is <b>reset every month</b> by management with one purpose: to keep STRC trading near its <b>$100 par</b>. If the price drifts below par, the payout rises to pull it back; if it sits at or above, the rate can ease. <span class="key">That single mechanism is a deliberate volatility-dampening machine – the violence of the underlying is absorbed by a knob management turns each month.</span> Strategy has stated the design goal plainly: to make STRC "the best credit instrument in the world."</p>
-      <p>The third property is the quiet one. Dividends are currently expected to be treated as a <b>non-taxable return of capital</b> (ROC) for US federal tax, to the extent of your basis – Strategy reported 100% of its 2025 distributions as nontaxable ROC. <span class="key">You are not taxed on receipt; the payment reduces your cost basis instead.</span> A high cash yield that does not land as ordinary income on the way in is a different animal from a coupon.</p>
+      <p>Three properties make it the product, not the capability. It pays a <b>variable dividend, monthly, in cash</b> – recently around an 11.5% annualized rate.<sup class="cite">1</sup> The rate is <b>reset every month</b> by management with one purpose: to keep STRC trading near its <b>$100 par</b>. If the price drifts below par, the payout rises to pull it back; if it sits at or above, the rate can ease. <span class="key">That single mechanism is a deliberate volatility-dampening machine – the violence of the underlying is absorbed by a knob management turns each month.</span> Strategy has stated the design goal plainly: to make STRC "the best credit instrument in the world."</p>
+      <p>The third property is the quiet one. Dividends are currently expected to be treated as a <b>non-taxable return of capital</b> (ROC) for US federal tax, to the extent of your basis – Strategy reported 100% of its 2025 distributions as nontaxable ROC.<sup class="cite">2</sup> <span class="key">You are not taxed on receipt; the payment reduces your cost basis instead.</span> A high cash yield that does not land as ordinary income on the way in is a different animal from a coupon.</p>
       <p class="pull">A knob management turns each month,<br><span class="accent">absorbing the violence of the underlying.</span></p>
     </section>
 
@@ -193,18 +202,35 @@
       <h2>What has to hold – and what could break it</h2>
       <p class="lede">A thesis worth taking seriously is one whose failure modes you can name. STRC's are specific, and none of them are remote.</p>
       <p>The <b>peg and rate mechanism must hold</b>: keeping STRC near par depends on management raising the rate enough, fast enough, in stress – and a rate that has to climb to defend the price is also a rising cost. The <b>dividends must stay covered</b>: the cash to pay STRC holders has to come from somewhere, and a perpetual whose payout balloons in a downturn is precisely when coverage is hardest. The <b>ROC treatment can change</b>: it is determined annually and is not guaranteed; if distributions stop qualifying, the tax case weakens. And in the capital stack, <b>preferred ranks behind debt</b> – STRC holders are paid after lenders, not before. The dream version assumes durable ~1% volatility; that is an assumption, not a property the instrument is born with.</p>
-      <p>The rating agencies have already weighed in, and not gently. S&amp;P Global Ratings assigned Strategy an issuer credit rating of <b>&lsquo;B-&rsquo;</b> – deep in speculative grade – and put its finger on the very habit the company is proudest of. Reluctance to sell bitcoin, in S&amp;P's view, is a weakness that <q>increases the likelihood that when the company does have to sell bitcoin to generate cash as a last resort, it is likely to do so at <span class="key">severely depressed prices</span></q>. Set that against the stated ambition to make STRC &ldquo;the best credit instrument in the world,&rdquo; and the tension is the whole story: the product promises dependable cash, while the issuer behind it is rated a forced seller into a falling market. It is also the clearest reason Strategy has begun, gingerly, to sell at all &ndash; see <a href="longclock-saylor.html">The Steward's Wager</a>.</p>
+      <p>The rating agencies have already weighed in, and not gently. S&amp;P Global Ratings assigned Strategy an issuer credit rating of <b>&lsquo;B-&rsquo;</b> – deep in speculative grade –<sup class="cite">3</sup> and put its finger on the very habit the company is proudest of. Reluctance to sell bitcoin, in S&amp;P's view, is a weakness that <q>increases the likelihood that when the company does have to sell bitcoin to generate cash as a last resort, it is likely to do so at <span class="key">severely depressed prices</span></q>. Set that against the stated ambition to make STRC &ldquo;the best credit instrument in the world,&rdquo; and the tension is the whole story: the product promises dependable cash, while the issuer behind it is rated a forced seller into a falling market. It is also the clearest reason Strategy has begun, gingerly, to sell at all &ndash; see <a href="longclock-saylor.html">The Steward's Wager</a>.</p>
+      <p class="pull">The product promises dependable cash;<br><span class="accent">the issuer is rated a forced seller.</span></p>
       <p>Hold both pictures at once. If the machine works as designed, it is genuinely the iPhone moment – the wrapper that lets the capability reach everyone, with a flywheel feeding the asset underneath. If any one of the load-bearing assumptions slips, it is a leveraged bitcoin bet wearing the costume of a money-market fund. <span class="key">The whole thesis lives or dies on whether the calm is real or merely engineered to look real.</span></p>
       <p class="pull">A leveraged bet,<br><span class="accent">or the calmest cash on the balance sheet.</span></p>
 
       <p class="signoff">The iPhone did not make mobile internet better. It made it ordinary – something you no longer had to understand to use. STRC's wager is that the same can be done to bitcoin: hide the engine, sell the dashboard, and let the world hold the asset without ever having to learn its name. Whether the engine stays quiet is the only question that matters.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The man who bound a company to the asset – <a href="longclock-saylor.html">The Steward's Wager</a> – and the reserve-power case in full at <a href="index.html">the essay</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">Calm cash or leveraged bet in costume? Meet the man and the credit risk behind it, and the index trap it feeds.</p>
+          <a href="longclock-saylor.html">The Steward's Wager &rarr;</a>
+          <a href="longclock-sp500.html">The Index Trap &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">Where does the redirected treasury cash actually go? Into a fixed supply &ndash; and that is where the squeeze begins.</p>
+          <a href="longclock-squeeze.html">Why Price Falls When Everyone's Buying &rarr;</a>
+          <a href="longclock-machine.html">The Compounding Machine &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">You see the wrapper. Now the full reserve-power case, and the asymmetry that makes a sliver worth allocating.</p>
+          <a href="index.html">The Asset No Empire Can Freeze &rarr;</a>
+          <a href="longclock-asymmetry.html">Take the Zero Off the Table &rarr;</a>
+        </div>
       </div>
 
-      <p class="foot"><b>Not investment advice.</b> Nothing here is a recommendation to buy or sell any security; it is an argument about product design and its consequences. <b>On the facts.</b> STRC's structure, its monthly variable dividend (recently ~11.5% annualized), the $100-par rate-reset mechanism, and the current return-of-capital tax treatment (Strategy reported 100% of 2025 distributions as nontaxable ROC) are drawn from Strategy's own disclosures and public reporting. Tax treatment is determined annually and may differ from expectations; figures and rates change.</p>
+      <p class="foot"><b>Not investment advice.</b> Nothing here is a recommendation to buy or sell any security; it is an argument about product design and its consequences. <b>Sources &amp; notes.</b> <b>1.</b> STRC's structure, its monthly variable dividend (recently ~11.5% annualized), and the $100-par rate-reset mechanism are drawn from Strategy's own disclosures and public reporting. <b>2.</b> The current return-of-capital tax treatment (Strategy reported 100% of 2025 distributions as nontaxable ROC); tax treatment is determined annually and may differ from expectations. <b>3.</b> S&amp;P Global Ratings' issuer credit rating of &lsquo;B-&rsquo; for Strategy and the accompanying analyst commentary, per S&amp;P's published rating. Figures and rates change.</p>
     </section>
 
   </main>
@@ -223,7 +249,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

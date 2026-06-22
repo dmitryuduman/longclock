@@ -68,6 +68,15 @@
   .sq-note{ font-family:var(--font-mono); font-size:0.66rem; letter-spacing:0.04em; color:var(--ink-soft); margin-top:12px; line-height:1.5; }
   @media(max-width:560px){ .sq-controls{ grid-template-columns:1fr; } }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -118,7 +127,7 @@
       <h2>Why heavy buying can coincide with a falling price</h2>
       <p class="lede">Here is the part that feels like a paradox and isn't. In the short run, price can fall <em>while</em> serious money is accumulating hard. The two facts live in different layers of the market.</p>
       <p><span class="key">Price is set at the margin – by whoever is willing to sell into the bid right now</span>, not by the silent majority who would not part with a coin under a million dollars. When a long-dormant whale finally distributes, or an early holder from a decade ago quietly sells a tranche into the new institutional demand – a kind of silent IPO, an offering with no prospectus – those coins meet the buyers and the clearing price can sag, even as the buyers are vacuuming up everything they can. Add leveraged traders forced out of positions, and the housekeeping of ETF authorized participants shuffling coins in and out to keep funds balanced, and you get plenty of short-run selling pressure layered on top of relentless accumulation.</p>
-      <p>So accumulation does not announce itself in the price. <span class="key">It shows up first in <em>who holds the coins</em></span> – in the slow migration of supply from sellers to holders who will never sell. The price chart is the noise. The ownership chart is the signal. Roughly seventy-two to seventy-five percent of all bitcoin hasn't moved in over six months; long-term holders command somewhere near sixty-eight percent of supply; exchange balances have fallen by about half since late 2024. None of that is visible in any single day's red candle.</p>
+      <p>So accumulation does not announce itself in the price. <span class="key">It shows up first in <em>who holds the coins</em></span> – in the slow migration of supply from sellers to holders who will never sell. The price chart is the noise. The ownership chart is the signal. Roughly seventy-two to seventy-five percent of all bitcoin hasn't moved in over six months; long-term holders command somewhere near sixty-eight percent of supply; exchange balances have fallen by about half since late 2024.<sup class="cite">1</sup> None of that is visible in any single day's red candle.</p>
       <p class="pull">Accumulation hides in the ledger of ownership<br><span class="accent">long before it ever reaches the ticker.</span></p>
     </section>
 
@@ -127,7 +136,7 @@
     <section class="col reveal">
       <div class="marker"><span class="numeral">III.</span><p class="eyebrow">The non-linearity</p></div>
       <h2>A fixed supply does not re-price gradually</h2>
-      <p class="lede">Now run the migration forward. Committed buyers keep absorbing coins: corporate treasuries (some locking them up to earn yield through instruments like STRC), spot ETFs already holding around one and a half million coins, sovereigns testing the water, and individuals who simply will not sell below seven figures. Every one of them takes float off the table – permanently.</p>
+      <p class="lede">Now run the migration forward. Committed buyers keep absorbing coins: corporate treasuries (some locking them up to earn yield through instruments like STRC), spot ETFs already holding around one and a half million coins,<sup class="cite">2</sup> sovereigns testing the water, and individuals who simply will not sell below seven figures. Every one of them takes float off the table – permanently.</p>
       <p>For a while, nothing dramatic happens to the price. The marginal sellers are still there; the squeeze is invisible because there is still a sliver willing to trade. But the float is finite, and it is shrinking. <span class="key">A fixed-supply asset does not respond to a supply squeeze in a straight line</span>. There comes a point – and it arrives without warning – where the coins demanded at the current price exceed the coins anyone will sell at that price. At that moment the quantity cannot adjust. It is fixed. The buyers cannot conjure more supply, and the holders will not provide it. <span class="key">The only variable left that can move is price</span>, and so it moves – suddenly, not gradually, because the pressure that built quietly for months releases all at once.</p>
       <p>This is the difference between a market where supply is a knob you can turn and a market where supply is a wall. Against a knob, demand pushes and the knob gives a little. Against a wall, demand pushes and nothing happens – and then the wall is reached, and the entire adjustment that should have been spread over years happens in a span you can measure in days. The widget below lets you feel the shape of it.</p>
       <p class="pull">When quantity can't move,<br><span class="accent">price is the only thing left that can.</span></p>
@@ -174,6 +183,7 @@
       </div>
 
       <p>The lesson the model makes physical: hold the buying steady and the float falls in a straight line – but the <em>consequence</em> is anything but straight. For most of the run, nothing visible happens to price. The drama is all stored up, invisible, until the float thins to nothing and the adjustment that quantity refused to make lands entirely on price.</p>
+      <p class="pull">The float falls in a straight line.<br><span class="accent">The price does not.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -190,12 +200,28 @@
       <p class="pull">No one has to let go.<br><span class="accent">At some point the supply decides for them.</span></p>
       <p class="signoff">Demand pushing on an expandable supply nudges the price. Demand pushing on a wall does nothing – and then, all at once, does everything. The whole argument is in that difference, and the only honest forecast is its shape, not its date.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">Why the volatility along the way is the price of admission, not a flaw – <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip</a> – and the reserve-power case in full at <a href="index.html">the essay</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">If a red candle still looks like the thesis breaking, read why the swings are the toll, not the trip &ndash; and the case in full.</p>
+          <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip &rarr;</a>
+          <a href="index.html">The Asset No Empire Can Freeze &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">Why would so many holders independently refuse to sell? The incentives, and the asymmetry that makes holding rational.</p>
+          <a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a>
+          <a href="longclock-asymmetry.html">Take the Zero Off the Table &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">You see the wall. Now follow where the standing bids come from &ndash; the index trap and the treasury wrapper.</p>
+          <a href="longclock-sp500.html">The Index Trap &rarr;</a>
+          <a href="longclock-strc.html">Saylor's iPhone Moment &rarr;</a>
+        </div>
       </div>
 
-      <p class="foot"><b>On the numbers.</b> Figures cited are estimates drawn from on-chain analytics (illiquid supply ~14.3M BTC / ~72&ndash;75% of supply; long-term holders ~68% of supply; exchange balances down ~50% since late 2024; new issuance ~3,150 BTC/week post-2024 halving; spot ETFs holding ~1.5M BTC; long-term holders and whales absorbing on the order of ~300% of annual issuance). They move constantly and methodologies differ. <b>Not investment advice</b> – this piece explains a market structure, not a trade.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> Figures cited are estimates drawn from on-chain analytics; they move constantly and methodologies differ. <b>1.</b> Illiquid supply ~14.3M BTC / ~72&ndash;75% of supply; long-term holders ~68% of supply; exchange balances down ~50% since late 2024; long-term holders and whales absorbing on the order of ~300% of annual issuance. <b>2.</b> Spot ETFs holding ~1.5M BTC; new issuance ~3,150 BTC/week post-2024 halving. <b>Not investment advice</b> – this piece explains a market structure, not a trade.</p>
     </section>
 
   </main>

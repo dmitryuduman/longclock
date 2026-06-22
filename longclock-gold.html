@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#E7DDC4; --ink:#2B2519; --ink-soft:#6E6347;
@@ -49,6 +49,15 @@
   .erahint{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.8rem; }
 
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -85,6 +94,7 @@
       <p>It is scarce, and no decree can conjure more of it. It does not rust, rot, or default; an ounce buried by a Roman is the same ounce today. It answers to no government's promise and no bank's solvency – <span class="key">it is, uniquely, no one's liability.</span> And culture after culture, with no contact and no agreement, arrived at the very same metal. Those are not the properties of a relic. They are the properties of money built to outlast the states that use it.</p>
       <p class="pull">The goldbug's instinct is not paranoia.<br><span class="accent">It is the lesson of every currency that ever died.</span></p>
       <p>So when someone distrusts anything a treasury can print at will, and wants their wealth anchored to something outside the system, they are not being eccentric. They are remembering history correctly. Any honest account of bitcoin has to start by conceding that the people most suspicious of it are right about the disease. The only question is whether they have found the best cure – or merely the oldest.</p>
+      <p class="pull">The suspicious ones are right about the disease.<br><span class="accent">The only question is the cure.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -137,7 +147,7 @@
         <p class="figcap">Fig. 1 – one you store and defend; one you hold in a sentence and take anywhere.</p>
       </div>
 
-      <p>Two gaps. First, gold is physical, so it must be stored – and what must be stored must be guarded, and what is guarded can be seized, taxed at the door, or simply ordered home, as 1933 showed. A bearer asset that lives in a vault is only as sovereign as the vault's landlord. Second, gold cannot move. You cannot carry a meaningful sum across a hostile border, wire it to a child in another country before nightfall, or hold it in nothing but a phrase you have memorised. In a settled world the metal's weight was its virtue. In a world of capital controls and closing borders, <span class="key">that weight becomes a cage.</span></p>
+      <p>Two gaps. First, gold is physical, so it must be stored – and what must be stored must be guarded, and what is guarded can be seized, taxed at the door, or simply ordered home, as 1933 showed.<sup class="cite">1</sup> A bearer asset that lives in a vault is only as sovereign as the vault's landlord. Second, gold cannot move. You cannot carry a meaningful sum across a hostile border, wire it to a child in another country before nightfall, or hold it in nothing but a phrase you have memorised. In a settled world the metal's weight was its virtue. In a world of capital controls and closing borders, <span class="key">that weight becomes a cage.</span></p>
       <p class="pull">A bearer asset that lives in a vault<br><span class="accent">is only as sovereign as the vault's landlord.</span></p>
     </section>
 
@@ -147,18 +157,20 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">The succession</p></div>
       <h2>Not gold's betrayal – its heir</h2>
       <p class="lede">Bitcoin is not gold. It has no weight in the hand and no five-thousand-year record, and a goldbug is right to miss both. But the part of gold's case that actually made it money, it keeps – and the part that kept failing, it drops.</p>
-      <p>Scarce, durable, no one's liability, recognised without any government's word – these are the virtues that made gold money, and bitcoin holds each of them, several more strictly than the metal does. What it asks in exchange is real: you give up the heft of a bar in your hand and the reassurance of a track record measured in millennia. What you stop giving up is the vault. It cannot be confiscated from a memorised phrase; it cannot be stopped at a border; it can cross the world in minutes or sit, invisible, inside a sentence in your head. It is <span class="key">gold's own monetary logic, carried onto a longer clock and freed of the one weakness</span> that let states cut the anchor twice inside a single century.</p>
+      <p>Scarce, durable, no one's liability, recognised without any government's word – these are the virtues that made gold money, and bitcoin holds each of them, several more strictly than the metal does. What it asks in exchange is real: you give up the heft of a bar in your hand and the reassurance of a track record measured in millennia. What you stop giving up is the vault. It cannot be confiscated from a memorised phrase; it cannot be stopped at a border; it can cross the world in minutes or sit, invisible, inside a sentence in your head. It is <span class="key">gold's own monetary logic, carried onto a longer clock and freed of the one weakness</span> that let states cut the anchor twice inside a single century.<sup class="cite">2</sup></p>
       <p class="pull">Keep the creed.<br><span class="accent">Upgrade the tool.</span></p>
       <p>To prefer it is not to abandon what gold stood for. It is to take that creed seriously enough to want the version of it that an executive order cannot reach. The suspicion that sent your grandparents to the metal was correct. The world simply, finally, built a harder form of the same idea – and put it somewhere no vault, and no decree, can open.</p>
+      <p class="pull">The suspicion that sent them to the metal was correct.<br><span class="accent">They just lacked a vault no decree could open.</span></p>
 
       <p class="signoff">Gold was right for five thousand years. It was right about everything except where it had to be kept.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The history of the freeze itself – <a href="longclock-timechain.html">The Timechain</a> shows why an un-seizable record matters now; and the reserve-power case begins at <a href="index.html">The Asset No Empire Can Freeze</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">You trust the metal, not the marketing. Fair. See where gold's anchor was actually cut, and the right to hold value at all.</p><a href="longclock-debasement.html">The Debasement Tax &rarr;</a><a href="longclock-freeze.html">When States Freeze Money &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">If bitcoin keeps gold's creed, what is its scarcity actually anchored to – and how does it move where gold cannot?</p><a href="longclock-energy.html">The Energy Theory of Money &rarr;</a><a href="index.html">The Asset No Empire Can Freeze &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">Take the creed onto a longer clock: an un-seizable record, and a rule no one can rewrite.</p><a href="longclock-timechain.html">The Timechain &rarr;</a><a href="longclock-incorruptible.html">The Incorruptible &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On the history.</b> Executive Order 6102 (1933) required U.S. citizens to deliver most privately held monetary gold to the government, after which the official gold price was raised – a confiscation and devaluation in sequence. On 15 August 1971 the United States ended the dollar's convertibility into gold, closing the "gold window" and effectively ending the Bretton Woods system; it was framed as temporary and never reversed. Gold's multi-millennial monetary role is well documented. The comparison's conclusions are this essay's argument, not settled fact.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> <b>1.</b> Executive Order 6102 (1933) required U.S. citizens to deliver most privately held monetary gold to the government, after which the official gold price was raised – a confiscation and devaluation in sequence. <b>2.</b> On 15 August 1971 the United States ended the dollar's convertibility into gold, closing the "gold window" and effectively ending the Bretton Woods system; it was framed as temporary and never reversed. Gold's multi-millennial monetary role is well documented. The comparison's conclusions are this essay's argument, not settled fact.</p>
     </section>
 
   </main>
@@ -177,7 +189,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="9" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

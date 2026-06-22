@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#EAE4D6; --ink:#1C2433; --ink-soft:#5C6273;
@@ -46,6 +46,13 @@
   .eraout p{ margin:0; font-size:1.02rem; line-height:1.55; color:var(--ink); }
   .erahint{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.8rem; }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -83,6 +90,7 @@
       <p class="opening lede">Pick any hundred-year window and lay it over history. Inside it you will find at least one major war, one currency that died, one government that fell, and one confiscation. The store of value that matters is the one still standing at the far end of all four.</p>
       <p>This is a different question from the one markets usually ask, and it disqualifies most of the usual answers. A stock that compounds beautifully for thirty years is no help if the company – or the exchange, or the currency it's priced in – does not survive the fourth decade. The reason we underrate how hard this is comes down to survivorship bias: <span class="key">the indices and portfolios we admire are the ones that lived.</span> The losers were quietly delisted from memory. Judge by the whole graveyard, not the handful of monuments, and the century test gets very strict very fast.</p>
       <p class="pull">Thirty good years are easy.<br><span class="accent">It's the hundredth that does the judging.</span></p>
+      <p class="pull">We admire the portfolios that lived.<br><span class="accent">The losers were quietly delisted from memory.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -107,6 +115,7 @@
 
       <p>Two finalists tend to emerge from any honest version of this exercise: <span class="key">things that are no one's liability and cannot be inflated.</span> Gold has carried that flag for millennia, with the asterisks of weight and seizure explored elsewhere on this site. The new entrant makes the same claim, with the same two virtues and without the vault – but missing the one thing the others have and it cannot yet have: a long record. That is the real shape of the bet, stated fairly.</p>
       <p class="pull">No one's liability.<br><span class="accent">Impossible to inflate. The shortlist is short.</span></p>
+      <p class="pull">The same two virtues as gold, without the vault.<br><span class="accent">Missing only the one thing the others have: a long record.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -118,11 +127,14 @@
       <p>On the first two, a fixed-supply bearer asset scores as well as anything ever has – better than gold on dilution, equal on counterparty risk. On the third, portability, it is in a class of its own: wealth you can carry across any border inside a memorised phrase is something no previous store of value could offer. Its one genuine weakness is the fourth axis turned to time: it has existed for only a fraction of a century, so the durability that gold proved over five thousand years, bitcoin has merely argued. An honest steward holds both facts at once – that on the properties a hundred-year asset needs, it scores extraordinarily, and that <span class="key">the single thing it lacks is precisely the thing only time can grant.</span> The portfolio for the long clock is not all-or-nothing; it is a question of how much of your future you anchor to the candidate with the best properties and the shortest history.</p>
       <p class="pull">The best properties on paper.<br><span class="accent">The shortest track record in the room.</span></p>
 
+      <p class="pull">The hundred-year question has only ever had a handful of honest answers.<br><span class="accent">For the first time in a long while, the list has a new name on it.</span></p>
+
       <p class="signoff">The hundred-year question has only ever had a handful of honest answers. For the first time in a long while, the list has a new name on it – provisional, unproven by time, and built, on paper, for exactly this.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The incumbent on that shortlist, weighed fairly – <a href="longclock-gold.html">Gold's Long Reign</a> – and the man underwriting a hundred-year outcome: <a href="longclock-saylor.html">The Steward's Wager</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">The new name lacks a track record. Weigh the proven incumbent and the swings against it.</p><a href="longclock-gold.html">Gold's Long Reign &rarr;</a><a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">See the two hazards a century punishes most: dilution and the freeze.</p><a href="longclock-debasement.html">The Debasement Tax &rarr;</a><a href="longclock-freeze.html">When States Freeze Money &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">The man underwriting a hundred-year outcome, and the math of anchoring to it early.</p><a href="longclock-saylor.html">The Steward's Wager &rarr;</a><a href="longclock-asymmetry.html">The Asymmetry &rarr;</a></div>
       </div>
 
       <p class="foot"><b>On the grades.</b> The verdicts are deliberately qualitative summaries of well-documented long-run patterns – fiat currencies' loss of purchasing power, sovereign defaults and bond losses across the 20th century, the high failure and delisting rate of individual companies, periodic land seizure and tax, and gold's multi-millennial persistence. Bitcoin's short history is stated plainly as its central limitation. None of this is investment advice.</p>
@@ -144,7 +156,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="19" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

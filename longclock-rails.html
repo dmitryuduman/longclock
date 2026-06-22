@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#EAE7DF; --ink:#1D1D20; --ink-soft:#605E54;
@@ -45,6 +45,14 @@
   .comp input[type=range]{ width:100%; accent-color:var(--accent); margin-top:10px; }
   .comp .yr{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-top:4px; }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -124,7 +132,7 @@
       <div class="marker"><span class="numeral">IV.</span><p class="eyebrow">Why it arrives faster than you think</p></div>
       <h2>Code is the accelerant</h2>
       <p class="lede">Here is the part the skeptics of every era get wrong, and it is the same mistake twice: they forecast in straight lines, and anything built from code does not move in straight lines.</p>
-      <p>A prediction made of software has a peculiar property. At first it underwhelms – the first personal computers were toys, the first portable devices clumsy, and for years the visionary looks premature or wrong. Then the curve bends. Because code copies for free, improves on itself, and rides hardware that doubles on a schedule, adoption stops adding and starts multiplying. The world that felt a comfortable lifetime away arrives in a decade. Jobs's "computer in a book this decade" was a little early on the timing and exactly right on the destination – and when it came, it came not gently but all at once. And now the compounding is itself compounding. Code once doubled on the patient cadence of cheaper hardware – a steady exponential, the orange line of the old world. But AI already writes most of the code at the labs building AI, and is beginning to improve the very systems that write it. When the thing that accelerates progress is itself the product, the <em>rate</em> accelerates: the curve no longer just rises, it bends upward. Anthropic <a href="https://www.anthropic.com/institute/recursive-self-improvement">reports</a> its engineers now ship roughly 8&times; the code per head they did in 2024, with the task-length its models can reliably handle doubling about every four months – and that doubling time is itself shrinking. That is not a steeper line of the same kind; it is a different kind of line, and a straight-line forecaster is not merely conservative about it – he is looking at the wrong shape entirely. Drag the years below and watch three gaps open at once: what the forecaster expects, what code used to compound to, and what code that improves itself compounds to now.</p>
+      <p>A prediction made of software has a peculiar property. At first it underwhelms – the first personal computers were toys, the first portable devices clumsy, and for years the visionary looks premature or wrong. Then the curve bends. Because code copies for free, improves on itself, and rides hardware that doubles on a schedule, adoption stops adding and starts multiplying. The world that felt a comfortable lifetime away arrives in a decade. Jobs's "computer in a book this decade" was a little early on the timing and exactly right on the destination – and when it came, it came not gently but all at once. And now the compounding is itself compounding. Code once doubled on the patient cadence of cheaper hardware – a steady exponential, the orange line of the old world. But AI already writes most of the code at the labs building AI, and is beginning to improve the very systems that write it. When the thing that accelerates progress is itself the product, the <em>rate</em> accelerates: the curve no longer just rises, it bends upward. Anthropic <a href="https://www.anthropic.com/institute/recursive-self-improvement">reports</a> its engineers now ship roughly 8&times; the code per head they did in 2024, with the task-length its models can reliably handle doubling about every four months<sup class="cite">1</sup> – and that doubling time is itself shrinking. That is not a steeper line of the same kind; it is a different kind of line, and a straight-line forecaster is not merely conservative about it – he is looking at the wrong shape entirely. Drag the years below and watch three gaps open at once: what the forecaster expects, what code used to compound to, and what code that improves itself compounds to now.</p>
 
       <div class="comp reveal">
         <svg viewBox="0 0 680 240" id="compart" aria-hidden="true">
@@ -187,6 +195,7 @@
       <p>Bitcoin is the opposite kind of object, and so it demands the opposite kind of champion. It is not evolving; it is fixed. It is not a matter of taste; it is verifiable. It does not need to be believed in to work – it works whether or not you believe, and it asks you to verify rather than to trust. An asset like that is not served by a distortion field; it would be cheapened by one. <span class="key">It is served by rigor – by an aeronautical engineer, schooled in about the most unforgiving discipline there is, the kind of mind that trusts a public, auditable rule over any amount of charm.</span> Saylor's want of Jobs's charm is not a handicap for this mission; it is a qualification. The evolving product needs a magician; the fixed protocol needs a proof – and each age produces the champion its medium requires.</p>
       <p class="pull">An evolving product needs a magician.<br><span class="accent">A fixed protocol needs a proof.</span></p>
       <p>And notice what "fixed" actually buys, because it is the deepest point here. Bitcoin's refusal to change – the thing critics deride as rigidity – is the whole feature. It cannot be bribed, lobbied, inflated, or quietly rewritten in someone's favour, because there is no one in charge of it to corrupt. That is precisely what lets people build on it: savings, contracts, institutions, all resting on a floor that will not shift beneath them or sell them out. Almost everything that rots in human affairs rots for one reason – shifting incentives, captured institutions, the patient creep of self-interest – and a money that no one can alter quietly removes that variable from the equation. It is, in the most literal sense, an honest foundation. That idea is large enough to deserve an essay of its own; here it is enough to see why this exact man, pointing at this exact object, fits.</p>
+      <p class="pull">Critics call the refusal to change rigidity.<br><span class="accent">It is the only honest floor to build on.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -212,12 +221,13 @@
 
       <p class="signoff">The visionary is rarely the best forecaster of <em>when</em>. He is the one who reads the destination early, says it out loud while it still sounds absurd, and then spends himself bending the world toward it – and lets the code do the compounding.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The full portrait of the man – <a href="longclock-saylor.html">The Steward's Wager</a> – and the deepest version of the machine argument: <a href="longclock-timechain.html">The Timechain</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Grant that the visionary is often early – is the underlying asset even sound, or just another story?</p><a href="longclock-incumbents.html">The Old Guard's Dilemma &rarr;</a><a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">Where this man's actual wager – and its very real failure modes – is weighed in full.</p><a href="longclock-saylor.html">The Steward's Wager &rarr;</a><a href="longclock-machine.html">The Compounding Machine &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">Follow the machine-money prophecy to the clock the machines will keep.</p><a href="longclock-timechain.html">The Timechain &rarr;</a><a href="longclock-nativetongue.html">The Native Tongue &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On the sourcing.</b> Jobs's 1983 remarks (books and "no intermediary"; the "computer in a book... with a radio link"; software sold over phone lines) are from his talk at the International Design Conference in Aspen, widely transcribed and recorded. Saylor's dime-a-book reading and his frequent argument that AI agents will transact in bitcoin are from his own public statements and interviews; he has also publicly echoed Apple's "Think Different" ("Be Different"). The Jobs–Saylor parallel, and the claim that code accelerates such predictions, are this essay's interpretation, not established fact. The compounding chart is illustrative of exponential vs linear growth, not a forecast.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> <b>1.</b> Anthropic's account of recursive self-improvement reports its engineers shipping roughly 8&times; the code per head versus 2024, with the reliably-handled task length doubling about every four months. Jobs's 1983 remarks (books and "no intermediary"; the "computer in a book... with a radio link"; software sold over phone lines) are from his talk at the International Design Conference in Aspen, widely transcribed and recorded. Saylor's dime-a-book reading and his frequent argument that AI agents will transact in bitcoin are from his own public statements and interviews; he has also publicly echoed Apple's "Think Different" ("Be Different"). The Jobs–Saylor parallel, and the claim that code accelerates such predictions, are this essay's interpretation, not established fact. The compounding chart is illustrative of exponential vs linear growth, not a forecast.</p>
     </section>
 
   </main>
@@ -236,7 +246,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="8" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

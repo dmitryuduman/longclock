@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#0E1A14; --ink:#E7EFE7; --ink-soft:#93A99A;
@@ -48,6 +48,14 @@
   .axis{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:0.05em; text-transform:uppercase; fill:var(--ink-soft); }
 
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } header::before{ display:none; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(255,255,255,0.04); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -137,6 +145,7 @@
       </div>
 
       <p>Read the grid the way a treasury would. While every state ignores a neutral, un-seizable reserve asset, ignoring it costs nothing – that corner is comfortable and stable. But the comfort depends entirely on everyone staying there. <span class="key">The instant one significant state, or its citizens through an exchange-traded fund, is credibly believed to be accumulating, every rival faces a worse box.</span> Stay out, and you risk holding only debasing fiat while a competitor sits on the harder money, gaining reserve strength you cannot match by decree. So you accumulate too – not out of conviction, but because the alternative is to be the one nation left holding the melting asset.</p>
+      <p class="pull">No state wants to be the one<br><span class="accent">left holding the melting asset.</span></p>
       <p>And here the dynamic differs from an ordinary arms race in one decisive way: the supply is fixed. There is no out-building the other side, no surge of production to close the gap. <span class="key">Because nothing can be manufactured to catch up, the advantage of moving first is real and permanent</span> – every coin a rival secures early is a coin you can now only buy from them, at their price. The game does not reward the loud. It rewards the early and the quiet.</p>
       <p class="pull">Defection is safe only if everyone defects.<br><span class="accent">The first credible buyer flips the board.</span></p>
     </section>
@@ -184,6 +193,7 @@
       </div>
 
       <p>The economist Thomas Schelling posed a famous puzzle: two strangers must meet in a city on a given day, with no way to communicate. Where do they go? Most people name the same landmark and the same hour – not because it is objectively best, but because each reasons about where the other would expect <em>them</em> to be. The meeting place that everyone expects everyone to expect becomes, by that fact alone, the right answer. It needs no agreement; it needs only shared expectation.</p>
+      <p class="pull">It needs no agreement.<br><span class="accent">It needs only shared expectation.</span></p>
       <p>Money is the purest Schelling point there is – its entire value lies in others accepting it. So among thousands of possible hard digital monies, the strategic question is not "which has the cleverest design," but <span class="key">"which one will everyone else converge on?"</span> And that question answers itself: coordination flows to the asset with the deepest liquidity, the longest unbroken track record, and the most credible neutrality – the one no founder controls and no state issued. <span class="key">A newer coin might be technically superior and still lose, because being superior is not the game; being the expected choice is.</span> No committee decided this. It is a focal point, settled by the simple weight of everyone reasoning about everyone else.</p>
       <p class="pull">The winning money is not the best one.<br><span class="accent">It is the one everyone expects everyone to choose.</span></p>
     </section>
@@ -236,14 +246,31 @@
       <h2>Nested games, one tilt</h2>
       <p class="lede">Stack the layers and the shape resolves. Bitcoin's spread is not, at root, a matter of evangelism. It is a set of nested games – sovereign, focal, holder, miner, institutional – whose equilibrium leans, over time, toward adoption.</p>
       <p>Each game reinforces the next. The sovereign arms race drives demand; the focal point ensures that demand lands on one asset; the holder's loop and the supply squeeze convert that demand into scarcity; the miners' incentives keep the prize worth winning; the institutions and the early buyers are pulled along by the same logic from opposite ends. <span class="key">No conductor coordinates any of it; the equilibrium does the conducting</span> – which is exactly why the spread feels less like a campaign and more like a slow change in the weather.</p>
+      <p class="pull">No one is conducting this.<br><span class="accent">The equilibrium does the conducting.</span></p>
       <p>But intellectual honesty demands the strongest version of the other side, plainly stated. Equilibria are tendencies, not prophecies, and this one can fail. Coordination is fragile: a focal point can shift if a credibly better, equally neutral asset emerges, or if the existing one is shown to be more centralised or more capturable than believed. States are not passive squares on a grid – a coalition of large powers could ban, tax, or co-opt the asset, bending the game with force rather than playing inside it; a state-issued digital currency could be mandated into the focal role the market never granted it. The honest-miner equilibrium rests on assumptions about cost and concentration that could, in principle, drift. And the very reflexivity that drives adoption upward runs in reverse on the way down: the same loop that rewards holders can punish them in a stampede for the exits. <span class="key">The game tilts toward adoption – but a tilt is not a guarantee, and anyone who tells you the outcome is certain has stopped doing game theory and started doing prophecy.</span></p>
       <p class="pull">The board leans one way.<br><span class="accent">A lean is not a law.</span></p>
 
       <p class="signoff">You do not have to believe in any of it. You have only to ask what the other players will rationally do – and then to notice that the answer, layer after layer, keeps pointing the same direction. That is not faith. That is the game.</p>
 
-      <div class="more-door">
-        <p class="t">Read alongside</p>
-        <p class="s">The companion to this piece – <a href="longclock-doorways.html">Ten Thousand Doorways</a>, on how it spreads – the mechanism the holder's loop becomes, <a href="longclock-squeeze.html">the involuntary supply squeeze</a> – and the institutions caught in the middle game, <a href="longclock-incumbents.html">The Old Guard's Dilemma</a>. The case begins at <a href="index.html">the essay</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">Granting the game, can it really fail? Read the strongest case against, and what could shift the focal point.</p>
+          <a href="longclock-freeze.html">When States Freeze Money &rarr;</a>
+          <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">See the same logic in motion: how it actually spreads, person by person, and why the old guard converts.</p>
+          <a href="longclock-doorways.html">Ten Thousand Doorways &rarr;</a>
+          <a href="longclock-incumbents.html">The Old Guard&rsquo;s Dilemma &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">Follow the holder&rsquo;s loop to its end, and meet the man who wagered a company on it.</p>
+          <a href="longclock-squeeze.html">Why Price Falls When Everyone&rsquo;s Buying &rarr;</a>
+          <a href="longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a>
+        </div>
       </div>
 
       <p class="foot"><b>On this piece.</b> This is an argument about incentives, not a forecast and not investment advice. Game-theoretic equilibria describe how rational actors tend to behave under stated assumptions; real actors are imperfectly rational and the assumptions can fail. Nothing here should be read as a prediction of price or a recommendation to buy, hold, or sell anything.</p>
@@ -265,7 +292,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

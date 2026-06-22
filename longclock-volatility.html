@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#D6DDDB; --ink:#1A2421; --ink-soft:#566562;
@@ -43,6 +43,13 @@
   .zoomctl button.on{ background:var(--accent); border-color:var(--accent); color:#F2F6F5; }
   .zoomcap{ text-align:center; font-family:var(--font-mono); font-size:0.76rem; letter-spacing:0.04em; color:var(--ink-soft); margin-top:10px; min-height:2.4em; }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -80,6 +87,7 @@
       <p class="opening lede">No honest case pretends the swings aren't real. Bitcoin can lose half its value in months and has done so more than once. Anyone who tells you to ignore that is selling something.</p>
       <p>So begin by conceding it completely: the volatility is severe, it is recurring, and it has ruined people who bought with money they needed back soon, or with borrowed money, or with nerves that couldn't hold. That is a genuine risk and it deserves respect. But notice that "this asset moves violently" and "this asset is going nowhere" are two different claims, and the second does not follow from the first. The mistake is not fearing the swings. <span class="key">The mistake is reading the swings as a verdict on the destination, when they are really a feature of the road.</span></p>
       <p class="pull">"It moves violently" and "it is going nowhere"<br><span class="accent">are not the same sentence.</span></p>
+      <p class="pull">The swings are not a verdict on the destination.<br><span class="accent">They are a feature of the road.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -119,13 +127,17 @@
       <h2>The price of being repriced</h2>
       <p class="lede">There is a reason a new monetary good swings like this, and it is not immaturity for its own sake. The volatility is the market doing its work out loud.</p>
       <p>An asset monetising from nothing has no settled value to revert to; the world is still arguing, in real time and with real money, over whether it is a curiosity or the next reserve asset – and <span class="key">that argument, repriced daily, is what volatility actually is</span>. As the thing grows larger and more widely held, each new dollar of opinion moves it less, and the swings narrow; a monetising asset is supposed to get calmer as it wins, and over its history bitcoin's volatility has indeed trended down even as the price has climbed. None of this guarantees the destination – the swings are real risk, and the only sane way to hold something this volatile is to hold it on a horizon long enough that the toll doesn't force you off the road. But once you see the violence as the fare rather than the journey, the question changes from "how do I avoid the swings?" to "is the destination worth the toll?" – which is the only question that was ever worth asking.</p>
+      <p class="pull">An argument repriced daily<br><span class="accent">is all that volatility ever was.</span></p>
       <p class="pull">The fare is steep.<br><span class="accent">The question is whether the destination is worth it.</span></p>
+
+      <p class="pull">Smooth things are usually finished arguing.<br><span class="accent">This one is still being decided, loudly, every day.</span></p>
 
       <p class="signoff">Smooth things are usually finished arguing. This one is still being decided – loudly, in public, every day – which is exactly what it should look like on the way to becoming money.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">Why the destination might be worth it – <a href="index.html">the reserve-power essay</a> – and how the asset wins its argument, niche by niche: <a href="longclock-doorways.html">Ten Thousand Doorways</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Granted the swings are real. The question is what they cost against what they buy.</p><a href="longclock-asymmetry.html">The Asymmetry &rarr;</a><a href="longclock-century.html">The 100-Year Portfolio &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">Why a thing monetising from nothing must reprice violently while the world decides.</p><a href="longclock-whatismoney.html">What Money Actually Is &rarr;</a><a href="longclock-doorways.html">Ten Thousand Doorways &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">If the destination is worth the toll, see the case in full and who is underwriting it.</p><a href="index.html">The Asset No Empire Can Freeze &rarr;</a><a href="longclock-saylor.html">The Steward's Wager &rarr;</a></div>
       </div>
 
       <p class="foot"><b>On the claims.</b> Bitcoin's history of large drawdowns is a matter of record, as is the broad long-run decline in its realised volatility as its market size has grown. The "monetisation is volatile" framing is an analytical argument, not a guarantee of future returns; nothing here is investment advice, and the risk described is real.</p>
@@ -147,7 +159,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="21" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

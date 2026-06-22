@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#D7D4CE; --ink:#23262A; --ink-soft:#646A6E;
@@ -38,6 +38,15 @@
   .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
   .chartlabel.g{ fill:var(--accent); }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -84,7 +93,7 @@
     <section class="col reveal">
       <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The vanishing</p></div>
       <h2>A man who built a fire and walked away</h2>
-      <p class="opening lede">In October 2008 a paper appeared on a cryptography mailing list, nine pages long, signed with a name almost certainly not its author's: Satoshi Nakamoto. On the third of January 2009 the first block was mined, and into it the author wrote a line of text – <em>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</em> – a real headline from that morning's London paper, both a timestamp and a quiet verdict on the system he meant to make unnecessary.</p>
+      <p class="opening lede">In October 2008 a paper appeared on a cryptography mailing list, nine pages long, signed with a name almost certainly not its author's: Satoshi Nakamoto. On the third of January 2009 the first block was mined, and into it the author wrote a line of text – <em>The Times 03/Jan/2009 Chancellor on brink of second bailout for banks</em> – a real headline from that morning's London paper, both a timestamp and a quiet verdict on the system he meant to make unnecessary.<sup class="cite">1</sup></p>
       <p>For roughly two years he was simply a working software developer: he wrote code, answered questions on forums and by email, refined the protocol, and corresponded with the handful of early contributors who gathered around the project. Then, over 2010 and into 2011, he stepped back – handed off the code repository and the alert key, wrote that he had "moved on to other things," and went quiet. <span class="key">No farewell address, no foundation, no anointed heir – only an absence where a founder used to be.</span> He has not been heard from in any verified way since. Over the years a long parade of candidates has been proposed – cryptographers, computer scientists, the occasional self-proclaimer – and not one has been established beyond dispute. The honest position, the only one the evidence supports, is that we do not know.</p>
       <p class="pull">He left a timestamp, a codebase, and a fortune.<br><span class="accent">He did not leave a name.</span></p>
     </section>
@@ -94,7 +103,7 @@
     <section class="col reveal">
       <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The bond he posted</p></div>
       <h2>The fortune that has never moved</h2>
-      <p class="lede">Whoever Satoshi was, he mined in the earliest days, when the network was nearly empty and each block paid fifty coins to almost no competition. The coins traceable to that activity are estimated at around 1.1 million – and in more than fifteen years, by every public analysis, they have not moved once.</p>
+      <p class="lede">Whoever Satoshi was, he mined in the earliest days, when the network was nearly empty and each block paid fifty coins to almost no competition. The coins traceable to that activity are estimated at around 1.1 million – and in more than fifteen years, by every public analysis, they have not moved once.<sup class="cite">2</sup></p>
 
       <div class="netfig reveal">
         <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -148,15 +157,17 @@
       <p class="pull">Identity confers fame,<br><span class="accent">not control.</span></p>
 
       <p>Honesty requires the counter-case, stated at full strength. The dormant coins <em>could</em>, in principle, move; the keys may still exist somewhere, and a sudden stir in those addresses would rattle the market and reopen every question at once – a real, if remote, tail risk that the watchers of those wallets would notice within minutes. "Decentralization," too, is a spectrum and not a finished fact: mining capacity clusters in pools and regions, and a small circle of core developers holds outsized influence over what changes are even proposed. None of these is the single neck of a CEO, but each is a place where pressure could one day press. The argument is not that Bitcoin has perfected leaderlessness. <span class="key">It is that it has come closer than any system before it – far enough that the man who started it can no longer steer it, even if he wished to.</span></p>
+      <p class="pull">Not perfect leaderlessness.<br><span class="accent">Closer than anything before it.</span></p>
 
       <p class="signoff">Somewhere, perhaps, an old man knows. Or perhaps the knowledge died with him, and the genesis key will never sign again. Either way, the fire he lit has long since stopped depending on the one who struck the match. That, in the end, is the measure of what he built: a thing so thoroughly its own that even its maker became, to it, just another stranger at the door.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The rule that answers to no one – <a href="longclock-incorruptible.html">The Incorruptible</a> – and the unforgeable record that outlives its author, <a href="longclock-timechain.html">The Timechain</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">A founder you can't even name unsettles you? Look at the rule he left behind, and why no one can be made to break it.</p><a href="longclock-incorruptible.html">The Incorruptible &rarr;</a><a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">If the network needs no leader, what is it actually anchored to – and what does it remember?</p><a href="longclock-energy.html">The Energy Theory of Money &rarr;</a><a href="longclock-memory.html">What Money Remembers &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">The unforgeable record that outlives its author, and the asset no empire can freeze.</p><a href="longclock-timechain.html">The Timechain &rarr;</a><a href="index.html">The Asset No Empire Can Freeze &rarr;</a></div>
       </div>
 
-      <p class="foot"><b>On the established and the speculative.</b> Established: the whitepaper was published in October 2008; the genesis block was mined on 3 January 2009 and embeds the verbatim headline "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"; the pseudonymous author corresponded with early developers and withdrew across 2010&ndash;2011. Well-supported but estimated: that around 1.1 million early-mined coins are attributable to Satoshi (based on public blockchain analysis of distinctive early-mining patterns) and that they have not moved. Unknown, and treated as such here: the real identity behind the name. Many candidates have been proposed over the years; <strong>none has been proven, and this essay asserts no one's identity as fact.</strong> The closing argument – that leaderlessness is the network's strength, and the founder's identity therefore immaterial – is an interpretation, offered as a lens, and stated alongside its honest caveats.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> <b>1.</b> The whitepaper was published in October 2008; the genesis block was mined on 3 January 2009 and embeds the verbatim headline "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"; the pseudonymous author corresponded with early developers and withdrew across 2010&ndash;2011. <b>2.</b> Well-supported but estimated: that around 1.1 million early-mined coins are attributable to Satoshi (based on public blockchain analysis of distinctive early-mining patterns) and that they have not moved. Unknown, and treated as such here: the real identity behind the name. Many candidates have been proposed over the years; <strong>none has been proven, and this essay asserts no one's identity as fact.</strong> The closing argument – that leaderlessness is the network's strength, and the founder's identity therefore immaterial – is an interpretation, offered as a lens, and stated alongside its honest caveats.</p>
     </section>
 
   </main>
@@ -175,7 +186,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="14" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

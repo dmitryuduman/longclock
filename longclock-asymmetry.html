@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#E2DBD6; --ink:#241A1B; --ink-soft:#6B5A58;
@@ -50,7 +50,7 @@
   .hval.flat{ color:var(--ink-soft); }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
 
-  /* ---- expected-value calculator (az- prefixed to avoid feature.js?v=12 clashes) ---- */
+  /* ---- expected-value calculator (az- prefixed to avoid feature.js?v=13 clashes) ---- */
   .az-calc{ max-width:46rem; margin:2.4rem auto 0.8rem; border:1px solid var(--rule); border-radius:12px; padding:22px 22px 24px; background:rgba(255,255,255,0.42); }
   .az-head{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1.1rem; }
   .az-controls{ display:flex; flex-direction:column; gap:1.25rem; }
@@ -74,6 +74,16 @@
   .az-read p{ margin:0; font-family:var(--font-body); font-size:1.06rem; line-height:1.58; color:var(--ink); }
   .az-read .az-em{ color:var(--accent); font-style:italic; }
   @media(max-width:540px){ .az-out{ grid-template-columns:1fr; } }
+
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -109,6 +119,7 @@
       <h2>It mostly goes one of two ways</h2>
       <p class="opening lede">A normal stock can drift sideways for a decade and bore you to death. Bitcoin is unlikely to grant you that mercy. Over a long enough horizon it is closer to a binary than to a normal asset: either it succeeds in becoming a major monetary and reserve asset, or it decays toward zero.</p>
       <p>There is no comfortable middle lane where it sits at today's price forever, paying out the way a bond does. A monetary asset is winning a winner-take-most argument or losing it; the network either keeps compounding adoption until it is too large and too useful to ignore, or it loses the argument and bleeds out. <span class="key">The "muddle through unchanged" outcome – the one our instincts reach for because it feels safe and moderate – is the least likely outcome of the three.</span> Yet it is the silent assumption underneath most of the criticism: a tacit belief that the thing can just hover, neither vindicated nor dead, indefinitely.</p>
+      <p class="pull">It is winning a winner-take-most argument,<br><span class="accent">or it is quietly bleeding out.</span></p>
       <p>This is also why the debates never resolve. Watch any honest discussion of the pro-bitcoin or pro-MSTR case and you will see the same move, again and again: a person evaluates a sub-argument – the volatility, the corporate structure, the regulatory risk – and then, mid-thought, <span class="key">re-imports the whole zero-scenario back into it</span> and concludes "well, but if it all goes to zero, none of this matters." Of course it doesn't. Nothing does, in that branch. Smuggling the zero into every sub-question doesn't make you rigorous; it makes you paralysed. Every argument collapses into the same argument, and you never get to the part where you actually decide anything.</p>
       <p class="pull">The middle path – sideways forever at today's price –<br><span class="accent">is the one outcome it almost certainly won't grant you.</span></p>
     </section>
@@ -120,6 +131,7 @@
       <h2>Name it once, then set it aside</h2>
       <p class="lede">The disciplined move is not to deny the zero. The zero is real, and pretending otherwise is how people get hurt. The move is to give it its due exactly once – and then stop letting it contaminate every other thought.</p>
       <p>Separate the two questions that everyone insists on tangling together. The first is the <span class="key">survival question</span>: can this asset go to zero, and if it does, do I survive it? The second is the <span class="key">magnitude question</span>: if it does not go to zero, how large is the other branch? These are different questions and they want different tools. The first is answered with position sizing. The second is answered with reasoning about adoption, scale, and time. You cannot answer them at the same time, because you cannot see the upside clearly while you are flinching at the downside in every sentence.</p>
+      <p class="pull">Survival is answered with position sizing.<br><span class="accent">Magnitude is answered with everything else.</span></p>
       <p>So answer survival first, and answer it honestly. Assume the zero can happen. Size your position so that if it does, your life is unchanged – a sum you can lose completely and still sleep, still retire, still send the kids to school. <span class="key">Once the position is small enough that the zero is survivable, the zero has been paid for.</span> You have bought the insurance. You do not need to re-purchase it in the middle of every subsequent paragraph. Take it off the table, and the second question finally comes into focus.</p>
       <p class="pull">You cannot study the far shore<br><span class="accent">while staring at your own feet.</span></p>
     </section>
@@ -213,6 +225,7 @@
       <p class="lede">Here is the half of the ledger almost everyone leaves blank. People treat "risk" as if it had only one direction – the risk of losing money you put in. There is another risk, and for an asymmetric bet it is often the larger one: the risk of not being in.</p>
       <p>Run the logic forward. If you assign <em>any</em> non-trivial probability to bitcoin not going to zero – not certainty, just a real, honest, double-digit chance – then declining to hold it is not a neutral act. <span class="key">Not holding is itself a position. It is a bet that the failure branch wins.</span> "Cash on the sidelines" feels like the absence of a wager, but against a binary it is a concentrated wager on the zero outcome – the very outcome you were so careful to insure against on the other side. You have, without noticing, taken the most aggressive position available: all of your chips on failure.</p>
       <p>Put it in the language of expected value. A modest probability of a very large payoff can dominate a high probability of a small one; that is what convexity means arithmetically. A twenty-per-cent chance at a tenfold return is worth more, in expectation, than near-certainty of standing still – and standing still is what the sideline buys you in the success branch. The asymmetry that protects you on the downside works against you when you are absent: <span class="key">being underexposed to a convex bet is not the safe choice, it is a different bet with its own, quietly enormous, cost.</span></p>
+      <p class="pull">Cash on the sidelines feels like no wager at all.<br><span class="accent">Against a binary, it is all your chips on failure.</span></p>
       <p>And there is the human ledger, too – regret, which markets are not supposed to care about but people cannot help caring about. The story you should rehearse is not only "I bought and it went to zero." It is also the other one: <span class="key">bitcoin keeps winning its argument, the asset and the companies built on it appreciate for years, and you watched the entire thing from outside, having concluded that the safe move was to do nothing.</span> Both are real outcomes. An honest accounting weighs the cost of being wrong in each direction. Most people only ever weigh one.</p>
       <p class="pull">"Sitting it out" is not the absence of a bet.<br><span class="accent">It is a maximal bet on the one outcome you feared.</span></p>
     </section>
@@ -234,7 +247,7 @@
       <div class="marker"><span class="numeral">VI.</span><p class="eyebrow">The behavioural tell</p></div>
       <h2>Watch what the largest holders did in the fall</h2>
       <p class="lede">Arguments are cheap; behaviour under stress is not. So look at what the most resourced investors in the world actually did with MSTR during a brutal quarter – not what they said, what they did with their own balance sheets.</p>
-      <p>In the first quarter of 2026, bitcoin fell roughly twenty-two per cent and MSTR fell roughly eighteen, on the heels of an already weak fourth quarter that had hammered the stock. A textbook moment to flee. Instead, as disclosed by the company's chief executive on the quarter's 13F filings, <span class="key">thirteen of the top fifteen institutional holders added to their positions – combined holdings rose about twenty-seven per cent, roughly four-point-six billion dollars of buying, into the decline.</span></p>
+      <p>In the first quarter of 2026, bitcoin fell roughly twenty-two per cent and MSTR fell roughly eighteen, on the heels of an already weak fourth quarter that had hammered the stock. A textbook moment to flee. Instead, as disclosed by the company's chief executive on the quarter's 13F filings, <span class="key">thirteen of the top fifteen institutional holders added to their positions – combined holdings rose about twenty-seven per cent, roughly four-point-six billion dollars of buying, into the decline.</span><sup class="cite">1</sup></p>
 
       <div class="holders reveal">
         <h3>Top-15 MSTR holders &ndash; change in Q1 2026, into the drawdown</h3>
@@ -262,12 +275,28 @@
 
       <p class="signoff">None of this tells you to buy anything. It tells you how to think before you decide – to stop relitigating the end of the world in the middle of every sentence, so that the question you are left with is the only one that was ever worth asking: sized so the worst case can't hurt you, is the shape of the rest worth holding?</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The man who bet his company on the binary – <a href="longclock-saylor.html">The Steward's Wager</a>; the swings as fare, not failure – <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip</a>; and the holding period that makes the asymmetry pay – <a href="longclock-century.html">The 100-Year Portfolio</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">The zero is the real worry. Take its strongest forms head-on – the swings, and a state ban.</p>
+          <a href="longclock-volatility.html">Volatility Is the Toll, Not the Trip &rarr;</a>
+          <a href="longclock-freeze.html">When States Freeze Money &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">If the upside branch is real, what powers it – and how long must you wait for the asymmetry to pay?</p>
+          <a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a>
+          <a href="longclock-century.html">The 100-Year Portfolio &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">Meet the second layer with a lever, and the man who wagered a company on the same shape.</p>
+          <a href="longclock-saylor.html">The Steward&rsquo;s Wager &rarr;</a>
+          <a href="longclock-strc.html">Saylor&rsquo;s iPhone Moment &rarr;</a>
+        </div>
       </div>
 
-      <p class="foot"><b>On the figures and the caveat.</b> The Q1 2026 institutional holdings changes are drawn from 13F filings, as disclosed publicly by Strategy chief executive Phong Le on 20 May 2026 and reported by BeInCrypto: thirteen of the top fifteen holders added, combined holdings up roughly 27% (about +$4.6B) even as MSTR fell ~18% tracking bitcoin's ~22% drawdown; largest single increase Capital International (+$1.92B), Vanguard entities (+$967M), BlackRock Institutional Trust (+$377M), Defiance ETFs a new ~$511M stake; active managers Capital International, Capital World Investors and Capital Research Global Investors together added over $2.27B; Morgan Stanley Investment Management trimmed ~$7M of a ~$1B stake; Norges Bank held flat at $626M. Institutions can be and have been wrong; this is offered as a behavioural data point, not as proof. The zero outcome is real, leverage cuts both ways, and position sizing is doing the heavy lifting throughout. Nothing here is investment advice.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> <b>1.</b> The Q1 2026 institutional holdings changes are drawn from 13F filings, as disclosed publicly by Strategy chief executive Phong Le on 20 May 2026 and reported by BeInCrypto: thirteen of the top fifteen holders added, combined holdings up roughly 27% (about +$4.6B) even as MSTR fell ~18% tracking bitcoin's ~22% drawdown; largest single increase Capital International (+$1.92B), Vanguard entities (+$967M), BlackRock Institutional Trust (+$377M), Defiance ETFs a new ~$511M stake; active managers Capital International, Capital World Investors and Capital Research Global Investors together added over $2.27B; Morgan Stanley Investment Management trimmed ~$7M of a ~$1B stake; Norges Bank held flat at $626M. Institutions can be and have been wrong; this is offered as a behavioural data point, not as proof. The zero outcome is real, leverage cuts both ways, and position sizing is doing the heavy lifting throughout. Nothing here is investment advice.</p>
     </section>
 
   </main>
@@ -286,7 +315,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="31" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var rmq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#E5E3EC; --ink:#1C1A2E; --ink-soft:#5C5870;
@@ -39,7 +39,7 @@
   .chartlabel{ font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; fill:var(--ink-soft); }
   .chartlabel.g{ fill:var(--accent); }
 
-  /* ---- Interactive explorer (sp- prefixed to avoid feature.js?v=12 clashes) ---- */
+  /* ---- Interactive explorer (sp- prefixed to avoid feature.js?v=13 clashes) ---- */
   .sp-explorer{ max-width:46rem; margin:2.4rem auto 1rem; border:1px solid var(--rule); border-radius:12px; padding:22px 22px 24px; background:rgba(255,255,255,0.46); }
   .sp-hint{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 1.1rem; }
   .sp-const{ font-family:var(--font-mono); font-size:0.74rem; letter-spacing:0.02em; color:var(--ink-soft); margin:0 0 1.2rem; line-height:1.6; }
@@ -84,6 +84,15 @@
 
   @media(max-width:560px){ .sp-bar .sp-blab{ width:7rem; } .sp-bar .sp-bval{ width:5rem; } }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } .sp-fill{ transition:none; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -130,9 +139,10 @@
       <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The rule that changed the pipe</p></div>
       <h2>When an accounting rule rewired a company's earnings</h2>
       <p class="opening lede">For years, a quirk of accounting punished the very thing Strategy was built to do. It held an enormous pile of bitcoin, yet the rules let it record only the falls, never the rises. Then the rules changed – and the company's reported profit became something it had never been before.</p>
-      <p>Under the new fair-value standard (FASB's ASU 2023-08), adopted from 2025, Strategy must mark its bitcoin to market every quarter. Each quarter's change in the price of bitcoin flows straight into GAAP net income – up or down, in full. The software business it grew from still ticks along underneath, but it is now a rounding error beside the holdings. <span class="key">Its earnings have become a leveraged read-through of bitcoin's price.</span></p>
+      <p>Under the new fair-value standard (FASB's ASU 2023-08), adopted from 2025,<sup class="cite">1</sup> Strategy must mark its bitcoin to market every quarter. Each quarter's change in the price of bitcoin flows straight into GAAP net income – up or down, in full. The software business it grew from still ticks along underneath, but it is now a rounding error beside the holdings. <span class="key">Its earnings have become a leveraged read-through of bitcoin's price.</span></p>
       <p class="pull">The rule did not change the company.<br><span class="accent">It changed what the company is allowed to report.</span></p>
       <p>This is the hinge the entire essay turns on. Before the rule, a quarter in which bitcoin doubled could still show an accounting loss. After it, the same quarter shows a vast accounting gain. Nothing about the underlying coins moved; the lens through which the market sees them did. And one institution in particular reads the world through exactly that lens: the committee that decides who belongs in the S&amp;P 500.</p>
+      <p class="pull">The coins never moved.<br><span class="accent">The lens that prices them did.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -141,9 +151,9 @@
       <div class="marker"><span class="numeral">II.</span><p class="eyebrow">The gate and its bars</p></div>
       <h2>What it takes to enter the index</h2>
       <p class="lede">Membership in the S&amp;P 500 is not bought; it is granted. But the granting runs through a checklist, and most of that checklist is arithmetic.</p>
-      <p>As of 2026, a candidate needs a market capitalisation of roughly $22.7 billion, ample trading liquidity, and a public float above half its shares. Strategy clears all three with room to spare. The bar it does <em>not</em> currently clear is the last one: positive GAAP earnings in the most recent quarter, and a positive sum across the trailing four. Bitcoin's recent drawdown did the damage – under fair-value accounting, soft quarters become reported <em>losses</em>, and a run of them has dragged Strategy's trailing earnings into the red. <span class="key">By the letter of the rule, it does not qualify today.</span></p>
+      <p>As of 2026, a candidate needs a market capitalisation of roughly $22.7 billion, ample trading liquidity, and a public float above half its shares.<sup class="cite">2</sup> Strategy clears all three with room to spare. The bar it does <em>not</em> currently clear is the last one: positive GAAP earnings in the most recent quarter, and a positive sum across the trailing four. Bitcoin's recent drawdown did the damage – under fair-value accounting, soft quarters become reported <em>losses</em>, and a run of them has dragged Strategy's trailing earnings into the red. <span class="key">By the letter of the rule, it does not qualify today.</span></p>
       <p class="pull">Size, liquidity, float – all cleared.<br><span class="accent">Only the earnings line, for now, sits red.</span></p>
-      <p>But that is precisely the line that can flip in a single quarter. The same accounting that turns a selloff into a loss turns a rally into <em>enormous</em> reported profit: a mark-to-market gain on more than 845,000 coins falls almost straight to the bottom line. <span class="key">Few people grasp the sheer size of the EPS Strategy can print once bitcoin runs.</span> One strong quarter can erase a year of paper losses; a strong year can bury them and turn the trailing sum durably positive. The earnings gate is less a wall than a switch – held down today by a soft price, thrown the instant it turns. And the honest final caveat: even with the numbers green, the index committee keeps full discretion, and has not yet added Strategy – so what follows is a mounting pressure, not a prophecy.</p>
+      <p>But that is precisely the line that can flip in a single quarter. The same accounting that turns a selloff into a loss turns a rally into <em>enormous</em> reported profit: a mark-to-market gain on more than 845,000 coins falls almost straight to the bottom line.<sup class="cite">3</sup> <span class="key">Few people grasp the sheer size of the EPS Strategy can print once bitcoin runs.</span> One strong quarter can erase a year of paper losses; a strong year can bury them and turn the trailing sum durably positive. The earnings gate is less a wall than a switch – held down today by a soft price, thrown the instant it turns. And the honest final caveat: even with the numbers green, the index committee keeps full discretion, and has not yet added Strategy – so what follows is a mounting pressure, not a prophecy.</p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -210,6 +220,7 @@
       </div>
 
       <p>Notice what the model makes visceral. The operating business &ndash; the thing Strategy actually sells &ndash; barely registers as a sliver. The quarter's profit or loss is, to a first approximation, just bitcoin's price change times the size of the hoard. <span class="key">In a rising market the gate reads PASS almost trivially; in a falling one it slams shut.</span> That two-sidedness is the part most boosters skip, and it is exactly why the committee's caution is reasonable rather than stubborn.</p>
+      <p class="pull">The earnings gate is less a wall<br><span class="accent">than a switch the price throws.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -224,12 +235,28 @@
 
       <p class="signoff">A nation can adopt a hard asset loudly, by decree, or silently, by plumbing. This is the plumbing route: a rule change here, an eligibility test there, a committee's slow capitulation to arithmetic &ndash; and one morning the index that anchors the world's retirement savings is, by construction, long bitcoin. Whether that is prudent or perilous is a separate question. That the pipe now exists is not.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The man who built the hoard this all rests on &ndash; <a href="longclock-saylor.html">The Steward's Wager</a> &ndash; and the full reserve-power case at <a href="index.html">the essay</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">Think the leverage cuts the other way? It does &ndash; meet the man who built the hoard, and the honest risk picture behind the wrapper.</p>
+          <a href="longclock-saylor.html">The Steward's Wager &rarr;</a>
+          <a href="longclock-strc.html">Saylor's iPhone Moment &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">If a fixed supply meets mechanical buying, where does the price go? The squeeze, and why banks would rather you didn't ask.</p>
+          <a href="longclock-squeeze.html">Why Price Falls When Everyone's Buying &rarr;</a>
+          <a href="longclock-incumbents.html">The Old Guard's Dilemma &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">You see the plumbing. Now the full reserve-power case, and the game theory that makes adoption one-way.</p>
+          <a href="index.html">The Asset No Empire Can Freeze &rarr;</a>
+          <a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a>
+        </div>
       </div>
 
-      <p class="foot"><b>On the numbers.</b> The accounting standard (FASB ASU 2023-08, effective for fiscal years beginning after 15 December 2024) and the S&amp;P 500's published eligibility criteria are matters of public record; specific thresholds shift over time and the figures here are illustrative as of mid-2026. Strategy's holdings and average cost are drawn from its own disclosures and move with each weekly purchase. <b>This piece is analysis, not investment advice</b>, and the central claim is explicitly conditional: meeting every quantitative bar makes inclusion possible, not certain, because the index committee's discretion is the final and non-mechanical step.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> Specific thresholds shift over time and the figures here are illustrative as of mid-2026. <b>1.</b> FASB ASU 2023-08, effective for fiscal years beginning after 15 December 2024 &ndash; a matter of public record. <b>2.</b> The S&amp;P 500's published eligibility criteria (market cap, liquidity, float, and the trailing-earnings test); thresholds shift over time. <b>3.</b> Strategy's holdings (~845,256 BTC) and average cost (~$66,384/BTC) are drawn from its own disclosures and move with each weekly purchase. <b>This piece is analysis, not investment advice</b>, and the central claim is explicitly conditional: meeting every quantitative bar makes inclusion possible, not certain, because the index committee's discretion is the final and non-mechanical step.</p>
     </section>
 
   </main>
@@ -248,7 +275,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="11" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

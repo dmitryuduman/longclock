@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#E7E7E1; --ink:#1B1E24; --ink-soft:#585E66;
@@ -52,6 +52,15 @@
   .doors button:hover{ border-color:var(--accent); color:var(--accent); }
   .doors .dcount{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.1em; color:var(--ink-soft); }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } .doors .dq,.doors .da{ transition:none; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(0,0,0,0.02); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
+  .cite{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62em; font-weight:600; color:var(--accent); vertical-align:super; line-height:0; padding-left:1px; text-decoration:none; }
 </style>
 </head>
 <body>
@@ -102,13 +111,14 @@
     <section class="col reveal">
       <div class="marker"><span class="numeral">II.</span><p class="eyebrow">A decade early</p></div>
       <h2>He saw the wave before the water moved</h2>
-      <p class="lede">In 2012 – nine years before his company bought its first satoshi – Saylor published <em>The Mobile Wave</em>, a book about a single force: software was about to dematerialize the physical world.</p>
+      <p class="lede">In 2012 – nine years before his company bought its first satoshi – Saylor published <em>The Mobile Wave</em>, a book about a single force: software was about to dematerialize the physical world.<sup class="cite">1</sup></p>
       <p>Maps, cameras, wallets, books, the contents of a whole library – each, he argued, would shed its weight and reappear as something you could copy and ship to a billion people for almost nothing. He even put a number on the curve: within ten years, ten times as many people would carry these devices, operating ten times more efficiently. Recalling the book years later, he described its thesis in one breath:</p>
       <div class="saylq reveal">
         <p>"The Mobile Wave is all about when software leaps off the computer and&hellip; it replaces your purse, and it becomes jewelry&hellip; the dematerialization of paper. When books go away, when libraries go away, when wallets go away."</p>
-        <cite>Michael Saylor &middot; The Atlas Society, 2021</cite>
+        <cite>Michael Saylor &middot; The Atlas Society, 2021<sup class="cite">2</sup></cite>
       </div>
       <p>Most people meet Saylor at the bitcoin chapter and assume the conviction starts there. It does not. The conviction starts with a man who had already watched, and forecast, an entire physical economy turning to weightless light – and who had learned to recognise the curve that governs it.</p>
+      <p class="pull">He saw the wave in 2012,<br><span class="accent">nine years before the trade.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -120,9 +130,10 @@
       <p>The threshold he names is roughly a hundred billion dollars. Once a network crosses it and towers over its rivals, <span class="key">the lead becomes, in practice, unrecoverable</span> – and the strange part is that the crowd is still doubting at exactly that moment.</p>
       <div class="saylq reveal">
         <p>"When the great digital networks – Apple, Google, Facebook – cross a hundred billion of monetary energy, that's a legitimizing step. Generally when they get there, 95% or more of the investing community doesn't believe in them&hellip; but they're too big to fail."</p>
-        <cite>Michael Saylor &middot; The Saylor Series, with Robert Breedlove</cite>
+        <cite>Michael Saylor &middot; The Saylor Series, with Robert Breedlove<sup class="cite">3</sup></cite>
       </div>
       <p>He is describing Apple, Google and Facebook. He is also, plainly, describing the asset he would later stake his company on – which crossed the same line while most of the financial world was still calling it a fad. To Saylor the disbelief is not a warning sign. It is the signature of a winner mid-flight.</p>
+      <p class="pull">The disbelief of the crowd<br><span class="accent">is the signature of a winner mid-flight.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -137,6 +148,7 @@
         <cite>Michael Saylor &middot; The Saylor Series, with Robert Breedlove</cite>
       </div>
       <p>This is the engine. A network does not merely connect people; it lets a dematerialized good – a map, a song, a library, eventually money – fall onto everyone at once at almost zero cost, releasing value in the drop. It is the same move every time, performed on a different victim.</p>
+      <p class="pull">Strip away the weight,<br><span class="accent">and the collapse throws off value.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -156,6 +168,7 @@
         <cite>Michael Saylor &middot; The Atlas Society, 2021</cite>
       </div>
       <p>The engineer who had mapped the exponential curve of digitization recognised its monetary cousin on sight. That recognition – not a price chart, not a trade – is the real reason he was early.</p>
+      <p class="pull">Money is just the last network<br><span class="accent">left to digitize.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -170,6 +183,7 @@
         <cite>Michael Saylor &middot; The Saylor Series, with Robert Breedlove</cite>
       </div>
       <p><span class="key">The one network that cannot be commoditized – that grows harder, not softer, as it gets larger – is the monetary one.</span> That is the distinction most people who throw around the phrase "network effect" never reach, and it is why he treats storing a lifetime of wealth in a tech stock as a quiet mistake. The platforms are fires that can be put out. He thinks he has found the one that cannot.</p>
+      <p class="pull">The platforms are fires that can be put out.<br><span class="accent">He thinks he has found the one that cannot.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -194,12 +208,28 @@
 
       <p class="signoff">Read him in his own words and the caricature falls away: the bitcoin maximalist was a network theorist first, and had been for a decade. He did not gamble on a hunch &ndash; he recognised a pattern he already knew by heart.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">The full portrait of the man those ideas produced &ndash; <a href="longclock-saylor.html">The Steward's Wager</a> &ndash; and the same network logic spreading through the world one mind at a time: <a href="longclock-doorways.html">Ten Thousand Doorways</a>.</p>
+      <div class="ognext">
+        <div class="nc">
+          <p class="nk">Still skeptical</p>
+          <p class="nt">Wary of the man before the thesis? Meet the full portrait, and the network rule that money is the last one left to digitize.</p>
+          <a href="longclock-saylor.html">The Steward's Wager &rarr;</a>
+          <a href="longclock-whatismoney.html">What Is Money? &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Curious</p>
+          <p class="nt">If money is just another network, watch how it actually spreads &ndash; one mind, one doorway at a time.</p>
+          <a href="longclock-doorways.html">Ten Thousand Doorways &rarr;</a>
+          <a href="longclock-nativetongue.html">The Native Tongue &rarr;</a>
+        </div>
+        <div class="nc">
+          <p class="nk">Convinced</p>
+          <p class="nt">You see the curve too. Now follow the endgame the curve implies, and the asset's deepest claim.</p>
+          <a href="longclock-incorruptible.html">The Incorruptible &rarr;</a>
+          <a href="longclock-gametheory.html">The Game Theory of Bitcoin &rarr;</a>
+        </div>
       </div>
 
-      <p class="foot"><b>On the sourcing.</b> This page is an AI-assembled compilation of Michael Saylor's public statements, drawn from his 2012 book <em>The Mobile Wave: How Mobile Intelligence Will Change Everything</em>, his 2021 conversation with <a href="https://www.atlassociety.org/post/the-atlas-society-asks-michael-saylor">The Atlas Society</a>, and <a href="https://www.strategysprints.com/blog/Bitcoin">"The Saylor Series"</a> on Robert Breedlove's <em>What Is Money?</em> show. Quotations are taken from publicly available community transcriptions of spoken interviews and lightly trimmed for length (marked with ellipses); spoken wording can vary slightly from the original audio, so treat any single line as faithful in substance and verify against the source recording before quoting it elsewhere. The selection, ordering, and connective commentary are this site's; the ideas and words are his.</p>
+      <p class="foot"><b>Sources &amp; notes.</b> This page is an AI-assembled compilation of Michael Saylor's public statements; the selection, ordering, and connective commentary are this site's, the ideas and words are his. Quotations are taken from publicly available community transcriptions of spoken interviews and lightly trimmed for length (marked with ellipses); spoken wording can vary slightly from the original audio, so treat any single line as faithful in substance and verify against the source recording before quoting it elsewhere. <b>1.</b> <em>The Mobile Wave: How Mobile Intelligence Will Change Everything</em>, Michael Saylor, 2012. <b>2.</b> Michael Saylor in conversation with <a href="https://www.atlassociety.org/post/the-atlas-society-asks-michael-saylor">The Atlas Society</a>, 2021. <b>3.</b> <a href="https://www.strategysprints.com/blog/Bitcoin">"The Saylor Series"</a> on Robert Breedlove's <em>What Is Money?</em> show.</p>
     </section>
 
   </main>
@@ -218,7 +248,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="7" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";

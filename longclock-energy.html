@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,500;9..144,0,600;9..144,1,400&family=Spectral:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="feature.css?v=12">
+<link rel="stylesheet" href="feature.css?v=13">
 <style>
   :root{
     --bg:#15110D; --ink:#ECE3D2; --ink-soft:#9A8E78;
@@ -44,6 +44,14 @@
   .forge .tally{ font-family:var(--font-mono); font-size:0.8rem; color:var(--ink-soft); margin-top:10px; }
   .forge .tally b{ color:var(--accent); }
   @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1 !important; transform:none !important; } }
+
+  .ognext{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2.8rem 0 1.2rem; }
+  @media(max-width:640px){ .ognext{ grid-template-columns:1fr; } }
+  .ognext .nc{ border:1px solid var(--rule,rgba(128,128,128,0.25)); border-top:2px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; background:rgba(255,255,255,0.04); }
+  .ognext .nk{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:0 0 0.45rem; }
+  .ognext .nt{ font-size:0.93rem; line-height:1.42; margin:0 0 0.7rem; color:var(--ink-soft,inherit); }
+  .ognext a{ display:block; font-weight:600; color:var(--accent); text-decoration:none; font-size:0.95rem; margin-top:0.3rem; }
+  .ognext a:hover{ text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -77,7 +85,9 @@
       <div class="marker"><span class="numeral">I.</span><p class="eyebrow">The objection, taken seriously</p></div>
       <h2>"It's just numbers" – and so is everything else</h2>
       <p class="opening lede">The complaint feels devastating: this money has no substance, nothing you can hold, just entries in a database. But pause on it, and the same charge convicts every modern currency – and misses what actually makes a thing hard to counterfeit.</p>
-      <p>The dollars in your account are also just numbers in a database; the difference people reach for is that dollars are "backed by the government." But backed by what, exactly? By the government's ability to make more of them at will – which is the opposite of backing. <span class="key">What gives any money its monetary value is not the material it is made of but how hard it is to produce another unit.</span> Gold is valued because finding and refining it costs enormous effort. The question to ask of digital money, then, is not "can I touch it?" but "what does it cost to make one more?" Answer that, and the "just numbers" objection dissolves.</p>
+      <p>The dollars in your account are also just numbers in a database; the difference people reach for is that dollars are "backed by the government." But backed by what, exactly? By the government's ability to make more of them at will – which is the opposite of backing. <span class="key">What gives any money its monetary value is not the material it is made of but how hard it is to produce another unit.</span></p>
+      <p class="pull">"Backed by the government" means backed<br><span class="accent">by the power to make more at will.</span></p>
+      <p>Gold is valued because finding and refining it costs enormous effort. The question to ask of digital money, then, is not "can I touch it?" but "what does it cost to make one more?" Answer that, and the "just numbers" objection dissolves.</p>
       <p class="pull">The question was never "can I hold it?"<br><span class="accent">It is "what does it cost to make one more?"</span></p>
     </section>
 
@@ -106,6 +116,7 @@
       </div>
 
       <p>Tap the bellows and watch the only way coins are made: not by decree, but by feeding in work until the heat is high enough to forge exactly one. Stop feeding it and nothing appears. There is no other door.</p>
+      <p class="pull">You cannot charm it or legislate it.<br><span class="accent">The only way to make more is to spend more.</span></p>
     </section>
 
     <div class="div"><span class="mark">&#9670;</span></div>
@@ -114,14 +125,17 @@
       <div class="marker"><span class="numeral">III.</span><p class="eyebrow">Why it matters now</p></div>
       <h2>The one digital thing that stays expensive</h2>
       <p class="lede">We are entering an age where the cost of producing almost anything digital – text, images, voices, code – is collapsing to nothing. Against that tide, a digital object that remains costly to create is a profound anomaly.</p>
-      <p>Everything software touches gets cheaper to copy until it is effectively free. That is wonderful for art and knowledge and ruinous for anything meant to store value, because <span class="key">value requires scarcity and scarcity requires cost.</span> By tying issuance to energy, bitcoin builds the one digital thing that refuses to get cheaper – a deliberate, unbypassable expense in a world racing toward frictionless abundance. The critics are right that most digital things are conjured from nothing. They have simply mistaken the one exception for the rule. It is not weightless. It is the heaviest digital object ever made – and it had to be, to do money's job.</p>
+      <p>Everything software touches gets cheaper to copy until it is effectively free. That is wonderful for art and knowledge and ruinous for anything meant to store value, because <span class="key">value requires scarcity and scarcity requires cost.</span> By tying issuance to energy, bitcoin builds the one digital thing that refuses to get cheaper – a deliberate, unbypassable expense in a world racing toward frictionless abundance.</p>
+      <p class="pull">Value requires scarcity.<br><span class="accent">Scarcity requires cost.</span></p>
+      <p>The critics are right that most digital things are conjured from nothing. They have simply mistaken the one exception for the rule. It is not weightless. It is the heaviest digital object ever made – and it had to be, to do money's job.</p>
       <p class="pull">Not the lightest digital thing.<br><span class="accent">The heaviest one ever built.</span></p>
 
       <p class="signoff">Money has always been a way of storing effort until you need it back. This is the first money that proves the effort was real, in joules, to anyone who cares to check.</p>
 
-      <div class="more-door">
-        <p class="t">Read on</p>
-        <p class="s">Why that unfakeable cost makes it a clock the machines will trust – <a href="longclock-timechain.html">The Timechain</a> – and the levy it escapes: <a href="longclock-debasement.html">The Debasement Tax</a>.</p>
+      <div class="ognext">
+        <div class="nc"><p class="nk">Still skeptical</p><p class="nt">Energy spent on numbers still sounds like waste? Weigh it against the levy it escapes, and the older anchor it inherits.</p><a href="longclock-debasement.html">The Debasement Tax &rarr;</a><a href="longclock-gold.html">Gold's Long Reign &rarr;</a></div>
+        <div class="nc"><p class="nk">Curious</p><p class="nt">If money is really a record of effort, see what the record itself is – and why no one can quietly rewrite it.</p><a href="longclock-memory.html">What Money Remembers &rarr;</a><a href="longclock-timechain.html">The Timechain &rarr;</a></div>
+        <div class="nc"><p class="nk">Convinced</p><p class="nt">A scarce, unfakeable digital object is the reserve case – and the foundation no one can change.</p><a href="index.html">The Asset No Empire Can Freeze &rarr;</a><a href="longclock-incorruptible.html">The Incorruptible &rarr;</a></div>
       </div>
 
       <p class="foot"><b>On the claims.</b> That bitcoin issuance requires proof of work – measurable energy expenditure – and that mining difficulty adjusts to keep new supply on schedule are technical facts of the protocol. The "energy theory of money" framing (value tracking cost of production) is a long-standing economic argument applied here; the falling marginal cost of AI-generated digital goods is the observable trend it is set against. The forge is an illustration, not a literal model of mining.</p>
@@ -143,7 +157,7 @@
 
 <svg width="0" height="0" style="position:absolute"><defs><filter id="pen" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="2" seed="17" result="t"/><feDisplacementMap in="SourceGraphic" in2="t" scale="2.1"/></filter></defs></svg>
 
-<script src="feature.js?v=12"></script>
+<script src="feature.js?v=13"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";
